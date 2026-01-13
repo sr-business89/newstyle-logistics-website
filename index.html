@@ -1,489 +1,513 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>New Style Logistics LLC — Dubai, UAE</title>
-  <meta name="description" content="New Style Logistics LLC in Dubai — Air Freight, Sea Freight, Land Transport, Customs Clearance, Warehousing, and Cargo Handling." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Style Logistics LLC | Dubai</title>
+  <meta name="description" content="New Style Logistics LLC in Dubai – Air, Sea & Land Freight, Customs Clearance, Warehousing, Cargo Handling. Talk to our experts today." />
+
   <style>
     :root{
-      --bg:#08131d;
-      --panel:rgba(12,24,36,.72);
-      --panel2:rgba(12,24,36,.55);
+      --bg:#071826;
+      --bg2:#0a2236;
+      --card:#0d2a43;
       --text:#eaf2ff;
-      --muted:#b9c7dc;
-      --accent:#f3c14b;
-      --accent2:#2bd4c9;
-      --stroke:rgba(255,255,255,.10);
-      --shadow:0 14px 40px rgba(0,0,0,.45);
-      --r:18px;
-      --max:1100px;
+      --muted:#b8c7dd;
+      --brand:#25d3c6;
+      --accent:#f2c14e;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1120px;
     }
+
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(43,212,201,.12), transparent 55%),
-                  radial-gradient(1100px 700px at 90% 10%, rgba(243,193,75,.12), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 70px;}
-    .nav{
-      position:sticky; top:0; z-index:50;
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#04111b 55%, #030c13);color:var(--text);scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    /* Topbar */
+    .topbar{
+      position:sticky;top:0;z-index:50;
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(8,19,29,.85), rgba(8,19,29,.55));
-      border-bottom:1px solid var(--stroke);
+      background:rgba(7,24,38,.72);
+      border-bottom:1px solid var(--line);
     }
-    .navin{max-width:var(--max); margin:0 auto; padding:12px 16px; display:flex; align-items:center; gap:12px;}
-    .brand{display:flex; align-items:center; gap:10px; min-width:220px;}
-    .logo{
-      width:42px; height:42px; border-radius:12px;
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--stroke);
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px
+    }
+    .brand-badge{
+      width:38px;height:38px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),rgba(37,211,198,.25));
+      display:grid;place-items:center;
+      box-shadow:0 10px 30px rgba(37,211,198,.18);
+      border:1px solid rgba(37,211,198,.35);
       overflow:hidden;
       flex:0 0 auto;
     }
-    .logo img{width:100%; height:100%; object-fit:cover; object-position:center;}
-    .brand h1{font-size:14px; margin:0; line-height:1.2}
-    .brand p{margin:0; font-size:12px; color:var(--muted)}
-    .menu{margin-left:auto; display:flex; gap:14px; align-items:center; flex-wrap:wrap;}
-    .menu a{font-size:13px; text-decoration:none; color:var(--muted); padding:8px 10px; border-radius:12px}
-    .menu a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .cta{
-      background: linear-gradient(135deg, rgba(243,193,75,.95), rgba(243,193,75,.75));
-      color:#152233; border:0; padding:10px 14px; border-radius:12px;
-      font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-      box-shadow: 0 10px 25px rgba(243,193,75,.18);
-    }
-
-    .hero{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    .card{
-      background: linear-gradient(180deg, var(--panel), var(--panel2));
-      border:1px solid var(--stroke);
-      border-radius: var(--r);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .heroLeft{padding:18px;}
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:7px 10px;
-      border:1px solid var(--stroke);
-      border-radius:999px;
+    .brand-badge img{width:100%;height:100%;object-fit:cover}
+    .brand small{display:block;color:var(--muted);font-weight:600;margin-top:2px}
+    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .links a{
+      padding:10px 12px;border-radius:12px;
       color:var(--muted);
-      background:rgba(255,255,255,.04);
-      font-size:12px;
-      margin-bottom:10px;
+      border:1px solid transparent;
+      font-weight:700;
+      white-space:nowrap;
     }
-    .title{font-size:34px; line-height:1.08; margin:8px 0 10px;}
-    .sub{color:var(--muted); font-size:14px; line-height:1.5; margin:0 0 14px;}
-    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
+    .links a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.04)}
     .btn{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.04);
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 14px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),rgba(242,193,78,.65));
+      color:#142030;font-weight:900;
+      border:0;cursor:pointer;
+      box-shadow:0 16px 40px rgba(242,193,78,.22);
+      transform:translateY(0);
+      transition:transform .15s ease;
+      text-align:center;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.secondary{
+      background:rgba(255,255,255,.06);
       color:var(--text);
+      border:1px solid var(--line);
+      box-shadow:none;
+      font-weight:800;
+    }
+    .langBtn{
+      background:rgba(37,211,198,.10);
+      border:1px solid rgba(37,211,198,.30);
+      color:var(--brand);
+      box-shadow:none;
+      font-weight:900;
       padding:10px 12px;
-      border-radius:12px;
-      font-weight:650;
-      text-decoration:none;
-    }
-    .btn:hover{background:rgba(255,255,255,.08)}
-    .ticks{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
-    .tick{
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      padding:8px 10px; border-radius:999px;
-    }
-
-    .heroRight{
-      display:grid; gap:12px; padding:12px;
-    }
-    .why h3{margin:4px 0 10px; font-size:14px; color:var(--text)}
-    .why p{margin:0 0 10px; font-size:12px; color:var(--muted)}
-    .whyItem{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
       border-radius:14px;
+    }
+    .langBtn:hover{background:rgba(37,211,198,.16)}
+
+    /* HERO */
+    .hero{padding:26px 0 10px}
+    .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:20px;align-items:stretch}
+    .hero-card{
+      background:linear-gradient(180deg, rgba(13,42,67,.9), rgba(8,26,41,.7));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .hero-img{
+      aspect-ratio: 16/9;
+      background:#061522;
+      position:relative;
+    }
+    .hero-img img{width:100%;height:100%;object-fit:cover}
+    .hero-img::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+    }
+    .hero-body{padding:18px 18px 20px}
+    .kicker{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:7px 10px;border-radius:999px;
+      background:rgba(37,211,198,.12);
+      border:1px solid rgba(37,211,198,.28);
+      color:var(--brand);
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:12.5px;
       margin-bottom:10px;
     }
-    .dot{width:10px; height:10px; border-radius:50%; background:var(--accent2); margin-top:4px; box-shadow:0 0 0 4px rgba(43,212,201,.12)}
-    .whyItem b{display:block; font-size:12px; margin-bottom:3px}
-    .whyItem span{font-size:12px; color:var(--muted)}
-    .heroImg{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.2);
+    h1{margin:0 0 10px;font-size:40px;line-height:1.08}
+    .lead{margin:0 0 16px;color:var(--muted);font-size:16.5px;line-height:1.5}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .hero-meta{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+      color:var(--muted);font-weight:750;font-size:13px
     }
-    .heroImg img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      object-position:center;
-      min-height:220px;
+    .pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+    .side{display:grid;gap:16px}
+    .mini{
+      padding:16px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
     }
+    .mini h3{margin:0 0 10px;font-size:18px}
+    .mini p{margin:0;color:var(--muted);line-height:1.55}
+    .mini .list{margin-top:12px;display:grid;gap:10px}
+    .mini .item{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px;border-radius:14px;background:rgba(0,0,0,.18);border:1px solid var(--line)
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;margin-top:5px;
+      background:var(--brand);box-shadow:0 0 0 5px rgba(37,211,198,.15)
+    }
+    .miniImage{
+      padding:0;overflow:hidden;border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:#061522;
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
+    }
+    .miniImage img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
 
-    h2{margin:28px 0 8px; font-size:22px}
-    .sectionSub{margin:0 0 16px; color:var(--muted); font-size:13px}
+    /* Sections */
+    section{padding:42px 0}
+    .section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:16px}
+    .section-title h2{margin:0;font-size:28px}
+    .section-title p{margin:0;color:var(--muted);max-width:680px;line-height:1.5}
+
     .grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+      gap:16px;
     }
-    .svc .img{
-      height:150px;
+    .card{
+      grid-column: span 4;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(13,42,67,.75), rgba(6,20,32,.55));
       overflow:hidden;
-      border-bottom:1px solid var(--stroke);
-      background:rgba(0,0,0,.2);
+      box-shadow:0 12px 30px rgba(0,0,0,.26);
     }
-    /* ✅ FIX: images not cutting faces badly */
-    .svc .img img{
-      width:100%; height:100%;
-      object-fit:cover;
-      object-position: center top;
-      display:block;
-    }
-    .svc .body{padding:12px;}
-    .svc h3{margin:0 0 6px; font-size:14px}
-    .svc p{margin:0 0 10px; font-size:12px; color:var(--muted); line-height:1.5}
-    .tags{display:flex; gap:8px; flex-wrap:wrap}
-    .tag{
-      font-size:11px; color:var(--muted);
-      padding:6px 9px; border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-    }
+    .card .thumb{aspect-ratio: 16/10;background:#061522}
+    .card .thumb img{width:100%;height:100%;object-fit:cover}
+    .card .body{padding:14px 14px 16px}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);line-height:1.55}
+    .tagrow{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;color:var(--muted);padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
 
-    .quote{
-      margin-top:16px;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px;
+    .about{display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch}
+    .about .panel{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      padding:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.2);
     }
-    .quote b{display:block; margin-bottom:3px}
-    .quote span{color:var(--muted); font-size:12px}
-    .quote .cta{white-space:nowrap}
+    .about h3{margin:0 0 10px;font-size:20px}
+    .about ul{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.7}
 
-    .about{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
+    .cta{
+      border-radius:var(--radius);
+      border:1px solid rgba(242,193,78,.35);
+      background:linear-gradient(135deg, rgba(242,193,78,.18), rgba(37,211,198,.10));
+      padding:18px;
+      box-shadow:0 18px 40px rgba(0,0,0,.25);
+      display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
     }
-    .about .card{padding:14px;}
-    .about h3{margin:0 0 8px; font-size:14px}
-    .about ul{margin:0; padding-left:18px; color:var(--muted); font-size:13px; line-height:1.55}
+    .cta h3{margin:0;font-size:20px}
+    .cta p{margin:6px 0 0;color:var(--muted);max-width:700px}
 
-    .contact{
-      margin-top:20px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
+    /* Contact */
+    .contact{display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch}
+    .contact .box{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(13,42,67,.75), rgba(6,20,32,.55));
+      padding:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.26);
     }
-    .box{padding:14px;}
-    .row{display:grid; gap:10px;}
-    .field{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      border-radius:14px;
-      padding:12px;
+    .contact h3{margin:0 0 12px;font-size:20px}
+    .info{display:grid;gap:12px}
+    .row{
+      padding:12px;border-radius:14px;background:rgba(0,0,0,.18);
+      border:1px solid var(--line);
     }
-    .field small{display:block; color:var(--muted); font-size:11px; margin-bottom:5px}
-    .field a{color:var(--accent2); text-decoration:none; font-weight:650}
-    .field .big{font-size:18px; letter-spacing:.2px; font-weight:800; color:var(--text)}
-    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .pill{
-      border-radius:12px;
-      padding:10px 12px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.04);
-      text-decoration:none;
-      font-weight:700;
-      font-size:13px;
+    .row .label{display:block;color:var(--muted);font-size:12px;font-weight:900;letter-spacing:.2px;margin-bottom:6px}
+    .row a{color:var(--brand);font-weight:900}
+    .row .big{font-size:20px;color:var(--text);font-weight:950;letter-spacing:.2px}
+    .map{
+      border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#061522;
+      min-height:320px;
     }
-    .pill.primary{background:linear-gradient(135deg, rgba(43,212,201,.22), rgba(43,212,201,.10));}
+    iframe{width:100%;height:100%;border:0;display:block}
+    .mapActions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
 
-    .mapWrap{
-      height:285px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.2);
-    }
-    iframe{width:100%; height:100%; border:0}
-
+    /* Footer */
     footer{
-      margin-top:26px;
-      padding:16px 0 0;
-      border-top:1px solid var(--stroke);
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
       color:var(--muted);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
+    }
+    .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .foot strong{color:var(--text)}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .about,.contact{grid-template-columns:1fr}
+      .card{grid-column: span 6}
+    }
+    @media (max-width: 560px){
+      h1{font-size:30px}
+      .card{grid-column: span 12}
+      .links a{padding:8px 10px}
+      .btn{width:100%}
+      .hero-actions{width:100%}
     }
 
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .title{font-size:28px}
-      .brand{min-width:auto}
-    }
+    /* RTL (Arabic) */
+    html[dir="rtl"] body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
+    html[dir="rtl"] .brand{direction:rtl}
+    html[dir="rtl"] .links{justify-content:flex-start}
+    html[dir="rtl"] .hero-actions{justify-content:flex-start}
+    html[dir="rtl"] .about ul{padding-left:0;padding-right:18px}
+    html[dir="rtl"] .mini .item{flex-direction:row-reverse}
+    html[dir="rtl"] .dot{margin-top:6px}
   </style>
 </head>
+
 <body>
-
-  <!-- NAV -->
-  <div class="nav">
-    <div class="navin">
-      <div class="brand">
-        <div class="logo">
-          <img src="assets/splash.jpg" alt="New Style Logistics logo">
+  <!-- Top Navigation -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <div class="brand-badge">
+            <img src="assets/splash.jpg" alt="New Style Logistics Logo" />
+          </div>
+          <div>
+            <span data-i18n="companyName">New Style Logistics LLC</span>
+            <small data-i18n="city">Dubai, UAE</small>
+          </div>
         </div>
-        <div>
-          <h1>New Style Logistics LLC</h1>
-          <p>Dubai, UAE</p>
-        </div>
-      </div>
 
-      <div class="menu">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#contact">TALK TO OUR EXPERTS</a>
+        <div class="links">
+          <a href="#services" data-i18n="navServices">Services</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+          <a class="btn" href="#contact" data-i18n="ctaTop">TALK TO OUR EXPERTS</a>
+          <button class="langBtn" id="langToggle" type="button">العربية</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="wrap">
-
-    <!-- HERO -->
-    <div class="hero">
-      <div class="card heroLeft">
-        <div class="badge">✅ Logistics Partner in Dubai</div>
-        <div class="title">Fast, Reliable & Professional Logistics</div>
-        <p class="sub">
-          We provide complete logistics solutions across <b>Air Freight</b>, <b>Sea Freight</b>, <b>Land Transport</b>,
-          <b>Customs Clearance</b>, and <b>Warehousing</b>.
-          Let’s move your cargo safely and on time.
-        </p>
-
-        <div class="btns">
-          <a class="cta" href="#contact">Get Quote / Contact Now</a>
-          <a class="btn" href="#services">View Services</a>
-        </div>
-
-        <div class="ticks">
-          <div class="tick">✅ UAE & International Shipping</div>
-          <div class="tick">✅ Door-to-Door Service</div>
-          <div class="tick">✅ Customs Support</div>
-        </div>
-      </div>
-
-      <div class="card heroRight">
-        <div class="why">
-          <h3>Why Choose Us</h3>
-          <p>We focus on speed, safety, and clear communication at every step.</p>
-
-          <div class="whyItem">
-            <div class="dot"></div>
-            <div><b>On-time deliveries</b><span>Planned logistics for reliable timelines.</span></div>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="hero-img">
+            <img src="assets/hero.jpg" alt="New Style Logistics - Air Sea Land Freight Dubai" />
           </div>
-          <div class="whyItem">
-            <div class="dot"></div>
-            <div><b>End-to-end handling</b><span>From pickup to final delivery.</span></div>
-          </div>
-          <div class="whyItem" style="margin-bottom:0">
-            <div class="dot"></div>
-            <div><b>Trusted documentation</b><span>Support for customs & compliance.</span></div>
+          <div class="hero-body">
+            <div class="kicker" data-i18n="heroKicker">Logistics Partner in Dubai</div>
+            <h1 data-i18n="heroTitle">Fast, Reliable & Professional Logistics</h1>
+            <p class="lead" data-i18n="heroLead">
+              We provide complete logistics solutions across Air Freight, Sea Freight, Land Transport, Customs Clearance and Warehousing.
+              Let’s move your cargo safely and on time.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#contact" data-i18n="heroBtn1">Get Quote / Contact Now</a>
+              <a class="btn secondary" href="#services" data-i18n="heroBtn2">View Services</a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="pill" data-i18n="pill1">✅ UAE & International Shipping</div>
+              <div class="pill" data-i18n="pill2">✅ Door-to-Door Service</div>
+              <div class="pill" data-i18n="pill3">✅ Customs Support</div>
+            </div>
           </div>
         </div>
 
-        <div class="heroImg">
-          <img src="assets/global.jpg" alt="Global logistics">
-        </div>
-      </div>
-    </div>
-
-    <!-- SERVICES -->
-    <h2 id="services">Our Services</h2>
-    <p class="sectionSub">Complete logistics solutions for businesses and individuals — locally in UAE and worldwide.</p>
-
-    <div class="grid">
-      <div class="card svc">
-        <div class="img"><img src="assets/air.jpg" alt="Air Freight"></div>
-        <div class="body">
-          <h3>Air Freight</h3>
-          <p>Fast air shipping for urgent cargo with smooth documentation and tracking support.</p>
-          <div class="tags">
-            <span class="tag">Fast delivery</span><span class="tag">Priority cargo</span><span class="tag">Worldwide</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card svc">
-        <div class="img"><img src="assets/sea.jpg" alt="Sea Freight"></div>
-        <div class="body">
-          <h3>Sea Freight</h3>
-          <p>Cost-effective ocean shipping for containers and bulk cargo with reliable schedules.</p>
-          <div class="tags">
-            <span class="tag">FCL / LCL</span><span class="tag">Port handling</span><span class="tag">Global</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card svc">
-        <div class="img"><img src="assets/land.jpg" alt="Land Transport"></div>
-        <div class="body">
-          <h3>Land Transport</h3>
-          <p>Safe and timely land delivery across UAE and cross-border routes when required.</p>
-          <div class="tags">
-            <span class="tag">UAE delivery</span><span class="tag">Trucking</span><span class="tag">Door-to-door</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card svc">
-        <div class="img"><img src="assets/customs.jpg" alt="Customs Clearance"></div>
-        <div class="body">
-          <h3>Customs Clearance</h3>
-          <p>Professional clearance support to reduce delays and ensure compliance with regulations.</p>
-          <div class="tags">
-            <span class="tag">Documentation</span><span class="tag">Compliance</span><span class="tag">Fast processing</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card svc">
-        <div class="img"><img src="assets/warehousing.jpg" alt="Warehousing"></div>
-        <div class="body">
-          <h3>Warehousing</h3>
-          <p>Secure storage solutions with organized handling for your goods and inventory.</p>
-          <div class="tags">
-            <span class="tag">Storage</span><span class="tag">Inventory</span><span class="tag">Secure</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card svc">
-        <div class="img"><img src="assets/cargo.jpg" alt="Cargo Handling"></div>
-        <div class="body">
-          <h3>Cargo Handling</h3>
-          <p>Careful loading/unloading and cargo management to keep your shipment protected.</p>
-          <div class="tags">
-            <span class="tag">Handling</span><span class="tag">Safety</span><span class="tag">Support</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card quote">
-      <div>
-        <b>Need a fast quotation?</b>
-        <span>Send your shipment details — we’ll guide you with the best route and timeline.</span>
-      </div>
-      <a class="cta" href="#contact">TALK TO OUR EXPERTS</a>
-    </div>
-
-    <!-- ABOUT -->
-    <h2 id="about">About New Style Logistics</h2>
-    <p class="sectionSub">We help businesses move cargo efficiently with a strong focus on service quality and reliability.</p>
-
-    <div class="about">
-      <div class="card">
-        <h3>What we do</h3>
-        <ul>
-          <li>Air, Sea & Land shipping solutions</li>
-          <li>Customs clearance and documentation support</li>
-          <li>Warehousing and cargo handling</li>
-          <li>Local UAE delivery and international logistics</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Our promise</h3>
-        <ul>
-          <li>Clear communication & quick support</li>
-          <li>Safe handling and reliable operations</li>
-          <li>On-time delivery planning</li>
-          <li>Professional service from Dubai, UAE</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CONTACT -->
-    <h2 id="contact">Get In Touch</h2>
-    <p class="sectionSub">Contact us now — our team will respond quickly with guidance and pricing.</p>
-
-    <div class="contact">
-      <div class="card box">
-        <div class="row">
-          <div class="field">
-            <small>Email</small>
-            <a href="mailto:alwahti@newstylelogistics.com">alwahti@newstylelogistics.com</a>
-          </div>
-
-          <div class="field">
-            <small>Phone</small>
-            <div class="big"><a href="tel:+97145914550">+(971) 4 591 4550</a></div>
-            <div class="big"><a href="tel:+971561436491">+(971) 56 143 6491</a></div>
-          </div>
-
-          <div class="field">
-            <small>Office Address</small>
-            <div class="big" style="font-size:14px; font-weight:700;">
-              Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE
+        <div class="side">
+          <div class="mini">
+            <h3 data-i18n="whyTitle">Why Choose Us</h3>
+            <p data-i18n="whyLead">We focus on speed, safety, and clear communication at every step.</p>
+            <div class="list">
+              <div class="item">
+                <span class="dot"></span>
+                <div>
+                  <strong data-i18n="why1Title">On-time deliveries</strong><br>
+                  <span style="color:var(--muted)" data-i18n="why1Desc">Planned logistics for reliable timelines.</span>
+                </div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div>
+                  <strong data-i18n="why2Title">End-to-end handling</strong><br>
+                  <span style="color:var(--muted)" data-i18n="why2Desc">From pickup to final delivery.</span>
+                </div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div>
+                  <strong data-i18n="why3Title">Trusted documentation</strong><br>
+                  <span style="color:var(--muted)" data-i18n="why3Desc">Support for customs & compliance.</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="actions">
-            <a class="pill primary" href="mailto:alwahti@newstylelogistics.com?subject=Quotation%20Request%20-%20New%20Style%20Logistics">Email for Quote</a>
-            <a class="pill" href="tel:+97145914550">Call Now</a>
+          <div class="miniImage">
+            <img src="assets/global.jpg" alt="Global Logistics Network" />
           </div>
-        </div>
-      </div>
-
-      <div class="card box">
-        <div class="field" style="margin-bottom:10px">
-          <small>Location Map</small>
-          <div class="mapWrap">
-            <!-- IMPORTANT: Replace this iframe src with your exact Google Maps Embed link -->
-            <iframe
-              src="https://www.google.com/maps?q=Thumbay%20Clinic%20Building%20Ras%20Al%20Khor%20Dubai&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-              title="New Style Logistics Map">
-            </iframe>
-          </div>
-          <small style="margin-top:10px">
-            Tip: send me your exact Google Maps pin link, I’ll update this map to your exact building location.
-          </small>
         </div>
       </div>
     </div>
+  </header>
 
-    <footer>
-      <div>New Style Logistics LLC — Dubai, UAE</div>
-      <div>© 2026 All Rights Reserved.</div>
-    </footer>
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2 data-i18n="servicesTitle">Our Services</h2>
+          <p data-i18n="servicesLead">Complete logistics solutions for businesses and individuals — locally in UAE and worldwide.</p>
+        </div>
+      </div>
 
-  </div>
-</body>
-              </html>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb"><img src="assets/air.jpg" alt="Air Freight Dubai" /></div>
+          <div class="body">
+            <h3 data-i18n="s1Title">Air Freight</h3>
+            <p data-i18n="s1Desc">Fast air shipping for urgent cargo with smooth documentation and tracking support.</p>
+            <div class="tagrow">
+              <span class="tag" data-i18n="tFast">Fast delivery</span>
+              <span class="tag" data-i18n="tPriority">Priority cargo</span>
+              <span class="tag" data-i18n="tWorld">Worldwide</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><img src="assets/sea.jpg" alt="Sea Freight Dubai" /></div>
+          <div class="body">
+            <h3 data-i18n="s2Title">Sea Freight</h3>
+            <p data-i18n="s2Desc">Cost-effective ocean shipping for containers and bulk cargo with reliable schedules.</p>
+            <div class="tagrow">
+              <span class="tag">FCL / LCL</span>
+              <span class="tag" data-i18n="tPort">Port handling</span>
+              <span class="tag" data-i18n="tGlobal">Global</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><img src="assets/land.jpg" alt="Land Transport UAE" /></div>
+          <div class="body">
+            <h3 data-i18n="s3Title">Land Transport</h3>
+            <p data-i18n="s3Desc">Safe and timely land delivery across UAE and cross-border routes when required.</p>
+            <div class="tagrow">
+              <span class="tag" data-i18n="tUae">UAE delivery</span>
+              <span class="tag" data-i18n="tTruck">Trucking</span>
+              <span class="tag" data-i18n="tDoor">Door-to-door</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><img src="assets/customs.jpg" alt="Customs Clearance Dubai" /></div>
+          <div class="body">
+            <h3 data-i18n="s4Title">Customs Clearance</h3>
+            <p data-i18n="s4Desc">Professional clearance support to reduce delays and ensure compliance with regulations.</p>
+            <div class="tagrow">
+              <span class="tag" data-i18n="tDocs">Documentation</span>
+              <span class="tag" data-i18n="tComp">Compliance</span>
+              <span class="tag" data-i18n="tProcess">Fast processing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><img src="assets/warehousing.jpg" alt="Warehousing Dubai" /></div>
+          <div class="body">
+            <h3 data-i18n="s5Title">Warehousing</h3>
+            <p data-i18n="s5Desc">Secure storage solutions with organized handling for your goods and inventory.</p>
+            <div class="tagrow">
+              <span class="tag" data-i18n="tStore">Storage</span>
+              <span class="tag" data-i18n="tInv">Inventory</span>
+              <span class="tag" data-i18n="tSecure">Secure</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><img src="assets/cargo.jpg" alt="Cargo Handling" /></div>
+          <div class="body">
+            <h3 data-i18n="s6Title">Cargo Handling</h3>
+            <p data-i18n="s6Desc">Careful loading/unloading and cargo management to keep your shipment protected.</p>
+            <div class="tagrow">
+              <span class="tag" data-i18n="tHandle">Handling</span>
+              <span class="tag" data-i18n="tSafety">Safety</span>
+              <span class="tag" data-i18n="tSupport">Support</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:18px" class="cta">
+        <div>
+          <h3 data-i18n="ctaTitle">Need a fast quotation?</h3>
+          <p data-i18n="ctaLead">Send your shipment details — we’ll guide you with the best route and timeline.</p>
+        </div>
+        <a class="btn" href="#contact" data-i18n="ctaBtn">TALK TO OUR EXPERTS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2 data-i18n="aboutTitle">About New Style Logistics</h2>
+          <p data-i18n="aboutLead">We help businesses move cargo efficiently with a strong focus on service quality and reliability.</p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="panel">
+          <h3 data-i18n="aboutWhat">What we do</h3>
+          <ul>
+            <li data-i18n="aw1">Air, Sea & Land shipping solutions</li>
+            <li data-i18n="aw2">Customs clearance and documentation support</li>
+            <li data-i18n="aw3">Warehousing and cargo handling</li>
+            <li data-i18n="aw4">Local UAE delivery and international logistics</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 data-i18n="aboutPromise">Our promise</h3>
+          <ul>
+            <li data-i18n="ap1">Clear communication & quick support</li>
+            <li data-i18n="ap2">Safe handling and reliable operations</li>
+            <li data-i18n="ap3">On-time delivery planning</li>
+            <li data-i18n="ap4">Professional service from Dubai, UAE</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2 data-i18n="contactTitle">Get In Touch</h2>
+          <p data-i18n="contactLead">Contact us now — our team will respond quickly with guidance and pricing.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="box">
+          <h3 data-i18n="contactBoxTitle">Contact Details</h3>
+          <div class="info">
+            <div class="row">
+              <span class="label" data-i18n="emailLabel">Email</span>
+              <a href="mailto:alwahti@newst
