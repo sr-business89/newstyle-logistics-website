@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>New Style Logistics LLC | Dubai</title>
-  <meta name="description" content="New Style Logistics LLC in Dubai – Air, Sea & Land Freight, Customs Clearance, Warehousing, Cargo Handling. Talk to our experts today." />
+  <meta name="description" content="New Style Logistics LLC in Dubai – Air, Sea & Land Freight, Customs Clearance, Warehousing, Cargo Handling." />
+
+  <!-- Arabic font (optional but helps Arabic look clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -20,27 +25,27 @@
       --radius:18px;
       --max:1120px;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#04111b 55%, #030c13);color:var(--text);scroll-behavior:smooth}
+    body.ar{font-family:"Tajawal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
-
-    /* Topbar */
     .topbar{
       position:sticky;top:0;z-index:50;
       backdrop-filter: blur(10px);
-      background:rgba(7,24,38,.72);
+      background:rgba(7,24,38,.78);
       border-bottom:1px solid var(--line);
     }
     .nav{
       display:flex;align-items:center;justify-content:space-between;
-      padding:12px 0;
-      gap:14px;
+      padding:10px 0;
+      gap:12px;
     }
+
+    /* Brand */
     .brand{
-      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;min-width:220px
     }
     .brand-badge{
       width:38px;height:38px;border-radius:12px;
@@ -52,19 +57,23 @@
       flex:0 0 auto;
     }
     .brand-badge img{width:100%;height:100%;object-fit:cover}
-    .brand small{display:block;color:var(--muted);font-weight:600;margin-top:2px}
+    .brand small{display:block;color:var(--muted);font-weight:650;margin-top:2px}
+    .brand .t1{line-height:1.1}
+    .brand .t2{line-height:1.1}
+
+    /* Links */
     .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .links a{
-      padding:10px 12px;border-radius:12px;
+    .links a.navlink{
+      padding:9px 10px;border-radius:12px;
       color:var(--muted);
       border:1px solid transparent;
-      font-weight:700;
-      white-space:nowrap;
+      font-weight:650;
     }
-    .links a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.04)}
+    .links a.navlink:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.04)}
+
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 14px;border-radius:14px;
+      padding:11px 14px;border-radius:14px;
       background:linear-gradient(135deg,var(--accent),rgba(242,193,78,.65));
       color:#142030;font-weight:900;
       border:0;cursor:pointer;
@@ -80,22 +89,47 @@
       color:var(--text);
       border:1px solid var(--line);
       box-shadow:none;
+      font-weight:850;
+    }
+
+    /* Language pill (TOP like screenshot) */
+    .lang-pill{
+      display:flex;align-items:center;gap:8px;
+      padding:6px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .lang-pill .lbl{
+      color:var(--muted);
       font-weight:800;
+      font-size:12px;
+      padding:0 8px;
+      letter-spacing:.2px;
+      white-space:nowrap;
     }
-    .langBtn{
-      background:rgba(37,211,198,.10);
-      border:1px solid rgba(37,211,198,.30);
-      color:var(--brand);
-      box-shadow:none;
-      font-weight:900;
-      padding:10px 12px;
-      border-radius:14px;
+    .seg{
+      display:flex;gap:6px;align-items:center;
+      padding:0;
     }
-    .langBtn:hover{background:rgba(37,211,198,.16)}
+    .seg button{
+      appearance:none;border:1px solid transparent;
+      background:transparent;color:var(--muted);
+      font-weight:900;font-size:12px;
+      padding:9px 12px;border-radius:999px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .seg button.active{
+      background:rgba(242,193,78,.18);
+      border-color:rgba(242,193,78,.35);
+      color:var(--text);
+    }
+    .seg button:hover{background:rgba(255,255,255,.06);border-color:var(--line);color:var(--text)}
 
     /* HERO */
-    .hero{padding:26px 0 10px}
-    .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:20px;align-items:stretch}
+    .hero{padding:22px 0 10px;}
+    .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:18px;align-items:stretch;}
     .hero-card{
       background:linear-gradient(180deg, rgba(13,42,67,.9), rgba(8,26,41,.7));
       border:1px solid var(--line);
@@ -134,7 +168,7 @@
       color:var(--muted);font-weight:750;font-size:13px
     }
     .pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
-    .side{display:grid;gap:16px}
+    .side{display:grid;gap:14px;}
     .mini{
       padding:16px;
       border-radius:var(--radius);
@@ -149,29 +183,15 @@
       display:flex;gap:10px;align-items:flex-start;
       padding:10px;border-radius:14px;background:rgba(0,0,0,.18);border:1px solid var(--line)
     }
-    .dot{
-      width:10px;height:10px;border-radius:999px;margin-top:5px;
-      background:var(--brand);box-shadow:0 0 0 5px rgba(37,211,198,.15)
-    }
-    .miniImage{
-      padding:0;overflow:hidden;border-radius:var(--radius);
-      border:1px solid var(--line);
-      background:#061522;
-      box-shadow:0 12px 30px rgba(0,0,0,.25);
-    }
-    .miniImage img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+    .dot{width:10px;height:10px;border-radius:999px;margin-top:5px;background:var(--brand);box-shadow:0 0 0 5px rgba(37,211,198,.15)}
 
     /* Sections */
-    section{padding:42px 0}
+    section{padding:40px 0}
     .section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:16px}
     .section-title h2{margin:0;font-size:28px}
-    .section-title p{margin:0;color:var(--muted);max-width:680px;line-height:1.5}
+    .section-title p{margin:0;color:var(--muted);max-width:720px;line-height:1.5}
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:16px;
-    }
+    .grid{display:grid;grid-template-columns: repeat(12, 1fr);gap:16px;}
     .card{
       grid-column: span 4;
       border-radius:var(--radius);
@@ -180,24 +200,24 @@
       overflow:hidden;
       box-shadow:0 12px 30px rgba(0,0,0,.26);
     }
-    .card .thumb{aspect-ratio: 16/10;background:#061522}
-    .card .thumb img{width:100%;height:100%;object-fit:cover}
+    .thumb{aspect-ratio: 16/10;background:#061522}
+    .thumb img{width:100%;height:100%;object-fit:cover}
     .card .body{padding:14px 14px 16px}
     .card h3{margin:0 0 8px;font-size:18px}
     .card p{margin:0;color:var(--muted);line-height:1.55}
     .tagrow{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
     .tag{font-size:12px;color:var(--muted);padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
 
-    .about{display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch}
-    .about .panel{
+    .about{display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch;}
+    .panel{
       border-radius:var(--radius);
       border:1px solid var(--line);
       background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       padding:18px;
       box-shadow:0 12px 30px rgba(0,0,0,.2);
     }
-    .about h3{margin:0 0 10px;font-size:20px}
-    .about ul{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.7}
+    .panel h3{margin:0 0 10px;font-size:20px}
+    .panel ul{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.7}
 
     .cta{
       border-radius:var(--radius);
@@ -208,19 +228,19 @@
       display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
     }
     .cta h3{margin:0;font-size:20px}
-    .cta p{margin:6px 0 0;color:var(--muted);max-width:700px}
+    .cta p{margin:6px 0 0;color:var(--muted);max-width:720px}
 
     /* Contact */
-    .contact{display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch}
-    .contact .box{
+    .contact{display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch;}
+    .box{
       border-radius:var(--radius);
       border:1px solid var(--line);
       background:linear-gradient(180deg, rgba(13,42,67,.75), rgba(6,20,32,.55));
       padding:18px;
       box-shadow:0 12px 30px rgba(0,0,0,.26);
     }
-    .contact h3{margin:0 0 12px;font-size:20px}
-    .info{display:grid;gap:12px}
+    .box h3{margin:0 0 12px;font-size:20px}
+    .info{display:grid;gap:12px;}
     .row{
       padding:12px;border-radius:14px;background:rgba(0,0,0,.18);
       border:1px solid var(--line);
@@ -233,44 +253,55 @@
       min-height:320px;
     }
     iframe{width:100%;height:100%;border:0;display:block}
-    .mapActions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+    .split-actions{display:flex;gap:10px;flex-wrap:wrap}
 
     /* Footer */
-    footer{
-      padding:26px 0 40px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-    }
+    footer{padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted);}
     .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
     .foot strong{color:var(--text)}
 
     /* Responsive */
-    @media (max-width: 920px){
+    @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       h1{font-size:34px}
       .about,.contact{grid-template-columns:1fr}
       .card{grid-column: span 6}
+      .brand{min-width:auto}
     }
-    @media (max-width: 560px){
+    @media (max-width: 640px){
       h1{font-size:30px}
       .card{grid-column: span 12}
-      .links a{padding:8px 10px}
-      .btn{width:100%}
+      .links a.navlink{display:none} /* keep top clean on mobile */
+      .btn{width:auto}
+      .lang-pill .lbl{display:none} /* only buttons on mobile */
+      .nav{gap:10px}
+      .brand .t1{font-size:14px}
+      .brand small{font-size:12px}
+      .hero-actions a{flex:1}
       .hero-actions{width:100%}
+      .btn{width:100%}
+      .split-actions a{width:100%}
     }
 
-    /* RTL (Arabic) */
-    html[dir="rtl"] body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
-    html[dir="rtl"] .brand{direction:rtl}
-    html[dir="rtl"] .links{justify-content:flex-start}
-    html[dir="rtl"] .hero-actions{justify-content:flex-start}
-    html[dir="rtl"] .about ul{padding-left:0;padding-right:18px}
-    html[dir="rtl"] .mini .item{flex-direction:row-reverse}
-    html[dir="rtl"] .dot{margin-top:6px}
+    /* RTL overrides when Arabic */
+    body.ar{direction:rtl}
+    body.ar .nav{flex-direction:row-reverse}
+    body.ar .links{justify-content:flex-start}
+    body.ar .brand{flex-direction:row-reverse}
+    body.ar .panel ul{padding-left:0;padding-right:18px}
+    body.ar .hero-actions{flex-direction:row-reverse}
+    body.ar .tagrow{flex-direction:row-reverse}
+    body.ar .hero-meta{flex-direction:row-reverse}
+    body.ar .section-title{flex-direction:row-reverse}
+    body.ar .cta{flex-direction:row-reverse}
+    body.ar .split-actions{flex-direction:row-reverse}
   </style>
 </head>
 
-<body>
+<body class="en">
   <!-- Top Navigation -->
   <div class="topbar">
     <div class="wrap">
@@ -280,17 +311,25 @@
             <img src="assets/splash.jpg" alt="New Style Logistics Logo" />
           </div>
           <div>
-            <span data-i18n="companyName">New Style Logistics LLC</span>
-            <small data-i18n="city">Dubai, UAE</small>
+            <div class="t1" data-en="New Style Logistics LLC" data-ar="نيو ستايل لوجستكس ذ.م.م">New Style Logistics LLC</div>
+            <small class="t2" data-en="Dubai, UAE" data-ar="دبي، الإمارات العربية المتحدة">Dubai, UAE</small>
           </div>
         </div>
 
         <div class="links">
-          <a href="#services" data-i18n="navServices">Services</a>
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-          <a class="btn" href="#contact" data-i18n="ctaTop">TALK TO OUR EXPERTS</a>
-          <button class="langBtn" id="langToggle" type="button">العربية</button>
+          <!-- Language pill on top (like your screenshot) -->
+          <div class="lang-pill" aria-label="Language selector">
+            <div class="lbl" data-en="Language" data-ar="اللغة">Language</div>
+            <div class="seg">
+              <button id="btnEN" class="active" type="button">English</button>
+              <button id="btnAR" type="button">العربية</button>
+            </div>
+          </div>
+
+          <a class="navlink" href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+          <a class="navlink" href="#about" data-en="About" data-ar="من نحن">About</a>
+          <a class="navlink" href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+          <a class="btn" href="#contact" data-en="Get Quote" data-ar="احصل على عرض سعر">Get Quote</a>
         </div>
       </div>
     </div>
@@ -305,56 +344,63 @@
             <img src="assets/hero.jpg" alt="New Style Logistics - Air Sea Land Freight Dubai" />
           </div>
           <div class="hero-body">
-            <div class="kicker" data-i18n="heroKicker">Logistics Partner in Dubai</div>
-            <h1 data-i18n="heroTitle">Fast, Reliable & Professional Logistics</h1>
-            <p class="lead" data-i18n="heroLead">
-              We provide complete logistics solutions across Air Freight, Sea Freight, Land Transport, Customs Clearance and Warehousing.
+            <div class="kicker" data-en="Logistics Partner in Dubai" data-ar="شريكك اللوجستي في دبي">Logistics Partner in Dubai</div>
+            <h1 data-en="Fast, Reliable & Professional Logistics" data-ar="لوجستيات سريعة وموثوقة واحترافية">Fast, Reliable & Professional Logistics</h1>
+            <p class="lead"
+              data-en="We provide complete logistics solutions across Air Freight, Sea Freight, Land Transport, Customs Clearance and Warehousing. Let’s move your cargo safely and on time."
+              data-ar="نقدم حلولاً لوجستية متكاملة تشمل الشحن الجوي والبحري والبري والتخليص الجمركي والتخزين. دعنا ننقل شحنتك بأمان وفي الوقت المحدد.">
+              We provide complete logistics solutions across <strong>Air Freight</strong>, <strong>Sea Freight</strong>,
+              <strong>Land Transport</strong>, <strong>Customs Clearance</strong> and <strong>Warehousing</strong>.
               Let’s move your cargo safely and on time.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="#contact" data-i18n="heroBtn1">Get Quote / Contact Now</a>
-              <a class="btn secondary" href="#services" data-i18n="heroBtn2">View Services</a>
+              <a class="btn" href="#contact" data-en="Get Quote / Contact Now" data-ar="عرض سعر / تواصل الآن">Get Quote / Contact Now</a>
+              <a class="btn secondary" href="#services" data-en="View Services" data-ar="عرض الخدمات">View Services</a>
             </div>
 
             <div class="hero-meta">
-              <div class="pill" data-i18n="pill1">✅ UAE & International Shipping</div>
-              <div class="pill" data-i18n="pill2">✅ Door-to-Door Service</div>
-              <div class="pill" data-i18n="pill3">✅ Customs Support</div>
+              <div class="pill" data-en="✅ UAE & International Shipping" data-ar="✅ شحن داخل الإمارات ودولي">✅ UAE & International Shipping</div>
+              <div class="pill" data-en="✅ Door-to-Door Service" data-ar="✅ خدمة من الباب إلى الباب">✅ Door-to-Door Service</div>
+              <div class="pill" data-en="✅ Customs Support" data-ar="✅ دعم التخليص الجمركي">✅ Customs Support</div>
             </div>
           </div>
         </div>
 
         <div class="side">
           <div class="mini">
-            <h3 data-i18n="whyTitle">Why Choose Us</h3>
-            <p data-i18n="whyLead">We focus on speed, safety, and clear communication at every step.</p>
+            <h3 data-en="Why Choose Us" data-ar="لماذا تختارنا؟">Why Choose Us</h3>
+            <p data-en="We focus on speed, safety, and clear communication at every step."
+               data-ar="نركز على السرعة والسلامة والتواصل الواضح في كل خطوة.">
+              We focus on speed, safety, and clear communication at every step.
+            </p>
             <div class="list">
               <div class="item">
                 <span class="dot"></span>
                 <div>
-                  <strong data-i18n="why1Title">On-time deliveries</strong><br>
-                  <span style="color:var(--muted)" data-i18n="why1Desc">Planned logistics for reliable timelines.</span>
+                  <strong data-en="On-time deliveries" data-ar="تسليم في الوقت المحدد">On-time deliveries</strong><br>
+                  <span class="muted" data-en="Planned logistics for reliable timelines." data-ar="تخطيط لوجستي لضمان المواعيد.">Planned logistics for reliable timelines.</span>
                 </div>
               </div>
               <div class="item">
                 <span class="dot"></span>
                 <div>
-                  <strong data-i18n="why2Title">End-to-end handling</strong><br>
-                  <span style="color:var(--muted)" data-i18n="why2Desc">From pickup to final delivery.</span>
+                  <strong data-en="End-to-end handling" data-ar="إدارة متكاملة للشحنة">End-to-end handling</strong><br>
+                  <span class="muted" data-en="From pickup to final delivery." data-ar="من الاستلام حتى التسليم النهائي.">From pickup to final delivery.</span>
                 </div>
               </div>
               <div class="item">
                 <span class="dot"></span>
                 <div>
-                  <strong data-i18n="why3Title">Trusted documentation</strong><br>
-                  <span style="color:var(--muted)" data-i18n="why3Desc">Support for customs & compliance.</span>
+                  <strong data-en="Trusted documentation" data-ar="مستندات موثوقة">Trusted documentation</strong><br>
+                  <span class="muted" data-en="Support for customs & compliance." data-ar="دعم للتخليص والامتثال.">Support for customs & compliance.</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="miniImage">
-            <img src="assets/global.jpg" alt="Global Logistics Network" />
+          <div class="mini" style="padding:0;overflow:hidden">
+            <img src="assets/global.jpg" alt="Global Logistics Network"
+                 style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/10" />
           </div>
         </div>
       </div>
@@ -366,8 +412,11 @@
     <div class="wrap">
       <div class="section-title">
         <div>
-          <h2 data-i18n="servicesTitle">Our Services</h2>
-          <p data-i18n="servicesLead">Complete logistics solutions for businesses and individuals — locally in UAE and worldwide.</p>
+          <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+          <p data-en="Complete logistics solutions for businesses and individuals — locally in UAE and worldwide."
+             data-ar="حلول لوجستية متكاملة للشركات والأفراد — داخل الإمارات وحول العالم.">
+            Complete logistics solutions for businesses and individuals — locally in UAE and worldwide.
+          </p>
         </div>
       </div>
 
@@ -375,12 +424,15 @@
         <article class="card">
           <div class="thumb"><img src="assets/air.jpg" alt="Air Freight Dubai" /></div>
           <div class="body">
-            <h3 data-i18n="s1Title">Air Freight</h3>
-            <p data-i18n="s1Desc">Fast air shipping for urgent cargo with smooth documentation and tracking support.</p>
+            <h3 data-en="Air Freight" data-ar="الشحن الجوي">Air Freight</h3>
+            <p data-en="Fast air shipping for urgent cargo with smooth documentation and tracking support."
+               data-ar="شحن جوي سريع للشحنات العاجلة مع دعم المستندات والتتبع.">
+              Fast air shipping for urgent cargo with smooth documentation and tracking support.
+            </p>
             <div class="tagrow">
-              <span class="tag" data-i18n="tFast">Fast delivery</span>
-              <span class="tag" data-i18n="tPriority">Priority cargo</span>
-              <span class="tag" data-i18n="tWorld">Worldwide</span>
+              <span class="tag" data-en="Fast delivery" data-ar="تسليم سريع">Fast delivery</span>
+              <span class="tag" data-en="Priority cargo" data-ar="شحنات أولوية">Priority cargo</span>
+              <span class="tag" data-en="Worldwide" data-ar="حول العالم">Worldwide</span>
             </div>
           </div>
         </article>
@@ -388,12 +440,15 @@
         <article class="card">
           <div class="thumb"><img src="assets/sea.jpg" alt="Sea Freight Dubai" /></div>
           <div class="body">
-            <h3 data-i18n="s2Title">Sea Freight</h3>
-            <p data-i18n="s2Desc">Cost-effective ocean shipping for containers and bulk cargo with reliable schedules.</p>
+            <h3 data-en="Sea Freight" data-ar="الشحن البحري">Sea Freight</h3>
+            <p data-en="Cost-effective ocean shipping for containers and bulk cargo with reliable schedules."
+               data-ar="شحن بحري اقتصادي للحاويات والبضائع السائبة بجداول موثوقة.">
+              Cost-effective ocean shipping for containers and bulk cargo with reliable schedules.
+            </p>
             <div class="tagrow">
-              <span class="tag">FCL / LCL</span>
-              <span class="tag" data-i18n="tPort">Port handling</span>
-              <span class="tag" data-i18n="tGlobal">Global</span>
+              <span class="tag" data-en="FCL / LCL" data-ar="حاوية كاملة / جزئية">FCL / LCL</span>
+              <span class="tag" data-en="Port handling" data-ar="مناولة بالميناء">Port handling</span>
+              <span class="tag" data-en="Global" data-ar="عالمي">Global</span>
             </div>
           </div>
         </article>
@@ -401,113 +456,11 @@
         <article class="card">
           <div class="thumb"><img src="assets/land.jpg" alt="Land Transport UAE" /></div>
           <div class="body">
-            <h3 data-i18n="s3Title">Land Transport</h3>
-            <p data-i18n="s3Desc">Safe and timely land delivery across UAE and cross-border routes when required.</p>
+            <h3 data-en="Land Transport" data-ar="النقل البري">Land Transport</h3>
+            <p data-en="Safe and timely land delivery across UAE and cross-border routes when required."
+               data-ar="توصيل بري آمن وفي الوقت عبر الإمارات وخارجها عند الحاجة.">
+              Safe and timely land delivery across UAE and cross-border routes when required.
+            </p>
             <div class="tagrow">
-              <span class="tag" data-i18n="tUae">UAE delivery</span>
-              <span class="tag" data-i18n="tTruck">Trucking</span>
-              <span class="tag" data-i18n="tDoor">Door-to-door</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb"><img src="assets/customs.jpg" alt="Customs Clearance Dubai" /></div>
-          <div class="body">
-            <h3 data-i18n="s4Title">Customs Clearance</h3>
-            <p data-i18n="s4Desc">Professional clearance support to reduce delays and ensure compliance with regulations.</p>
-            <div class="tagrow">
-              <span class="tag" data-i18n="tDocs">Documentation</span>
-              <span class="tag" data-i18n="tComp">Compliance</span>
-              <span class="tag" data-i18n="tProcess">Fast processing</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb"><img src="assets/warehousing.jpg" alt="Warehousing Dubai" /></div>
-          <div class="body">
-            <h3 data-i18n="s5Title">Warehousing</h3>
-            <p data-i18n="s5Desc">Secure storage solutions with organized handling for your goods and inventory.</p>
-            <div class="tagrow">
-              <span class="tag" data-i18n="tStore">Storage</span>
-              <span class="tag" data-i18n="tInv">Inventory</span>
-              <span class="tag" data-i18n="tSecure">Secure</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb"><img src="assets/cargo.jpg" alt="Cargo Handling" /></div>
-          <div class="body">
-            <h3 data-i18n="s6Title">Cargo Handling</h3>
-            <p data-i18n="s6Desc">Careful loading/unloading and cargo management to keep your shipment protected.</p>
-            <div class="tagrow">
-              <span class="tag" data-i18n="tHandle">Handling</span>
-              <span class="tag" data-i18n="tSafety">Safety</span>
-              <span class="tag" data-i18n="tSupport">Support</span>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div style="margin-top:18px" class="cta">
-        <div>
-          <h3 data-i18n="ctaTitle">Need a fast quotation?</h3>
-          <p data-i18n="ctaLead">Send your shipment details — we’ll guide you with the best route and timeline.</p>
-        </div>
-        <a class="btn" href="#contact" data-i18n="ctaBtn">TALK TO OUR EXPERTS</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-title">
-        <div>
-          <h2 data-i18n="aboutTitle">About New Style Logistics</h2>
-          <p data-i18n="aboutLead">We help businesses move cargo efficiently with a strong focus on service quality and reliability.</p>
-        </div>
-      </div>
-
-      <div class="about">
-        <div class="panel">
-          <h3 data-i18n="aboutWhat">What we do</h3>
-          <ul>
-            <li data-i18n="aw1">Air, Sea & Land shipping solutions</li>
-            <li data-i18n="aw2">Customs clearance and documentation support</li>
-            <li data-i18n="aw3">Warehousing and cargo handling</li>
-            <li data-i18n="aw4">Local UAE delivery and international logistics</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3 data-i18n="aboutPromise">Our promise</h3>
-          <ul>
-            <li data-i18n="ap1">Clear communication & quick support</li>
-            <li data-i18n="ap2">Safe handling and reliable operations</li>
-            <li data-i18n="ap3">On-time delivery planning</li>
-            <li data-i18n="ap4">Professional service from Dubai, UAE</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-title">
-        <div>
-          <h2 data-i18n="contactTitle">Get In Touch</h2>
-          <p data-i18n="contactLead">Contact us now — our team will respond quickly with guidance and pricing.</p>
-        </div>
-      </div>
-
-      <div class="contact">
-        <div class="box">
-          <h3 data-i18n="contactBoxTitle">Contact Details</h3>
-          <div class="info">
-            <div class="row">
-              <span class="label" data-i18n="emailLabel">Email</span>
-              <a href="mailto:alwahti@newst
+              <span class="tag" data-en="UAE delivery" data-ar="توصيل داخل الإمارات">UAE delivery</span>
+              <span class="tag" data-en="Trucking" data-ar="نقل بالشاحنات">Truckin
