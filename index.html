@@ -4,132 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Style Logistics LLC | Premium Dubai Freight & Customs</title>
+    
+    <meta name="description" content="New Style Logistics LLC - Reliable freight, customs clearance, and warehousing in Dubai, UAE & GCC.">
+    <meta name="keywords" content="Logistics Dubai, Freight Forwarding UAE, Customs Clearance Dubai, Warehousing">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
             --primary: #002e5b;
             --accent: #007bff;
-            --glass: rgba(255, 255, 255, 0.9);
+            --glass: rgba(255, 255, 255, 0.95);
             --shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        body { font-family: 'Inter', sans-serif; color: #333; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; color: #333; overflow-x: hidden; background-color: #fcfcfc; }
 
-        /* Navbar Glassmorphism */
+        /* Navigation */
         .navbar {
             background: var(--glass);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: 0.3s;
+            padding: 15px 0;
         }
 
-        /* Hero Section */
+        /* Hero Section with Original Image */
         .hero {
-            background: linear-gradient(rgba(0,46,91,0.7), rgba(0,46,91,0.7)), url('assets/hero.jpg');
+            background: linear-gradient(rgba(0,46,91,0.75), rgba(0,46,91,0.75)), url('assets/hero.jpg');
             background-size: cover;
             background-position: center;
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .tracking-box {
             background: white;
-            padding: 10px;
+            padding: 8px;
             border-radius: 50px;
             display: flex;
             max-width: 600px;
             margin: 30px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
-        .tracking-box input { border: none; flex: 1; padding: 0 20px; border-radius: 50px; outline: none; }
+        .tracking-box input { border: none; flex: 1; padding: 0 25px; border-radius: 50px; outline: none; font-size: 1rem; color: #333; }
 
-        /* Premium Cards */
+        /* Service Cards */
         .service-card {
             border: none;
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 25px;
+            padding: 45px;
             background: white;
             box-shadow: var(--shadow);
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
+            text-align: center;
         }
-        .service-card:hover { transform: translateY(-10px); border-bottom: 5px solid var(--accent); }
-        .service-icon { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        .service-card:hover { transform: translateY(-12px); border-bottom: 6px solid var(--accent); }
+        .service-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: 25px; display: block; }
 
-        /* Tool Section */
-        .tool-section { background: #f0f4f8; border-radius: 30px; padding: 50px; }
+        /* Shipping Tools */
+        .tool-card {
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
         
         .btn-premium {
             background: var(--primary);
-            color: white;
-            padding: 12px 30px;
+            color: white !important;
+            padding: 14px 35px;
             border-radius: 50px;
             font-weight: 600;
             border: none;
             transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .btn-premium:hover { background: var(--accent); color: white; transform: scale(1.05); }
+        .btn-premium:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,123,255,0.3); }
 
+        /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             z-index: 1000;
-            animation: pulse 2s infinite;
+            transition: 0.3s;
         }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); color: white; }
+
+        footer { background: #1a1a1a; color: #efefef; }
+        .footer-link { color: #aaa; text-decoration: none; transition: 0.3s; }
+        .footer-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top py-3">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="color: var(--primary);">
-                <img src="assets/splash.jpg" height="40" class="me-2" alt=""> NEW STYLE LOGISTICS
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#" style="color: var(--primary);">
+                <img src="assets/splash.jpg" height="45" class="me-2 rounded shadow-sm" alt="Logo">
+                <span class="d-none d-sm-inline">NEW STYLE LOGISTICS</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-semibold">
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tools">Shipping Tools</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link btn-premium ms-lg-3" href="#contact">Get Quote</a></li>
+                <ul class="navbar-nav ms-auto fw-semibold align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#tools">Shipping Tools</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn-premium text-decoration-none d-inline-block" href="#contact">Get Quote</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <section class="hero text-center">
-        <div class="container" data-aos="zoom-in">
+        <div class="container" data-aos="fade-up">
             <h1 class="display-3 fw-bold mb-3">Elite Logistics Solutions <br> in Dubai & Beyond</h1>
-            <p class="lead mb-4">Precision Freight, Seamless Customs, and Secure Warehousing.</p>
+            <p class="lead mb-5 opacity-75">Precision Freight, Seamless Customs, and Secure Warehousing Solutions.</p>
             
             <div class="tracking-box">
                 <input type="text" placeholder="Enter Air Waybill or Container #">
-                <button class="btn btn-dark rounded-pill px-4 py-2">TRACK NOW</button>
+                <button class="btn btn-dark rounded-pill px-5 py-2 fw-bold">TRACK</button>
             </div>
             
-            <div class="mt-4">
-                <span class="me-3"><i class="bi bi-check-circle-fill text-info"></i> UAE & GCC Coverage</span>
-                <span><i class="bi bi-check-circle-fill text-info"></i> 24/7 Operations</span>
+            <div class="mt-5 d-flex justify-content-center gap-4 flex-wrap">
+                <span><i class="bi bi-patch-check-fill text-info me-2"></i>UAE & GCC Coverage</span>
+                <span><i class="bi bi-clock-history text-info me-2"></i>24/7 Support</span>
+                <span><i class="bi bi-shield-lock-fill text-info me-2"></i>Fully Insured</span>
             </div>
         </div>
     </section>
@@ -137,13 +160,13 @@
     <section id="services" class="py-5">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h6 class="text-primary fw-bold text-uppercase">What We Offer</h6>
-                <h2 class="display-5 fw-bold">Our Logistics Services</h2>
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3 fw-bold">WHAT WE OFFER</span>
+                <h2 class="display-5 fw-bold text-dark">Our Logistics Services</h2>
             </div>
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
-                        <i class="bi bi-airplane service-icon"></i>
+                        <i class="bi bi-airplane-engines service-icon"></i>
                         <h4 class="fw-bold">Air Freight</h4>
                         <p class="text-muted">Fast, worldwide air cargo solutions for urgent time-sensitive shipments.</p>
                     </div>
@@ -167,74 +190,103 @@
     </section>
 
     <section id="tools" class="container py-5">
-        <div class="tool-section shadow-sm" data-aos="fade-right">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-4">Volumetric Weight Calculator</h2>
-                    <p>Calculate your shipment's chargeable weight instantly using standard industry formulas.</p>
-                    <div class="row g-3">
-                        <div class="col-md-4"><label class="small fw-bold">Length (cm)</label><input type="number" id="len" class="form-control" placeholder="100"></div>
-                        <div class="col-md-4"><label class="small fw-bold">Width (cm)</label><input type="number" id="wid" class="form-control" placeholder="100"></div>
-                        <div class="col-md-4"><label class="small fw-bold">Height (cm)</label><input type="number" id="hei" class="form-control" placeholder="100"></div>
+        <div class="row g-4">
+            <div class="col-lg-7" data-aos="fade-right">
+                <div class="tool-card h-100">
+                    <h3 class="fw-bold mb-4 text-primary">Volumetric Weight Calculator</h3>
+                    <p class="text-muted">Calculate your shipment's chargeable weight instantly using standard industry formulas.</p>
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Length (cm)</label>
+                            <input type="number" id="len" class="form-control form-control-lg bg-light border-0" placeholder="100">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Width (cm)</label>
+                            <input type="number" id="wid" class="form-control form-control-lg bg-light border-0" placeholder="100">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Height (cm)</label>
+                            <input type="number" id="hei" class="form-control form-control-lg bg-light border-0" placeholder="100">
+                        </div>
                     </div>
-                    <button onclick="calculateWeight()" class="btn btn-premium mt-4">Calculate Weight</button>
-                    <div id="calc-result" class="h4 mt-3 text-primary fw-bold"></div>
+                    <button onclick="calculateWeight()" class="btn btn-premium mt-4 w-100">Calculate Weight</button>
+                    <div id="calc-result" class="h4 mt-4 text-center text-primary fw-bold"></div>
                 </div>
-                <div class="col-lg-5 offset-lg-1 d-none d-lg-block">
-                    <div class="p-4 bg-white rounded-4 shadow-sm">
-                        <h5 class="fw-bold"><i class="bi bi-file-earmark-pdf me-2"></i> Download Templates</h5>
-                        <hr>
-                        <a href="#" class="d-block py-2 text-decoration-none text-dark"><i class="bi bi-download me-2"></i> Commercial Invoice</a>
-                        <a href="#" class="d-block py-2 text-decoration-none text-dark"><i class="bi bi-download me-2"></i> Packing List Template</a>
-                        <a href="#" class="d-block py-2 text-decoration-none text-dark"><i class="bi bi-download me-2"></i> Incoterms 2026 Guide</a>
+            </div>
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="tool-card h-100 bg-primary text-white">
+                    <h3 class="fw-bold mb-4"><i class="bi bi-file-earmark-pdf me-2"></i>Document Center</h3>
+                    <p class="text-white-50">Download essential templates for your shipping documentation.</p>
+                    <div class="list-group list-group-flush bg-transparent mt-4">
+                        <a href="#" class="list-group-item bg-transparent text-white border-white-50 px-0 d-flex justify-content-between text-decoration-none">Commercial Invoice <i class="bi bi-download"></i></a>
+                        <a href="#" class="list-group-item bg-transparent text-white border-white-50 px-0 d-flex justify-content-between text-decoration-none">Packing List Template <i class="bi bi-download"></i></a>
+                        <a href="#" class="list-group-item bg-transparent text-white border-white-50 px-0 d-flex justify-content-between text-decoration-none">Incoterms 2026 Guide <i class="bi bi-download"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-dark text-white pt-5 pb-3">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h5 class="fw-bold mb-4">NEW STYLE LOGISTICS</h5>
+    <footer id="contact" class="pt-5 pb-3">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-4">NEW STYLE LOGISTICS</h4>
                     <p class="text-white-50">Providing world-class logistics, clearing, and forwarding services from the heart of Dubai.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3 fs-4"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <h5 class="fw-bold mb-4">Quick Contact</h5>
-                    <p><i class="bi bi-geo-alt me-2"></i> Ras Al Khor, Dubai, UAE</p>
-                    <p><i class="bi bi-envelope me-2"></i> alwahti@newstylelogistics.com</p>
-                    <p><i class="bi bi-telephone me-2"></i> +971 4 591 4550</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex"><i class="bi bi-geo-alt-fill text-accent me-3"></i> Ras Al Khor, Dubai, UAE</li>
+                        <li class="mb-3 d-flex"><i class="bi bi-envelope-at-fill text-accent me-3"></i> alwahti@newstylelogistics.com</li>
+                        <li class="mb-3 d-flex"><i class="bi bi-telephone-outbound-fill text-accent me-3"></i> +971 4 591 4550</li>
+                    </ul>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-lg-4 text-lg-center">
                     <h5 class="fw-bold mb-4">Get a Quote</h5>
-                    <a href="https://wa.me/971561436491" class="btn btn-outline-light rounded-pill px-4">Chat with Expert</a>
+                    <p class="text-white-50 mb-4">Contact our team for an immediate rate via WhatsApp.</p>
+                    <a href="https://wa.me/971561436491" class="btn btn-outline-light rounded-pill px-5 py-2">Chat with Expert</a>
                 </div>
             </div>
-            <hr class="mt-5 border-secondary">
-            <p class="text-center text-white-50 small">© 2026 New Style Logistics LLC. All Rights Reserved.</p>
+            <hr class="mt-5 border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap small text-white-50">
+                <p>© 2026 New Style Logistics LLC. All Rights Reserved.</p>
+                <div class="gap-3 d-flex">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/971561436491" class="whatsapp-float text-decoration-none">
+    <a href="https://wa.me/971561436491" class="whatsapp-float">
         <i class="bi bi-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize Scroll Animations
         AOS.init({ duration: 1000, once: true });
 
+        // Shipping Tool Logic
         function calculateWeight() {
-            const l = document.getElementById('len').value;
-            const w = document.getElementById('wid').value;
-            const h = document.getElementById('hei').value;
-            if(l && w && h) {
-                const res = (l * w * h) / 5000; // Standard volumetric divisor
-                document.getElementById('calc-result').innerText = "Total Volumetric Weight: " + res.toFixed(2) + " KG";
-            } else {
-                alert("Please fill all dimensions");
+            const l = parseFloat(document.getElementById('len').value);
+            const w = parseFloat(document.getElementById('wid').value);
+            const h = parseFloat(document.getElementById('hei').value);
+            
+            if(!l || !w || !h) {
+                alert("Please fill all dimensions to calculate.");
+                return;
             }
+            
+            // Standard Volumetric Formula (L*W*H)/5000
+            const res = (l * w * h) / 5000;
+            document.getElementById('calc-result').innerHTML = `Total Volumetric Weight: <span class="text-dark">${res.toFixed(2)} KG</span>`;
         }
     </script>
 </body>
