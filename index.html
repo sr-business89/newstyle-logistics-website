@@ -5,171 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>New Style Logistics LLC | Dubai Global Supply Chain Leaders</title>
     
-    <meta name="description" content="New Style Logistics LLC: Premier Dubai-based freight forwarding, warehousing, and customs clearance.">
-
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
     <style>
         :root {
-            --primary: #0b1220;   /* Corporate Navy */
-            --accent: #c9a24a;    /* Premium Gold */
+            --primary: #0b1220;   /* Deep Corporate Navy */
+            --accent: #c9a24a;    /* Premium Desert Gold */
+            --glass: rgba(255, 255, 255, 0.03);
             --white: #ffffff;
-            --gray-alt: #f1f5f9;
-            --text-main: #1e293b;
+            --text-muted: #94a3b8;
         }
 
+        /* --- CORE RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #05080f; color: var(--white); overflow-x: hidden; }
 
-        /* --- STICKY CORPORATE HEADER --- */
-        header {
+        /* --- GLASS NAVIGATION --- */
+        nav {
             position: fixed; top: 0; width: 100%; z-index: 2000;
-            background: rgba(255,255,255,0.9); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05); padding: 12px 0;
+            background: rgba(11, 18, 32, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 0;
         }
         .nav-container {
             max-width: 1440px; margin: 0 auto; padding: 0 40px;
             display: flex; align-items: center; justify-content: space-between;
         }
         .logo-group { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-group img { width: 55px; height: 55px; border-radius: 12px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .brand-text h1 { font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--primary); line-height: 1; letter-spacing: -1px; }
+        .logo-group img { width: 55px; height: 55px; border-radius: 14px; border: 1px solid var(--accent); }
+        .brand-text h1 { font-family: 'Outfit', sans-serif; font-size: 22px; color: white; line-height: 1; letter-spacing: -1px; }
         .brand-text span { font-size: 10px; color: var(--accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- CINEMATIC HERO SECTION --- */
+        /* --- HERO: THE CINEMATIC OPENER --- */
         .hero {
             height: 100vh; min-height: 800px; position: relative;
-            display: flex; align-items: center; background: var(--primary); overflow: hidden;
+            display: flex; align-items: center; overflow: hidden;
         }
         .hero-bg {
             position: absolute; inset: 0; z-index: 1;
-            background: linear-gradient(90deg, rgba(11,18,32,1) 35%, transparent 100%), url('assets/hero.jpg') center/cover;
+            background: linear-gradient(90deg, #05080f 25%, transparent 100%), url('assets/hero.jpg') center/cover;
         }
         .hero-content { position: relative; z-index: 10; width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 40px; }
-        .hero-text { max-width: 750px; color: white; }
-        .hero-text h2 { font-family: 'Outfit', sans-serif; font-size: clamp(50px, 8vw, 100px); line-height: 0.9; margin-bottom: 30px; letter-spacing: -4px; }
-        .hero-text p { font-size: 22px; font-weight: 300; opacity: 0.8; margin-bottom: 50px; }
+        .hero-text { max-width: 800px; }
+        .hero-text h2 { font-family: 'Outfit', sans-serif; font-size: clamp(50px, 8vw, 110px); line-height: 0.85; margin-bottom: 30px; letter-spacing: -5px; }
+        .hero-text p { font-size: 22px; font-weight: 300; opacity: 0.7; margin-bottom: 50px; line-height: 1.4; }
 
-        /* TRACKING DASHBOARD */
-        .track-dashboard {
-            background: rgba(255,255,255,0.05); backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.15); border-radius: 24px;
-            padding: 25px; display: flex; align-items: center; gap: 20px;
+        /* SMART TRACKING DASHBOARD */
+        .track-dash {
+            background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px; padding: 25px; display: flex; align-items: center; gap: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
-        .track-dashboard input {
+        .track-dash input {
             background: transparent; border: none; color: white; flex: 1; font-size: 18px; outline: none; padding: 10px;
         }
         .btn-premium {
             background: var(--accent); color: var(--primary); border: none;
             padding: 18px 45px; border-radius: 14px; font-weight: 800; cursor: pointer;
-            transition: 0.3s; text-transform: uppercase; font-size: 14px;
+            transition: 0.3s; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;
         }
-        .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(201,162,74,0.4); }
+        .btn-premium:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(201,162,74,0.4); }
 
-        /* --- BENTO SERVICE GRID --- */
-        .section { padding: 120px 0; }
+        /* --- BENTO SERVICE EXPERIENCE --- */
+        .section { padding: 140px 0; background: #fff; color: var(--primary); }
         .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
         .tag { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 4px; font-size: 12px; margin-bottom: 20px; display: block; }
-        .h2 { font-size: 52px; font-weight: 900; letter-spacing: -2px; margin-bottom: 80px; }
+        .h2 { font-size: 56px; font-weight: 900; letter-spacing: -3px; margin-bottom: 80px; line-height: 1; }
 
         .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 30px; }
         .bento-item {
-            background: var(--gray-alt); border-radius: 40px; overflow: hidden;
-            display: flex; flex-direction: column; transition: 0.4s;
-            border: 1px solid rgba(0,0,0,0.02);
+            background: #f8fafc; border-radius: 40px; overflow: hidden;
+            display: flex; flex-direction: column; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            border: 1px solid #e2e8f0;
         }
-        .bento-item:hover { transform: translateY(-10px); background: white; box-shadow: 0 50px 100px rgba(0,0,0,0.06); }
-        .bento-img { width: 100%; height: 300px; object-fit: cover; }
+        .bento-item:hover { transform: translateY(-15px); box-shadow: 0 60px 100px rgba(0,0,0,0.1); }
+        .bento-img { width: 100%; height: 320px; object-fit: cover; }
         .bento-body { padding: 45px; }
-        .bento-body h3 { font-size: 26px; font-weight: 800; margin-bottom: 15px; }
-        .bento-icon { font-size: 30px; color: var(--accent); margin-bottom: 25px; display: block; }
+        .bento-body h3 { font-size: 28px; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; }
+        .bento-icon { font-size: 35px; color: var(--accent); margin-bottom: 25px; display: block; }
+        .bento-body p { color: #64748b; font-size: 16px; line-height: 1.6; }
 
-        /* Spans */
+        /* Layout Spans */
         .span-8 { grid-column: span 8; }
         .span-4 { grid-column: span 4; }
         .span-6 { grid-column: span 6; }
 
-        /* --- GLOBAL NETWORK BLOCK --- */
-        .global-box {
-            background: var(--primary); border-radius: 60px; margin-top: 100px;
-            display: flex; overflow: hidden; color: white;
+        /* --- GLOBAL STATS SECTION --- */
+        .global-section {
+            background: var(--primary); color: white; border-radius: 60px;
+            margin: 100px 40px; display: flex; overflow: hidden;
         }
         .global-content { padding: 100px; flex: 1; }
-        .global-visual { flex: 1.2; height: 650px; }
+        .global-visual { flex: 1.2; height: 650px; position: relative; }
         .global-visual img { width: 100%; height: 100%; object-fit: cover; }
+        .stat-badge { background: var(--accent); color: var(--primary); padding: 20px 40px; border-radius: 20px; position: absolute; bottom: 40px; left: 40px; font-weight: 900; font-size: 24px; }
 
-        /* --- WHATSAPP CTA --- */
-        .wa-button {
-            position: fixed; bottom: 40px; right: 40px; z-index: 999;
-            background: #25D366; color: white; width: 70px; height: 70px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 35px; box-shadow: 0 20px 40px rgba(37,211,102,0.4); text-decoration: none;
-        }
+        /* --- PREMIUM FOOTER --- */
+        footer { background: #05080f; padding: 120px 0 60px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; margin-bottom: 80px; }
+        .footer-brand img { width: 80px; height: 80px; border-radius: 20px; margin-bottom: 30px; border: 1px solid var(--accent); }
+        .footer-col h4 { color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        .footer-col li { list-style: none; margin-bottom: 15px; font-size: 15px; opacity: 0.6; transition: 0.3s; cursor: pointer; }
+        .footer-col li:hover { opacity: 1; color: var(--accent); }
 
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        @media (max-width: 1024px) {
-            .bento-grid, .global-box { grid-template-columns: 1fr; }
+        /* --- MOBILE ADAPTATION --- */
+        @media (max-width: 1100px) {
+            .bento-grid, .footer-grid, .global-section { grid-template-columns: 1fr; }
             .span-8, .span-4, .span-6 { grid-column: span 12; }
-            .hero-bg { background-position: 70% center; }
-            .hero-text h2 { font-size: 55px; }
-            .global-box { flex-direction: column; }
+            .hero-bg { background-position: 80% center; }
+            .hero-text h2 { font-size: 60px; }
+            .global-section { flex-direction: column; margin: 20px; }
             .global-visual { height: 400px; }
             .nav-container { padding: 0 20px; }
+            .global-content { padding: 60px 40px; }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/971500000000" class="wa-button"><i class="fa-brands fa-whatsapp"></i></a>
-
-    <header>
+    <nav>
         <div class="nav-container">
             <a href="#" class="logo-group">
-                <img src="assets/splash.jpg" alt="New Style Logistics Logo">
+                <img src="assets/splash.jpg" alt="Logo">
                 <div class="brand-text">
                     <h1>NEW STYLE</h1>
                     <span>Logistics LLC</span>
                 </div>
             </a>
-            <div class="nav-links" style="display: flex; gap: 40px; font-weight: 700; font-size: 14px;">
-                <a href="#services" style="text-decoration:none; color:inherit;">Services</a>
-                <a href="#network" style="text-decoration:none; color:inherit;">Network</a>
-                <a href="#quote" style="text-decoration:none; color:inherit;">Quote</a>
+            <div class="nav-menu" style="display: flex; gap: 40px; font-weight: 700; font-size: 14px;">
+                <a href="#services" style="text-decoration:none; color:white;">Expertise</a>
+                <a href="#global" style="text-decoration:none; color:white;">Global Network</a>
+                <a href="#quote" style="text-decoration:none; color:white;">Client Login</a>
             </div>
-            <button class="btn-premium" style="padding: 12px 30px; font-size: 12px;">Shipment Login</button>
+            <button class="btn-premium" style="padding: 12px 30px; font-size: 12px;">Get A Quote</button>
         </div>
-    </header>
+    </nav>
 
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content" data-aos="fade-right">
             <div class="hero-text">
-                <span class="tag" style="color: white; opacity: 0.6;">Dubai Gateway to Global Trade</span>
-                <h2>Elite Global <br><span style="color: var(--accent);">Logistics.</span></h2>
-                <p>Delivering high-performance freight, warehousing, and customs solutions with 24/7 visibility.</p>
+                <span class="tag" style="color: white; opacity: 0.6;">Est. Dubai, UAE</span>
+                <h2>Precision <br>Beyond <br><span style="color: var(--accent);">Borders.</span></h2>
+                <p>Dubai's premier architect of seamless global supply chains. We move the world so you can grow your business.</p>
                 
-                <div class="track-dashboard">
-                    <i class="fa-solid fa-box-open" style="color:var(--accent); font-size: 20px;"></i>
-                    <input type="text" placeholder="Tracking Number (e.g. NSL-2025)">
-                    <button class="btn-premium">Track Status</button>
+                <div class="track-dash">
+                    <i class="fa-solid fa-satellite-dish" style="color:var(--accent); font-size: 24px;"></i>
+                    <input type="text" placeholder="Shipment Tracking Number...">
+                    <button class="btn-premium">Track Live</button>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section container" id="services">
-        <span class="tag">Our Capabilities</span>
-        <h2 class="h2">First-Class Freight Solutions</h2>
+        <span class="tag">The Core Fleet</span>
+        <h2 class="h2">First-Class Logistics</h2>
 
         <div class="bento-grid">
             <div class="bento-item span-8" data-aos="fade-up">
-                <img src="assets/air.jpg" class="bento-img" style="height: 400px;">
+                <img src="assets/air.jpg" class="bento-img" style="height: 450px;">
                 <div class="bento-body">
-                    <i class="fa-solid fa-plane-departure bento-icon"></i>
-                    <h3>Precision Air Freight</h3>
-                    <p>Direct priority space with major carriers. From high-value electronics to pharmaceuticals, we ensure airport-to-door delivery in record time.</p>
+                    <i class="fa-solid fa-plane-up bento-icon"></i>
+                    <h3>Strategic Air Freight</h3>
+                    <p>Priority global connectivity via DXB. Time-definite delivery for high-value cargo with guaranteed vessel space even during peak seasons.</p>
                 </div>
             </div>
 
@@ -178,75 +178,87 @@
                 <div class="bento-body">
                     <i class="fa-solid fa-ship bento-icon"></i>
                     <h3>Ocean Logistics</h3>
-                    <p>Global FCL and LCL container management through Jebel Ali Port.</p>
+                    <p>Comprehensive FCL/LCL management via Jebel Ali Port to every major harbor worldwide.</p>
                 </div>
             </div>
 
             <div class="bento-item span-4" data-aos="fade-up">
                 <img src="assets/land.jpg" class="bento-img">
                 <div class="bento-body">
-                    <i class="fa-solid fa-truck-fast bento-icon"></i>
-                    <h3>Road Network</h3>
-                    <p>Bonded GCC-wide trucking with GPS tracking for every mile.</p>
+                    <i class="fa-solid fa-truck-moving bento-icon"></i>
+                    <h3>GCC Road Network</h3>
+                    <p>Cross-border trucking solutions with bonded transit and temperature-controlled fleets.</p>
                 </div>
             </div>
 
             <div class="bento-item span-8" data-aos="fade-up" data-aos-delay="100">
-                <img src="assets/warehousing.jpg" class="bento-img" style="height: 300px;">
+                <img src="assets/warehousing.jpg" class="bento-img" style="height: 320px;">
                 <div class="bento-body">
-                    <i class="fa-solid fa-warehouse bento-icon"></i>
-                    <h3>3PL & Warehousing</h3>
-                    <p>Strategically located storage in Ras Al Khor with climate-controlled zones and real-time inventory management.</p>
+                    <i class="fa-solid fa-boxes-stacked bento-icon"></i>
+                    <h3>Advanced Warehousing</h3>
+                    <p>Smart 3PL storage in Ras Al Khor. Real-time inventory tracking, climate control, and pick-and-pack fulfillment.</p>
                 </div>
             </div>
 
             <div class="bento-item span-6" data-aos="fade-up">
                 <img src="assets/customs.jpg" class="bento-img">
-                <div class="card-body bento-body">
-                    <i class="fa-solid fa-file-contract bento-icon"></i>
+                <div class="bento-body">
+                    <i class="fa-solid fa-file-shield bento-icon"></i>
                     <h3>Customs Clearance</h3>
-                    <p>Expert compliance handling for Dubai Customs, removing all bottlenecks.</p>
+                    <p>Expert local brokers ensuring zero bottlenecks for Dubai Customs and Freezone regulations.</p>
                 </div>
             </div>
 
             <div class="bento-item span-6" data-aos="fade-up" data-aos-delay="100">
                 <img src="assets/cargo.jpg" class="bento-img">
-                <div class="card-body bento-body">
-                    <i class="fa-solid fa-boxes-stacked bento-icon"></i>
+                <div class="bento-body">
+                    <i class="fa-solid fa-crane bento-icon"></i>
                     <h3>Project Cargo</h3>
-                    <p>Heavy-lift specialists for oversized industrial machinery and energy projects.</p>
+                    <p>Engineered solutions for oversized, out-of-gauge, and heavy-lift industrial components.</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="global-box" id="network" data-aos="zoom-in">
-            <div class="global-content">
-                <span class="tag" style="color: var(--accent);">World Connectivity</span>
-                <h2 style="font-size: 45px; font-weight: 900; margin-bottom: 30px;">Global Vision. <br>Dubai Presence.</h2>
-                <p style="font-size: 18px; opacity: 0.8; font-weight: 300; line-height: 1.8; margin-bottom: 40px;">Utilizing the UAE's position as a global logistics hub, we bridge Asia, Europe, and Africa through seamless multimodal transport.</p>
-                <div style="display:flex; gap: 40px;">
-                    <div><h4 style="font-size:35px; color:var(--accent);">180+</h4><p style="font-size:12px; opacity:0.5;">Global Ports</p></div>
-                    <div><h4 style="font-size:35px; color:var(--accent);">24/7</h4><p style="font-size:12px; opacity:0.5;">Operational Center</p></div>
-                </div>
-            </div>
-            <div class="global-visual">
-                <img src="assets/global.jpg" alt="Global Shipping Network Map">
             </div>
         </div>
     </section>
 
-    <footer style="background: #f8fafc; padding: 120px 0 60px; border-top: 1px solid #eee;">
-        <div class="container" style="text-align: center;">
-            <img src="assets/splash.jpg" style="width: 100px; height: 100px; border-radius: 25px; margin-bottom: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-            <h2 style="font-family: 'Outfit'; font-size: 32px; letter-spacing: 2px; margin-bottom: 15px;">NEW STYLE LOGISTICS LLC</h2>
-            <p style="color: #64748b; margin-bottom: 60px; font-size: 15px;">Office #2, Ras Al Khor, Dubai, United Arab Emirates</p>
-            
-            <div style="border-top: 1px solid #e2e8f0; padding-top: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; opacity: 0.5;">
-                <p>© <script>document.write(new Date().getFullYear())</script> NEW STYLE LOGISTICS LLC. ALL RIGHTS RESERVED.</p>
-                <div style="display: flex; gap: 20px; font-size: 18px;">
-                    <i class="fa-brands fa-linkedin"></i>
-                    <i class="fa-brands fa-instagram"></i>
+    <div class="global-section" id="global" data-aos="zoom-in">
+        <div class="global-content">
+            <span class="tag" style="color: var(--accent);">Global Infrastructure</span>
+            <h2 style="font-size: 45px; font-weight: 900; margin-bottom: 30px;">Connecting Continents.</h2>
+            <p style="font-size: 18px; opacity: 0.7; line-height: 1.8; margin-bottom: 50px;">From our headquarters in Dubai, we orchestrate a massive network across 180+ countries, combining local knowledge with global scale.</p>
+            <div style="display:flex; gap: 60px;">
+                <div><h3 style="font-size: 40px; color: var(--accent);">24/7</h3><p style="opacity:0.5; font-size: 12px;">Support</p></div>
+                <div><h3 style="font-size: 40px; color: var(--accent);">100%</h3><p style="opacity:0.5; font-size: 12px;">Visibility</p></div>
+            </div>
+        </div>
+        <div class="global-visual">
+            <img src="assets/global.jpg" alt="Global Network">
+            <div class="stat-badge">ISO 9001:2015</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/splash.jpg" alt="Logo">
+                    <p style="opacity: 0.5; font-size: 14px;">Premier logistics and supply chain architect based in Dubai, UAE. We redefine movement.</p>
                 </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul><li>Express Air</li><li>Ocean LCL/FCL</li><li>GCC Trucking</li><li>Project Cargo</li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul><li>Our Network</li><li>Client Portal</li><li>Terms of Trade</li><li>Privacy Policy</li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p style="font-size: 14px; opacity: 0.6; margin-bottom: 20px;">Office #2, Thumbay Clinic Bldg, Ras Al Khor, Dubai, UAE</p>
+                    <button class="btn-premium" style="width: 100%; padding: 12px; font-size: 11px;">Message on WhatsApp</button>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 50px; font-size: 12px; opacity: 0.3; letter-spacing: 2px;">
+                © <script>document.write(new Date().getFullYear())</script> NEW STYLE LOGISTICS LLC. ALL RIGHTS RESERVED.
             </div>
         </div>
     </footer>
