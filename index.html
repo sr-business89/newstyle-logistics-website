@@ -17,7 +17,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./assets/hero.jpg" />
 
-  <!-- Favicon -->
   <link rel="icon" href="./assets/splash.jpg" />
 
   <!-- Premium font -->
@@ -40,8 +39,6 @@
 
       --cyan:#33d6ff;
       --blue:#2e70ff;
-      --neon: rgba(51,214,255,.25);
-      --gold:#d6b25e;
 
       --shadow: 0 18px 55px rgba(0,0,0,.55);
       --shadow2: 0 12px 28px rgba(0,0,0,.40);
@@ -63,11 +60,19 @@
         radial-gradient(900px 520px at 40% 115%, rgba(51,214,255,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
+      max-width:100vw;
+    }
+
+    /* ✅ KILLS SIDE GAP (MOST IMPORTANT FIX) */
+    body, .container, main, section{max-width:100vw}
+    img, iframe, canvas{max-width:100%}
+    .container{width:min(var(--max), calc(100% - 32px)); margin:0 auto;}
+    @media (max-width: 420px){
+      .container{width:calc(100% - 22px);}
     }
 
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
+    img{display:block}
 
     /* Glass */
     .glass{
@@ -87,7 +92,7 @@
       -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Subtle futuristic grid overlay */
+    /* Grid overlay */
     .grid-bg{
       position:fixed; inset:0;
       pointer-events:none;
@@ -110,7 +115,7 @@
     }
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:12px 0;
+      gap:12px; padding:12px 0;
     }
 
     .brand{display:flex; align-items:center; gap:10px; min-width:220px;}
@@ -192,9 +197,7 @@
       background: linear-gradient(180deg, rgba(51,214,255,.20), rgba(46,112,255,.22));
       box-shadow: 0 10px 28px rgba(46,112,255,.22);
     }
-    .btn-primary:hover{
-      background: linear-gradient(180deg, rgba(51,214,255,.26), rgba(46,112,255,.26));
-    }
+
     .btn-ghost{background:rgba(255,255,255,.04)}
 
     .hamburger{display:none}
@@ -323,7 +326,6 @@
       min-width:90px;
     }
     .trackbar input::placeholder{color:rgba(238,243,255,.55)}
-
     .hero-actions{
       display:flex; flex-wrap:wrap; gap:10px;
       margin-top:12px;
@@ -346,7 +348,7 @@
       box-shadow: 0 0 0 4px rgba(51,214,255,.14);
     }
 
-    /* Trust bar slider */
+    /* Trust bar */
     .trust{margin-top:14px; padding:12px}
     .trust-top{
       display:flex; align-items:center; justify-content:space-between;
@@ -375,39 +377,18 @@
       font-size:12px;
       transition: all .2s ease;
     }
-    .logo-chip:hover{
-      filter: grayscale(0%);
-      transform: translateY(-1px);
-      background:rgba(255,255,255,.06);
-      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
-    }
 
-    /* Cards / grids */
+    /* Cards/grids */
     .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
     .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
     .card{padding:14px}
     .card h3{margin:0 0 6px; font-size:14px}
     .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
 
-    /* Vision & Growth charts */
+    /* Charts */
     .viz-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-items:stretch}
-    .chart{
-      padding:14px;
-      position:relative;
-      overflow:hidden;
-    }
-    .chart:after{
-      content:"";
-      position:absolute; inset:-80px -120px auto auto;
-      width:260px; height:260px;
-      background: radial-gradient(circle, rgba(51,214,255,.18), transparent 60%);
-      filter: blur(10px);
-      pointer-events:none;
-    }
-    .chart-head{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
-      margin-bottom:10px;
-    }
+    .chart{padding:14px; position:relative; overflow:hidden;}
+    .chart-head{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:10px;}
     .chart-head strong{font-size:14px}
     .chart-head span{font-size:12px; color:rgba(238,243,255,.62)}
     .canvas-wrap{
@@ -420,34 +401,28 @@
     }
     canvas{width:100%; height:100%}
 
-    /* Services */
+    /* ✅ SERVICES IMAGE FIX (NO EMPTY + CLEAN) */
     .services-grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
     .svc{grid-column: span 6; overflow:hidden; padding:0; position:relative}
-
-    /* UPDATED media to avoid crop on mobile; premium on desktop */
     .svc .media{
-      height: 240px;
-      overflow:hidden;
+      width:100%;
+      aspect-ratio: 16 / 10;     /* ✅ keeps perfect consistent height, no weird empty */
       background:#000;
       border-bottom:1px solid rgba(255,255,255,.10);
-      position:relative;
       display:flex;
       align-items:center;
       justify-content:center;
+      overflow:hidden;
     }
     .svc .media img{
-      width:100%; height:100%;
-      object-fit:cover;      /* premium desktop look */
+      width:100%;
+      height:100%;
+      object-fit:cover;          /* premium desktop */
       object-position:center;
       transform: scale(1.02);
       transition: transform .35s ease;
     }
-    /* Customs always show full image (no crop) */
-    .svc.customs .media img{
-      object-fit:contain;
-      background:#000;
-    }
-
+    .svc.customs .media img{object-fit:contain; transform:none;}
     .svc .content{padding:14px}
     .svc .content h3{margin:0 0 6px; font-size:16px}
     .svc .content p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
@@ -460,18 +435,8 @@
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.04);
     }
-
-    /* Premium hover glow */
-    .svc:before{
-      content:"";
-      position:absolute; inset:0;
-      pointer-events:none;
-      opacity:0;
-      transition: opacity .25s ease;
-      background: radial-gradient(500px 250px at 30% 10%, rgba(51,214,255,.18), transparent 55%);
-    }
-    .svc:hover:before{opacity:1}
     .svc:hover .media img{transform: scale(1.06)}
+    .svc.customs:hover .media img{transform:none}
 
     /* Tools */
     .tools-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; align-items:start}
@@ -514,12 +479,7 @@
       margin-top:10px;
       transition:all .2s ease;
     }
-    .download a:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
-    }
-    .download .small{font-size:12px; color:rgba(238,243,255,.60)}
+    .download a:hover{transform: translateY(-1px); background: rgba(255,255,255,.06);}
 
     /* Quote Wizard */
     .wizard{display:grid; grid-template-columns: 1fr .65fr; gap:12px; align-items:start}
@@ -532,7 +492,6 @@
       background:rgba(255,255,255,.04);
       color:rgba(238,243,255,.78);
       font-weight:900;
-      transition:all .2s ease;
     }
     .step.active{
       background:rgba(51,214,255,.14);
@@ -554,12 +513,6 @@
       margin-top:10px;
       transition:all .2s ease;
     }
-    .quick a:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
-    }
-
     .map-wrap{
       border-radius:var(--r2);
       overflow:hidden;
@@ -622,7 +575,6 @@
       transition:all .22s ease;
       user-select:none;
     }
-    .fab:hover{transform: translateY(-2px); background:rgba(255,255,255,.10)}
     .fab.primary{
       border-color: rgba(37,211,102,.35);
       background: rgba(37,211,102,.12);
@@ -644,7 +596,7 @@
       100%{transform:scale(.96); opacity:.35}
     }
 
-    /* RESPONSIVE TWEAKS */
+    /* ✅ Responsive */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .viz-grid{grid-template-columns:1fr}
@@ -664,14 +616,9 @@
       .float{right:10px; bottom:10px}
       .fab span{display:none}
 
-      /* MOBILE IMAGE RULES – no crop, no empty sides */
-      .svc .media{ height:auto; }
-      .svc .media img{
-        height:auto;
-        width:100%;
-        object-fit:contain;
-        transform:none;
-      }
+      /* ✅ Mobile: show full image (no crop), still no empty sides */
+      .svc .media{aspect-ratio:auto;}
+      .svc .media img{height:auto; width:100%; object-fit:contain; transform:none;}
     }
 
     /* RTL */
@@ -821,7 +768,7 @@
       </div>
     </section>
 
-    <!-- VISION & GROWTH (Charts) -->
+    <!-- VISION -->
     <section id="vision">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
@@ -863,7 +810,7 @@
           <div>
             <p class="kicker" data-i18n="svcK">Services</p>
             <h2 class="h2" data-i18n="svcT">End-to-end freight & clearance services</h2>
-            <p class="sub" data-i18n="svcD">Built with premium UI, hover interactions, and perfect image scaling on mobile and desktop.</p>
+            <p class="sub" data-i18n="svcD">Perfect image scaling on mobile and premium crop on desktop.</p>
           </div>
         </div>
 
@@ -895,7 +842,6 @@
             </div>
           </article>
 
-          <!-- customs gets the special class -->
           <article class="glass svc customs" data-aos="fade-up" data-aos-delay="80">
             <div class="media"><img src="./assets/customs.jpg" alt="Customs clearance Dubai"></div>
             <div class="content">
@@ -972,7 +918,7 @@
             <p class="sub" data-i18n="dlD">Add your PDF templates later (no broken links today).</p>
 
             <div class="download">
-              <a href="#" onclick="alert('Upload PDF later: Shipper\'s Letter of Instruction'); return false;">
+              <a href="#" onclick="alert('Upload PDF later: Shipper\\'s Letter of Instruction'); return false;">
                 <span><strong data-i18n="dl1">Shipper's Letter of Instruction</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
                 <span class="btn">Download</span>
               </a>
@@ -994,7 +940,7 @@
       </div>
     </section>
 
-    <!-- QUOTE WIZARD -->
+    <!-- QUOTE -->
     <section id="quote">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
@@ -1296,7 +1242,7 @@
       document.getElementById("summaryBox").innerHTML =
         "<b>Contact</b><br>Name: " + escapeHtml(name) + "<br>Email: " + escapeHtml(email) + "<br>Phone: " + escapeHtml(phone) + "<br><br>" +
         "<b>Shipment</b><br>Mode: " + escapeHtml(mode) + "<br>Incoterm: " + escapeHtml(inc) + "<br>From: " + escapeHtml(from) + "<br>To: " + escapeHtml(to) + "<br><br>" +
-        "<b>Details</b><br>" + escapeHtml(details).replace(/\n/g,"<br>");
+        "<b>Details</b><br>" + escapeHtml(details).replace(/\\n/g,"<br>");
     }
 
     document.getElementById("next1").addEventListener("click", () => {
@@ -1321,23 +1267,22 @@
 
       const subject = encodeURIComponent("Quote Request — " + mode + " | " + (from || "Origin") + " → " + (to || "Destination"));
       const body = encodeURIComponent(
-        "New Style Logistics — Quote Request\n\n" +
-        "CONTACT\nName: " + name + "\nEmail: " + email + "\nPhone/WhatsApp: " + (phone || "-") + "\n\n" +
-        "SHIPMENT\nMode: " + mode + "\nIncoterm: " + (inc || "-") + "\nFrom: " + (from || "-") + "\nTo: " + (to || "-") + "\n\n" +
-        "DETAILS\n" + (details || "-") + "\n"
+        "New Style Logistics — Quote Request\\n\\n" +
+        "CONTACT\\nName: " + name + "\\nEmail: " + email + "\\nPhone/WhatsApp: " + (phone || "-") + "\\n\\n" +
+        "SHIPMENT\\nMode: " + mode + "\\nIncoterm: " + (inc || "-") + "\\nFrom: " + (from || "-") + "\\nTo: " + (to || "-") + "\\n\\n" +
+        "DETAILS\\n" + (details || "-") + "\\n"
       );
 
       window.location.href = "mailto:alwahti@newstylelogistics.com?subject=" + subject + "&body=" + body;
     });
 
-    // Simple chart drawing (no external libs)
+    // Charts
     function drawLineChart(canvasId, values){
       const c = document.getElementById(canvasId);
       const ctx = c.getContext("2d");
       const w = c.width, h = c.height;
       ctx.clearRect(0,0,w,h);
 
-      // grid
       ctx.globalAlpha = 0.22;
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 1;
@@ -1355,7 +1300,6 @@
       function px(i){ return pad + ( (w - pad*2) * (i/(values.length-1)) ); }
       function py(v){ return (h - pad) - ((h - pad*2) * ((v - minV)/span)); }
 
-      // glow stroke
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
 
@@ -1371,7 +1315,6 @@
       values.forEach((v,i)=>{ if(i===0) ctx.moveTo(px(i),py(v)); else ctx.lineTo(px(i),py(v)); });
       ctx.stroke();
 
-      // points
       values.forEach((v,i)=>{
         ctx.fillStyle = "rgba(255,255,255,.9)";
         ctx.beginPath(); ctx.arc(px(i), py(v), 3.2, 0, Math.PI*2); ctx.fill();
@@ -1384,7 +1327,6 @@
       const w = c.width, h = c.height;
       ctx.clearRect(0,0,w,h);
 
-      // grid
       ctx.globalAlpha = 0.22;
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 1;
@@ -1404,27 +1346,16 @@
         const barH = (h - pad*2) * (v/maxV);
         const y = (h - pad) - barH;
 
-        // glow
         ctx.fillStyle = "rgba(51,214,255,.18)";
         ctx.fillRect(x-2, y-2, bw+4, barH+4);
 
-        // bar
         const grad = ctx.createLinearGradient(0,y,0,y+barH);
         grad.addColorStop(0, "rgba(51,214,255,.60)");
         grad.addColorStop(1, "rgba(46,112,255,.55)");
         ctx.fillStyle = grad;
         ctx.fillRect(x, y, bw, barH);
-
-        // top highlight
-        ctx.strokeStyle = "rgba(255,255,255,.55)";
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x+bw, y);
-        ctx.stroke();
       });
 
-      // labels
       ctx.fillStyle = "rgba(238,243,255,.75)";
       ctx.font = "bold 12px Inter, system-ui";
       const labels = ["Air","Sea","Land"];
@@ -1435,135 +1366,119 @@
       });
     }
 
-    // Animate charts once
     let chartsDrawn = false;
     function drawCharts(){
       if(chartsDrawn) return;
       chartsDrawn = true;
-
-      const line = [82, 85, 84, 88, 90, 92, 93, 94];
-      const bars = [62, 78, 55];
-
-      drawLineChart("chartLine", line);
-      drawBarChart("chartBars", bars);
+      drawLineChart("chartLine", [82,85,84,88,90,92,93,94]);
+      drawBarChart("chartBars", [62,78,55]);
     }
 
-    // draw when section visible
     const visionSection = document.getElementById("vision");
     const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting) drawCharts();
-      });
+      entries.forEach(e=>{ if(e.isIntersecting) drawCharts(); });
     }, { threshold: 0.25 });
     io.observe(visionSection);
 
-    // Language (EN / AR)
-    const dict = {
-      en: {
-        brand:"New Style Logistics LLC", brandSub:"Dubai, United Arab Emirates",
-        navAbout:"About", navVision:"Vision", navServices:"Services", navTools:"Tools", navQuote:"Quote", navContact:"Contact",
-        ctaQuote:"Get Quote",
-        heroEyebrow:"High-Tech Freight & Logistics",
-        heroTitle:"Dubai logistics with real-time clarity — fast, compliant, and controlled.",
-        heroDesc:"Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — engineered for visibility and speed.",
-        trackBtn:"Track", ctaTalk:"Talk to our expert team", ctaCalc:"Volumetric Weight Calculator", ctaServices:"See services",
-        b1:"UAE & GCC coverage", b2:"Customs-ready compliance", b3:"24/7 quick response",
-        trustTitle:"Partners & Certifications", trustHint:"premium grayscale slider",
-        aboutKicker:"About", aboutTitle:"Boutique Dubai execution. Global-standard operations.",
-        aboutDesc:"We deliver freight and clearance services with a compliance-first mindset, clear communication, and time-protected planning.",
-        a1t:"Visibility (single point of contact)", a1d:"Clear updates and fast replies with next-step guidance — built for businesses.",
-        a2t:"Compliance-first processing", a2d:"Customs documentation support to reduce rejections, delays, and unexpected holds.",
-        a3t:"Controlled handling & safety", a3d:"Standard handling practices for safer cargo movement across every mode.",
-        a4t:"Flexible warehousing", a4d:"Storage and dispatch support scaled to your business needs.",
-        visionK:"Vision & Growth", visionT:"Data-driven planning for faster deliveries", visionD:"Interactive visuals (built-in) that communicate modern operations and efficiency.",
-        c1t:"On-time performance trend", c1s:"illustrative", c2t:"Mode mix (Air / Sea / Land)", c2s:"illustrative",
-        svcK:"Services", svcT:"End-to-end freight & clearance services", svcD:"Built with premium UI, hover interactions, and perfect image scaling on mobile and desktop.",
-        sAirT:"Air Freight", sAirD:"Priority movement for urgent, time-sensitive shipments with strong documentation support.",
-        sSeaT:"Sea Freight (FCL / LCL)", sSeaD:"Cost-efficient container and consolidation options with reliable planning.",
-        sLandT:"Land Transport", sLandD:"Reliable delivery across UAE and GCC routes with scheduled control.",
-        sCusT:"Customs Clearance", sCusD:"Compliance-focused clearance support to minimize delays and protect timelines.",
-        sCargoT:"Cargo Handling", sCargoD:"Safe loading, unloading, and movement aligned with handling standards.",
-        sWhT:"Warehousing", sWhD:"Organized storage, inventory handling, and dispatch support.",
-        toolsK:"Shipping Tools", toolsT:"Utility center (calculator + documents)", toolsD:"Premium utilities that make the website feel like a global leader platform.",
-        calcT:"Volumetric Weight Calculator", calcD:"Formula: (L × W × H) / 5000 (cm).",
-        len:"Length (cm)", wid:"Width (cm)", hei:"Height (cm)", calcBtn:"Calculate", resetBtn:"Reset",
-        calcHint:"Enter dimensions to calculate volumetric weight.",
-        dlT:"Download Center", dlD:"Add your PDF templates later (no broken links today).",
-        dl1:"Shipper's Letter of Instruction", dl2:"Commercial Invoice Template", dl3:"Packing List Template", pdfTemp:"PDF template",
-        qK:"Smart Quote", qT:"Request a Quote (3-step)", qD:"Works on GitHub Pages: opens a ready email draft automatically.",
-        st1:"1) Contact", st2:"2) Shipment", st3:"3) Confirm",
-        name:"Your Name", email:"Email Address", phone:"Phone / WhatsApp (optional)",
-        next:"Next", back:"Back",
-        mode:"Mode", incoterm:"Incoterm (optional)", from:"From (City/Country)", to:"To (City/Country)", details:"Cargo details",
-        confirmT:"Confirm & Submit", confirmD:"We’ll open a ready email draft to alwahti@newstylelogistics.com.",
-        submit:"Submit",
-        qHint:"For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode.",
-        fastK:"Fast response", fastT:"Talk to our expert team", fastD:"Prefer WhatsApp or call? Use quick actions — we respond fast.",
-        contactK:"Contact", contactT:"Get In Touch · 24×7", contactD:"We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.",
-        quickT:"Quick actions",
-        addrK:"Address", addrT:"Company Address & Map",
-        officeAddr:"Office Address",
-        addrLine:"Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE",
-        openMaps:"Open in Google Maps",
-        hoursK:"Hours", hoursT:"Working Hours",
-        monfri:"Monday to Friday", sat:"Saturday", sun:"Sunday", closed:"Closed",
-        hoursHint:"For urgent shipments, contact us via WhatsApp anytime and our team will guide you quickly.",
-        footerSub:"Freight · Logistics · Customs · Warehousing",
-        rights:"All Rights Reserved."
-      },
-      ar: {
-        brand:"نيو ستايل لوجستكس ذ.م.م", brandSub:"دبي، الإمارات العربية المتحدة",
-        navAbout:"من نحن", navVision:"الرؤية", navServices:"الخدمات", navTools:"الأدوات", navQuote:"عرض سعر", navContact:"تواصل",
-        ctaQuote:"اطلب عرض",
-        heroEyebrow:"شحن ولوجستيات بتقنية عالية",
-        heroTitle:"لوجستيات دبي بوضوح لحظي — سرعة، التزام، وتحكم.",
-        heroDesc:"شحن جوي، بحري (FCL/LCL)، بري، تخليص جمركي، مناولة، وتخزين — مصمم للوضوح والسرعة.",
-        trackBtn:"تتبع", ctaTalk:"تواصل مع فريق الخبراء", ctaCalc:"حاسبة الوزن الحجمي", ctaServices:"عرض الخدمات",
-        b1:"تغطية الإمارات والخليج", b2:"جاهزية جمركية", b3:"رد سريع 24/7",
-        trustTitle:"شركاء وشهادات", trustHint:"شريط احترافي بالأبيض والأسود",
-        aboutKicker:"من نحن", aboutTitle:"تنفيذ دبي بطابع راقٍ. معايير عالمية.",
-        aboutDesc:"نقدم خدمات شحن وتخليص بمنهجية التزام عالية وتواصل واضح وخطط تحمي الوقت.",
-        a1t:"وضوح (نقطة اتصال واحدة)", a1d:"تحديثات واضحة ورد سريع بخطوات محددة للأعمال.",
-        a2t:"إجراءات التزام أولاً", a2d:"دعم الوثائق الجمركية لتقليل الرفض والتأخير.",
-        a3t:"مناولة آمنة وتحكم", a3d:"معايير مناولة لحركة أكثر أمانًا عبر كل وسيلة.",
-        a4t:"تخزين مرن", a4d:"تخزين ودعم توزيع قابل للتوسع حسب احتياجك.",
-        visionK:"الرؤية والنمو", visionT:"تخطيط يعتمد على البيانات لتسليم أسرع", visionD:"رسوم تفاعلية تعكس عمليات حديثة وكفاءة.",
-        c1t:"اتجاه الالتزام بالوقت", c1s:"تمثيلي", c2t:"مزيج الوسائل (جوي/بحري/بري)", c2s:"تمثيلي",
-        svcK:"الخدمات", svcT:"خدمات شحن وتخليص شاملة", svcD:"واجهة فخمة وتفاعل عند المرور وصور مضبوطة للموبايل والكمبيوتر.",
-        sAirT:"الشحن الجوي", sAirD:"أولوية للشحنات العاجلة مع دعم وثائق قوي.",
-        sSeaT:"الشحن البحري (FCL / LCL)", sSeaD:"خيارات اقتصادية للحاويات والتجميع مع تخطيط موثوق.",
-        sLandT:"النقل البري", sLandD:"تسليم موثوق داخل الإمارات والخليج بجدولة وتحكم.",
-        sCusT:"التخليص الجمركي", sCusD:"دعم تخليص يركز على الالتزام لتقليل التأخير.",
-        sCargoT:"مناولة البضائع", sCargoD:"تحميل وتفريغ وحركة آمنة وفق معايير مناولة.",
-        sWhT:"التخزين", sWhD:"تخزين وإدارة مخزون ودعم توزيع.",
-        toolsK:"أدوات الشحن", toolsT:"مركز أدوات (حاسبة + مستندات)", toolsD:"أدوات تجعل الموقع يبدو كمنصة عالمية.",
-        calcT:"حاسبة الوزن الحجمي", calcD:"المعادلة: (الطول × العرض × الارتفاع) / 5000 (سم).",
-        len:"الطول (سم)", wid:"العرض (سم)", hei:"الارتفاع (سم)", calcBtn:"احسب", resetBtn:"إعادة",
-        calcHint:"أدخل الأبعاد لحساب الوزن الحجمي.",
-        dlT:"مركز التنزيل", dlD:"أضف ملفات PDF لاحقًا (بدون روابط مكسورة اليوم).",
-        dl1:"خطاب تعليمات الشاحن", dl2:"نموذج فاتورة تجارية", dl3:"نموذج قائمة تعبئة", pdfTemp:"نموذج PDF",
-        qK:"عرض ذكي", qT:"طلب عرض سعر (3 خطوات)", qD:"يعمل على GitHub Pages — يفتح مسودة بريد جاهزة.",
-        st1:"1) البيانات", st2:"2) الشحنة", st3:"3) تأكيد",
-        name:"الاسم", email:"البريد الإلكتروني", phone:"الهاتف/واتساب (اختياري)",
-        next:"التالي", back:"رجوع",
-        mode:"النوع", incoterm:"إنكوترمز (اختياري)", from:"من (مدينة/دولة)", to:"إلى (مدينة/دولة)", details:"تفاصيل الشحنة",
-        confirmT:"تأكيد وإرسال", confirmD:"سنفتح مسودة بريد إلى alwahti@newstylelogistics.com.",
-        submit:"إرسال",
-        qHint:"لأسرع رد: اكتب موقع الاستلام والوجهة ونوع البضاعة والوزن/الأبعاد والوسيلة المفضلة.",
-        fastK:"رد سريع", fastT:"تواصل مع فريق الخبراء", fastD:"واتساب أو اتصال؟ استخدم الأزرار السريعة — نرد بسرعة.",
-        contactK:"تواصل", contactT:"تواصل معنا · 24×7", contactD:"نرد بسرعة عبر واتساب أو اتصال أو بريد. شارك تفاصيل الشحنة وسنساعدك فورًا.",
-        quickT:"إجراءات سريعة",
-        addrK:"العنوان", addrT:"عنوان الشركة والخريطة",
-        officeAddr:"عنوان المكتب",
-        addrLine:"مكتب رقم 2، مبنى ثامبي كلينك، قرب مرحبا مول، رأس الخور، دبي، الإمارات",
-        openMaps:"افتح في خرائط Google",
-        hoursK:"ساعات العمل", hoursT:"ساعات العمل",
-        monfri:"الإثنين إلى الجمعة", sat:"السبت", sun:"الأحد", closed:"مغلق",
-        hoursHint:"للشحنات العاجلة، تواصل عبر واتساب في أي وقت وسنرشدك بسرعة.",
-        footerSub:"شحن · لوجستيات · جمارك · تخزين",
-        rights:"جميع الحقوق محفوظة."
-      }
-    };
+    // Language
+    const dict = (function(){
+      return {
+        en: { brand:"New Style Logistics LLC", brandSub:"Dubai, United Arab Emirates",
+          navAbout:"About", navVision:"Vision", navServices:"Services", navTools:"Tools", navQuote:"Quote", navContact:"Contact",
+          ctaQuote:"Get Quote",
+          heroEyebrow:"High-Tech Freight & Logistics",
+          heroTitle:"Dubai logistics with real-time clarity — fast, compliant, and controlled.",
+          heroDesc:"Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — engineered for visibility and speed.",
+          trackBtn:"Track", ctaTalk:"Talk to our expert team", ctaCalc:"Volumetric Weight Calculator", ctaServices:"See services",
+          b1:"UAE & GCC coverage", b2:"Customs-ready compliance", b3:"24/7 quick response",
+          trustTitle:"Partners & Certifications", trustHint:"premium grayscale slider",
+          aboutKicker:"About", aboutTitle:"Boutique Dubai execution. Global-standard operations.",
+          aboutDesc:"We deliver freight and clearance services with a compliance-first mindset, clear communication, and time-protected planning.",
+          a1t:"Visibility (single point of contact)", a1d:"Clear updates and fast replies with next-step guidance — built for businesses.",
+          a2t:"Compliance-first processing", a2d:"Customs documentation support to reduce rejections, delays, and unexpected holds.",
+          a3t:"Controlled handling & safety", a3d:"Standard handling practices for safer cargo movement across every mode.",
+          a4t:"Flexible warehousing", a4d:"Storage and dispatch support scaled to your business needs.",
+          visionK:"Vision & Growth", visionT:"Data-driven planning for faster deliveries", visionD:"Interactive visuals (built-in) that communicate modern operations and efficiency.",
+          c1t:"On-time performance trend", c1s:"illustrative", c2t:"Mode mix (Air / Sea / Land)", c2s:"illustrative",
+          svcK:"Services", svcT:"End-to-end freight & clearance services", svcD:"Perfect image scaling on mobile and premium crop on desktop.",
+          sAirT:"Air Freight", sAirD:"Priority movement for urgent, time-sensitive shipments with strong documentation support.",
+          sSeaT:"Sea Freight (FCL / LCL)", sSeaD:"Cost-efficient container and consolidation options with reliable planning.",
+          sLandT:"Land Transport", sLandD:"Reliable delivery across UAE and GCC routes with scheduled control.",
+          sCusT:"Customs Clearance", sCusD:"Compliance-focused clearance support to minimize delays and protect timelines.",
+          sCargoT:"Cargo Handling", sCargoD:"Safe loading, unloading, and movement aligned with handling standards.",
+          sWhT:"Warehousing", sWhD:"Organized storage, inventory handling, and dispatch support.",
+          toolsK:"Shipping Tools", toolsT:"Utility center (calculator + documents)", toolsD:"Premium utilities that make the website feel like a global leader platform.",
+          calcT:"Volumetric Weight Calculator", calcD:"Formula: (L × W × H) / 5000 (cm).",
+          len:"Length (cm)", wid:"Width (cm)", hei:"Height (cm)", calcBtn:"Calculate", resetBtn:"Reset",
+          calcHint:"Enter dimensions to calculate volumetric weight.",
+          dlT:"Download Center", dlD:"Add your PDF templates later (no broken links today).",
+          dl1:"Shipper's Letter of Instruction", dl2:"Commercial Invoice Template", dl3:"Packing List Template", pdfTemp:"PDF template",
+          qK:"Smart Quote", qT:"Request a Quote (3-step)", qD:"Works on GitHub Pages: opens a ready email draft automatically.",
+          st1:"1) Contact", st2:"2) Shipment", st3:"3) Confirm",
+          name:"Your Name", email:"Email Address", phone:"Phone / WhatsApp (optional)",
+          next:"Next", back:"Back", mode:"Mode", incoterm:"Incoterm (optional)", from:"From (City/Country)", to:"To (City/Country)", details:"Cargo details",
+          confirmT:"Confirm & Submit", confirmD:"We’ll open a ready email draft to alwahti@newstylelogistics.com.",
+          submit:"Submit", qHint:"For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode.",
+          fastK:"Fast response", fastT:"Talk to our expert team", fastD:"Prefer WhatsApp or call? Use quick actions — we respond fast.",
+          contactK:"Contact", contactT:"Get In Touch · 24×7", contactD:"We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.",
+          quickT:"Quick actions", addrK:"Address", addrT:"Company Address & Map", officeAddr:"Office Address",
+          addrLine:"Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE",
+          openMaps:"Open in Google Maps",
+          hoursK:"Hours", hoursT:"Working Hours",
+          monfri:"Monday to Friday", sat:"Saturday", sun:"Sunday", closed:"Closed",
+          hoursHint:"For urgent shipments, contact us via WhatsApp anytime and our team will guide you quickly.",
+          footerSub:"Freight · Logistics · Customs · Warehousing",
+          rights:"All Rights Reserved."
+        },
+        ar: { brand:"نيو ستايل لوجستكس ذ.م.م", brandSub:"دبي، الإمارات العربية المتحدة",
+          navAbout:"من نحن", navVision:"الرؤية", navServices:"الخدمات", navTools:"الأدوات", navQuote:"عرض سعر", navContact:"تواصل",
+          ctaQuote:"اطلب عرض",
+          heroEyebrow:"شحن ولوجستيات بتقنية عالية",
+          heroTitle:"لوجستيات دبي بوضوح لحظي — سرعة، التزام، وتحكم.",
+          heroDesc:"شحن جوي، بحري (FCL/LCL)، بري، تخليص جمركي، مناولة، وتخزين — مصمم للوضوح والسرعة.",
+          trackBtn:"تتبع", ctaTalk:"تواصل مع فريق الخبراء", ctaCalc:"حاسبة الوزن الحجمي", ctaServices:"عرض الخدمات",
+          b1:"تغطية الإمارات والخليج", b2:"جاهزية جمركية", b3:"رد سريع 24/7",
+          trustTitle:"شركاء وشهادات", trustHint:"شريط احترافي بالأبيض والأسود",
+          aboutKicker:"من نحن", aboutTitle:"تنفيذ دبي بطابع راقٍ. معايير عالمية.",
+          aboutDesc:"نقدم خدمات شحن وتخليص بمنهجية التزام عالية وتواصل واضح وخطط تحمي الوقت.",
+          a1t:"وضوح (نقطة اتصال واحدة)", a1d:"تحديثات واضحة ورد سريع بخطوات محددة للأعمال.",
+          a2t:"إجراءات التزام أولاً", a2d:"دعم الوثائق الجمركية لتقليل الرفض والتأخير.",
+          a3t:"مناولة آمنة وتحكم", a3d:"معايير مناولة لحركة أكثر أمانًا عبر كل وسيلة.",
+          a4t:"تخزين مرن", a4d:"تخزين ودعم توزيع قابل للتوسع حسب احتياجك.",
+          visionK:"الرؤية والنمو", visionT:"تخطيط يعتمد على البيانات لتسليم أسرع", visionD:"رسوم تفاعلية تعكس عمليات حديثة وكفاءة.",
+          c1t:"اتجاه الالتزام بالوقت", c1s:"تمثيلي", c2t:"مزيج الوسائل (جوي/بحري/بري)", c2s:"تمثيلي",
+          svcK:"الخدمات", svcT:"خدمات شحن وتخليص شاملة", svcD:"تناسق الصور على الهاتف وقص احترافي على الكمبيوتر.",
+          sAirT:"الشحن الجوي", sAirD:"أولوية للشحنات العاجلة مع دعم وثائق قوي.",
+          sSeaT:"الشحن البحري (FCL / LCL)", sSeaD:"خيارات اقتصادية للحاويات والتجميع مع تخطيط موثوق.",
+          sLandT:"النقل البري", sLandD:"تسليم موثوق داخل الإمارات والخليج بجدولة وتحكم.",
+          sCusT:"التخليص الجمركي", sCusD:"دعم تخليص يركز على الالتزام لتقليل التأخير.",
+          sCargoT:"مناولة البضائع", sCargoD:"تحميل وتفريغ وحركة آمنة وفق معايير مناولة.",
+          sWhT:"التخزين", sWhD:"تخزين وإدارة مخزون ودعم توزيع.",
+          toolsK:"أدوات الشحن", toolsT:"مركز أدوات (حاسبة + مستندات)", toolsD:"أدوات تجعل الموقع يبدو كمنصة عالمية.",
+          calcT:"حاسبة الوزن الحجمي", calcD:"المعادلة: (الطول × العرض × الارتفاع) / 5000 (سم).",
+          len:"الطول (سم)", wid:"العرض (سم)", hei:"الارتفاع (سم)", calcBtn:"احسب", resetBtn:"إعادة",
+          calcHint:"أدخل الأبعاد لحساب الوزن الحجمي.",
+          dlT:"مركز التنزيل", dlD:"أضف ملفات PDF لاحقًا (بدون روابط مكسورة اليوم).",
+          dl1:"خطاب تعليمات الشاحن", dl2:"نموذج فاتورة تجارية", dl3:"نموذج قائمة تعبئة", pdfTemp:"نموذج PDF",
+          qK:"عرض ذكي", qT:"طلب عرض سعر (3 خطوات)", qD:"يعمل على GitHub Pages — يفتح مسودة بريد جاهزة.",
+          st1:"1) البيانات", st2:"2) الشحنة", st3:"3) تأكيد",
+          name:"الاسم", email:"البريد الإلكتروني", phone:"الهاتف/واتساب (اختياري)",
+          next:"التالي", back:"رجوع", mode:"النوع", incoterm:"إنكوترمز (اختياري)", from:"من (مدينة/دولة)", to:"إلى (مدينة/دولة)", details:"تفاصيل الشحنة",
+          confirmT:"تأكيد وإرسال", confirmD:"سنفتح مسودة بريد إلى alwahti@newstylelogistics.com.",
+          submit:"إرسال", qHint:"لأسرع رد: اكتب موقع الاستلام والوجهة ونوع البضاعة والوزن/الأبعاد والوسيلة المفضلة.",
+          fastK:"رد سريع", fastT:"تواصل مع فريق الخبراء", fastD:"واتساب أو اتصال؟ استخدم الأزرار السريعة — نرد بسرعة.",
+          contactK:"تواصل", contactT:"تواصل معنا · 24×7", contactD:"نرد بسرعة عبر واتساب أو اتصال أو بريد. شارك تفاصيل الشحنة وسنساعدك فورًا.",
+          quickT:"إجراءات سريعة", addrK:"العنوان", addrT:"عنوان الشركة والخريطة", officeAddr:"عنوان المكتب",
+          addrLine:"مكتب رقم 2، مبنى ثامبي كلينك، قرب مرحبا مول، رأس الخور، دبي، الإمارات",
+          openMaps:"افتح في خرائط Google",
+          hoursK:"ساعات العمل", hoursT:"ساعات العمل",
+          monfri:"الإثنين إلى الجمعة", sat:"السبت", sun:"الأحد", closed:"مغلق",
+          hoursHint:"للشحنات العاجلة، تواصل عبر واتساب في أي وقت وسنرشدك بسرعة.",
+          footerSub:"شحن · لوجستيات · جمارك · تخزين",
+          rights:"جميع الحقوق محفوظة."
+        }
+      };
+    })();
 
     function applyLang(lang){
       const isAr = lang === "ar";
@@ -1580,6 +1495,8 @@
     }
     document.getElementById("btnEn").addEventListener("click", ()=>applyLang("en"));
     document.getElementById("btnAr").addEventListener("click", ()=>applyLang("ar"));
+
+    // RTL float position handled in CSS
   </script>
 </body>
 </html>
