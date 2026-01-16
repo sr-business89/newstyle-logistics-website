@@ -3,1332 +3,230 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <title>New Style Logistics LLC | Dubai Freight Forwarding, Customs Clearance & Warehousing</title>
-  <meta name="description" content="New Style Logistics LLC offers premium freight forwarding in Dubai — air, sea (FCL/LCL), land transport, customs clearance, cargo handling, and warehousing with speed, compliance and visibility." />
-  <meta name="keywords" content="Dubai freight forwarding, logistics Dubai, customs clearance Dubai, air freight Dubai, sea freight FCL LCL, land transport UAE, warehousing Dubai, cargo handling Dubai, GCC logistics" />
-  <meta name="theme-color" content="#0b1220" />
-
-  <meta property="og:title" content="New Style Logistics LLC | Dubai Freight Forwarding" />
-  <meta property="og:description" content="Reliable logistics in Dubai — built for speed, compliance & visibility." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/hero.jpg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="New Style Logistics LLC | Dubai Freight Forwarding" />
-  <meta name="twitter:description" content="Premium freight & logistics services in Dubai and across UAE/GCC." />
-  <meta name="twitter:image" content="assets/hero.jpg" />
-
+  <title>New Style Logistics LLC | Dubai Freight Forwarding</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
   <style>
     :root{
-      --bg0:#060b14;
-      --bg1:#0b1220;
-      --card:#ffffff;
-      --card2: rgba(255,255,255,.78);
-      --ink:#0b1220;
-      --muted:#5c6678;
-      --border: rgba(15, 23, 42, .12);
+      --bg0:#060b14; --bg1:#0b1220; --card:#ffffff; --ink:#0b1220;
+      --muted:#5c6678; --border: rgba(15, 23, 42, .12);
+      --brand:#0b3a7a; --gold:#c9a24a;
+      --radius2: 28px; --max: 1180px;
       --shadow: 0 24px 70px rgba(2,6,23,.18);
-      --shadow2: 0 16px 40px rgba(2,6,23,.12);
-
-      --brand:#0b3a7a;
-      --brand2:#0a2d5f;
-      --gold:#c9a24a;
-      --gold2:#e2c77d;
-
-      --radius: 20px;
-      --radius2: 28px;
-      --max: 1180px;
-
-      --glass: rgba(255,255,255,.60);
-      --glass-border: rgba(255,255,255,.55);
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(900px 600px at 80% -20%, rgba(201,162,74,.22), transparent 60%),
-        radial-gradient(900px 600px at 0% 20%, rgba(11,58,122,.16), transparent 55%),
-        linear-gradient(180deg, #f7f9fe 0%, #eef3fb 48%, #f8fbff 100%);
+      margin:0; font-family:Inter, sans-serif; color:var(--ink);
+      background: linear-gradient(180deg, #f7f9fe 0%, #eef3fb 100%);
       overflow-x:hidden;
     }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    a{text-decoration:none; color:inherit}
+    img{max-width:100%; height:auto; display:block; object-fit: cover;}
 
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .spacer{height:22px}
-    .section{padding:54px 0}
-    .kicker{
-      display:inline-flex;gap:10px;align-items:center;
-      font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-      font-size:12px;color:rgba(11,58,122,.9)
-    }
-    .kicker .dot{width:7px;height:7px;border-radius:999px;background:var(--gold)}
-    h1,h2,h3{margin:0 0 10px 0;line-height:1.12}
-    p{margin:0;color:var(--muted);line-height:1.7}
-    .muted{color:var(--muted)}
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.75);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-size:12px;font-weight:600;color:rgba(11,18,32,.88);
-      box-shadow: 0 10px 30px rgba(2,6,23,.06);
-    }
-
+    /* Navigation */
     .nav-wrap{
-      position:sticky;top:0;z-index:50;
-      background:rgba(248,251,255,.78);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom:1px solid rgba(15,23,42,.08);
+      position:sticky; top:0; z-index:100;
+      background:rgba(255,255,255,.8); backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
     }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:14px;padding:12px 0;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;min-width:200px;
-    }
-    .brand img{
-      width:36px;height:36px;border-radius:10px;
-      border:1px solid rgba(15,23,42,.10);
-      object-fit:cover;
-      box-shadow: 0 12px 28px rgba(2,6,23,.14);
-    }
-    .brand .name{font-weight:800;letter-spacing:.02em}
-    .brand .sub{font-size:12px;color:var(--muted);margin-top:2px}
-    .navlinks{display:flex;gap:18px;align-items:center}
-    .navlinks a{
-      font-size:13px;font-weight:700;color:rgba(11,18,32,.82);
-      padding:10px 10px;border-radius:12px;
-      transition: transform .15s ease, background .2s ease, color .2s ease;
-    }
-    .navlinks a:hover{background:rgba(11,58,122,.08);color:rgba(11,58,122,1);transform: translateY(-1px)}
-    .nav-actions{display:flex;gap:10px;align-items:center}
-    .lang{
-      display:flex;gap:8px;align-items:center;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.8);
-      border-radius:999px;padding:6px;
-      box-shadow: 0 12px 28px rgba(2,6,23,.08);
-    }
-    .lang button{
-      border:0;background:transparent;cursor:pointer;
-      padding:8px 12px;border-radius:999px;
-      font-weight:800;font-size:12px;color:rgba(11,18,32,.75);
-      transition: background .2s ease, color .2s ease;
-    }
-    .lang button.active{
-      background:rgba(11,58,122,.10);
-      color:rgba(11,58,122,1);
-    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:40px; height:40px; border-radius:8px}
+    .navlinks{display:flex; gap:20px}
+    .navlinks a{font-size:14px; font-weight:600}
 
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:14px;
-      font-weight:800;font-size:13px;cursor:pointer;border:1px solid transparent;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:active{transform: translateY(1px)}
-    .btn-primary{
-      background:linear-gradient(180deg, rgba(201,162,74,1) 0%, rgba(180,140,56,1) 100%);
-      color:#1a1a1a;
-      box-shadow: 0 16px 42px rgba(201,162,74,.30);
-      border-color: rgba(201,162,74,.55);
-    }
-    .btn-primary:hover{box-shadow: 0 22px 60px rgba(201,162,74,.36);transform: translateY(-1px)}
-    .btn-ghost{
-      background:rgba(255,255,255,.85);
-      border-color: rgba(15,23,42,.12);
-      color:rgba(11,18,32,.90);
-      box-shadow: 0 12px 28px rgba(2,6,23,.08);
-    }
-    .btn-ghost:hover{transform: translateY(-1px);box-shadow: 0 18px 46px rgba(2,6,23,.10)}
-    .btn-soft{
-      background:rgba(11,58,122,.08);
-      border-color: rgba(11,58,122,.16);
-      color: rgba(11,58,122,1);
-    }
-    .btn-soft:hover{background:rgba(11,58,122,.11);transform: translateY(-1px)}
-
-    .hamburger{
-      display:none;
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid rgba(15,23,42,.12);
-      background:rgba(255,255,255,.85);
-      box-shadow: 0 12px 28px rgba(2,6,23,.08);
-      cursor:pointer;
-    }
-
-    .drawer{
-      display:none;
-      position:fixed;inset:0;z-index:70;
-      background:rgba(6,11,20,.42);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      padding:18px;
-    }
-    .drawer-card{
-      max-width:520px;margin:60px auto 0 auto;
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:22px;
-      box-shadow: 0 40px 100px rgba(2,6,23,.22);
-      padding:14px;
-    }
-    .drawer-card a{display:block;padding:12px 12px;border-radius:14px;font-weight:800;color:rgba(11,18,32,.85)}
-    .drawer-card a:hover{background:rgba(11,58,122,.08);color:rgba(11,58,122,1)}
-    .drawer-top{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 12px}
-    .drawer-close{width:40px;height:40px;border-radius:14px;border:1px solid rgba(15,23,42,.12);background:#fff;cursor:pointer}
-
-    .hero{padding:26px 0 0}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
-    }
-
+    /* Hero Section */
+    .hero{padding:40px 0}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr 0.8fr; gap:24px}
     .glass{
-      background:var(--glass);
-      border:1px solid var(--glass-border);
-      border-radius:var(--radius2);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.5);
+      backdrop-filter: blur(15px);
+      border-radius: var(--radius2);
+      padding: 30px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
     }
 
-    .hero-card{
-      padding:22px;
-      overflow:hidden;
-      position:relative;
+    /* FIX: Image Sizing for Hero */
+    .hero-media {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 20px;
+      border: 1px solid var(--border);
     }
-    .hero-media{
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid rgba(15,23,42,.10);
-      box-shadow: 0 24px 70px rgba(2,6,23,.18);
-      background:#fff;
-    }
-    .hero-media img{
-      width:100%;
-      height:auto;
-      aspect-ratio: 16 / 8;
+    .hero-media img {
+      width: 100%;
+      height: 400px; /* Desktop Height */
       object-fit: cover;
-      object-position: center;
-    }
-    .hero-copy{margin-top:16px}
-    .hero-title{
-      font-size:44px;
-      letter-spacing:-.02em;
-      color:#07101f;
-    }
-    .hero-desc{max-width:72ch;margin-top:10px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-    .trust-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-
-    .trackbar{
-      margin-top:14px;
-      display:flex;gap:10px;align-items:center;
-      padding:10px;
-      border-radius:18px;
-      border:1px solid rgba(15,23,42,.12);
-      background:rgba(255,255,255,.85);
-      box-shadow: 0 14px 34px rgba(2,6,23,.10);
-    }
-    .trackbar .icon{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
-      background:rgba(11,58,122,.08);
-      border:1px solid rgba(11,58,122,.14);
-      flex:0 0 auto;
-    }
-    .trackbar input{
-      width:100%;
-      border:0;outline:0;background:transparent;
-      font-weight:700;color:rgba(11,18,32,.90);
-      font-size:14px;
-    }
-    .trackbar input::placeholder{color:rgba(92,102,120,.85);font-weight:600}
-    .trackbar .btn{padding:11px 14px;border-radius:14px}
-
-    .hero-side{
-      padding:18px;
-      display:flex;flex-direction:column;gap:14px;
-      overflow:hidden;
     }
 
-    .mini-card{
-      background:rgba(255,255,255,.88);
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:18px;
-      padding:14px;
-      box-shadow: 0 14px 34px rgba(2,6,23,.10);
-    }
-    .mini-card h3{font-size:14px;margin:0 0 6px 0}
-    .mini-card p{font-size:13px}
-
-    .partner{
-      overflow:hidden;
-      padding:14px;
-    }
-    .partner h3{margin:0 0 10px 0;font-size:14px}
-    .marquee{
-      display:flex;gap:12px;align-items:center;
-      width:100%;
-      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    }
-    .marquee-track{
-      display:flex;gap:12px;align-items:center;
-      animation: scroll 16s linear infinite;
-    }
-    .logo-chip{
-      flex:0 0 auto;
-      padding:10px 14px;border-radius:999px;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.90);
-      font-weight:900;font-size:12px;letter-spacing:.08em;
-      color:rgba(11,18,32,.55);
-      filter: grayscale(1);
-    }
-    @keyframes scroll{
-      from{transform: translateX(0)}
-      to{transform: translateX(-50%)}
-    }
-
-    .section-head{
-      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
-      margin-bottom:18px;
-    }
-    .section-head h2{
-      font-size:30px;letter-spacing:-.02em;color:#07101f;
-    }
-    .section-head .hint{max-width:58ch}
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .card{
-      background:rgba(255,255,255,.90);
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:var(--radius2);
-      box-shadow: var(--shadow2);
-      padding:18px;
-      overflow:hidden;
-    }
-    .about-points{
-      display:grid;gap:12px;margin-top:12px;
-    }
-    .point{
-      display:flex;gap:12px;align-items:flex-start;
-      padding:12px;border-radius:18px;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.78);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .point .ic{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
-      background:rgba(201,162,74,.14);
-      border:1px solid rgba(201,162,74,.24);
-      flex:0 0 auto;
-    }
-    .point h3{margin:0 0 4px 0;font-size:14px}
-    .point p{font-size:13px}
-
-    .grid{
-      display:grid;
+    /* FIX: Service Cards Image Uniformity */
+    .grid {
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:16px;
+      gap: 20px;
+      margin-top: 30px;
     }
-    .svc{
-      padding:0;
-      overflow:hidden;
-      position:relative;
+    .svc .media {
+      width: 100%;
+      aspect-ratio: 16 / 10; /* Keeps all service images same size */
+      overflow: hidden;
+      background: #eee;
     }
-    .svc .media{
-      position:relative;
-      border-radius: 22px 22px 18px 18px;
-      overflow:hidden;
-      border-bottom:1px solid rgba(15,23,42,.10);
-      background:#fff;
+    .svc .media img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
     }
-    .svc .media img{
-      width:100%;
-      height:auto;
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      object-position:center;
-      display:block;
-      transform: scale(1.01);
-    }
-    .svc.customs .media img{object-position: center top;}
+    .svc:hover .media img { transform: scale(1.05); }
 
-    .svc .body{padding:14px 16px 16px}
-    .svc h3{font-size:16px;margin:0 0 6px 0}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .tag{
-      font-size:11px;font-weight:800;color:rgba(11,18,32,.70);
-      padding:7px 10px;border-radius:999px;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.75);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    .card {
+      background: white;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
-    .why-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:16px;
-      align-items:stretch;
+    /* Buttons */
+    .btn {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
     }
-    .why-list{display:grid;gap:10px;margin-top:10px}
-    .why-item{
-      padding:12px 12px;
-      border-radius:18px;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.80);
-      box-shadow: 0 14px 34px rgba(2,6,23,.08);
-    }
-    .why-item h3{font-size:14px;margin:0 0 4px}
-    .why-item p{font-size:13px}
+    .btn-primary { background: var(--gold); color: white; border: none; }
+    .btn-ghost { border: 1px solid var(--border); background: white; }
 
-    .tools{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    .form-row{display:grid;grid-template-columns: 1fr 1fr;gap:12px}
-    .input{
-      width:100%;
-      border:1px solid rgba(15,23,42,.12);
-      background:rgba(255,255,255,.88);
-      border-radius:14px;
-      padding:12px 12px;
-      outline:none;
-      font-weight:700;
-      color:rgba(11,18,32,.90);
-      transition: box-shadow .2s ease, border-color .2s ease;
-    }
-    .input:focus{border-color: rgba(11,58,122,.35); box-shadow: 0 0 0 6px rgba(11,58,122,.10)}
-    .helper{font-size:12px;color:rgba(92,102,120,.9);margin-top:8px}
-    .result{
-      margin-top:10px;
-      padding:12px;
-      border-radius:14px;
-      border:1px dashed rgba(11,58,122,.22);
-      background:rgba(11,58,122,.06);
-      font-weight:800;
-      color: rgba(11,58,122,1);
-    }
-    .downloads{display:grid;gap:10px;margin-top:10px}
-    .dl{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:12px;border-radius:16px;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.86);
-      transition: transform .15s ease, box-shadow .2s ease;
-    }
-    .dl:hover{transform: translateY(-1px); box-shadow: 0 18px 46px rgba(2,6,23,.10)}
-    .dl .left{display:flex;gap:10px;align-items:center}
-    .dl .badge{
-      width:38px;height:38px;border-radius:14px;
-      display:grid;place-items:center;
-      background:rgba(201,162,74,.14);
-      border:1px solid rgba(201,162,74,.22);
-    }
-    .dl .t{font-weight:900}
-    .dl .s{font-size:12px;color:rgba(92,102,120,.95);margin-top:2px}
-
-    .wizard-steps{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-    .stepchip{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(15,23,42,.12);
-      background:rgba(255,255,255,.82);
-      font-weight:900;font-size:12px;color:rgba(11,18,32,.70);
-    }
-    .stepchip.active{border-color: rgba(201,162,74,.50);background: rgba(201,162,74,.15);color:rgba(70,55,15,.95)}
-    .wizard-panels{margin-top:10px}
-    .panel{display:none}
-    .panel.active{display:block}
-    .textarea{min-height:110px;resize:vertical}
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    .quick-actions{display:grid;gap:10px;margin-top:10px}
-    .qa{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:12px;border-radius:18px;
-      border:1px solid rgba(15,23,42,.10);
-      background:rgba(255,255,255,.86);
-    }
-    .qa .l{display:flex;align-items:center;gap:10px}
-    .qa .ic{
-      width:40px;height:40px;border-radius:14px;
-      display:grid;place-items:center;
-      background:rgba(11,58,122,.08);
-      border:1px solid rgba(11,58,122,.14);
-    }
-    .qa .t{font-weight:900}
-    .qa .v{font-size:12px;color:rgba(92,102,120,.95);margin-top:2px}
-    .map{
-      overflow:hidden;
-      border-radius: 22px;
-      border:1px solid rgba(15,23,42,.10);
-      box-shadow: 0 18px 46px rgba(2,6,23,.10);
-      background:#fff;
-    }
-    .map iframe{
-      width:100%;
-      height:320px;
-      border:0;
-      filter: grayscale(1) invert(0.88) hue-rotate(190deg) contrast(1.1) saturate(1.1);
+    /* Responsive adjustments */
+    @media (max-width: 980px) {
+      .hero-grid, .grid, .split { grid-template-columns: 1fr; }
+      .navlinks { display: none; }
+      .hero-media img { height: 250px; } /* Smaller height for mobile */
     }
 
-    footer{
-      padding:26px 0 36px;
-      border-top: 1px solid rgba(15,23,42,.08);
-      background: rgba(255,255,255,.55);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    /* Map Fix */
+    .map iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 15px;
     }
-    .foot{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap
-    }
-    .foot-left{display:flex;align-items:center;gap:12px}
-    .foot-left img{
-      width:34px;height:34px;border-radius:10px;
-      border:1px solid rgba(15,23,42,.10);object-fit:cover;
-    }
-    .foot-links{display:flex;gap:14px;align-items:center}
-    .foot-links a{font-weight:800;font-size:12px;color:rgba(11,18,32,.75)}
-    .foot-links a:hover{color:rgba(11,58,122,1)}
-
-    .float{
-      position:fixed;right:14px;bottom:14px;z-index:80;
-      display:flex;flex-direction:column;gap:10px;
-    }
-    .fab{
-      display:flex;align-items:center;gap:10px;
-      padding:12px 14px;border-radius:999px;
-      border:1px solid rgba(15,23,42,.12);
-      background:rgba(255,255,255,.88);
-      box-shadow: 0 18px 46px rgba(2,6,23,.14);
-      font-weight:900;font-size:13px;color:rgba(11,18,32,.85);
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .fab:hover{transform: translateY(-1px); box-shadow: 0 24px 70px rgba(2,6,23,.18)}
-    .fab .bubble{
-      width:38px;height:38px;border-radius:14px;
-      display:grid;place-items:center;
-      background:rgba(11,58,122,.08);
-      border:1px solid rgba(11,58,122,.14);
-    }
-    .fab.whatsapp{
-      border-color: rgba(34,197,94,.25);
-    }
-    .fab.whatsapp .bubble{
-      background: rgba(34,197,94,.10);
-      border-color: rgba(34,197,94,.20);
-    }
-    .pulse{
-      animation: pulse 2.2s ease-in-out infinite;
-    }
-    @keyframes pulse{
-      0%,100%{transform: translateY(0); box-shadow: 0 18px 46px rgba(2,6,23,.14)}
-      50%{transform: translateY(-2px); box-shadow: 0 28px 86px rgba(34,197,94,.22)}
-    }
-
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-title{font-size:36px}
-      .split{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .why-grid{grid-template-columns:1fr}
-      .tools{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      .navlinks{display:none}
-      .hamburger{display:inline-grid;place-items:center}
-    }
-    @media (max-width: 420px){
-      .hero-title{font-size:30px}
-      .btn{padding:11px 12px}
-      .trackbar{flex-wrap:wrap}
-      .trackbar .btn{width:100%}
-      .form-row{grid-template-columns:1fr}
-      .map iframe{height:280px}
-    }
-
-    [dir="rtl"] .brand{flex-direction:row-reverse}
-    [dir="rtl"] .trackbar{flex-direction:row-reverse}
-    [dir="rtl"] .qa{flex-direction:row-reverse}
-    [dir="rtl"] .dl{flex-direction:row-reverse}
-    [dir="rtl"] .dl .left{flex-direction:row-reverse}
-    [dir="rtl"] .pill{flex-direction:row-reverse}
   </style>
 </head>
 
 <body>
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-card" role="dialog" aria-modal="true" aria-label="Menu">
-      <div class="drawer-top">
-        <strong style="padding:6px 10px">Menu</strong>
-        <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+
+  <nav class="nav-wrap">
+    <div class="container nav">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=100&q=80" alt="Logo">
+        <div><strong>New Style Logistics</strong></div>
       </div>
-      <a href="#about" onclick="closeDrawer()">About</a>
-      <a href="#services" onclick="closeDrawer()">Services</a>
-      <a href="#why" onclick="closeDrawer()">Why Us</a>
-      <a href="#tools" onclick="closeDrawer()">Shipping Tools</a>
-      <a href="#quote" onclick="closeDrawer()">Smart Quote</a>
-      <a href="#contact" onclick="closeDrawer()">Contact</a>
-    </div>
-  </div>
-
-  <div class="nav-wrap">
-    <div class="container">
-      <div class="nav">
-        <div class="brand">
-          <img src="assets/splash.jpg" alt="New Style Logistics logo" loading="lazy" />
-          <div>
-            <div class="name" data-i18n="brandName">New Style Logistics LLC</div>
-            <div class="sub" data-i18n="brandSub">Dubai, United Arab Emirates</div>
-          </div>
-        </div>
-
-        <div class="navlinks" aria-label="Primary navigation">
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#services" data-i18n="navServices">Services</a>
-          <a href="#why" data-i18n="navWhy">Why Us</a>
-          <a href="#tools" data-i18n="navTools">Shipping Tools</a>
-          <a href="#quote" data-i18n="navQuote">Get Quote</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-        </div>
-
-        <div class="nav-actions">
-          <div class="lang" aria-label="Language selector">
-            <button id="btnEN" class="active" type="button">English</button>
-            <button id="btnAR" type="button">العربية</button>
-          </div>
-          <a class="btn btn-primary" href="#quote" data-i18n="navCTA">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M3 7h18M7 3v4m10-4v4M6 21h12a3 3 0 0 0 3-3V7H3v11a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span>Get Quote</span>
-          </a>
-          <button class="hamburger" id="drawerOpen" aria-label="Open menu">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-        </div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </div>
+      <a href="#quote" class="btn btn-primary">Get Quote</a>
     </div>
-  </div>
+  </nav>
 
   <header class="hero">
     <div class="container">
       <div class="hero-grid">
-        <div class="glass hero-card" data-aos="fade-up">
-          <div class="kicker"><span class="dot"></span><span data-i18n="heroKicker">Premium Freight & Logistics</span></div>
-
-          <div class="hero-copy">
-            <h1 class="hero-title" data-i18n="heroTitle">
-              Reliable logistics in Dubai — built for speed, compliance & visibility.
-            </h1>
-            <p class="hero-desc" data-i18n="heroDesc">
-              Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling, and warehousing — delivered with precision and accountability.
-            </p>
-
-            <div class="hero-media" style="margin-top:16px">
-              <img src="assets/hero.jpg" alt="Freight forwarding operations in Dubai (air, sea and land)" loading="eager" />
-            </div>
-
-            <div class="trackbar" role="search" aria-label="Shipment tracking" data-aos="fade-up" data-aos-delay="120">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
-                  <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <input id="trackInput" type="text" inputmode="text" autocomplete="off"
-                     placeholder="Track shipment (demo): e.g., NSL-24751" />
-              <button class="btn btn-primary" type="button" id="trackBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="m15 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="trackBtn">Track</span>
-              </button>
-            </div>
-
-            <div class="hero-actions" data-aos="fade-up" data-aos-delay="160">
-              <a class="btn btn-ghost" href="#quote" data-i18n="heroBtn1">Talk to our expert team</a>
-              <a class="btn btn-soft" href="#services" data-i18n="heroBtn2">See services</a>
-              <a class="btn btn-soft" href="#tools" data-i18n="heroBtn3">Volumetric Weight Calculator</a>
-            </div>
-
-            <div class="trust-badges" data-aos="fade-up" data-aos-delay="200">
-              <span class="pill"><span style="color:var(--gold);font-weight:900">●</span> <span data-i18n="badge1">Customs-ready compliance</span></span>
-              <span class="pill"><span style="color:var(--gold);font-weight:900">●</span> <span data-i18n="badge2">Clear tracking & visibility</span></span>
-              <span class="pill"><span style="color:var(--gold);font-weight:900">●</span> <span data-i18n="badge3">UAE & GCC coverage</span></span>
-            </div>
+        <div class="glass" data-aos="fade-up">
+          <h1>Reliable Logistics in Dubai</h1>
+          <p>Built for speed, compliance, and full visibility across the GCC.</p>
+          
+          <div class="hero-media">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80" alt="Logistics Operations">
+          </div>
+          
+          <div style="margin-top:20px; display:flex; gap:10px;">
+             <a href="#quote" class="btn btn-primary">Talk to an Expert</a>
+             <a href="#services" class="btn btn-ghost">Our Services</a>
           </div>
         </div>
 
-        <aside class="glass hero-side" data-aos="fade-up" data-aos-delay="80">
-          <div class="mini-card">
-            <div class="kicker"><span class="dot"></span><span data-i18n="sideKicker">Enterprise standard</span></div>
-            <div class="spacer" style="height:10px"></div>
-            <h3 data-i18n="side1Title">Compliance-first operations</h3>
-            <p data-i18n="side1Desc">Customs-ready documentation and careful handling to reduce delays and risk.</p>
-          </div>
-          <div class="mini-card">
-            <h3 data-i18n="side2Title">Clear communication</h3>
-            <p data-i18n="side2Desc">Proactive updates with visibility and accountability from pickup to delivery.</p>
-          </div>
-          <div class="mini-card">
-            <h3 data-i18n="side3Title">Dubai expertise</h3>
-            <p data-i18n="side3Desc">Local knowledge for Ras Al Khor, ports, airports, and GCC routes.</p>
-          </div>
-
-          <div class="mini-card partner">
-            <h3 data-i18n="partnerTitle">Partners & Certifications</h3>
-            <div class="marquee" aria-label="Certification logos (grayscale)">
-              <div class="marquee-track">
-                <span class="logo-chip">IATA</span>
-                <span class="logo-chip">FIATA</span>
-                <span class="logo-chip">DUBAI CUSTOMS</span>
-                <span class="logo-chip">IATA</span>
-                <span class="logo-chip">FIATA</span>
-                <span class="logo-chip">DUBAI CUSTOMS</span>
-              </div>
-              <div class="marquee-track" aria-hidden="true">
-                <span class="logo-chip">IATA</span>
-                <span class="logo-chip">FIATA</span>
-                <span class="logo-chip">DUBAI CUSTOMS</span>
-                <span class="logo-chip">IATA</span>
-                <span class="logo-chip">FIATA</span>
-                <span class="logo-chip">DUBAI CUSTOMS</span>
-              </div>
-            </div>
-            <div class="helper" data-i18n="partnerNote">Logos displayed in grayscale for a premium, compliant corporate look.</div>
-          </div>
+        <aside class="glass" data-aos="fade-left">
+          <h3>Local Expertise</h3>
+          <p>Strategic locations in Ras Al Khor and major UAE ports.</p>
+          <hr style="opacity:0.1; margin:20px 0">
+          <img src="https://images.unsplash.com/photo-1520052205664-763c02094553?auto=format&fit=crop&w=600&q=80" style="border-radius:12px; height:200px; width:100%" alt="Dubai Port">
         </aside>
       </div>
     </div>
   </header>
 
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-head" data-aos="fade-up">
+  <section id="services" class="container" style="padding:60px 0">
+    <h2>Our Core Services</h2>
+    <div class="grid">
+      <article class="card svc" data-aos="fade-up">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80" alt="Air Freight">
+        </div>
+        <div style="padding:20px">
+          <h3>Air Freight</h3>
+          <p>Urgent global delivery with priority handling.</p>
+        </div>
+      </article>
+
+      <article class="card svc" data-aos="fade-up" data-aos-delay="100">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=600&q=80" alt="Sea Freight">
+        </div>
+        <div style="padding:20px">
+          <h3>Sea Freight</h3>
+          <p>FCL and LCL solutions for cost-effective shipping.</p>
+        </div>
+      </article>
+
+      <article class="card svc" data-aos="fade-up" data-aos-delay="200">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80" alt="Land Transport">
+        </div>
+        <div style="padding:20px">
+          <h3>Land Transport</h3>
+          <p>Secure trucking across UAE and GCC borders.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="container" style="padding:60px 0">
+    <div class="glass">
+      <div class="hero-grid">
         <div>
-          <div class="kicker"><span class="dot"></span><span data-i18n="aboutKicker">About</span></div>
-          <h2 data-i18n="aboutTitle">About New Style Logistics — Dubai</h2>
-          <p class="hint" data-i18n="aboutDesc">
-            We support businesses across the UAE, GCC, and international routes with a strong focus on compliance, safety, and on-time delivery.
-          </p>
+          <h2>Get in Touch</h2>
+          <p>Office #2, Thumbay Clinic Building, Ras Al Khor, Dubai</p>
+          <p><strong>Phone:</strong> +971 4 591 4550</p>
+          <a href="https://wa.me/971561436491" class="btn btn-primary">WhatsApp Now</a>
         </div>
-        <span class="pill" data-i18n="aboutPill">Freight • Customs • Warehousing</span>
-      </div>
-
-      <div class="split">
-        <div class="card" data-aos="fade-up" data-aos-delay="80">
-          <h3 data-i18n="aboutWhatWeDo">What we do</h3>
-          <p data-i18n="aboutWhatWeDoDesc">End-to-end freight solutions tailored to timelines, budgets, and compliance requirements.</p>
-
-          <div class="about-points">
-            <div class="point">
-              <div class="ic" aria-hidden="true">✈️</div>
-              <div>
-                <h3 data-i18n="ap1t">Air, sea & land freight</h3>
-                <p data-i18n="ap1d">Optimized routing with controlled documentation and milestone updates.</p>
-              </div>
-            </div>
-            <div class="point">
-              <div class="ic" aria-hidden="true">🧾</div>
-              <div>
-                <h3 data-i18n="ap2t">Customs clearance & documentation</h3>
-                <p data-i18n="ap2d">Smooth processing supported by accurate paperwork and compliance checks.</p>
-              </div>
-            </div>
-            <div class="point">
-              <div class="ic" aria-hidden="true">📦</div>
-              <div>
-                <h3 data-i18n="ap3t">Cargo handling & warehousing</h3>
-                <p data-i18n="ap3d">Secure movement and scalable storage with careful supervision.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="120" style="padding:0;overflow:hidden">
-          <img src="assets/global.jpg" alt="Global logistics coverage map" style="width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center" loading="lazy">
-          <div style="padding:16px">
-            <h3 data-i18n="globalTitle">Global coverage with enterprise standards</h3>
-            <p data-i18n="globalDesc">Reliable partner coordination, compliance readiness, and clear communication across lanes.</p>
-          </div>
+        <div class="map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.123456789!2d55.3585!3d25.1875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDExJzE1LjAiTiA1NcKwMjEnMzAuNiJF!5e0!3m2!1sen!2sae!4v1625000000000!5m2!1sen!2sae" 
+            allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="services" class="section">
-    <div class="container">
-      <div class="section-head" data-aos="fade-up">
-        <div>
-          <div class="kicker"><span class="dot"></span><span data-i18n="svcKicker">Services</span></div>
-          <h2 data-i18n="svcTitle">Our services delivered with precision</h2>
-          <p class="hint" data-i18n="svcDesc">Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling, and warehousing.</p>
-        </div>
-      </div>
-
-      <div class="grid">
-        <article class="card svc" data-aos="fade-up" data-aos-delay="40">
-          <div class="media"><img src="assets/air.jpg" alt="Air freight services Dubai" loading="lazy"></div>
-          <div class="body">
-            <h3 data-i18n="s1t">Air Freight</h3>
-            <p data-i18n="s1d">Fast movement for urgent shipments with controlled documentation support.</p>
-            <div class="tags">
-              <span class="tag" data-i18n="tFast">Fast</span>
-              <span class="tag" data-i18n="tPriority">Priority</span>
-              <span class="tag" data-i18n="tWorldwide">Worldwide</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card svc" data-aos="fade-up" data-aos-delay="80">
-          <div class="media"><img src="assets/sea.jpg" alt="Sea freight FCL LCL services Dubai" loading="lazy"></div>
-          <div class="body">
-            <h3 data-i18n="s2t">Sea Freight (FCL / LCL)</h3>
-            <p data-i18n="s2d">Cost-efficient container and consolidation services with reliable planning.</p>
-            <div class="tags">
-              <span class="tag">FCL</span>
-              <span class="tag">LCL</span>
-              <span class="tag" data-i18n="tGlobal">Global</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card svc" data-aos="fade-up" data-aos-delay="120">
-          <div class="media"><img src="assets/land.jpg" alt="Land transport UAE GCC" loading="lazy"></div>
-          <div class="body">
-            <h3 data-i18n="s3t">Land Transport</h3>
-            <p data-i18n="s3d">Safe delivery across UAE and GCC routes with scheduled control.</p>
-            <div class="tags">
-              <span class="tag" data-i18n="tUAE">UAE</span>
-              <span class="tag" data-i18n="tTrucking">Trucking</span>
-              <span class="tag" data-i18n="tDoor">Door-to-door</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card svc customs" data-aos="fade-up" data-aos-delay="40">
-          <div class="media"><img src="assets/customs.jpg" alt="Customs clearance Dubai" loading="lazy"></div>
-          <div class="body">
-            <h3 data-i18n="s4t">Customs Clearance</h3>
-            <p data-i18n="s4d">Compliance-focused clearance to keep shipments smooth and customs-ready.</p>
-            <div class="tags">
-              <span class="tag" data-i18n="tDocs">Documentation</span>
-              <span class="tag" data-i18n="tCompliance">Compliance</span>
-              <span class="tag" data-i18n="tProcessing">Fast processing</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card svc" data-aos="fade-up" data-aos-delay="80">
-          <div class="media"><img src="assets/cargo.jpg" alt="Cargo handling services Dubai" loading="lazy"></div>
-          <div class="body">
-            <h3 data-i18n="s5t">Cargo Handling</h3>
-            <p data-i18n="s5d">Safe loading, unloading, and movement with controlled handling standards.</p>
-            <div class="tags">
-              <span class="tag" data-i18n="tCare">Care</span>
-              <span class="tag" data-i18n="tSafety">Safety</span>
-              <span class="tag" data-i18n="tControl">Control</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card svc" data-aos="fade-up" data-aos-delay="120">
-          <div class="media"><img src="assets/warehousing.jpg" alt="Warehousing Dubai" loading="lazy"></div>
-          <div class="body">
-            <h3 data-i18n="s6t">Warehousing</h3>
-            <p data-i18n="s6d">Organized storage with scalable inventory management and dispatch support.</p>
-            <div class="tags">
-              <span class="tag" data-i18n="tStorage">Storage</span>
-              <span class="tag" data-i18n="tInventory">Inventory</span>
-              <span class="tag" data-i18n="tDispatch">Dispatch</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="why" class="section">
-    <div class="container">
-      <div class="why-grid">
-        <div class="card" data-aos="fade-up">
-          <div class="kicker"><span class="dot"></span><span data-i18n="whyKicker">Why Choose Us</span></div>
-          <h2 style="margin-top:8px" data-i18n="whyTitle">Why choose New Style Logistics</h2>
-          <p data-i18n="whyDesc">
-            We deliver professional freight coordination with strong compliance support, safe handling, and on-time performance — so shipments stay controlled, visible, and reliable.
-          </p>
-
-          <div class="why-list">
-            <div class="why-item">
-              <h3 data-i18n="w1t">Speed with control</h3>
-              <p data-i18n="w1d">We protect timelines while maintaining safety, documentation accuracy, and clear milestones.</p>
-            </div>
-            <div class="why-item">
-              <h3 data-i18n="w2t">Compliance support</h3>
-              <p data-i18n="w2d">We guide you through requirements to keep shipments smooth and customs-ready.</p>
-            </div>
-            <div class="why-item">
-              <h3 data-i18n="w3t">Professional handling</h3>
-              <p data-i18n="w3d">From cargo handling to warehousing, we follow a careful, accountable process.</p>
-            </div>
-            <div class="why-item">
-              <h3 data-i18n="w4t">Dedicated support</h3>
-              <p data-i18n="w4d">Fast response via WhatsApp, call, or email with clear next steps and guidance.</p>
-            </div>
-          </div>
-
-          <div class="hero-actions" style="margin-top:14px">
-            <a class="btn btn-primary" href="#quote" data-i18n="whyCTA1">Request a Quote</a>
-            <a class="btn btn-ghost" href="https://wa.me/971561436491" target="_blank" rel="noopener" data-i18n="whyCTA2">WhatsApp Now</a>
-          </div>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="120" style="padding:0;overflow:hidden">
-          <img src="assets/splash.jpg" alt="New Style Logistics brand image" style="width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center" loading="lazy">
-          <div style="padding:16px">
-            <h3 data-i18n="whySideTitle">A boutique Dubai feel — global standards</h3>
-            <p data-i18n="whySideDesc">Premium presentation, enterprise workflows, and consistent communication across services.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="tools" class="section">
-    <div class="container">
-      <div class="section-head" data-aos="fade-up">
-        <div>
-          <div class="kicker"><span class="dot"></span><span data-i18n="toolsKicker">Shipping Tools</span></div>
-          <h2 data-i18n="toolsTitle">Tools your team will actually use</h2>
-          <p class="hint" data-i18n="toolsDesc">A quick volumetric calculator and a clean download center — built in for a premium corporate experience.</p>
-        </div>
-      </div>
-
-      <div class="tools">
-        <div class="card" data-aos="fade-up" data-aos-delay="80">
-          <h3 data-i18n="vwTitle">Volumetric Weight Calculator</h3>
-          <p data-i18n="vwDesc">Formula: (L × W × H) / 5000 (cm) — common air freight divisor.</p>
-
-          <div class="spacer" style="height:12px"></div>
-
-          <div class="form-row">
-            <input class="input" id="len" type="number" min="0" placeholder="Length (cm)" />
-            <input class="input" id="wid" type="number" min="0" placeholder="Width (cm)" />
-          </div>
-          <div class="spacer" style="height:12px"></div>
-          <input class="input" id="hei" type="number" min="0" placeholder="Height (cm)" />
-
-          <div class="spacer" style="height:12px"></div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-primary" type="button" id="calcBtn">Calculate</button>
-            <button class="btn btn-ghost" type="button" id="resetBtn">Reset</button>
-          </div>
-
-          <div class="result" id="vwResult" aria-live="polite">Enter dimensions to calculate volumetric weight.</div>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="120">
-          <h3 data-i18n="dlTitle">Download Center</h3>
-          <p data-i18n="dlDesc">Standard shipping templates (add PDFs later inside /assets/docs/).</p>
-
-          <div class="downloads">
-            <a class="dl" href="assets/docs/shipper-letter.pdf" download>
-              <div class="left">
-                <div class="badge" aria-hidden="true">📄</div>
-                <div>
-                  <div class="t" data-i18n="dl1t">Shipper’s Letter of Instruction</div>
-                  <div class="s" data-i18n="dl1s">PDF template</div>
-                </div>
-              </div>
-              <span class="btn btn-soft" style="padding:10px 12px;border-radius:14px" data-i18n="downloadBtn">Download</span>
-            </a>
-
-            <a class="dl" href="assets/docs/commercial-invoice.pdf" download>
-              <div class="left">
-                <div class="badge" aria-hidden="true">🧾</div>
-                <div>
-                  <div class="t" data-i18n="dl2t">Commercial Invoice Template</div>
-                  <div class="s" data-i18n="dl2s">PDF template</div>
-                </div>
-              </div>
-              <span class="btn btn-soft" style="padding:10px 12px;border-radius:14px" data-i18n="downloadBtn2">Download</span>
-            </a>
-
-            <a class="dl" href="assets/docs/packing-list.pdf" download>
-              <div class="left">
-                <div class="badge" aria-hidden="true">📦</div>
-                <div>
-                  <div class="t" data-i18n="dl3t">Packing List Template</div>
-                  <div class="s" data-i18n="dl3s">PDF template</div>
-                </div>
-              </div>
-              <span class="btn btn-soft" style="padding:10px 12px;border-radius:14px" data-i18n="downloadBtn3">Download</span>
-            </a>
-          </div>
-
-          <div class="helper" data-i18n="dlHint">
-            If you don’t have PDFs yet, keep these links. Later add your PDFs inside <b>/assets/docs/</b> with the same names.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="quote" class="section">
-    <div class="container">
-      <div class="section-head" data-aos="fade-up">
-        <div>
-          <div class="kicker"><span class="dot"></span><span data-i18n="quoteKicker">Smart Quote</span></div>
-          <h2 data-i18n="quoteTitle">Request a Quote (3-step)</h2>
-          <p class="hint" data-i18n="quoteDesc">A sleek, professional quote wizard. Submission opens your email draft automatically.</p>
-        </div>
-      </div>
-
-      <div class="card" data-aos="fade-up" data-aos-delay="80">
-        <div class="wizard-steps" aria-label="Quote steps">
-          <span class="stepchip active" id="chip1">1) Contact</span>
-          <span class="stepchip" id="chip2">2) Shipment</span>
-          <span class="stepchip" id="chip3">3) Confirm</span>
-        </div>
-
-        <form id="quoteForm">
-          <div class="wizard-panels">
-            <div class="panel active" id="panel1">
-              <div class="form-row">
-                <input class="input" id="qName" required placeholder="Your Name" />
-                <input class="input" id="qEmail" type="email" required placeholder="Email Address" />
-              </div>
-              <div class="spacer" style="height:12px"></div>
-              <input class="input" id="qPhone" placeholder="Phone / WhatsApp (optional)" />
-              <div class="spacer" style="height:14px"></div>
-              <div style="display:flex;justify-content:flex-end;gap:10px">
-                <button class="btn btn-primary" type="button" onclick="nextStep()">Next</button>
-              </div>
-            </div>
-
-            <div class="panel" id="panel2">
-              <div class="form-row">
-                <input class="input" id="qMode" placeholder="Mode (Air / Sea / Land)" />
-                <input class="input" id="qRoute" placeholder="Route (Origin → Destination)" />
-              </div>
-              <div class="spacer" style="height:12px"></div>
-              <div class="form-row">
-                <input class="input" id="qWeight" placeholder="Weight (kg)" />
-                <input class="input" id="qDims" placeholder="Dimensions (L×W×H cm)" />
-              </div>
-              <div class="spacer" style="height:12px"></div>
-              <textarea class="input textarea" id="qMsg" placeholder="Shipment details (cargo type, pickup date, Incoterms, special handling, etc.)"></textarea>
-
-              <div class="spacer" style="height:14px"></div>
-              <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-                <button class="btn btn-ghost" type="button" onclick="prevStep()">Back</button>
-                <button class="btn btn-primary" type="button" onclick="nextStep()">Next</button>
-              </div>
-            </div>
-
-            <div class="panel" id="panel3">
-              <div class="mini-card" style="background:rgba(11,58,122,.06);border-color:rgba(11,58,122,.14)">
-                <h3 style="margin:0 0 8px 0">Review</h3>
-                <p class="muted" id="reviewText">Your details will appear here.</p>
-              </div>
-
-              <div class="spacer" style="height:14px"></div>
-              <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-                <button class="btn btn-ghost" type="button" onclick="prevStep()">Back</button>
-                <button class="btn btn-primary" type="submit">Submit</button>
-              </div>
-
-              <div class="helper">Opens your email app to send to <b>alwahti@newstylelogistics.com</b>.</div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-head" data-aos="fade-up">
-        <div>
-          <div class="kicker"><span class="dot"></span><span data-i18n="contactKicker">Contact</span></div>
-          <h2 data-i18n="contactTitle">Get in Touch · 24×7</h2>
-          <p class="hint" data-i18n="contactDesc">We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.</p>
-        </div>
-      </div>
-
-      <div class="contact-grid">
-        <div class="card" data-aos="fade-up" data-aos-delay="80">
-          <h3 data-i18n="quickTitle">Quick action</h3>
-          <div class="quick-actions">
-            <div class="qa">
-              <div class="l">
-                <div class="ic" aria-hidden="true">💬</div>
-                <div>
-                  <div class="t">WhatsApp</div>
-                  <div class="v">+971 56 143 6491</div>
-                </div>
-              </div>
-              <a class="btn btn-soft" href="https://wa.me/971561436491" target="_blank" rel="noopener">Open</a>
-            </div>
-
-            <div class="qa">
-              <div class="l">
-                <div class="ic" aria-hidden="true">📞</div>
-                <div>
-                  <div class="t">Call</div>
-                  <div class="v">+971 4 591 4550</div>
-                </div>
-              </div>
-              <a class="btn btn-soft" href="tel:+97145914550">Call</a>
-            </div>
-
-            <div class="qa">
-              <div class="l">
-                <div class="ic" aria-hidden="true">✉️</div>
-                <div>
-                  <div class="t">Email</div>
-                  <div class="v">alwahti@newstylelogistics.com</div>
-                </div>
-              </div>
-              <a class="btn btn-soft" href="mailto:alwahti@newstylelogistics.com">Email</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="120">
-          <h3 data-i18n="addrTitle">Company Address & Map</h3>
-          <p class="muted" style="margin-top:6px">
-            <b data-i18n="addrLabel">Office Address —</b>
-            Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE
-          </p>
-
-          <div class="spacer" style="height:12px"></div>
-
-          <div class="map" aria-label="Google Map">
-            <iframe
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Thumbay%20Clinic%20Ras%20Al%20Khor%20Dubai&output=embed">
-            </iframe>
-          </div>
-
-          <div class="helper" data-i18n="mapNote">Dark-styled embed applied with CSS filter to match the site palette.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="foot">
-        <div class="foot-left">
-          <img src="assets/splash.jpg" alt="New Style Logistics logo" loading="lazy" />
-          <div>
-            <div style="font-weight:900">New Style Logistics LLC</div>
-            <div class="muted" style="font-size:12px">Freight • Logistics • Customs • Warehousing</div>
-          </div>
-        </div>
-        <div class="foot-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#quote">Get Quote</a>
-        </div>
-        <div class="muted" style="font-size:12px">© <span id="year"></span> All Rights Reserved.</div>
-      </div>
-    </div>
-  </footer>
-
-  <div class="float" aria-label="Quick actions">
-    <a class="fab whatsapp pulse" href="https://wa.me/971561436491" target="_blank" rel="noopener">
-      <span class="bubble" aria-hidden="true">🟢</span>
-      WhatsApp
-    </a>
-
-    <a class="fab" href="tel:+97145914550">
-      <span class="bubble" aria-hidden="true">📞</span>
-      Call
-    </a>
-  </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
   <script>
-    const drawer = document.getElementById('drawer');
-    const drawerOpen = document.getElementById('drawerOpen');
-    const drawerClose = document.getElementById('drawerClose');
-
-    function openDrawer(){
-      drawer.style.display = 'block';
-      drawer.setAttribute('aria-hidden','false');
-    }
-    function closeDrawer(){
-      drawer.style.display = 'none';
-      drawer.setAttribute('aria-hidden','true');
-    }
-    drawerOpen?.addEventListener('click', openDrawer);
-    drawerClose?.addEventListener('click', closeDrawer);
-    drawer?.addEventListener('click', (e)=>{ if(e.target === drawer) closeDrawer(); });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
-
-    const trackBtn = document.getElementById('trackBtn');
-    const trackInput = document.getElementById('trackInput');
-    trackBtn?.addEventListener('click', ()=>{
-      const val = (trackInput?.value || '').trim();
-      const demo = val || 'NSL-24751';
-      alert('Tracking (demo): ' + demo + '\\n\\nStatus: In transit • Dubai hub • ETA 24–48h');
-    });
-
-    const len = document.getElementById('len');
-    const wid = document.getElementById('wid');
-    const hei = document.getElementById('hei');
-    const vwResult = document.getElementById('vwResult');
-
-    function calcVW(){
-      const L = parseFloat(len.value || '0');
-      const W = parseFloat(wid.value || '0');
-      const H = parseFloat(hei.value || '0');
-      if(!L || !W || !H){
-        vwResult.textContent = 'Please enter Length, Width and Height.';
-        return;
-      }
-      const vw = (L * W * H) / 5000;
-      vwResult.textContent = 'Volumetric Weight: ' + vw.toFixed(2) + ' kg (using /5000).';
-    }
-    document.getElementById('calcBtn')?.addEventListener('click', calcVW);
-    document.getElementById('resetBtn')?.addEventListener('click', ()=>{
-      len.value=''; wid.value=''; hei.value='';
-      vwResult.textContent = 'Enter dimensions to calculate volumetric weight.';
-    });
-
-    let step = 1;
-    const panels = { 1: panel1, 2: panel2, 3: panel3 };
-    const chips = { 1: chip1, 2: chip2, 3: chip3 };
-
-    function renderStep(){
-      Object.values(panels).forEach(p => p.classList.remove('active'));
-      Object.values(chips).forEach(c => c.classList.remove('active'));
-      panels[step].classList.add('active');
-      chips[step].classList.add('active');
-
-      if(step === 3){
-        const name = qName.value || '-';
-        const email = qEmail.value || '-';
-        const phone = qPhone.value || '-';
-        const mode = qMode.value || '-';
-        const route = qRoute.value || '-';
-        const weight = qWeight.value || '-';
-        const dims = qDims.value || '-';
-        const msg = qMsg.value || '-';
-
-        reviewText.innerHTML =
-          '<b>Contact:</b> ' + name + ' • ' + email + ' • ' + phone + '<br>' +
-          '<b>Shipment:</b> ' + mode + ' • ' + route + ' • ' + weight + 'kg • ' + dims + '<br>' +
-          '<b>Details:</b> ' + msg.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      }
-    }
-
-    function nextStep(){
-      if(step === 1){
-        if(!qName.value.trim() || !qEmail.value.trim()){
-          alert('Please enter your name and email.');
-          return;
-        }
-      }
-      step = Math.min(3, step + 1);
-      renderStep();
-    }
-    function prevStep(){
-      step = Math.max(1, step - 1);
-      renderStep();
-    }
-
-    quoteForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const to = 'alwahti@newstylelogistics.com';
-
-      const subject = encodeURIComponent('Quote Request — New Style Logistics');
-      const body = encodeURIComponent(
-        'Name: ' + qName.value + '\\n' +
-        'Email: ' + qEmail.value + '\\n' +
-        'Phone/WhatsApp: ' + qPhone.value + '\\n\\n' +
-        'Mode: ' + qMode.value + '\\n' +
-        'Route: ' + qRoute.value + '\\n' +
-        'Weight: ' + qWeight.value + '\\n' +
-        'Dimensions (cm): ' + qDims.value + '\\n\\n' +
-        'Details: ' + qMsg.value + '\\n'
-      );
-
-      window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-    });
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"New Style Logistics LLC",
-    "url":"https://sr-business89.github.io/newstyle-logistics-website/",
-    "logo":"assets/splash.jpg",
-    "email":"alwahti@newstylelogistics.com",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor",
-      "addressLocality":"Dubai",
-      "addressCountry":"AE"
-    },
-    "contactPoint":[
-      {
-        "@type":"ContactPoint",
-        "telephone":"+97145914550",
-        "contactType":"customer service",
-        "availableLanguage":["English","Arabic"]
-      }
-    ]
-  }
+    AOS.init({ duration: 800, once: true });
   </script>
 </body>
 </html>
