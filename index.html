@@ -2,13 +2,14 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
   <title>New Style Logistics LLC | Dubai Freight Forwarding, Customs & Warehousing</title>
-  <meta name="description" content="Premium freight forwarding in Dubai: air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — built for speed, compliance & visibility." />
+  <meta name="description" content="Premium Dubai freight forwarding: air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — modern, fast, and compliant." />
   <meta name="keywords" content="Dubai freight forwarding, logistics Dubai, customs clearance Dubai, air freight Dubai, sea freight FCL LCL, land transport UAE, warehousing Dubai, cargo handling Dubai" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="./" />
+  <meta name="theme-color" content="#070b12" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="New Style Logistics LLC | Dubai Freight Forwarding" />
@@ -16,137 +17,152 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./assets/hero.jpg" />
 
-  <!-- Fonts (Premium sans) -->
+  <!-- Favicon (use your existing image) -->
+  <link rel="icon" href="./assets/splash.jpg" />
+
+  <!-- Premium font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
   <style>
     :root{
-      --bg: #070b12;
+      --bg:#060913;
       --bg2:#0a1020;
       --panel: rgba(255,255,255,.06);
       --panel2: rgba(255,255,255,.08);
-      --border: rgba(255,255,255,.12);
-      --text: #eef3ff;
+      --stroke: rgba(255,255,255,.12);
+      --text:#eef3ff;
       --muted: rgba(238,243,255,.72);
 
-      --gold:#d6b25e;
-      --gold2:#f0d28a;
-      --navy:#0b1d3b;
+      --cyan:#33d6ff;
       --blue:#2e70ff;
+      --neon: rgba(51,214,255,.25);
+      --gold:#d6b25e;
 
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --shadow2: 0 10px 24px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1180px;
-
-      --focus: 0 0 0 4px rgba(214,178,94,.22);
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --shadow2: 0 12px 28px rgba(0,0,0,.40);
+      --r:18px;
+      --r2:26px;
+      --max:1180px;
+      --focus: 0 0 0 4px rgba(51,214,255,.20);
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(46,112,255,.22), transparent 55%),
-        radial-gradient(900px 600px at 100% 10%, rgba(214,178,94,.18), transparent 55%),
-        radial-gradient(800px 500px at 40% 110%, rgba(46,112,255,.14), transparent 60%),
+        radial-gradient(900px 480px at 10% -10%, rgba(46,112,255,.25), transparent 55%),
+        radial-gradient(760px 520px at 90% 0%, rgba(51,214,255,.20), transparent 60%),
+        radial-gradient(900px 520px at 40% 115%, rgba(51,214,255,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
 
-    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
-
-    /* Glass UI */
+    /* Glass */
     .glass{
       background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:var(--radius2);
+      border:1px solid var(--stroke);
+      border-radius:var(--r2);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
     .glass-soft{
       background:var(--panel2);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--r);
       box-shadow: var(--shadow2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    /* Top header */
-    .topbar{
-      position:sticky; top:0; z-index:1000;
-      background: rgba(7,11,18,.55);
-      border-bottom:1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Subtle futuristic grid overlay */
+    .grid-bg{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.12;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(closest-side at 50% 20%, black 35%, transparent 75%);
+      z-index:0;
+    }
+
+    /* Header */
+    .topbar{
+      position:sticky; top:0; z-index:1000;
+      background:rgba(6,9,19,.60);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:12px 0;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px; min-width:210px;
-    }
-    .logo{
-      width:36px; height:36px; border-radius:10px;
-      border:1px solid rgba(255,255,255,.14);
-      background:
-        radial-gradient(circle at 30% 20%, rgba(214,178,94,.55), transparent 55%),
-        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
-      display:grid; place-items:center;
-      overflow:hidden;
-    }
-    .logo svg{ width:22px; height:22px; opacity:.95; }
-    .brand-title{
-      display:flex; flex-direction:column; line-height:1.1;
-    }
-    .brand-title strong{ font-size:13px; letter-spacing:.3px; }
-    .brand-title span{ font-size:11px; color:var(--muted); }
 
-    .nav{
-      display:flex; align-items:center; gap:14px;
+    .brand{display:flex; align-items:center; gap:10px; min-width:220px;}
+    .mark{
+      width:42px; height:42px; border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      flex:0 0 auto;
     }
+    .mark img{width:100%; height:100%; object-fit:cover}
+    .brand-title{display:flex; flex-direction:column; line-height:1.1}
+    .brand-title strong{font-size:13px; letter-spacing:.3px}
+    .brand-title span{font-size:11px; color:var(--muted)}
+
+    .nav{display:flex; align-items:center; gap:14px}
     .nav a{
-      font-size:13px; color:rgba(238,243,255,.85);
-      padding:10px 10px; border-radius:12px;
+      font-size:13px;
+      color:rgba(238,243,255,.86);
+      padding:10px 10px;
+      border-radius:12px;
       transition: all .22s ease;
     }
-    .nav a:hover{ background:rgba(255,255,255,.06); }
-
-    .actions{
-      display:flex; align-items:center; gap:10px;
+    .nav a:hover{
+      background:rgba(255,255,255,.06);
+      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
     }
+
+    .actions{display:flex; align-items:center; gap:10px}
 
     .lang-toggle{
       display:flex; align-items:center; gap:8px;
-      padding:6px; border-radius:999px;
+      padding:6px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.05);
     }
     .pill{
-      border:0; background:transparent; color:rgba(238,243,255,.85);
-      font-size:12px; padding:8px 12px;
-      border-radius:999px; cursor:pointer;
+      border:0; background:transparent;
+      color:rgba(238,243,255,.85);
+      font-size:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
       transition: all .2s ease;
+      font-weight:900;
     }
     .pill.active{
-      background:rgba(214,178,94,.18);
-      color: #fff;
-      box-shadow: inset 0 0 0 1px rgba(214,178,94,.35);
+      background:rgba(51,214,255,.14);
+      box-shadow: inset 0 0 0 1px rgba(51,214,255,.28);
+      color:#fff;
     }
 
     .btn{
@@ -155,133 +171,169 @@
       color:#fff;
       padding:10px 14px;
       border-radius:14px;
-      font-weight:600;
+      font-weight:900;
       font-size:13px;
       cursor:pointer;
       display:inline-flex; align-items:center; gap:10px;
       transition: all .22s ease;
       user-select:none;
+      white-space:nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); background:rgba(255,255,255,.10); }
-    .btn:active{ transform: translateY(0px); }
-    .btn:focus{ outline:none; box-shadow: var(--focus); }
+    .btn:hover{
+      transform: translateY(-1px);
+      background:rgba(255,255,255,.10);
+      box-shadow: 0 0 0 1px rgba(51,214,255,.14) inset;
+    }
+    .btn:active{transform: translateY(0px)}
+    .btn:focus{outline:none; box-shadow:var(--focus)}
 
     .btn-primary{
-      background: linear-gradient(180deg, rgba(214,178,94,.95), rgba(214,178,94,.72));
-      color:#0c0f16;
-      border-color: rgba(214,178,94,.35);
+      border-color: rgba(51,214,255,.35);
+      background: linear-gradient(180deg, rgba(51,214,255,.20), rgba(46,112,255,.22));
+      box-shadow: 0 10px 28px rgba(46,112,255,.22);
     }
-    .btn-primary:hover{ background: linear-gradient(180deg, rgba(240,210,138,.95), rgba(214,178,94,.75)); }
-    .btn-ghost{
-      background: rgba(255,255,255,.04);
+    .btn-primary:hover{
+      background: linear-gradient(180deg, rgba(51,214,255,.26), rgba(46,112,255,.26));
     }
+    .btn-ghost{background:rgba(255,255,255,.04)}
+
+    .hamburger{display:none}
 
     /* Mobile menu */
-    .hamburger{ display:none; }
     .menu-panel{
       display:none;
-      position: fixed;
-      inset: 70px 16px auto 16px;
+      position:fixed;
+      inset:72px 16px auto 16px;
       z-index:1200;
-      padding: 14px;
+      padding:14px;
     }
     .menu-panel a{
-      display:block; padding:12px 10px; border-radius:12px;
-      color:rgba(238,243,255,.92);
-      border:1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
+      display:block;
+      padding:12px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
       margin-bottom:10px;
+      font-weight:900;
     }
 
-    /* Hero */
-    .hero{
-      padding: 22px 0 18px;
+    main{position:relative; z-index:1}
+    section{padding:18px 0}
+
+    /* Headings */
+    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:12px}
+    .kicker{
+      margin:0 0 8px;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: rgba(51,214,255,.95);
     }
+    .h2{margin:0; font-size: clamp(20px, 2.2vw, 30px); letter-spacing:-.01em}
+    .sub{margin:0; color:var(--muted); line-height:1.65; font-size:14px; max-width: 72ch}
+
+    /* Hero */
+    .hero{padding:22px 0 10px}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.08fr .92fr;
       gap:18px;
       align-items:stretch;
     }
-
-    .hero-card{ padding:18px; }
+    .hero-card{padding:18px}
     .eyebrow{
       display:inline-flex; align-items:center; gap:10px;
-      font-size:11px; letter-spacing:.18em;
-      color: rgba(214,178,94,.95);
+      font-size:11px;
+      letter-spacing:.18em;
+      color: rgba(51,214,255,.95);
       text-transform:uppercase;
       margin-bottom:10px;
     }
     .h1{
-      font-size: clamp(28px, 3.2vw, 44px);
-      margin: 0 0 10px;
+      margin:0 0 10px;
+      font-size: clamp(28px, 3.2vw, 46px);
       letter-spacing:-.02em;
+      line-height:1.06;
     }
     .lead{
-      color: var(--muted);
-      font-size: 14px;
-      line-height:1.6;
-      margin: 0 0 16px;
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
     }
 
     .hero-media{
-      border-radius: var(--radius2);
+      border-radius:var(--r2);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.12);
       position:relative;
-      box-shadow: var(--shadow);
-      min-height: 260px;
+      box-shadow:var(--shadow);
+      min-height:300px;
+      background:#000;
     }
     .hero-media img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      object-position: center;
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center;
       transform: scale(1.02);
-      filter: contrast(1.05) saturate(1.08);
+      filter: contrast(1.06) saturate(1.10);
     }
-    .hero-media::after{
+    .hero-media:after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(7,11,18,.10), rgba(7,11,18,.55));
+      background:
+        radial-gradient(700px 300px at 25% 20%, rgba(51,214,255,.22), transparent 55%),
+        linear-gradient(180deg, rgba(6,9,19,.08), rgba(6,9,19,.58));
       pointer-events:none;
     }
 
+    /* Tracking bar */
     .trackbar{
-      display:flex; gap:10px;
-      align-items:center;
+      display:flex; gap:10px; align-items:center;
       padding:12px;
-      border-radius: 16px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
+      background:rgba(0,0,0,.18);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      margin-top: 12px;
+      margin-top:12px;
+      position:relative;
+    }
+    .trackbar:before{
+      content:"";
+      position:absolute; inset:0;
+      border-radius:16px;
+      pointer-events:none;
+      box-shadow: 0 0 0 1px rgba(51,214,255,.10) inset;
+    }
+    .trackbar .icon{
+      width:34px; height:34px; border-radius:12px;
+      display:grid; place-items:center;
+      background:rgba(51,214,255,.10);
+      border:1px solid rgba(51,214,255,.18);
+      flex:0 0 auto;
     }
     .trackbar input{
       flex:1;
-      border:0;
-      outline:none;
-      background: transparent;
-      color: rgba(238,243,255,.92);
-      font-size: 13px;
-      padding: 6px 2px;
+      border:0; outline:none;
+      background:transparent;
+      color:rgba(238,243,255,.92);
+      font-size:13px;
+      padding:6px 2px;
+      min-width:90px;
     }
-    .trackbar input::placeholder{ color: rgba(238,243,255,.55); }
-    .trackbar .btn{ padding:10px 14px; border-radius:14px; }
+    .trackbar input::placeholder{color:rgba(238,243,255,.55)}
 
     .hero-actions{
       display:flex; flex-wrap:wrap; gap:10px;
       margin-top:12px;
     }
 
-    .badges{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:12px;
-    }
+    /* KPI badges */
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
     .badge{
       font-size:12px;
-      color: rgba(238,243,255,.86);
+      color:rgba(238,243,255,.86);
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
       padding:8px 10px;
@@ -290,233 +342,218 @@
     }
     .dot{
       width:8px; height:8px; border-radius:50%;
-      background: rgba(46,112,255,.95);
-      box-shadow: 0 0 0 4px rgba(46,112,255,.16);
+      background: rgba(51,214,255,.95);
+      box-shadow: 0 0 0 4px rgba(51,214,255,.14);
     }
 
-    /* Trust bar / certifications slider */
-    .trust{
-      margin-top: 14px;
-      padding: 12px;
-    }
-    .trust-title{
+    /* Trust bar slider */
+    .trust{margin-top:14px; padding:12px}
+    .trust-top{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; margin-bottom:10px;
     }
-    .trust-title strong{
-      font-size:13px;
-      color: rgba(238,243,255,.90);
-    }
+    .trust-top strong{font-size:13px}
     .logos{
-      display:flex;
-      gap:10px;
+      display:flex; gap:10px;
       overflow:auto;
-      scroll-snap-type: x mandatory;
+      scroll-snap-type:x mandatory;
       padding-bottom:4px;
     }
     .logo-chip{
       flex:0 0 auto;
-      min-width: 140px;
-      scroll-snap-align: start;
+      min-width: 150px;
+      scroll-snap-align:start;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      border-radius: 16px;
-      padding:12px;
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px;
       display:flex; align-items:center; justify-content:center;
-      color: rgba(238,243,255,.75);
+      color:rgba(238,243,255,.78);
       filter: grayscale(100%);
-      font-weight:700;
-      letter-spacing:.04em;
+      font-weight:900;
+      letter-spacing:.06em;
       font-size:12px;
       transition: all .2s ease;
     }
     .logo-chip:hover{
       filter: grayscale(0%);
-      background: rgba(255,255,255,.06);
       transform: translateY(-1px);
+      background:rgba(255,255,255,.06);
+      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
     }
 
-    /* Sections */
-    section{ padding: 18px 0; }
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:16px; margin-bottom:12px;
-    }
-    .kicker{
-      font-size:11px; letter-spacing:.18em; text-transform:uppercase;
-      color: rgba(214,178,94,.95);
-      margin:0 0 8px;
-    }
-    .h2{
-      margin:0;
-      font-size: clamp(20px, 2.2vw, 30px);
-      letter-spacing:-.01em;
-    }
-    .sub{
-      margin:0;
-      color: var(--muted);
-      line-height:1.6;
-      font-size: 14px;
-      max-width: 68ch;
-    }
+    /* Cards / grids */
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    .card{padding:14px}
+    .card h3{margin:0 0 6px; font-size:14px}
+    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
 
-    /* Cards grid */
-    .grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
-    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
-    .grid-4{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; }
-
-    .card{ padding:14px; }
-    .card h3{ margin:0 0 6px; font-size:14px; }
-    .card p{ margin:0; color:var(--muted); font-size:13px; line-height:1.55; }
-
-    /* Services */
-    .services-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-    .svc{
-      grid-column: span 6;
-      overflow:hidden;
-      padding:0;
-    }
-    .svc .media{
-      height: 200px;
+    /* Vision & Growth charts */
+    .viz-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-items:stretch}
+    .chart{
+      padding:14px;
       position:relative;
       overflow:hidden;
     }
-    /* FIX: Image always fully fits */
-    .svc .media img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      object-position: center;
-      transform: scale(1.02);
+    .chart:after{
+      content:"";
+      position:absolute; inset:-80px -120px auto auto;
+      width:260px; height:260px;
+      background: radial-gradient(circle, rgba(51,214,255,.18), transparent 60%);
+      filter: blur(10px);
+      pointer-events:none;
     }
-    .svc .content{ padding:14px; }
-    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chart-head{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .chart-head strong{font-size:14px}
+    .chart-head span{font-size:12px; color:rgba(238,243,255,.62)}
+    .canvas-wrap{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      overflow:hidden;
+      height:180px;
+      position:relative;
+    }
+    canvas{width:100%; height:100%}
+
+    /* Services */
+    .services-grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
+    .svc{grid-column: span 6; overflow:hidden; padding:0; position:relative}
+    .svc .media{
+      height: 220px;
+      overflow:hidden;
+      background:#000;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      position:relative;
+    }
+    .svc .media img{
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center;
+      transform: scale(1.02);
+      transition: transform .35s ease;
+    }
+    .svc .content{padding:14px}
+    .svc .content h3{margin:0 0 6px; font-size:16px}
+    .svc .content p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
     .tag{
       font-size:11px;
-      color: rgba(238,243,255,.82);
+      color:rgba(238,243,255,.85);
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      background:rgba(255,255,255,.04);
     }
 
-    /* Tools section */
-    .tools-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 12px;
-      align-items:start;
+    /* Premium hover glow */
+    .svc:before{
+      content:"";
+      position:absolute; inset:0;
+      pointer-events:none;
+      opacity:0;
+      transition: opacity .25s ease;
+      background: radial-gradient(500px 250px at 30% 10%, rgba(51,214,255,.18), transparent 55%);
     }
-    .field-row{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-      margin-top:10px;
-    }
-    .field{
-      display:flex; flex-direction:column; gap:6px;
-    }
-    label{ font-size:12px; color: rgba(238,243,255,.70); }
+    .svc:hover:before{opacity:1}
+    .svc:hover .media img{transform: scale(1.06)}
+
+    /* Tools */
+    .tools-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; align-items:start}
+    .field-row{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:10px}
+    .field{display:flex; flex-direction:column; gap:6px}
+    label{font-size:12px; color:rgba(238,243,255,.70); font-weight:900}
     input, select, textarea{
       width:100%;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(238,243,255,.92);
-      border-radius: 14px;
-      padding: 12px 12px;
+      background:rgba(255,255,255,.04);
+      color:rgba(238,243,255,.92);
+      border-radius:14px;
+      padding:12px 12px;
       outline:none;
       transition: all .2s ease;
-      font-family: inherit;
+      font-family:inherit;
     }
-    textarea{ min-height: 120px; resize: vertical; }
+    textarea{min-height:120px; resize:vertical}
     input:focus, textarea:focus, select:focus{
       box-shadow: var(--focus);
-      border-color: rgba(214,178,94,.35);
+      border-color: rgba(51,214,255,.30);
     }
     .tool-result{
       margin-top:10px;
-      padding: 12px;
-      border-radius: 16px;
+      padding:12px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.18);
-      color: rgba(238,243,255,.86);
-      font-size: 13px;
+      color: rgba(238,243,255,.88);
+      font-size:13px;
+      line-height:1.65;
     }
-    .download-list a{
+    .download a{
       display:flex; align-items:center; justify-content:space-between;
       gap:10px;
       padding:12px 12px;
-      border-radius: 14px;
+      border-radius:14px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       margin-top:10px;
-      transition: all .2s ease;
+      transition:all .2s ease;
     }
-    .download-list a:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .download a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
+    }
+    .download .small{font-size:12px; color:rgba(238,243,255,.60)}
 
-    /* Quote wizard */
-    .wizard{
-      display:grid;
-      grid-template-columns: 1fr .65fr;
-      gap: 12px;
-      align-items:start;
-    }
-    .steps{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-bottom:12px;
-    }
+    /* Quote Wizard */
+    .wizard{display:grid; grid-template-columns: 1fr .65fr; gap:12px; align-items:start}
+    .steps{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px}
     .step{
       font-size:12px;
       padding:8px 12px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(238,243,255,.78);
-      transition: all .2s ease;
+      background:rgba(255,255,255,.04);
+      color:rgba(238,243,255,.78);
+      font-weight:900;
+      transition:all .2s ease;
     }
     .step.active{
-      background: rgba(214,178,94,.18);
-      border-color: rgba(214,178,94,.35);
-      color: rgba(255,255,255,.95);
+      background:rgba(51,214,255,.14);
+      border-color:rgba(51,214,255,.28);
+      color:#fff;
     }
-    .wizard-actions{
-      display:flex; gap:10px; justify-content:flex-end;
-      margin-top: 10px;
-    }
-    .hint{
-      font-size:12px; color: rgba(238,243,255,.62);
-      line-height:1.55; margin-top:10px;
-    }
+    .wizard-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px}
+    .hint{font-size:12px; color:rgba(238,243,255,.62); line-height:1.65; margin-top:10px}
 
-    /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      align-items:start;
-    }
+    /* Contact + Map */
+    .contact-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-items:start}
     .quick a{
       display:flex; align-items:center; justify-content:space-between;
       gap:10px;
       padding:12px 12px;
-      border-radius: 16px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       margin-top:10px;
-      transition: all .2s ease;
+      transition:all .2s ease;
     }
-    .quick a:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .quick a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
+    }
 
-    /* Map */
     .map-wrap{
-      border-radius: var(--radius2);
+      border-radius:var(--r2);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.12);
-      height: 280px;
+      height:280px;
       position:relative;
       background: rgba(0,0,0,.22);
     }
@@ -524,32 +561,37 @@
       width:100%; height:100%;
       border:0;
       filter: invert(90%) hue-rotate(190deg) saturate(120%) brightness(90%) contrast(105%);
-      opacity: .95;
+      opacity:.95;
     }
-    .map-wrap::after{
+    .map-wrap:after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(7,11,18,.10), rgba(7,11,18,.20));
+      background: linear-gradient(180deg, rgba(6,9,19,.10), rgba(6,9,19,.22));
       pointer-events:none;
     }
 
     /* Footer */
-    footer{
-      padding: 18px 0 26px;
-      color: rgba(238,243,255,.72);
-      font-size: 13px;
-    }
+    footer{padding:18px 0 26px; color:rgba(238,243,255,.72); font-size:13px}
     .footer-row{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; flex-wrap:wrap;
-      padding: 14px 16px;
+      padding:14px 16px;
     }
+    .foot-left{display:flex; align-items:center; gap:10px}
+    .foot-logo{
+      width:42px; height:42px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+    }
+    .foot-logo img{width:100%; height:100%; object-fit:cover}
 
-    /* Floating actions */
+    /* Floating buttons */
     .float{
-      position: fixed;
-      right: 14px;
-      bottom: 14px;
+      position:fixed;
+      right:14px;
+      bottom:14px;
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -557,94 +599,84 @@
     }
     .fab{
       display:inline-flex; align-items:center; gap:10px;
-      padding: 11px 14px;
-      border-radius: 999px;
+      padding:11px 14px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.07);
+      background:rgba(255,255,255,.07);
       box-shadow: 0 16px 40px rgba(0,0,0,.45);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      font-weight:700;
+      font-weight:900;
       font-size:13px;
-      transition: all .22s ease;
+      transition:all .22s ease;
       user-select:none;
     }
-    .fab:hover{ transform: translateY(-2px); background: rgba(255,255,255,.10); }
+    .fab:hover{transform: translateY(-2px); background:rgba(255,255,255,.10)}
     .fab.primary{
-      border-color: rgba(46,112,255,.25);
-      background: rgba(46,112,255,.15);
+      border-color: rgba(37,211,102,.35);
+      background: rgba(37,211,102,.12);
     }
-
-    /* WhatsApp gentle pulse (premium micro-interaction) */
-    .pulse{
-      position:relative;
-    }
-    .pulse::before{
+    .pulse{position:relative}
+    .pulse:before{
       content:"";
       position:absolute;
       inset:-6px;
       border-radius:999px;
-      background: rgba(46,112,255,.22);
+      background: rgba(37,211,102,.22);
       filter: blur(2px);
       animation: pulse 1.8s ease-in-out infinite;
       z-index:-1;
     }
     @keyframes pulse{
-      0%{ transform: scale(.96); opacity:.35; }
-      50%{ transform: scale(1.05); opacity:.18; }
-      100%{ transform: scale(.96); opacity:.35; }
+      0%{transform:scale(.96); opacity:.35}
+      50%{transform:scale(1.05); opacity:.18}
+      100%{transform:scale(.96); opacity:.35}
     }
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .tools-grid{ grid-template-columns: 1fr; }
-      .wizard{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .grid-3{ grid-template-columns: 1fr; }
-      .grid-4{ grid-template-columns: 1fr 1fr; }
-      .services-grid .svc{ grid-column: span 12; }
+      .hero-grid{grid-template-columns:1fr}
+      .viz-grid{grid-template-columns:1fr}
+      .services-grid .svc{grid-column:span 12}
+      .tools-grid{grid-template-columns:1fr}
+      .wizard{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
     }
     @media (max-width: 720px){
-      .nav{ display:none; }
-      .hamburger{ display:inline-flex; }
-      .field-row{ grid-template-columns: 1fr; }
-      .grid-2{ grid-template-columns: 1fr; }
-      .grid-4{ grid-template-columns: 1fr; }
-      .hero-card{ padding:16px; }
-      .svc .media{ height: 190px; }
-      .map-wrap{ height: 240px; }
-      .float{ right: 10px; bottom: 10px; }
-      .fab span{ display:none; } /* keeps icons compact on mobile */
+      .nav{display:none}
+      .hamburger{display:inline-flex}
+      .field-row{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .hero-card{padding:16px}
+      .svc .media{height:200px}
+      .map-wrap{height:240px}
+      .float{right:10px; bottom:10px}
+      .fab span{display:none}
     }
 
-    /* RTL Support */
-    html[dir="rtl"] body{ direction: rtl; }
-    html[dir="rtl"] .brand{ flex-direction: row-reverse; }
-    html[dir="rtl"] .nav{ flex-direction: row-reverse; }
-    html[dir="rtl"] .actions{ flex-direction: row-reverse; }
-    html[dir="rtl"] .trackbar{ flex-direction: row-reverse; }
-    html[dir="rtl"] .hero-actions{ justify-content:flex-start; }
-    html[dir="rtl"] .float{ right:auto; left: 14px; }
+    /* RTL */
+    html[dir="rtl"] body{direction:rtl}
+    html[dir="rtl"] .brand{flex-direction:row-reverse}
+    html[dir="rtl"] .nav{flex-direction:row-reverse}
+    html[dir="rtl"] .actions{flex-direction:row-reverse}
+    html[dir="rtl"] .trackbar{flex-direction:row-reverse}
+    html[dir="rtl"] .wizard-actions{justify-content:flex-start}
+    html[dir="rtl"] .float{right:auto; left:14px}
     @media (max-width: 720px){
-      html[dir="rtl"] .float{ left: 10px; }
+      html[dir="rtl"] .float{left:10px}
     }
   </style>
 </head>
 
 <body>
-  <!-- TOPBAR -->
+  <div class="grid-bg" aria-hidden="true"></div>
+
   <header class="topbar">
     <div class="container">
       <div class="topbar-inner">
         <a class="brand" href="#top" aria-label="New Style Logistics">
-          <div class="logo" aria-hidden="true">
-            <!-- simple premium mark -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 15.5c3.5-1 6.5-4 8-7.5 1.6 3.7 5.2 6.9 8 7.5-3.1 1.5-5.3 3.4-8 7-2.6-3.5-4.9-5.4-8-7z" stroke="rgba(240,210,138,.95)" stroke-width="1.6" />
-              <path d="M8.5 12.2h7" stroke="rgba(238,243,255,.75)" stroke-width="1.2"/>
-            </svg>
-          </div>
+          <div class="mark"><img src="./assets/splash.jpg" alt="New Style Logistics Logo"></div>
           <div class="brand-title">
             <strong data-i18n="brand">New Style Logistics LLC</strong>
             <span data-i18n="brandSub">Dubai, United Arab Emirates</span>
@@ -653,10 +685,10 @@
 
         <nav class="nav" aria-label="Main navigation">
           <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#vision" data-i18n="navVision">Vision</a>
           <a href="#services" data-i18n="navServices">Services</a>
-          <a href="#why" data-i18n="navWhy">Why Us</a>
           <a href="#tools" data-i18n="navTools">Tools</a>
-          <a href="#quote" data-i18n="navQuote">Request</a>
+          <a href="#quote" data-i18n="navQuote">Quote</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
 
@@ -666,23 +698,19 @@
             <button class="pill" id="btnAr" type="button">العربية</button>
           </div>
 
-          <a class="btn btn-primary" href="#quote" aria-label="Get Quote">
-            <span data-i18n="ctaQuote">Get Quote</span>
-          </a>
-
+          <a class="btn btn-primary" href="#quote"><span data-i18n="ctaQuote">Get Quote</span></a>
           <button class="btn hamburger" id="btnMenu" type="button" aria-label="Open menu">☰</button>
         </div>
       </div>
     </div>
 
-    <!-- Mobile menu -->
     <div class="container">
       <div class="menu-panel glass" id="menuPanel" aria-hidden="true">
         <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#vision" data-i18n="navVision">Vision</a>
         <a href="#services" data-i18n="navServices">Services</a>
-        <a href="#why" data-i18n="navWhy">Why Us</a>
         <a href="#tools" data-i18n="navTools">Tools</a>
-        <a href="#quote" data-i18n="navQuote">Request</a>
+        <a href="#quote" data-i18n="navQuote">Quote</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </div>
     </div>
@@ -693,43 +721,37 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="glass hero-card" data-aos="fade-up">
-          <div class="eyebrow" data-i18n="heroEyebrow">Premium Freight & Logistics</div>
-          <h1 class="h1" data-i18n="heroTitle">Reliable logistics in Dubai — built for speed, compliance & visibility.</h1>
-          <p class="lead" data-i18n="heroDesc">
-            Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling, and warehousing — delivered with precision and accountability.
-          </p>
+          <div class="eyebrow" data-i18n="heroEyebrow">High-Tech Freight & Logistics</div>
+          <h1 class="h1" data-i18n="heroTitle">Dubai logistics with real-time clarity — fast, compliant, and controlled.</h1>
+          <p class="lead" data-i18n="heroDesc">Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — engineered for visibility and speed.</p>
 
-          <!-- Shipment tracking simulation -->
           <div class="trackbar" role="search" aria-label="Shipment tracking">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10.5 17.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z" stroke="rgba(238,243,255,.85)" stroke-width="1.6"/>
+                <path d="M15.6 15.6 20.5 20.5" stroke="rgba(51,214,255,.95)" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
             <input id="trackInput" type="text" placeholder="Track shipment (demo): e.g. NSL-24751" />
-            <button class="btn btn-primary" id="btnTrack" type="button">
-              <span data-i18n="trackBtn">Track</span>
-            </button>
+            <button class="btn btn-primary" id="btnTrack" type="button"><span data-i18n="trackBtn">Track</span></button>
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#quote">
-              <span data-i18n="ctaTalk">Talk to our expert team</span>
-            </a>
-            <a class="btn btn-ghost" href="#services">
-              <span data-i18n="ctaServices">See services</span>
-            </a>
-            <a class="btn btn-ghost" href="#tools">
-              <span data-i18n="ctaCalc">Volumetric Weight Calculator</span>
-            </a>
+            <a class="btn btn-primary" href="#quote"><span data-i18n="ctaTalk">Talk to our expert team</span></a>
+            <a class="btn btn-ghost" href="#tools"><span data-i18n="ctaCalc">Volumetric Weight Calculator</span></a>
+            <a class="btn btn-ghost" href="#services"><span data-i18n="ctaServices">See services</span></a>
           </div>
 
-          <div class="badges" aria-label="Key highlights">
-            <span class="badge"><span class="dot"></span><span data-i18n="badge1">Customs-ready compliance</span></span>
-            <span class="badge"><span class="dot"></span><span data-i18n="badge2">Clear tracking & visibility</span></span>
-            <span class="badge"><span class="dot"></span><span data-i18n="badge3">UAE & GCC coverage</span></span>
+          <div class="badges" aria-label="Highlights">
+            <span class="badge"><span class="dot"></span><span data-i18n="b1">UAE & GCC coverage</span></span>
+            <span class="badge"><span class="dot"></span><span data-i18n="b2">Customs-ready compliance</span></span>
+            <span class="badge"><span class="dot"></span><span data-i18n="b3">24/7 quick response</span></span>
           </div>
 
-          <!-- Trust bar -->
           <div class="trust glass-soft" data-aos="fade-up" data-aos-delay="120">
-            <div class="trust-title">
+            <div class="trust-top">
               <strong data-i18n="trustTitle">Partners & Certifications</strong>
-              <span style="color:rgba(238,243,255,.55); font-size:12px" data-i18n="trustHint">grayscale for a premium corporate look</span>
+              <span style="color:rgba(238,243,255,.55); font-size:12px" data-i18n="trustHint">premium grayscale slider</span>
             </div>
             <div class="logos" aria-label="Certifications slider">
               <div class="logo-chip">IATA</div>
@@ -743,7 +765,7 @@
         </div>
 
         <div class="hero-media" data-aos="fade-left">
-          <img src="./assets/hero.jpg" alt="New Style Logistics Dubai freight forwarding" />
+          <img src="./assets/hero.jpg" alt="New Style Logistics Dubai freight forwarding">
         </div>
       </div>
     </section>
@@ -754,29 +776,62 @@
         <div class="section-head" data-aos="fade-up">
           <div>
             <p class="kicker" data-i18n="aboutKicker">About</p>
-            <h2 class="h2" data-i18n="aboutTitle">About New Style Logistics — Dubai</h2>
-            <p class="sub" data-i18n="aboutDesc">
-              We support businesses across the UAE, GCC, and international routes with a strong focus on compliance, safety, and on-time delivery.
-            </p>
+            <h2 class="h2" data-i18n="aboutTitle">Boutique Dubai execution. Global-standard operations.</h2>
+            <p class="sub" data-i18n="aboutDesc">We deliver freight and clearance services with a compliance-first mindset, clear communication, and time-protected planning.</p>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="glass-soft card" data-aos="fade-up" data-aos-delay="40">
-            <h3 data-i18n="aboutCard1Title">What we do</h3>
-            <p data-i18n="aboutCard1Desc">Air, sea, and land freight solutions tailored to timelines and budgets.</p>
+            <h3 data-i18n="a1t">Visibility-firstF (single point of contact)</h3>
+            <p data-i18n="a1d">Clear updates and fast replies with next-step guidance — built for businesses.</p>
           </div>
           <div class="glass-soft card" data-aos="fade-up" data-aos-delay="80">
-            <h3 data-i18n="aboutCard2Title">Compliance & documentation</h3>
-            <p data-i18n="aboutCard2Desc">Customs clearance and documentation support for smooth processing.</p>
+            <h3 data-i18n="a2t">Compliance-first processing</h3>
+            <p data-i18n="a2d">Customs documentation support to reduce rejections, delays, and unexpected holds.</p>
           </div>
           <div class="glass-soft card" data-aos="fade-up" data-aos-delay="120">
-            <h3 data-i18n="aboutCard3Title">Cargo handling</h3>
-            <p data-i18n="aboutCard3Desc">Safe loading, unloading, and movement with controlled supervision.</p>
+            <h3 data-i18n="a3t">Controlled handling & safety</h3>
+            <p data-i18n="a3d">Standard handling practices for safer cargo movement across every mode.</p>
           </div>
           <div class="glass-soft card" data-aos="fade-up" data-aos-delay="160">
-            <h3 data-i18n="aboutCard4Title">Warehousing</h3>
-            <p data-i18n="aboutCard4Desc">Organized storage with scalable inventory handling and dispatch support.</p>
+            <h3 data-i18n="a4t">Flexible warehousing</h3>
+            <p data-i18n="a4d">Storage and dispatch support scaled to your business needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION & GROWTH (Charts) -->
+    <section id="vision">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <div>
+            <p class="kicker" data-i18n="visionK">Vision & Growth</p>
+            <h2 class="h2" data-i18n="visionT">Data-driven planning for faster deliveries</h2>
+            <p class="sub" data-i18n="visionD">Interactive visuals (built-in) that communicate modern operations and efficiency.</p>
+          </div>
+        </div>
+
+        <div class="viz-grid">
+          <div class="glass chart" data-aos="fade-up">
+            <div class="chart-head">
+              <strong data-i18n="c1t">On-time performance trend</strong>
+              <span data-i18n="c1s">illustrative</span>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="chartLine" width="900" height="360" aria-label="On-time performance chart"></canvas>
+            </div>
+          </div>
+
+          <div class="glass chart" data-aos="fade-up" data-aos-delay="80">
+            <div class="chart-head">
+              <strong data-i18n="c2t">Mode mix (Air / Sea / Land)</strong>
+              <span data-i18n="c2s">illustrative</span>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="chartBars" width="900" height="360" aria-label="Mode mix chart"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -787,148 +842,66 @@
       <div class="container">
         <div class="section-head" data-aos="fade-up">
           <div>
-            <p class="kicker" data-i18n="svcKicker">Services</p>
-            <h2 class="h2">
-              <span data-i18n="svcTitleA">Our services</span>
-              <span style="color:var(--gold)" data-i18n="svcTitleB">delivered with precision</span>
-            </h2>
-            <p class="sub" data-i18n="svcDesc">Air freight, Sea freight (FCL/LCL), Land transport, Customs clearance, Cargo handling, and Warehousing.</p>
+            <p class="kicker" data-i18n="svcK">Services</p>
+            <h2 class="h2" data-i18n="svcT">End-to-end freight & clearance services</h2>
+            <p class="sub" data-i18n="svcD">Built with premium UI, hover interactions, and perfect image scaling on mobile and desktop.</p>
           </div>
         </div>
 
         <div class="services-grid">
-          <!-- Air -->
           <article class="glass svc" data-aos="fade-up">
-            <div class="media">
-              <img src="./assets/air.jpg" alt="Air freight Dubai" />
-            </div>
+            <div class="media"><img src="./assets/air.jpg" alt="Air freight Dubai"></div>
             <div class="content">
-              <h3 data-i18n="airTitle">Air Freight</h3>
-              <p data-i18n="airDesc">Fast movement for urgent shipments with controlled documentation support.</p>
-              <div class="tags">
-                <span class="tag" data-i18n="tagFast">Fast</span>
-                <span class="tag" data-i18n="tagPriority">Priority</span>
-                <span class="tag" data-i18n="tagWorldwide">Worldwide</span>
-              </div>
+              <h3 data-i18n="sAirT">Air Freight</h3>
+              <p data-i18n="sAirD">Priority movement for urgent, time-sensitive shipments with strong documentation support.</p>
+              <div class="tags"><span class="tag">Fast</span><span class="tag">Priority</span><span class="tag">Worldwide</span></div>
             </div>
           </article>
 
-          <!-- Sea -->
           <article class="glass svc" data-aos="fade-up" data-aos-delay="80">
-            <div class="media">
-              <img src="./assets/sea.jpg" alt="Sea freight FCL LCL Dubai" />
-            </div>
+            <div class="media"><img src="./assets/sea.jpg" alt="Sea freight FCL LCL Dubai"></div>
             <div class="content">
-              <h3 data-i18n="seaTitle">Sea Freight (FCL / LCL)</h3>
-              <p data-i18n="seaDesc">Cost-efficient container and consolidation services with reliable planning.</p>
-              <div class="tags">
-                <span class="tag">FCL</span>
-                <span class="tag">LCL</span>
-                <span class="tag" data-i18n="tagGlobal">Global</span>
-              </div>
+              <h3 data-i18n="sSeaT">Sea Freight (FCL / LCL)</h3>
+              <p data-i18n="sSeaD">Cost-efficient container and consolidation options with reliable planning.</p>
+              <div class="tags"><span class="tag">FCL</span><span class="tag">LCL</span><span class="tag">Global</span></div>
             </div>
           </article>
 
-          <!-- Land -->
           <article class="glass svc" data-aos="fade-up">
-            <div class="media">
-              <img src="./assets/land.jpg" alt="Land transport UAE GCC" />
-            </div>
+            <div class="media"><img src="./assets/land.jpg" alt="Land transport UAE GCC"></div>
             <div class="content">
-              <h3 data-i18n="landTitle">Land Transport</h3>
-              <p data-i18n="landDesc">Safe delivery across UAE and GCC routes with scheduled control.</p>
-              <div class="tags">
-                <span class="tag">UAE</span>
-                <span class="tag" data-i18n="tagTrucking">Trucking</span>
-                <span class="tag" data-i18n="tagDoor">Door-to-door</span>
-              </div>
+              <h3 data-i18n="sLandT">Land Transport</h3>
+              <p data-i18n="sLandD">Reliable delivery across UAE and GCC routes with scheduled control.</p>
+              <div class="tags"><span class="tag">UAE</span><span class="tag">GCC</span><span class="tag">Door-to-door</span></div>
             </div>
           </article>
 
-          <!-- Customs (FIXED sizing: object-fit cover + correct heights) -->
           <article class="glass svc" data-aos="fade-up" data-aos-delay="80">
-            <div class="media">
-              <img src="./assets/customs.jpg" alt="Customs clearance Dubai" />
-            </div>
+            <div class="media"><img src="./assets/customs.jpg" alt="Customs clearance Dubai"></div>
             <div class="content">
-              <h3 data-i18n="customsTitle">Customs Clearance</h3>
-              <p data-i18n="customsDesc">Compliance-focused clearance to keep shipments smooth and customs-ready.</p>
-              <div class="tags">
-                <span class="tag" data-i18n="tagDocs">Documentation</span>
-                <span class="tag" data-i18n="tagCompliance">Compliance</span>
-                <span class="tag" data-i18n="tagProcessing">Fast processing</span>
-              </div>
+              <h3 data-i18n="sCusT">Customs Clearance</h3>
+              <p data-i18n="sCusD">Compliance-focused clearance support to minimize delays and protect timelines.</p>
+              <div class="tags"><span class="tag">Docs</span><span class="tag">Compliance</span><span class="tag">Fast processing</span></div>
             </div>
           </article>
 
-          <!-- Cargo -->
           <article class="glass svc" data-aos="fade-up">
-            <div class="media">
-              <img src="./assets/cargo.jpg" alt="Cargo handling Dubai" />
-            </div>
+            <div class="media"><img src="./assets/cargo.jpg" alt="Cargo handling Dubai"></div>
             <div class="content">
-              <h3 data-i18n="cargoTitle">Cargo Handling</h3>
-              <p data-i18n="cargoDesc">Safe loading, unloading, and movement with controlled handling standards.</p>
-              <div class="tags">
-                <span class="tag" data-i18n="tagCare">Care</span>
-                <span class="tag" data-i18n="tagSafety">Safety</span>
-                <span class="tag" data-i18n="tagControl">Control</span>
-              </div>
+              <h3 data-i18n="sCargoT">Cargo Handling</h3>
+              <p data-i18n="sCargoD">Safe loading, unloading, and movement aligned with handling standards.</p>
+              <div class="tags"><span class="tag">Safety</span><span class="tag">Control</span><span class="tag">Care</span></div>
             </div>
           </article>
 
-          <!-- Warehousing -->
           <article class="glass svc" data-aos="fade-up" data-aos-delay="80">
-            <div class="media">
-              <img src="./assets/warehousing.jpg" alt="Warehousing Dubai" />
-            </div>
+            <div class="media"><img src="./assets/warehousing.jpg" alt="Warehousing Dubai"></div>
             <div class="content">
-              <h3 data-i18n="whTitle">Warehousing</h3>
-              <p data-i18n="whDesc">Organized storage with scalable inventory management and dispatch support.</p>
-              <div class="tags">
-                <span class="tag" data-i18n="tagStorage">Storage</span>
-                <span class="tag" data-i18n="tagInventory">Inventory</span>
-                <span class="tag" data-i18n="tagDispatch">Dispatch</span>
-              </div>
+              <h3 data-i18n="sWhT">Warehousing</h3>
+              <p data-i18n="sWhD">Organized storage, inventory handling, and dispatch support.</p>
+              <div class="tags"><span class="tag">Storage</span><span class="tag">Inventory</span><span class="tag">Dispatch</span></div>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY US -->
-    <section id="why">
-      <div class="container">
-        <div class="glass" style="padding:16px" data-aos="fade-up">
-          <p class="kicker" data-i18n="whyKicker">Why Choose Us</p>
-          <h2 class="h2" style="margin-bottom:8px" data-i18n="whyTitle">Why Choose Us</h2>
-          <p class="sub" data-i18n="whyDesc">
-            New Style Logistics LLC delivers professional freight coordination with strong compliance support, safe handling, and a focus on on-time delivery — so your shipments stay controlled, visible, and reliable. We plan routes carefully, verify documents, and communicate clearly at every step.
-          </p>
-
-          <div class="grid-2" style="margin-top:14px">
-            <div class="glass-soft card" data-aos="fade-up" data-aos-delay="60">
-              <h3 data-i18n="why1Title">Speed with control</h3>
-              <p data-i18n="why1Desc">We plan movements to protect timelines while maintaining safety and documentation accuracy.</p>
-            </div>
-            <div class="glass-soft card" data-aos="fade-up" data-aos-delay="100">
-              <h3 data-i18n="why2Title">Compliance support</h3>
-              <p data-i18n="why2Desc">We guide you through requirements to keep shipments smooth and customs-ready.</p>
-            </div>
-            <div class="glass-soft card" data-aos="fade-up" data-aos-delay="140">
-              <h3 data-i18n="why3Title">Professional handling</h3>
-              <p data-i18n="why3Desc">From cargo handling to warehousing, we follow a careful, accountable process.</p>
-            </div>
-            <div class="glass-soft card" data-aos="fade-up" data-aos-delay="180">
-              <h3 data-i18n="why4Title">Dedicated support</h3>
-              <p data-i18n="why4Desc">Fast response via WhatsApp, call, or email with clear next steps and guidance.</p>
-            </div>
-          </div>
-
-          <div class="hero-actions" style="margin-top:12px">
-            <a class="btn btn-primary" href="#quote"><span data-i18n="ctaQuote2">Request a Quote</span></a>
-            <a class="btn btn-ghost" href="https://wa.me/971561436491" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
         </div>
       </div>
     </section>
@@ -938,17 +911,16 @@
       <div class="container">
         <div class="section-head" data-aos="fade-up">
           <div>
-            <p class="kicker" data-i18n="toolsKicker">Shipping Tools</p>
-            <h2 class="h2" data-i18n="toolsTitle">Tools your team will actually use</h2>
-            <p class="sub" data-i18n="toolsDesc">A quick volumetric calculator and a clean download center — built into the site for a premium corporate experience.</p>
+            <p class="kicker" data-i18n="toolsK">Shipping Tools</p>
+            <h2 class="h2" data-i18n="toolsT">Utility center (calculator + documents)</h2>
+            <p class="sub" data-i18n="toolsD">Premium utilities that make the website feel like a global leader platform.</p>
           </div>
         </div>
 
         <div class="tools-grid">
-          <!-- Calculator -->
           <div class="glass" style="padding:16px" data-aos="fade-up">
-            <h3 style="margin:0 0 8px" data-i18n="calcTitle">Volumetric Weight Calculator</h3>
-            <p class="sub" style="margin-bottom:10px" data-i18n="calcDesc">Formula: (L × W × H) / 5000 (cm) — common air freight divisor.</p>
+            <h3 style="margin:0 0 8px" data-i18n="calcT">Volumetric Weight Calculator</h3>
+            <p class="sub" style="margin-bottom:10px" data-i18n="calcD">Formula: (L × W × H) / 5000 (cm).</p>
 
             <div class="field-row">
               <div class="field">
@@ -966,8 +938,8 @@
             </div>
 
             <div class="hero-actions" style="margin-top:10px">
-              <button class="btn btn-primary" id="btnCalc" type="button"><span data-i18n="calcBtn">Calculate</span></button>
-              <button class="btn btn-ghost" id="btnResetCalc" type="button"><span data-i18n="resetBtn">Reset</span></button>
+              <button class="btn btn-primary" id="btnCalc" type="button" data-i18n="calcBtn">Calculate</button>
+              <button class="btn btn-ghost" id="btnResetCalc" type="button" data-i18n="resetBtn">Reset</button>
             </div>
 
             <div class="tool-result" id="calcResult" aria-live="polite" data-i18n="calcHint">
@@ -975,56 +947,53 @@
             </div>
           </div>
 
-          <!-- Download Center -->
           <div class="glass" style="padding:16px" data-aos="fade-up" data-aos-delay="80">
-            <h3 style="margin:0 0 8px" data-i18n="dlTitle">Download Center</h3>
-            <p class="sub" data-i18n="dlDesc">Standard shipping templates. Add PDFs later and keep these links.</p>
+            <h3 style="margin:0 0 8px" data-i18n="dlT">Download Center</h3>
+            <p class="sub" data-i18n="dlD">Add your PDF templates later (no broken links today).</p>
 
-            <div class="download-list" aria-label="Downloads">
-              <!-- Put PDFs into /assets/docs/ and keep these filenames -->
-              <a href="./assets/docs/shipper-letter-of-instruction.pdf" download>
-                <span><strong data-i18n="dl1">Shipper's Letter of Instruction</strong><br><span style="color:rgba(238,243,255,.60); font-size:12px" data-i18n="pdfTemp">PDF template</span></span>
+            <div class="download">
+              <a href="#" onclick="alert('Upload PDF later: Shipper\\'s Letter of Instruction'); return false;">
+                <span><strong data-i18n="dl1">Shipper's Letter of Instruction</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
                 <span class="btn">Download</span>
               </a>
-              <a href="./assets/docs/commercial-invoice-template.pdf" download>
-                <span><strong data-i18n="dl2">Commercial Invoice Template</strong><br><span style="color:rgba(238,243,255,.60); font-size:12px" data-i18n="pdfTemp">PDF template</span></span>
+              <a href="#" onclick="alert('Upload PDF later: Commercial Invoice Template'); return false;">
+                <span><strong data-i18n="dl2">Commercial Invoice Template</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
                 <span class="btn">Download</span>
               </a>
-              <a href="./assets/docs/packing-list-template.pdf" download>
-                <span><strong data-i18n="dl3">Packing List Template</strong><br><span style="color:rgba(238,243,255,.60); font-size:12px" data-i18n="pdfTemp">PDF template</span></span>
+              <a href="#" onclick="alert('Upload PDF later: Packing List Template'); return false;">
+                <span><strong data-i18n="dl3">Packing List Template</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
                 <span class="btn">Download</span>
               </a>
             </div>
 
-            <p class="hint" data-i18n="dlHint">
-              Tip: If you don’t have PDFs yet, keep these links now. Later, upload your PDFs into <b>/assets/docs/</b> and rename them.
-            </p>
+            <div style="margin-top:12px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.12)">
+              <img src="./assets/global.jpg" alt="Global coverage" style="height:180px; width:100%; object-fit:cover; object-position:center;">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- QUOTE (3-step wizard) -->
+    <!-- QUOTE WIZARD -->
     <section id="quote">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
           <div>
-            <p class="kicker" data-i18n="quoteKicker">Smart Quote</p>
-            <h2 class="h2" data-i18n="quoteTitle">Request a Quote (3-step)</h2>
-            <p class="sub" data-i18n="quoteDesc">A sleek, professional quote wizard. Submission opens your email draft automatically (works on GitHub Pages).</p>
+            <p class="kicker" data-i18n="qK">Smart Quote</p>
+            <h2 class="h2" data-i18n="qT">Request a Quote (3-step)</h2>
+            <p class="sub" data-i18n="qD">Works on GitHub Pages: opens a ready email draft automatically.</p>
           </div>
         </div>
 
         <div class="wizard">
           <div class="glass" style="padding:16px" data-aos="fade-up">
-            <div class="steps" aria-label="Wizard steps">
-              <span class="step active" id="s1" data-i18n="step1">1) Contact</span>
-              <span class="step" id="s2" data-i18n="step2">2) Shipment</span>
-              <span class="step" id="s3" data-i18n="step3">3) Confirm</span>
+            <div class="steps">
+              <span class="step active" id="s1" data-i18n="st1">1) Contact</span>
+              <span class="step" id="s2" data-i18n="st2">2) Shipment</span>
+              <span class="step" id="s3" data-i18n="st3">3) Confirm</span>
             </div>
 
-            <!-- Step 1 -->
-            <div id="step1Panel">
+            <div id="p1">
               <div class="grid-2">
                 <div class="field">
                   <label for="qName" data-i18n="name">Your Name</label>
@@ -1045,8 +1014,7 @@
               </div>
             </div>
 
-            <!-- Step 2 -->
-            <div id="step2Panel" style="display:none">
+            <div id="p2" style="display:none">
               <div class="grid-2">
                 <div class="field">
                   <label for="qMode" data-i18n="mode">Mode</label>
@@ -1088,11 +1056,10 @@
               </div>
             </div>
 
-            <!-- Step 3 -->
-            <div id="step3Panel" style="display:none">
+            <div id="p3" style="display:none">
               <div class="glass-soft" style="padding:14px">
-                <h3 style="margin:0 0 8px" data-i18n="confirmTitle">Confirm & Submit</h3>
-                <p class="sub" data-i18n="confirmDesc">We’ll open a ready email draft to <b>alwahti@newstylelogistics.com</b>. You can review and send.</p>
+                <h3 style="margin:0 0 8px" data-i18n="confirmT">Confirm & Submit</h3>
+                <p class="sub" data-i18n="confirmD">We’ll open a ready email draft to <b>alwahti@newstylelogistics.com</b>.</p>
                 <div class="tool-result" id="summaryBox">—</div>
               </div>
 
@@ -1101,44 +1068,43 @@
                 <button class="btn btn-primary" id="submitQuote" type="button" data-i18n="submit">Submit</button>
               </div>
 
-              <p class="hint" data-i18n="quoteHint">
-                For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode (Air/Sea/Land).
-              </p>
+              <p class="hint" data-i18n="qHint">For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode.</p>
             </div>
           </div>
 
           <div class="glass" style="padding:16px" data-aos="fade-up" data-aos-delay="80">
-            <p class="kicker" style="margin:0 0 8px" data-i18n="fastKicker">Fast response</p>
-            <h3 style="margin:0 0 8px" data-i18n="fastTitle">Talk to our experts team</h3>
-            <p class="sub" data-i18n="fastDesc">Prefer WhatsApp or call? Use quick actions — we respond fast and guide you clearly.</p>
+            <p class="kicker" style="margin:0 0 8px" data-i18n="fastK">Fast response</p>
+            <h3 style="margin:0 0 8px" data-i18n="fastT">Talk to our expert team</h3>
+            <p class="sub" data-i18n="fastD">Prefer WhatsApp or call? Use quick actions — we respond fast.</p>
 
             <div class="hero-actions" style="margin-top:12px">
-              <a class="btn btn-primary" href="https://wa.me/971561436491" target="_blank" rel="noopener">
-                WhatsApp
-              </a>
+              <a class="btn btn-primary" href="https://wa.me/971561436491" target="_blank" rel="noopener">WhatsApp</a>
               <a class="btn btn-ghost" href="tel:+97145914550">Call</a>
               <a class="btn btn-ghost" href="mailto:alwahti@newstylelogistics.com">Email</a>
+            </div>
+
+            <div style="margin-top:12px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.12)">
+              <img src="./assets/splash.jpg" alt="Brand visual" style="height:160px; width:100%; object-fit:cover; object-position:center;">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT + MAP + HOURS -->
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
           <div>
-            <p class="kicker" data-i18n="contactKicker">Contact</p>
-            <h2 class="h2" data-i18n="contactTitle">Get In Touch · 24×7</h2>
-            <p class="sub" data-i18n="contactDesc">We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.</p>
+            <p class="kicker" data-i18n="contactK">Contact</p>
+            <h2 class="h2" data-i18n="contactT">Get In Touch · 24×7</h2>
+            <p class="sub" data-i18n="contactD">We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.</p>
           </div>
         </div>
 
         <div class="contact-grid">
           <div class="glass" style="padding:16px" data-aos="fade-up">
-            <h3 style="margin:0 0 8px" data-i18n="quickTitle">Quick action</h3>
-
+            <h3 style="margin:0 0 8px" data-i18n="quickT">Quick actions</h3>
             <div class="quick">
               <a href="https://wa.me/971561436491" target="_blank" rel="noopener">
                 <span><strong>WhatsApp</strong><br><span style="color:rgba(238,243,255,.65); font-size:12px">+971 56 143 6491</span></span>
@@ -1156,8 +1122,8 @@
           </div>
 
           <div class="glass" style="padding:16px" data-aos="fade-up" data-aos-delay="80">
-            <p class="kicker" style="margin:0 0 8px" data-i18n="addrKicker">Address</p>
-            <h3 style="margin:0 0 8px" data-i18n="addrTitle">Company Address & Map</h3>
+            <p class="kicker" style="margin:0 0 8px" data-i18n="addrK">Address</p>
+            <h3 style="margin:0 0 8px" data-i18n="addrT">Company Address & Map</h3>
 
             <div class="glass-soft" style="padding:12px; margin-bottom:12px">
               <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
@@ -1167,40 +1133,41 @@
                     Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE
                   </span>
                 </div>
-                <a class="btn btn-ghost" href="https://www.google.com/maps?q=Thumbay+Clinic+Ras+Al+Khor+Dubai" target="_blank" rel="noopener">
-                  <span data-i18n="openMaps">Open in Google Maps</span>
+                <a class="btn btn-ghost" href="https://www.google.com/maps?q=Thumbay+Clinic+Building+Ras+Al+Khor+Dubai" target="_blank" rel="noopener" data-i18n="openMaps">
+                  Open in Google Maps
                 </a>
               </div>
             </div>
 
-            <!-- IMPORTANT: This iframe works on GitHub Pages (no github.io link inside). -->
             <div class="map-wrap" aria-label="Google map">
               <iframe
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Thumbay%20Clinic%20Ras%20Al%20Khor%20Dubai&z=13&output=embed">
-              </iframe>
+                src="https://www.google.com/maps?q=Thumbay%20Clinic%20Building%20Ras%20Al%20Khor%20Dubai&z=15&output=embed"
+                title="New Style Logistics LLC - Map"></iframe>
             </div>
           </div>
         </div>
 
         <div class="glass" style="padding:16px; margin-top:12px" data-aos="fade-up">
-          <p class="kicker" style="margin:0 0 8px" data-i18n="hoursKicker">Hours</p>
-          <h3 style="margin:0 0 10px" data-i18n="hoursTitle">Working Hours</h3>
+          <p class="kicker" style="margin:0 0 8px" data-i18n="hoursK">Hours</p>
+          <h3 style="margin:0 0 10px" data-i18n="hoursT">Working Hours</h3>
+
           <div class="grid-3">
             <div class="glass-soft card">
               <h3 data-i18n="monfri">Monday to Friday</h3>
-              <p><strong>8:30 AM – 6:00 PM</strong></p>
+              <p style="margin:0; font-weight:900">8:30 AM – 6:00 PM</p>
             </div>
             <div class="glass-soft card">
               <h3 data-i18n="sat">Saturday</h3>
-              <p><strong>8:30 AM – 3:00 PM</strong></p>
+              <p style="margin:0; font-weight:900">8:30 AM – 3:00 PM</p>
             </div>
             <div class="glass-soft card">
               <h3 data-i18n="sun">Sunday</h3>
-              <p><strong data-i18n="closed">Closed</strong></p>
+              <p style="margin:0; font-weight:900" data-i18n="closed">Closed</p>
             </div>
           </div>
+
           <p class="hint" style="margin-bottom:0" data-i18n="hoursHint">
             For urgent shipments, contact us via WhatsApp anytime and our team will guide you quickly.
           </p>
@@ -1211,39 +1178,32 @@
     <footer>
       <div class="container">
         <div class="glass footer-row">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div class="logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 15.5c3.5-1 6.5-4 8-7.5 1.6 3.7 5.2 6.9 8 7.5-3.1 1.5-5.3 3.4-8 7-2.6-3.5-4.9-5.4-8-7z" stroke="rgba(240,210,138,.95)" stroke-width="1.6" />
-              </svg>
-            </div>
+          <div class="foot-left">
+            <div class="foot-logo"><img src="./assets/splash.jpg" alt="New Style Logistics Logo"></div>
             <div>
               <strong data-i18n="brand">New Style Logistics LLC</strong><br>
               <span style="color:rgba(238,243,255,.62)" data-i18n="footerSub">Freight · Logistics · Customs · Warehousing</span>
             </div>
           </div>
-
           <div>© <span id="year"></span> <span data-i18n="rights">All Rights Reserved.</span></div>
         </div>
       </div>
     </footer>
   </main>
 
-  <!-- Floating buttons (kept premium) -->
+  <!-- Floating -->
   <div class="float" aria-label="Quick contact floating buttons">
     <a class="fab primary pulse" href="https://wa.me/971561436491" target="_blank" rel="noopener" aria-label="WhatsApp">
       <span>WhatsApp</span>
     </a>
-    <a class="fab" href="tel:+97145914550" aria-label="Call">
-      <span>Call</span>
-    </a>
+    <a class="fab" href="tel:+97145914550" aria-label="Call"><span>Call</span></a>
   </div>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
   <script>
-    // Init AOS
+    // AOS
     AOS.init({ duration: 650, once: true, offset: 80 });
 
     // Year
@@ -1258,14 +1218,13 @@
       menuPanel.style.display = open ? "block" : "none";
       menuPanel.setAttribute("aria-hidden", open ? "false" : "true");
     }
-    btnMenu?.addEventListener("click", () => setMenu(!menuOpen));
-    menuPanel?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+    btnMenu && btnMenu.addEventListener("click", () => setMenu(!menuOpen));
+    menuPanel && menuPanel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 
-    // Tracking simulation (demo only)
+    // Tracking demo
     document.getElementById("btnTrack").addEventListener("click", () => {
       const v = (document.getElementById("trackInput").value || "").trim();
-      const msg = v ? `Tracking request received (demo): ${v}` : "Enter a tracking number (demo).";
-      alert(msg);
+      alert(v ? ("Tracking request received (demo): " + v) : "Enter a tracking number (demo).");
     });
 
     // Volumetric calculator
@@ -1275,32 +1234,33 @@
       return Number.isFinite(n) ? n : 0;
     }
     document.getElementById("btnCalc").addEventListener("click", () => {
-      const L = numVal("len");
-      const W = numVal("wid");
-      const H = numVal("hei");
+      const L = numVal("len"), W = numVal("wid"), H = numVal("hei");
       const box = document.getElementById("calcResult");
-      if(!L || !W || !H){
-        box.textContent = "Please enter Length, Width and Height.";
-        return;
-      }
+      if(!L || !W || !H){ box.textContent = "Please enter Length, Width and Height."; return; }
       const vw = (L * W * H) / 5000;
-      box.textContent = `Volumetric weight: ${vw.toFixed(2)} kg (L×W×H/5000).`;
+      box.textContent = "Volumetric weight: " + vw.toFixed(2) + " kg (L×W×H/5000).";
     });
     document.getElementById("btnResetCalc").addEventListener("click", () => {
       ["len","wid","hei"].forEach(id => document.getElementById(id).value = "");
       document.getElementById("calcResult").textContent = "Enter dimensions to calculate volumetric weight.";
     });
 
-    // Quote wizard logic
+    // Quote wizard
     const s1 = document.getElementById("s1"), s2 = document.getElementById("s2"), s3 = document.getElementById("s3");
-    const p1 = document.getElementById("step1Panel"), p2 = document.getElementById("step2Panel"), p3 = document.getElementById("step3Panel");
+    const p1 = document.getElementById("p1"), p2 = document.getElementById("p2"), p3 = document.getElementById("p3");
+
     function activate(step){
       [s1,s2,s3].forEach(x => x.classList.remove("active"));
       [p1,p2,p3].forEach(x => x.style.display = "none");
       if(step===1){ s1.classList.add("active"); p1.style.display="block"; }
       if(step===2){ s2.classList.add("active"); p2.style.display="block"; }
       if(step===3){ s3.classList.add("active"); p3.style.display="block"; buildSummary(); }
-      window.scrollTo({ top: document.getElementById("quote").offsetTop - 70, behavior: "smooth" });
+      const quote = document.getElementById("quote");
+      window.scrollTo({ top: quote.offsetTop - 70, behavior: "smooth" });
+    }
+
+    function escapeHtml(str){
+      return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
     }
 
     function buildSummary(){
@@ -1314,13 +1274,9 @@
       const details = document.getElementById("qDetails").value || "-";
 
       document.getElementById("summaryBox").innerHTML =
-        `<b>Contact</b><br>Name: ${escapeHtml(name)}<br>Email: ${escapeHtml(email)}<br>Phone: ${escapeHtml(phone)}<br><br>` +
-        `<b>Shipment</b><br>Mode: ${escapeHtml(mode)}<br>Incoterm: ${escapeHtml(inc)}<br>From: ${escapeHtml(from)}<br>To: ${escapeHtml(to)}<br><br>` +
-        `<b>Details</b><br>${escapeHtml(details).replace(/\n/g,"<br>")}`;
-    }
-
-    function escapeHtml(str){
-      return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+        "<b>Contact</b><br>Name: " + escapeHtml(name) + "<br>Email: " + escapeHtml(email) + "<br>Phone: " + escapeHtml(phone) + "<br><br>" +
+        "<b>Shipment</b><br>Mode: " + escapeHtml(mode) + "<br>Incoterm: " + escapeHtml(inc) + "<br>From: " + escapeHtml(from) + "<br>To: " + escapeHtml(to) + "<br><br>" +
+        "<b>Details</b><br>" + escapeHtml(details).replace(/\\n/g,"<br>");
     }
 
     document.getElementById("next1").addEventListener("click", () => {
@@ -1337,200 +1293,254 @@
       const name = (document.getElementById("qName").value || "").trim();
       const email = (document.getElementById("qEmail").value || "").trim();
       const phone = (document.getElementById("qPhone").value || "").trim();
-
       const mode = document.getElementById("qMode").value || "";
       const inc = document.getElementById("qIncoterm").value || "";
       const from = (document.getElementById("qFrom").value || "").trim();
       const to = (document.getElementById("qTo").value || "").trim();
       const details = (document.getElementById("qDetails").value || "").trim();
 
-      const subject = encodeURIComponent(`Quote Request — ${mode} | ${from || "Origin"} → ${to || "Destination"}`);
+      const subject = encodeURIComponent("Quote Request — " + mode + " | " + (from || "Origin") + " → " + (to || "Destination"));
       const body = encodeURIComponent(
-        `New Style Logistics — Quote Request\n\n` +
-        `CONTACT\nName: ${name}\nEmail: ${email}\nPhone/WhatsApp: ${phone || "-"}\n\n` +
-        `SHIPMENT\nMode: ${mode}\nIncoterm: ${inc || "-"}\nFrom: ${from || "-"}\nTo: ${to || "-"}\n\n` +
-        `DETAILS\n${details || "-"}\n`
+        "New Style Logistics — Quote Request\\n\\n" +
+        "CONTACT\\nName: " + name + "\\nEmail: " + email + "\\nPhone/WhatsApp: " + (phone || "-") + "\\n\\n" +
+        "SHIPMENT\\nMode: " + mode + "\\nIncoterm: " + (inc || "-") + "\\nFrom: " + (from || "-") + "\\nTo: " + (to || "-") + "\\n\\n" +
+        "DETAILS\\n" + (details || "-") + "\\n"
       );
 
-      window.location.href = `mailto:alwahti@newstylelogistics.com?subject=${subject}&body=${body}`;
+      window.location.href = "mailto:alwahti@newstylelogistics.com?subject=" + subject + "&body=" + body;
     });
 
-    // Language switch (EN/AR)
+    // Simple chart drawing (no external libs, fast, premium)
+    function drawLineChart(canvasId, values){
+      const c = document.getElementById(canvasId);
+      const ctx = c.getContext("2d");
+      const w = c.width, h = c.height;
+      ctx.clearRect(0,0,w,h);
+
+      // background grid
+      ctx.globalAlpha = 0.22;
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1;
+      for(let i=1;i<6;i++){
+        const y = (h/6)*i;
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      // line
+      const pad = 36;
+      const maxV = Math.max(...values);
+      const minV = Math.min(...values);
+      const span = Math.max(1, maxV - minV);
+
+      function px(i){ return pad + ( (w - pad*2) * (i/(values.length-1)) ); }
+      function py(v){ return (h - pad) - ((h - pad*2) * ((v - minV)/span)); }
+
+      // glow stroke
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+
+      ctx.strokeStyle = "rgba(51,214,255,.22)";
+      ctx.lineWidth = 10;
+      ctx.beginPath();
+      values.forEach((v,i)=>{ if(i===0) ctx.moveTo(px(i),py(v)); else ctx.lineTo(px(i),py(v)); });
+      ctx.stroke();
+
+      ctx.strokeStyle = "rgba(51,214,255,.95)";
+      ctx.lineWidth = 2.6;
+      ctx.beginPath();
+      values.forEach((v,i)=>{ if(i===0) ctx.moveTo(px(i),py(v)); else ctx.lineTo(px(i),py(v)); });
+      ctx.stroke();
+
+      // points
+      values.forEach((v,i)=>{
+        ctx.fillStyle = "rgba(255,255,255,.9)";
+        ctx.beginPath(); ctx.arc(px(i), py(v), 3.2, 0, Math.PI*2); ctx.fill();
+      });
+    }
+
+    function drawBarChart(canvasId, values){
+      const c = document.getElementById(canvasId);
+      const ctx = c.getContext("2d");
+      const w = c.width, h = c.height;
+      ctx.clearRect(0,0,w,h);
+
+      // background grid
+      ctx.globalAlpha = 0.22;
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1;
+      for(let i=1;i<6;i++){
+        const y = (h/6)*i;
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      const pad = 36;
+      const maxV = Math.max(...values);
+      const bw = (w - pad*2) / (values.length*1.4);
+      const gap = bw*0.4;
+
+      values.forEach((v,i)=>{
+        const x = pad + i*(bw+gap);
+        const barH = (h - pad*2) * (v/maxV);
+        const y = (h - pad) - barH;
+
+        // glow
+        ctx.fillStyle = "rgba(51,214,255,.18)";
+        ctx.fillRect(x-2, y-2, bw+4, barH+4);
+
+        // bar
+        const grad = ctx.createLinearGradient(0,y,0,y+barH);
+        grad.addColorStop(0, "rgba(51,214,255,.60)");
+        grad.addColorStop(1, "rgba(46,112,255,.55)");
+        ctx.fillStyle = grad;
+        ctx.fillRect(x, y, bw, barH);
+
+        // top highlight line
+        ctx.strokeStyle = "rgba(255,255,255,.55)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x+bw, y);
+        ctx.stroke();
+      });
+
+      // labels
+      ctx.fillStyle = "rgba(238,243,255,.75)";
+      ctx.font = "bold 12px Inter, system-ui";
+      const labels = ["Air","Sea","Land"];
+      labels.forEach((t,i)=>{
+        const x = pad + i*(bw+gap) + bw/2;
+        ctx.textAlign = "center";
+        ctx.fillText(t, x, h-12);
+      });
+    }
+
+    // Animate charts once
+    let chartsDrawn = false;
+    function drawCharts(){
+      if(chartsDrawn) return;
+      chartsDrawn = true;
+
+      // line values (illustrative on-time trend)
+      const line = [82, 85, 84, 88, 90, 92, 93, 94];
+      // bar values (mode mix)
+      const bars = [62, 78, 55];
+
+      drawLineChart("chartLine", line);
+      drawBarChart("chartBars", bars);
+    }
+
+    // draw when section visible
+    const visionSection = document.getElementById("vision");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) drawCharts();
+      });
+    }, { threshold: 0.25 });
+    io.observe(visionSection);
+
+    // Language (EN / AR)
     const dict = {
       en: {
-        brand: "New Style Logistics LLC",
-        brandSub: "Dubai, United Arab Emirates",
-        navAbout:"About", navServices:"Services", navWhy:"Why Us", navTools:"Tools", navQuote:"Request", navContact:"Contact",
+        brand:"New Style Logistics LLC", brandSub:"Dubai, United Arab Emirates",
+        navAbout:"About", navVision:"Vision", navServices:"Services", navTools:"Tools", navQuote:"Quote", navContact:"Contact",
         ctaQuote:"Get Quote",
-        heroEyebrow:"Premium Freight & Logistics",
-        heroTitle:"Reliable logistics in Dubai — built for speed, compliance & visibility.",
-        heroDesc:"Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling, and warehousing — delivered with precision and accountability.",
-        trackBtn:"Track",
-        ctaTalk:"Talk to our expert team",
-        ctaServices:"See services",
-        ctaCalc:"Volumetric Weight Calculator",
-        badge1:"Customs-ready compliance",
-        badge2:"Clear tracking & visibility",
-        badge3:"UAE & GCC coverage",
-        trustTitle:"Partners & Certifications",
-        trustHint:"grayscale for a premium corporate look",
-
-        aboutKicker:"About",
-        aboutTitle:"About New Style Logistics — Dubai",
-        aboutDesc:"We support businesses across the UAE, GCC, and international routes with a strong focus on compliance, safety, and on-time delivery.",
-        aboutCard1Title:"What we do", aboutCard1Desc:"Air, sea, and land freight solutions tailored to timelines and budgets.",
-        aboutCard2Title:"Compliance & documentation", aboutCard2Desc:"Customs clearance and documentation support for smooth processing.",
-        aboutCard3Title:"Cargo handling", aboutCard3Desc:"Safe loading, unloading, and movement with controlled supervision.",
-        aboutCard4Title:"Warehousing", aboutCard4Desc:"Organized storage with scalable inventory handling and dispatch support.",
-
-        svcKicker:"Services",
-        svcTitleA:"Our services", svcTitleB:"delivered with precision",
-        svcDesc:"Air freight, Sea freight (FCL/LCL), Land transport, Customs clearance, Cargo handling, and Warehousing.",
-        airTitle:"Air Freight", airDesc:"Fast movement for urgent shipments with controlled documentation support.",
-        seaTitle:"Sea Freight (FCL / LCL)", seaDesc:"Cost-efficient container and consolidation services with reliable planning.",
-        landTitle:"Land Transport", landDesc:"Safe delivery across UAE and GCC routes with scheduled control.",
-        customsTitle:"Customs Clearance", customsDesc:"Compliance-focused clearance to keep shipments smooth and customs-ready.",
-        cargoTitle:"Cargo Handling", cargoDesc:"Safe loading, unloading, and movement with controlled handling standards.",
-        whTitle:"Warehousing", whDesc:"Organized storage with scalable inventory management and dispatch support.",
-
-        tagFast:"Fast", tagPriority:"Priority", tagWorldwide:"Worldwide", tagGlobal:"Global",
-        tagTrucking:"Trucking", tagDoor:"Door-to-door",
-        tagDocs:"Documentation", tagCompliance:"Compliance", tagProcessing:"Fast processing",
-        tagCare:"Care", tagSafety:"Safety", tagControl:"Control",
-        tagStorage:"Storage", tagInventory:"Inventory", tagDispatch:"Dispatch",
-
-        whyKicker:"Why Choose Us",
-        whyTitle:"Why Choose Us",
-        whyDesc:"New Style Logistics LLC delivers professional freight coordination with strong compliance support, safe handling, and a focus on on-time delivery — so your shipments stay controlled, visible, and reliable. We plan routes carefully, verify documents, and communicate clearly at every step.",
-        why1Title:"Speed with control", why1Desc:"We plan movements to protect timelines while maintaining safety and documentation accuracy.",
-        why2Title:"Compliance support", why2Desc:"We guide you through requirements to keep shipments smooth and customs-ready.",
-        why3Title:"Professional handling", why3Desc:"From cargo handling to warehousing, we follow a careful, accountable process.",
-        why4Title:"Dedicated support", why4Desc:"Fast response via WhatsApp, call, or email with clear next steps and guidance.",
-        ctaQuote2:"Request a Quote",
-
-        toolsKicker:"Shipping Tools",
-        toolsTitle:"Tools your team will actually use",
-        toolsDesc:"A quick volumetric calculator and a clean download center — built into the site for a premium corporate experience.",
-        calcTitle:"Volumetric Weight Calculator", calcDesc:"Formula: (L × W × H) / 5000 (cm) — common air freight divisor.",
-        len:"Length (cm)", wid:"Width (cm)", hei:"Height (cm)",
-        calcBtn:"Calculate", resetBtn:"Reset",
+        heroEyebrow:"High-Tech Freight & Logistics",
+        heroTitle:"Dubai logistics with real-time clarity — fast, compliant, and controlled.",
+        heroDesc:"Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — engineered for visibility and speed.",
+        trackBtn:"Track", ctaTalk:"Talk to our expert team", ctaCalc:"Volumetric Weight Calculator", ctaServices:"See services",
+        b1:"UAE & GCC coverage", b2:"Customs-ready compliance", b3:"24/7 quick response",
+        trustTitle:"Partners & Certifications", trustHint:"premium grayscale slider",
+        aboutKicker:"About", aboutTitle:"Boutique Dubai execution. Global-standard operations.",
+        aboutDesc:"We deliver freight and clearance services with a compliance-first mindset, clear communication, and time-protected planning.",
+        a1t:"Visibility (single point of contact)", a1d:"Clear updates and fast replies with next-step guidance — built for businesses.",
+        a2t:"Compliance-first processing", a2d:"Customs documentation support to reduce rejections, delays, and unexpected holds.",
+        a3t:"Controlled handling & safety", a3d:"Standard handling practices for safer cargo movement across every mode.",
+        a4t:"Flexible warehousing", a4d:"Storage and dispatch support scaled to your business needs.",
+        visionK:"Vision & Growth", visionT:"Data-driven planning for faster deliveries", visionD:"Interactive visuals (built-in) that communicate modern operations and efficiency.",
+        c1t:"On-time performance trend", c1s:"illustrative", c2t:"Mode mix (Air / Sea / Land)", c2s:"illustrative",
+        svcK:"Services", svcT:"End-to-end freight & clearance services", svcD:"Built with premium UI, hover interactions, and perfect image scaling on mobile and desktop.",
+        sAirT:"Air Freight", sAirD:"Priority movement for urgent, time-sensitive shipments with strong documentation support.",
+        sSeaT:"Sea Freight (FCL / LCL)", sSeaD:"Cost-efficient container and consolidation options with reliable planning.",
+        sLandT:"Land Transport", sLandD:"Reliable delivery across UAE and GCC routes with scheduled control.",
+        sCusT:"Customs Clearance", sCusD:"Compliance-focused clearance support to minimize delays and protect timelines.",
+        sCargoT:"Cargo Handling", sCargoD:"Safe loading, unloading, and movement aligned with handling standards.",
+        sWhT:"Warehousing", sWhD:"Organized storage, inventory handling, and dispatch support.",
+        toolsK:"Shipping Tools", toolsT:"Utility center (calculator + documents)", toolsD:"Premium utilities that make the website feel like a global leader platform.",
+        calcT:"Volumetric Weight Calculator", calcD:"Formula: (L × W × H) / 5000 (cm).",
+        len:"Length (cm)", wid:"Width (cm)", hei:"Height (cm)", calcBtn:"Calculate", resetBtn:"Reset",
         calcHint:"Enter dimensions to calculate volumetric weight.",
-        dlTitle:"Download Center", dlDesc:"Standard shipping templates. Add PDFs later and keep these links.",
-        dl1:"Shipper's Letter of Instruction", dl2:"Commercial Invoice Template", dl3:"Packing List Template",
-        pdfTemp:"PDF template",
-        dlHint:"Tip: If you don’t have PDFs yet, keep these links now. Later, upload your PDFs into /assets/docs/ and rename them.",
-
-        quoteKicker:"Smart Quote",
-        quoteTitle:"Request a Quote (3-step)",
-        quoteDesc:"A sleek, professional quote wizard. Submission opens your email draft automatically (works on GitHub Pages).",
-        step1:"1) Contact", step2:"2) Shipment", step3:"3) Confirm",
+        dlT:"Download Center", dlD:"Add your PDF templates later (no broken links today).",
+        dl1:"Shipper's Letter of Instruction", dl2:"Commercial Invoice Template", dl3:"Packing List Template", pdfTemp:"PDF template",
+        qK:"Smart Quote", qT:"Request a Quote (3-step)", qD:"Works on GitHub Pages: opens a ready email draft automatically.",
+        st1:"1) Contact", st2:"2) Shipment", st3:"3) Confirm",
         name:"Your Name", email:"Email Address", phone:"Phone / WhatsApp (optional)",
         next:"Next", back:"Back",
         mode:"Mode", incoterm:"Incoterm (optional)", from:"From (City/Country)", to:"To (City/Country)", details:"Cargo details",
-        confirmTitle:"Confirm & Submit", confirmDesc:"We’ll open a ready email draft to alwahti@newstylelogistics.com. You can review and send.",
+        confirmT:"Confirm & Submit", confirmD:"We’ll open a ready email draft to alwahti@newstylelogistics.com.",
         submit:"Submit",
-        quoteHint:"For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode (Air/Sea/Land).",
-        fastKicker:"Fast response", fastTitle:"Talk to our experts team", fastDesc:"Prefer WhatsApp or call? Use quick actions — we respond fast and guide you clearly.",
-
-        contactKicker:"Contact",
-        contactTitle:"Get In Touch · 24×7",
-        contactDesc:"We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.",
-        quickTitle:"Quick action",
-        addrKicker:"Address", addrTitle:"Company Address & Map",
+        qHint:"For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode.",
+        fastK:"Fast response", fastT:"Talk to our expert team", fastD:"Prefer WhatsApp or call? Use quick actions — we respond fast.",
+        contactK:"Contact", contactT:"Get In Touch · 24×7", contactD:"We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.",
+        quickT:"Quick actions",
+        addrK:"Address", addrT:"Company Address & Map",
         officeAddr:"Office Address",
         addrLine:"Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE",
         openMaps:"Open in Google Maps",
-        hoursKicker:"Hours", hoursTitle:"Working Hours",
+        hoursK:"Hours", hoursT:"Working Hours",
         monfri:"Monday to Friday", sat:"Saturday", sun:"Sunday", closed:"Closed",
         hoursHint:"For urgent shipments, contact us via WhatsApp anytime and our team will guide you quickly.",
         footerSub:"Freight · Logistics · Customs · Warehousing",
         rights:"All Rights Reserved."
       },
-
       ar: {
-        brand: "نيو ستايل لوجستكس ذ.م.م",
-        brandSub: "دبي، الإمارات العربية المتحدة",
-        navAbout:"من نحن", navServices:"الخدمات", navWhy:"لماذا نحن", navTools:"الأدوات", navQuote:"طلب عرض", navContact:"تواصل",
-        ctaQuote:"احصل على عرض",
-        heroEyebrow:"شحن وخدمات لوجستية متميزة",
-        heroTitle:"لوجستيات موثوقة في دبي — سرعة، التزام، ووضوح كامل.",
-        heroDesc:"الشحن الجوي، الشحن البحري (FCL/LCL)، النقل البري، التخليص الجمركي، مناولة البضائع، والتخزين — بدقة ومسؤولية.",
-        trackBtn:"تتبع",
-        ctaTalk:"تحدث مع فريق الخبراء",
-        ctaServices:"عرض الخدمات",
-        ctaCalc:"حاسبة الوزن الحجمي",
-        badge1:"جاهزية جمركية",
-        badge2:"تتبع ووضوح",
-        badge3:"تغطية الإمارات والخليج",
-        trustTitle:"شركاء وشهادات",
-        trustHint:"بالأبيض والأسود لمظهر احترافي",
-
-        aboutKicker:"من نحن",
-        aboutTitle:"عن نيو ستايل لوجستكس — دبي",
-        aboutDesc:"ندعم الأعمال داخل الإمارات والخليج وخارجها مع تركيز قوي على الالتزام والسلامة والتسليم في الوقت.",
-        aboutCard1Title:"ماذا نقدم", aboutCard1Desc:"حلول شحن جوي وبحري وبري حسب الوقت والميزانية.",
-        aboutCard2Title:"التخليص والوثائق", aboutCard2Desc:"دعم تخليص جمركي ووثائق لتسريع الإجراءات.",
-        aboutCard3Title:"مناولة البضائع", aboutCard3Desc:"تحميل وتفريغ وحركة آمنة بإشراف مضبوط.",
-        aboutCard4Title:"التخزين", aboutCard4Desc:"تخزين منظم مع قابلية للتوسع وإدارة مخزون.",
-
-        svcKicker:"الخدمات",
-        svcTitleA:"خدماتنا", svcTitleB:"بدقة عالية",
-        svcDesc:"شحن جوي، شحن بحري (FCL/LCL)، نقل بري، تخليص جمركي، مناولة، وتخزين.",
-        airTitle:"الشحن الجوي", airDesc:"سرعة للشحنات العاجلة مع دعم وثائق مضبوط.",
-        seaTitle:"الشحن البحري (FCL / LCL)", seaDesc:"حلول اقتصادية للحاويات والتجميع مع تخطيط موثوق.",
-        landTitle:"النقل البري", landDesc:"تسليم آمن داخل الإمارات والخليج بجدولة دقيقة.",
-        customsTitle:"التخليص الجمركي", customsDesc:"تخليص ملتزم لضمان سلاسة الشحنات.",
-        cargoTitle:"مناولة البضائع", cargoDesc:"تحميل وتفريغ وحركة آمنة بمعايير مناولة.",
-        whTitle:"التخزين", whDesc:"تخزين منظم وإدارة مخزون ودعم توزيع.",
-
-        tagFast:"سريع", tagPriority:"أولوية", tagWorldwide:"عالمي", tagGlobal:"عالمي",
-        tagTrucking:"شاحنات", tagDoor:"من الباب للباب",
-        tagDocs:"وثائق", tagCompliance:"التزام", tagProcessing:"إجراءات سريعة",
-        tagCare:"عناية", tagSafety:"سلامة", tagControl:"تحكم",
-        tagStorage:"تخزين", tagInventory:"مخزون", tagDispatch:"توزيع",
-
-        whyKicker:"لماذا نحن",
-        whyTitle:"لماذا تختارنا",
-        whyDesc:"نقدم تنسيق شحن احترافي مع دعم التزام قوي، مناولة آمنة، وتركيز على التسليم في الوقت — لتبقى شحناتك تحت السيطرة ومرئية وموثوقة.",
-        why1Title:"سرعة مع تحكم", why1Desc:"نحمي الجداول مع الحفاظ على السلامة ودقة الوثائق.",
-        why2Title:"دعم الالتزام", why2Desc:"نساعدك في المتطلبات لتبقى الشحنات جاهزة للجمارك.",
-        why3Title:"مناولة احترافية", why3Desc:"إجراءات دقيقة ومسؤولة من المناولة حتى التخزين.",
-        why4Title:"دعم مخصص", why4Desc:"استجابة سريعة عبر واتساب أو اتصال أو بريد بخطوات واضحة.",
-        ctaQuote2:"اطلب عرض سعر",
-
-        toolsKicker:"أدوات الشحن",
-        toolsTitle:"أدوات عملية لفريقك",
-        toolsDesc:"حاسبة وزن حجمي ومركز تنزيل — لتجربة احترافية.",
-        calcTitle:"حاسبة الوزن الحجمي", calcDesc:"المعادلة: (الطول × العرض × الارتفاع) / 5000 (سم).",
-        len:"الطول (سم)", wid:"العرض (سم)", hei:"الارتفاع (سم)",
-        calcBtn:"احسب", resetBtn:"إعادة",
+        brand:"نيو ستايل لوجستكس ذ.م.م", brandSub:"دبي، الإمارات العربية المتحدة",
+        navAbout:"من نحن", navVision:"الرؤية", navServices:"الخدمات", navTools:"الأدوات", navQuote:"عرض سعر", navContact:"تواصل",
+        ctaQuote:"اطلب عرض",
+        heroEyebrow:"شحن ولوجستيات بتقنية عالية",
+        heroTitle:"لوجستيات دبي بوضوح لحظي — سرعة، التزام، وتحكم.",
+        heroDesc:"شحن جوي، بحري (FCL/LCL)، بري، تخليص جمركي، مناولة، وتخزين — مصمم للوضوح والسرعة.",
+        trackBtn:"تتبع", ctaTalk:"تواصل مع فريق الخبراء", ctaCalc:"حاسبة الوزن الحجمي", ctaServices:"عرض الخدمات",
+        b1:"تغطية الإمارات والخليج", b2:"جاهزية جمركية", b3:"رد سريع 24/7",
+        trustTitle:"شركاء وشهادات", trustHint:"شريط احترافي بالأبيض والأسود",
+        aboutKicker:"من نحن", aboutTitle:"تنفيذ دبي بطابع راقٍ. معايير عالمية.",
+        aboutDesc:"نقدم خدمات شحن وتخليص بمنهجية التزام عالية وتواصل واضح وخطط تحمي الوقت.",
+        a1t:"وضوح (نقطة اتصال واحدة)", a1d:"تحديثات واضحة ورد سريع بخطوات محددة للأعمال.",
+        a2t:"إجراءات التزام أولاً", a2d:"دعم الوثائق الجمركية لتقليل الرفض والتأخير.",
+        a3t:"مناولة آمنة وتحكم", a3d:"معايير مناولة لحركة أكثر أمانًا عبر كل وسيلة.",
+        a4t:"تخزين مرن", a4d:"تخزين ودعم توزيع قابل للتوسع حسب احتياجك.",
+        visionK:"الرؤية والنمو", visionT:"تخطيط يعتمد على البيانات لتسليم أسرع", visionD:"رسوم تفاعلية تعكس عمليات حديثة وكفاءة.",
+        c1t:"اتجاه الالتزام بالوقت", c1s:"تمثيلي", c2t:"مزيج الوسائل (جوي/بحري/بري)", c2s:"تمثيلي",
+        svcK:"الخدمات", svcT:"خدمات شحن وتخليص شاملة", svcD:"واجهة فخمة وتفاعل عند المرور وصور مضبوطة للموبايل والكمبيوتر.",
+        sAirT:"الشحن الجوي", sAirD:"أولوية للشحنات العاجلة مع دعم وثائق قوي.",
+        sSeaT:"الشحن البحري (FCL / LCL)", sSeaD:"خيارات اقتصادية للحاويات والتجميع مع تخطيط موثوق.",
+        sLandT:"النقل البري", sLandD:"تسليم موثوق داخل الإمارات والخليج بجدولة وتحكم.",
+        sCusT:"التخليص الجمركي", sCusD:"دعم تخليص يركز على الالتزام لتقليل التأخير.",
+        sCargoT:"مناولة البضائع", sCargoD:"تحميل وتفريغ وحركة آمنة وفق معايير مناولة.",
+        sWhT:"التخزين", sWhD:"تخزين وإدارة مخزون ودعم توزيع.",
+        toolsK:"أدوات الشحن", toolsT:"مركز أدوات (حاسبة + مستندات)", toolsD:"أدوات تجعل الموقع يبدو كمنصة عالمية.",
+        calcT:"حاسبة الوزن الحجمي", calcD:"المعادلة: (الطول × العرض × الارتفاع) / 5000 (سم).",
+        len:"الطول (سم)", wid:"العرض (سم)", hei:"الارتفاع (سم)", calcBtn:"احسب", resetBtn:"إعادة",
         calcHint:"أدخل الأبعاد لحساب الوزن الحجمي.",
-        dlTitle:"مركز التنزيل", dlDesc:"نماذج شحن جاهزة — أضف ملفات PDF لاحقًا.",
-        dl1:"خطاب تعليمات الشاحن", dl2:"نموذج فاتورة تجارية", dl3:"نموذج قائمة تعبئة",
-        pdfTemp:"نموذج PDF",
-        dlHint:"ملاحظة: إذا لم تكن لديك ملفات PDF الآن، اترك الروابط. لاحقًا ارفع ملفاتك داخل /assets/docs/ وأعد تسميتها.",
-
-        quoteKicker:"عرض ذكي",
-        quoteTitle:"طلب عرض سعر (3 خطوات)",
-        quoteDesc:"نموذج احترافي — الإرسال يفتح مسودة بريد جاهزة (يعمل على GitHub Pages).",
-        step1:"1) البيانات", step2:"2) الشحنة", step3:"3) تأكيد",
+        dlT:"مركز التنزيل", dlD:"أضف ملفات PDF لاحقًا (بدون روابط مكسورة اليوم).",
+        dl1:"خطاب تعليمات الشاحن", dl2:"نموذج فاتورة تجارية", dl3:"نموذج قائمة تعبئة", pdfTemp:"نموذج PDF",
+        qK:"عرض ذكي", qT:"طلب عرض سعر (3 خطوات)", qD:"يعمل على GitHub Pages — يفتح مسودة بريد جاهزة.",
+        st1:"1) البيانات", st2:"2) الشحنة", st3:"3) تأكيد",
         name:"الاسم", email:"البريد الإلكتروني", phone:"الهاتف/واتساب (اختياري)",
         next:"التالي", back:"رجوع",
         mode:"النوع", incoterm:"إنكوترمز (اختياري)", from:"من (مدينة/دولة)", to:"إلى (مدينة/دولة)", details:"تفاصيل الشحنة",
-        confirmTitle:"تأكيد وإرسال", confirmDesc:"سنفتح بريدًا جاهزًا إلى alwahti@newstylelogistics.com للمراجعة والإرسال.",
+        confirmT:"تأكيد وإرسال", confirmD:"سنفتح مسودة بريد إلى alwahti@newstylelogistics.com.",
         submit:"إرسال",
-        quoteHint:"لأسرع رد: اكتب موقع الاستلام، الوجهة، نوع البضاعة، الوزن/الأبعاد، وطريقة الشحن.",
-        fastKicker:"رد سريع", fastTitle:"تواصل مع فريق الخبراء", fastDesc:"اختر واتساب أو اتصال — نرد بسرعة وبوضوح.",
-
-        contactKicker:"تواصل",
-        contactTitle:"تواصل معنا · 24×7",
-        contactDesc:"نرد سريعًا عبر واتساب أو اتصال أو بريد. شارك تفاصيل الشحنة وسنساعدك فورًا.",
-        quickTitle:"إجراءات سريعة",
-        addrKicker:"العنوان", addrTitle:"عنوان الشركة والخريطة",
+        qHint:"لأسرع رد: اكتب موقع الاستلام والوجهة ونوع البضاعة والوزن/الأبعاد والوسيلة المفضلة.",
+        fastK:"رد سريع", fastT:"تواصل مع فريق الخبراء", fastD:"واتساب أو اتصال؟ استخدم الأزرار السريعة — نرد بسرعة.",
+        contactK:"تواصل", contactT:"تواصل معنا · 24×7", contactD:"نرد بسرعة عبر واتساب أو اتصال أو بريد. شارك تفاصيل الشحنة وسنساعدك فورًا.",
+        quickT:"إجراءات سريعة",
+        addrK:"العنوان", addrT:"عنوان الشركة والخريطة",
         officeAddr:"عنوان المكتب",
         addrLine:"مكتب رقم 2، مبنى ثامبي كلينك، قرب مرحبا مول، رأس الخور، دبي، الإمارات",
         openMaps:"افتح في خرائط Google",
-        hoursKicker:"ساعات العمل", hoursTitle:"ساعات العمل",
+        hoursK:"ساعات العمل", hoursT:"ساعات العمل",
         monfri:"الإثنين إلى الجمعة", sat:"السبت", sun:"الأحد", closed:"مغلق",
         hoursHint:"للشحنات العاجلة، تواصل عبر واتساب في أي وقت وسنرشدك بسرعة.",
         footerSub:"شحن · لوجستيات · جمارك · تخزين",
@@ -1542,18 +1552,17 @@
       const isAr = lang === "ar";
       document.documentElement.lang = isAr ? "ar" : "en";
       document.documentElement.dir = isAr ? "rtl" : "ltr";
-
       document.getElementById("btnEn").classList.toggle("active", !isAr);
       document.getElementById("btnAr").classList.toggle("active", isAr);
 
-      document.querySelectorAll("[data-i18n]").forEach(el => {
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
-        const t = dict[lang][key];
+        const t = dict[lang] && dict[lang][key];
         if(typeof t === "string") el.innerHTML = t;
       });
     }
-    document.getElementById("btnEn").addEventListener("click", () => applyLang("en"));
-    document.getElementById("btnAr").addEventListener("click", () => applyLang("ar"));
+    document.getElementById("btnEn").addEventListener("click", ()=>applyLang("en"));
+    document.getElementById("btnAr").addEventListener("click", ()=>applyLang("ar"));
   </script>
 </body>
 </html>
