@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./assets/hero.jpg" />
 
-  <!-- Favicon (use your existing image) -->
+  <!-- Favicon -->
   <link rel="icon" href="./assets/splash.jpg" />
 
   <!-- Premium font -->
@@ -423,20 +423,31 @@
     /* Services */
     .services-grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
     .svc{grid-column: span 6; overflow:hidden; padding:0; position:relative}
+
+    /* UPDATED media to avoid crop on mobile; premium on desktop */
     .svc .media{
-      height: 220px;
+      height: 240px;
       overflow:hidden;
       background:#000;
       border-bottom:1px solid rgba(255,255,255,.10);
       position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .svc .media img{
       width:100%; height:100%;
-      object-fit:cover;
+      object-fit:cover;      /* premium desktop look */
       object-position:center;
       transform: scale(1.02);
       transition: transform .35s ease;
     }
+    /* Customs always show full image (no crop) */
+    .svc.customs .media img{
+      object-fit:contain;
+      background:#000;
+    }
+
     .svc .content{padding:14px}
     .svc .content h3{margin:0 0 6px; font-size:16px}
     .svc .content p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
@@ -633,7 +644,7 @@
       100%{transform:scale(.96); opacity:.35}
     }
 
-    /* Responsive */
+    /* RESPONSIVE TWEAKS */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .viz-grid{grid-template-columns:1fr}
@@ -649,10 +660,18 @@
       .field-row{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
       .hero-card{padding:16px}
-      .svc .media{height:200px}
       .map-wrap{height:240px}
       .float{right:10px; bottom:10px}
       .fab span{display:none}
+
+      /* MOBILE IMAGE RULES – no crop, no empty sides */
+      .svc .media{ height:auto; }
+      .svc .media img{
+        height:auto;
+        width:100%;
+        object-fit:contain;
+        transform:none;
+      }
     }
 
     /* RTL */
@@ -727,7 +746,7 @@
 
           <div class="trackbar" role="search" aria-label="Shipment tracking">
             <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
                 <path d="M10.5 17.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z" stroke="rgba(238,243,255,.85)" stroke-width="1.6"/>
                 <path d="M15.6 15.6 20.5 20.5" stroke="rgba(51,214,255,.95)" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
@@ -783,7 +802,7 @@
 
         <div class="grid-2">
           <div class="glass-soft card" data-aos="fade-up" data-aos-delay="40">
-            <h3 data-i18n="a1t">Visibility-firstF (single point of contact)</h3>
+            <h3 data-i18n="a1t">Visibility (single point of contact)</h3>
             <p data-i18n="a1d">Clear updates and fast replies with next-step guidance — built for businesses.</p>
           </div>
           <div class="glass-soft card" data-aos="fade-up" data-aos-delay="80">
@@ -876,7 +895,8 @@
             </div>
           </article>
 
-          <article class="glass svc" data-aos="fade-up" data-aos-delay="80">
+          <!-- customs gets the special class -->
+          <article class="glass svc customs" data-aos="fade-up" data-aos-delay="80">
             <div class="media"><img src="./assets/customs.jpg" alt="Customs clearance Dubai"></div>
             <div class="content">
               <h3 data-i18n="sCusT">Customs Clearance</h3>
@@ -952,7 +972,7 @@
             <p class="sub" data-i18n="dlD">Add your PDF templates later (no broken links today).</p>
 
             <div class="download">
-              <a href="#" onclick="alert('Upload PDF later: Shipper\\'s Letter of Instruction'); return false;">
+              <a href="#" onclick="alert('Upload PDF later: Shipper\'s Letter of Instruction'); return false;">
                 <span><strong data-i18n="dl1">Shipper's Letter of Instruction</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
                 <span class="btn">Download</span>
               </a>
@@ -1276,7 +1296,7 @@
       document.getElementById("summaryBox").innerHTML =
         "<b>Contact</b><br>Name: " + escapeHtml(name) + "<br>Email: " + escapeHtml(email) + "<br>Phone: " + escapeHtml(phone) + "<br><br>" +
         "<b>Shipment</b><br>Mode: " + escapeHtml(mode) + "<br>Incoterm: " + escapeHtml(inc) + "<br>From: " + escapeHtml(from) + "<br>To: " + escapeHtml(to) + "<br><br>" +
-        "<b>Details</b><br>" + escapeHtml(details).replace(/\\n/g,"<br>");
+        "<b>Details</b><br>" + escapeHtml(details).replace(/\n/g,"<br>");
     }
 
     document.getElementById("next1").addEventListener("click", () => {
@@ -1301,23 +1321,23 @@
 
       const subject = encodeURIComponent("Quote Request — " + mode + " | " + (from || "Origin") + " → " + (to || "Destination"));
       const body = encodeURIComponent(
-        "New Style Logistics — Quote Request\\n\\n" +
-        "CONTACT\\nName: " + name + "\\nEmail: " + email + "\\nPhone/WhatsApp: " + (phone || "-") + "\\n\\n" +
-        "SHIPMENT\\nMode: " + mode + "\\nIncoterm: " + (inc || "-") + "\\nFrom: " + (from || "-") + "\\nTo: " + (to || "-") + "\\n\\n" +
-        "DETAILS\\n" + (details || "-") + "\\n"
+        "New Style Logistics — Quote Request\n\n" +
+        "CONTACT\nName: " + name + "\nEmail: " + email + "\nPhone/WhatsApp: " + (phone || "-") + "\n\n" +
+        "SHIPMENT\nMode: " + mode + "\nIncoterm: " + (inc || "-") + "\nFrom: " + (from || "-") + "\nTo: " + (to || "-") + "\n\n" +
+        "DETAILS\n" + (details || "-") + "\n"
       );
 
       window.location.href = "mailto:alwahti@newstylelogistics.com?subject=" + subject + "&body=" + body;
     });
 
-    // Simple chart drawing (no external libs, fast, premium)
+    // Simple chart drawing (no external libs)
     function drawLineChart(canvasId, values){
       const c = document.getElementById(canvasId);
       const ctx = c.getContext("2d");
       const w = c.width, h = c.height;
       ctx.clearRect(0,0,w,h);
 
-      // background grid
+      // grid
       ctx.globalAlpha = 0.22;
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 1;
@@ -1327,7 +1347,6 @@
       }
       ctx.globalAlpha = 1;
 
-      // line
       const pad = 36;
       const maxV = Math.max(...values);
       const minV = Math.min(...values);
@@ -1365,7 +1384,7 @@
       const w = c.width, h = c.height;
       ctx.clearRect(0,0,w,h);
 
-      // background grid
+      // grid
       ctx.globalAlpha = 0.22;
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 1;
@@ -1396,7 +1415,7 @@
         ctx.fillStyle = grad;
         ctx.fillRect(x, y, bw, barH);
 
-        // top highlight line
+        // top highlight
         ctx.strokeStyle = "rgba(255,255,255,.55)";
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -1422,9 +1441,7 @@
       if(chartsDrawn) return;
       chartsDrawn = true;
 
-      // line values (illustrative on-time trend)
       const line = [82, 85, 84, 88, 90, 92, 93, 94];
-      // bar values (mode mix)
       const bars = [62, 78, 55];
 
       drawLineChart("chartLine", line);
