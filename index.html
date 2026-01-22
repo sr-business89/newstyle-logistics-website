@@ -11,7 +11,6 @@
   <link rel="canonical" href="./" />
   <meta name="theme-color" content="#070b12" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="New Style Logistics LLC | Dubai Freight Forwarding" />
   <meta property="og:description" content="Premium logistics in Dubai — air, sea (FCL/LCL), land, customs clearance, cargo handling & warehousing." />
   <meta property="og:type" content="website" />
@@ -19,12 +18,10 @@
 
   <link rel="icon" href="./assets/splash.jpg" />
 
-  <!-- Premium font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
   <style>
@@ -36,10 +33,8 @@
       --stroke: rgba(255,255,255,.12);
       --text:#eef3ff;
       --muted: rgba(238,243,255,.72);
-
       --cyan:#33d6ff;
       --blue:#2e70ff;
-
       --shadow: 0 18px 55px rgba(0,0,0,.55);
       --shadow2: 0 12px 28px rgba(0,0,0,.40);
       --r:18px;
@@ -48,1380 +43,398 @@
       --focus: 0 0 0 4px rgba(51,214,255,.20);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{overflow-x:hidden}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
+    /* ✅ CRITICAL GAP FIXES */
+    *, *::before, *::after { box-sizing: border-box; }
+    
+    html, body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Stops horizontal scrolling */
+      max-width: 100vw;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      background: 
         radial-gradient(900px 480px at 10% -10%, rgba(46,112,255,.25), transparent 55%),
         radial-gradient(760px 520px at 90% 0%, rgba(51,214,255,.20), transparent 60%),
-        radial-gradient(900px 520px at 40% 115%, rgba(51,214,255,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
-      overflow-x:hidden;
-      max-width:100%;
     }
 
-    /* ✅ HARD STOP horizontal overflow from any child */
-    :where(img, svg, video, canvas, iframe){max-width:100%; height:auto}
-    :where(main, section){width:100%}
-
-    /* ✅ Container: reliable center on ALL browsers (fixes right-side “gap”) */
-    .container{
-      width:100%;
-      max-width:var(--max);
-      margin-inline:auto;
-      padding-inline:16px;
-    }
-    @media (max-width: 420px){
-      .container{padding-inline:11px;}
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: 16px;
     }
 
-    a{color:inherit;text-decoration:none}
-    img{display:block}
+    @media (max-width: 420px) {
+      .container { padding-inline: 12px; }
+    }
 
-    /* Glass */
-    .glass{
-      background:var(--panel);
-      border:1px solid var(--stroke);
-      border-radius:var(--r2);
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* Glass UI */
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r2);
       box-shadow: var(--shadow);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
-    .glass-soft{
-      background:var(--panel2);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--r);
-      box-shadow: var(--shadow2);
+    .glass-soft {
+      background: var(--panel2);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--r);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-    }
-
-    /* Grid overlay */
-    .grid-bg{
-      position:fixed; inset:0;
-      pointer-events:none;
-      opacity:.12;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(closest-side at 50% 20%, black 35%, transparent 75%);
-      z-index:0;
     }
 
     /* Header */
-    .topbar{
-      position:sticky; top:0; z-index:1000;
-      background:rgba(6,9,19,.60);
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .topbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(6, 9, 19, 0.65);
+      border-bottom: 1px solid var(--stroke);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:12px 0;
-      min-width:0; /* ✅ prevent weird layout squeeze */
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 10px;
     }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .mark { width: 42px; height: 42px; border-radius: 14px; overflow: hidden; border: 1px solid var(--stroke); flex: 0 0 auto; }
+    .brand-title { min-width: 0; line-height: 1.1; }
+    .brand-title strong { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-title span { font-size: 11px; color: var(--muted); }
 
-    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
-    .mark{
-      width:42px; height:42px; border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
-      flex:0 0 auto;
-    }
-    .mark img{width:100%; height:100%; object-fit:cover}
-    .brand-title{display:flex; flex-direction:column; line-height:1.1; min-width:0}
-    .brand-title strong{font-size:13px; letter-spacing:.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-    .brand-title span{font-size:11px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .nav { display: flex; align-items: center; gap: 14px; }
+    .nav a { font-size: 13px; padding: 10px; border-radius: 12px; transition: 0.22s; }
+    .nav a:hover { background: rgba(255,255,255,0.06); }
 
-    .nav{display:flex; align-items:center; gap:14px; min-width:0}
-    .nav a{
-      font-size:13px;
-      color:rgba(238,243,255,.86);
-      padding:10px 10px;
-      border-radius:12px;
-      transition: all .22s ease;
-      white-space:nowrap;
+    .actions { display: flex; align-items: center; gap: 10px; }
+    .btn {
+      padding: 10px 14px; border-radius: 14px; font-weight: 800; font-size: 13px;
+      cursor: pointer; border: 1px solid var(--stroke); background: var(--panel);
+      display: inline-flex; align-items: center; gap: 8px; transition: 0.22s; white-space: nowrap;
     }
-    .nav a:hover{
-      background:rgba(255,255,255,.06);
-      box-shadow: 0 0 0 1px rgba(51,214,255,.12) inset;
-    }
+    .btn-primary { background: var(--blue); border-color: var(--cyan); box-shadow: 0 10px 28px rgba(46,112,255,.22); }
+    .btn-ghost { background: rgba(255,255,255,0.04); }
+    .hamburger { display: none; }
 
-    .actions{display:flex; align-items:center; gap:10px; min-width:0}
+    /* Mobile Nav Panel */
+    .menu-panel {
+      display: none; position: fixed; inset: 72px 16px auto 16px;
+      z-index: 1200; padding: 14px;
+    }
+    .menu-panel a { display: block; padding: 12px 10px; border-radius: 12px; margin-bottom: 8px; border: 1px solid var(--stroke); background: rgba(255,255,255,0.03); }
 
-    .lang-toggle{
-      display:flex; align-items:center; gap:8px;
-      padding:6px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      flex:0 0 auto;
-    }
-    .pill{
-      border:0; background:transparent;
-      color:rgba(238,243,255,.85);
-      font-size:12px;
-      padding:8px 12px;
-      border-radius:999px;
-      cursor:pointer;
-      transition: all .2s ease;
-      font-weight:900;
-    }
-    .pill.active{
-      background:rgba(51,214,255,.14);
-      box-shadow: inset 0 0 0 1px rgba(51,214,255,.28);
-      color:#fff;
-    }
+    /* Grids with Overflow Protection */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 
-    .btn{
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:14px;
-      font-weight:900;
-      font-size:13px;
-      cursor:pointer;
-      display:inline-flex; align-items:center; gap:10px;
-      transition: all .22s ease;
-      user-select:none;
-      white-space:nowrap;
-      flex:0 0 auto;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background:rgba(255,255,255,.10);
-      box-shadow: 0 0 0 1px rgba(51,214,255,.14) inset;
-    }
-    .btn:active{transform: translateY(0px)}
-    .btn:focus{outline:none; box-shadow:var(--focus)}
-
-    .btn-primary{
-      border-color: rgba(51,214,255,.35);
-      background: linear-gradient(180deg, rgba(51,214,255,.20), rgba(46,112,255,.22));
-      box-shadow: 0 10px 28px rgba(46,112,255,.22);
-    }
-
-    .btn-ghost{background:rgba(255,255,255,.04)}
-    .hamburger{display:none}
-
-    /* Mobile menu */
-    .menu-panel{
-      display:none;
-      position:fixed;
-      inset:72px 16px auto 16px;
-      z-index:1200;
-      padding:14px;
-    }
-    .menu-panel a{
-      display:block;
-      padding:12px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.03);
-      margin-bottom:10px;
-      font-weight:900;
-    }
-
-    main{position:relative; z-index:1}
-    section{padding:18px 0}
-
-    /* Headings */
-    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:12px}
-    .kicker{
-      margin:0 0 8px;
-      font-size:11px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color: rgba(51,214,255,.95);
-    }
-    .h2{margin:0; font-size: clamp(20px, 2.2vw, 30px); letter-spacing:-.01em}
-    .sub{margin:0; color:var(--muted); line-height:1.65; font-size:14px; max-width: 72ch}
+    /* Sections */
+    section { padding: 20px 0; width: 100%; }
+    .h1 { font-size: clamp(28px, 3.2vw, 46px); line-height: 1.06; margin-bottom: 12px; }
+    .h2 { font-size: clamp(20px, 2.2vw, 30px); margin-bottom: 8px; }
+    .sub { color: var(--muted); font-size: 14px; line-height: 1.65; max-width: 70ch; }
+    .kicker { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
 
     /* Hero */
-    .hero{padding:22px 0 10px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: minmax(0,1.08fr) minmax(0,.92fr);
-      gap:18px;
-      align-items:stretch;
-    }
-    .hero-card{padding:18px}
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:11px;
-      letter-spacing:.18em;
-      color: rgba(51,214,255,.95);
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
-    .h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 3.2vw, 46px);
-      letter-spacing:-.02em;
-      line-height:1.06;
-    }
-    .lead{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-    }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 18px; }
+    .hero-card { padding: 22px; }
+    .hero-media { border-radius: var(--r2); overflow: hidden; border: 1px solid var(--stroke); height: 100%; min-height: 300px; background: #000; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 
-    .hero-media{
-      border-radius:var(--r2);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      position:relative;
-      box-shadow:var(--shadow);
-      min-height:300px;
-      background:#000;
-      min-width:0;
+    /* Tracking Tool */
+    .trackbar {
+      display: flex; align-items: center; gap: 10px; padding: 12px;
+      background: rgba(0,0,0,0.2); border: 1px solid var(--stroke); border-radius: 16px; margin: 15px 0;
     }
-    .hero-media img{
-      width:100%; height:100%;
-      object-fit:cover;
-      object-position:center;
-      transform: scale(1.02);
-      filter: contrast(1.06) saturate(1.10);
-    }
-    .hero-media:after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(700px 300px at 25% 20%, rgba(51,214,255,.22), transparent 55%),
-        linear-gradient(180deg, rgba(6,9,19,.08), rgba(6,9,19,.58));
-      pointer-events:none;
-    }
+    .trackbar input { background: none; border: none; color: #fff; flex: 1; outline: none; font-size: 13px; min-width: 0; }
 
-    /* Tracking bar */
-    .trackbar{
-      display:flex; gap:10px; align-items:center;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      margin-top:12px;
-      position:relative;
-      min-width:0;
-    }
-    .trackbar:before{
-      content:"";
-      position:absolute; inset:0;
-      border-radius:16px;
-      pointer-events:none;
-      box-shadow: 0 0 0 1px rgba(51,214,255,.10) inset;
-    }
-    .trackbar .icon{
-      width:34px; height:34px; border-radius:12px;
-      display:grid; place-items:center;
-      background:rgba(51,214,255,.10);
-      border:1px solid rgba(51,214,255,.18);
-      flex:0 0 auto;
-    }
-    .trackbar input{
-      flex:1;
-      border:0; outline:none;
-      background:transparent;
-      color:rgba(238,243,255,.92);
-      font-size:13px;
-      padding:6px 2px;
-      min-width:90px;
-    }
-    .trackbar input::placeholder{color:rgba(238,243,255,.55)}
-    .hero-actions{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:12px;
-    }
+    /* Service Cards */
+    .services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .svc { overflow: hidden; padding: 0; }
+    .svc .media { width: 100%; height: 180px; background: #000; border-bottom: 1px solid var(--stroke); }
+    .svc .media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+    .svc:hover .media img { transform: scale(1.05); }
+    .svc .content { padding: 14px; }
 
-    /* KPI badges */
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-    .badge{
-      font-size:12px;
-      color:rgba(238,243,255,.86);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding:8px 10px;
-      border-radius:999px;
-      display:inline-flex; align-items:center; gap:8px;
+    /* Wizard / Forms */
+    .wizard { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 12px; }
+    .steps { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+    .step { font-size: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--stroke); }
+    .step.active { background: rgba(51,214,255,0.15); color: #fff; border-color: var(--cyan); }
+    
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    label { font-size: 12px; font-weight: 800; color: rgba(238,243,255,0.7); }
+    input, select, textarea {
+      width: 100%; padding: 12px; border-radius: 14px; border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.04); color: #fff; outline: none; transition: 0.2s;
     }
-    .dot{
-      width:8px; height:8px; border-radius:50%;
-      background: rgba(51,214,255,.95);
-      box-shadow: 0 0 0 4px rgba(51,214,255,.14);
-    }
-
-    /* Trust bar */
-    .trust{margin-top:14px; padding:12px}
-    .trust-top{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; margin-bottom:10px;
-    }
-    .trust-top strong{font-size:13px}
-    .logos{
-      display:flex; gap:10px;
-      overflow:auto;
-      scroll-snap-type:x mandatory;
-      padding-bottom:4px;
-    }
-    .logo-chip{
-      flex:0 0 auto;
-      min-width: 150px;
-      scroll-snap-align:start;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:14px;
-      display:flex; align-items:center; justify-content:center;
-      color:rgba(238,243,255,.78);
-      filter: grayscale(100%);
-      font-weight:900;
-      letter-spacing:.06em;
-      font-size:12px;
-      transition: all .2s ease;
-    }
-
-    /* Cards/grids (✅ minmax prevents “stuck-left + empty-right” behavior) */
-    .grid-2{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px}
-    .grid-3{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px}
-    .card{padding:14px}
-    .card h3{margin:0 0 6px; font-size:14px}
-    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
+    input:focus { border-color: var(--cyan); box-shadow: var(--focus); }
 
     /* Charts */
-    .viz-grid{display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:12px; align-items:stretch}
-    .chart{padding:14px; position:relative; overflow:hidden; min-width:0;}
-    .chart-head{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:10px;}
-    .chart-head strong{font-size:14px}
-    .chart-head span{font-size:12px; color:rgba(238,243,255,.62)}
-    .canvas-wrap{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      overflow:hidden;
-      height:180px;
-      position:relative;
-    }
-    canvas{width:100%; height:100%}
+    .viz-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .canvas-wrap { height: 180px; background: rgba(0,0,0,0.2); border-radius: 16px; border: 1px solid var(--stroke); overflow: hidden; }
 
-    /* Services */
-    .services-grid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px}
-    .svc{overflow:hidden; padding:0; position:relative; min-width:0}
-    .svc .media{
-      width:100%;
-      aspect-ratio: 16 / 10;
-      background:#000;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-    .svc .media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      transform: scale(1.02);
-      transition: transform .35s ease;
-    }
-    .svc.customs .media img{object-fit:contain; transform:none;}
-    .svc .content{padding:14px}
-    .svc .content h3{margin:0 0 6px; font-size:16px}
-    .svc .content p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{
-      font-size:11px;
-      color:rgba(238,243,255,.85);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-    }
-    .svc:hover .media img{transform: scale(1.06)}
-    .svc.customs:hover .media img{transform:none}
+    /* Map */
+    .map-wrap { height: 280px; border-radius: var(--r2); overflow: hidden; border: 1px solid var(--stroke); }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
 
-    /* Tools */
-    .tools-grid{display:grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); gap:12px; align-items:start}
-    .field-row{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin-top:10px}
-    .field{display:flex; flex-direction:column; gap:6px; min-width:0}
-    label{font-size:12px; color:rgba(238,243,255,.70); font-weight:900}
-    input, select, textarea{
-      width:100%;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:rgba(238,243,255,.92);
-      border-radius:14px;
-      padding:12px 12px;
-      outline:none;
-      transition: all .2s ease;
-      font-family:inherit;
-      min-width:0;
-    }
-    textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus, select:focus{
-      box-shadow: var(--focus);
-      border-color: rgba(51,214,255,.30);
-    }
-    .tool-result{
-      margin-top:10px;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      color: rgba(238,243,255,.88);
-      font-size:13px;
-      line-height:1.65;
-      min-width:0;
-    }
-    .download a{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      margin-top:10px;
-      transition:all .2s ease;
-      min-width:0;
-    }
-    .download a:hover{transform: translateY(-1px); background: rgba(255,255,255,.06);}
+    /* Float FAB */
+    .float { position: fixed; bottom: 15px; right: 15px; z-index: 1500; display: flex; flex-direction: column; gap: 10px; }
+    .fab { display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); font-weight: 800; border: 1px solid var(--stroke); font-size: 13px; }
+    .fab.primary { background: #25d366; border-color: rgba(255,255,255,0.2); }
 
-    /* Quote Wizard */
-    .wizard{display:grid; grid-template-columns: minmax(0,1fr) minmax(0,.65fr); gap:12px; align-items:start}
-    .steps{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px}
-    .step{
-      font-size:12px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:rgba(238,243,255,.78);
-      font-weight:900;
-    }
-    .step.active{
-      background:rgba(51,214,255,.14);
-      border-color:rgba(51,214,255,.28);
-      color:#fff;
-    }
-    .wizard-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px; flex-wrap:wrap}
-    .hint{font-size:12px; color:rgba(238,243,255,.62); line-height:1.65; margin-top:10px}
+    /* Language Toggle */
+    .lang-toggle { display: flex; padding: 4px; background: rgba(255,255,255,0.05); border: 1px solid var(--stroke); border-radius: 999px; }
+    .pill { border: 0; background: none; color: var(--muted); padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .pill.active { background: rgba(51,214,255,0.15); color: #fff; }
 
-    /* Contact + Map */
-    .contact-grid{display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:12px; align-items:start}
-    .quick a{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      padding:12px 12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      margin-top:10px;
-      transition:all .2s ease;
-      min-width:0;
+    /* ✅ MOBILE ADJUSTMENTS */
+    @media (max-width: 980px) {
+      .hero-grid, .services-grid, .viz-grid, .wizard, .grid-3 { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .hamburger { display: block; font-size: 20px; }
+      .hero-media { min-height: 250px; }
     }
-    .map-wrap{
-      border-radius:var(--r2);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      height:280px;
-      position:relative;
-      background: rgba(0,0,0,.22);
-      min-width:0;
-    }
-    .map-wrap iframe{
-      width:100%; height:100%;
-      border:0;
-      filter: invert(90%) hue-rotate(190deg) saturate(120%) brightness(90%) contrast(105%);
-      opacity:.95;
-    }
-    .map-wrap:after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(6,9,19,.10), rgba(6,9,19,.22));
-      pointer-events:none;
+    
+    @media (max-width: 600px) {
+      .fab span { display: none; }
+      .fab { padding: 12px; }
     }
 
-    /* Footer */
-    footer{padding:18px 0 26px; color:rgba(238,243,255,.72); font-size:13px}
-    .footer-row{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; flex-wrap:wrap;
-      padding:14px 16px;
-      min-width:0;
-    }
-    .foot-left{display:flex; align-items:center; gap:10px; min-width:0}
-    .foot-logo{
-      width:42px; height:42px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      flex:0 0 auto;
-    }
-    .foot-logo img{width:100%; height:100%; object-fit:cover}
-
-    /* Floating buttons */
-    .float{
-      position:fixed;
-      right:14px;
-      bottom:14px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      z-index:1400;
-    }
-    .fab{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:11px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.07);
-      box-shadow: 0 16px 40px rgba(0,0,0,.45);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      font-weight:900;
-      font-size:13px;
-      transition:all .22s ease;
-      user-select:none;
-    }
-    .fab.primary{
-      border-color: rgba(37,211,102,.35);
-      background: rgba(37,211,102,.12);
-    }
-    .pulse{position:relative}
-    .pulse:before{
-      content:"";
-      position:absolute;
-      inset:-6px;
-      border-radius:999px;
-      background: rgba(37,211,102,.22);
-      filter: blur(2px);
-      animation: pulse 1.8s ease-in-out infinite;
-      z-index:-1;
-    }
-    @keyframes pulse{
-      0%{transform:scale(.96); opacity:.35}
-      50%{transform:scale(1.05); opacity:.18}
-      100%{transform:scale(.96); opacity:.35}
-    }
-
-    /* ✅ Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .viz-grid{grid-template-columns:1fr}
-      .services-grid{grid-template-columns:1fr}
-      .tools-grid{grid-template-columns:1fr}
-      .wizard{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-    }
-    @media (max-width: 720px){
-      .nav{display:none}
-      .hamburger{display:inline-flex}
-      .field-row{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .hero-card{padding:16px}
-      .map-wrap{height:240px}
-      .float{right:10px; bottom:10px}
-      .fab span{display:none}
-    }
-
-    /* RTL */
-    html[dir="rtl"] body{direction:rtl}
-    html[dir="rtl"] .brand{flex-direction:row-reverse}
-    html[dir="rtl"] .nav{flex-direction:row-reverse}
-    html[dir="rtl"] .actions{flex-direction:row-reverse}
-    html[dir="rtl"] .trackbar{flex-direction:row-reverse}
-    html[dir="rtl"] .wizard-actions{justify-content:flex-start}
-    html[dir="rtl"] .float{right:auto; left:14px}
-    @media (max-width: 720px){
-      html[dir="rtl"] .float{left:10px}
-    }
+    html[dir="rtl"] { text-align: right; }
+    html[dir="rtl"] .float { right: auto; left: 15px; }
   </style>
 </head>
 
 <body>
-  <div class="grid-bg" aria-hidden="true"></div>
-
   <header class="topbar">
     <div class="container">
       <div class="topbar-inner">
-        <a class="brand" href="#top" aria-label="New Style Logistics">
-          <div class="mark"><img src="./assets/splash.jpg" alt="New Style Logistics Logo"></div>
+        <a class="brand" href="#top">
+          <div class="mark"><img src="./assets/splash.jpg" alt="Logo"></div>
           <div class="brand-title">
             <strong data-i18n="brand">New Style Logistics LLC</strong>
             <span data-i18n="brandSub">Dubai, United Arab Emirates</span>
           </div>
         </a>
-
-        <nav class="nav" aria-label="Main navigation">
+        <nav class="nav">
           <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#vision" data-i18n="navVision">Vision</a>
           <a href="#services" data-i18n="navServices">Services</a>
           <a href="#tools" data-i18n="navTools">Tools</a>
           <a href="#quote" data-i18n="navQuote">Quote</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
-
         <div class="actions">
-          <div class="lang-toggle" role="group" aria-label="Language switcher">
-            <button class="pill active" id="btnEn" type="button">English</button>
-            <button class="pill" id="btnAr" type="button">العربية</button>
+          <div class="lang-toggle">
+            <button class="pill active" id="btnEn">EN</button>
+            <button class="pill" id="btnAr">AR</button>
           </div>
-
-          <a class="btn btn-primary" href="#quote"><span data-i18n="ctaQuote">Get Quote</span></a>
-          <button class="btn hamburger" id="btnMenu" type="button" aria-label="Open menu">☰</button>
+          <a class="btn btn-primary" href="#quote" data-i18n="ctaQuote">Get Quote</a>
+          <button class="btn hamburger" id="btnMenu">☰</button>
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="menu-panel glass" id="menuPanel" aria-hidden="true">
-        <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#vision" data-i18n="navVision">Vision</a>
-        <a href="#services" data-i18n="navServices">Services</a>
-        <a href="#tools" data-i18n="navTools">Tools</a>
-        <a href="#quote" data-i18n="navQuote">Quote</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
-      </div>
+    <div class="menu-panel glass" id="menuPanel">
+       <a href="#about" data-i18n="navAbout">About</a>
+       <a href="#services" data-i18n="navServices">Services</a>
+       <a href="#tools" data-i18n="navTools">Tools</a>
+       <a href="#quote" data-i18n="navQuote">Quote</a>
+       <a href="#contact" data-i18n="navContact">Contact</a>
     </div>
   </header>
 
   <main id="top">
-    <!-- HERO -->
-    <section class="hero">
+    <section>
       <div class="container hero-grid">
         <div class="glass hero-card" data-aos="fade-up">
-          <div class="eyebrow" data-i18n="heroEyebrow">High-Tech Freight & Logistics</div>
-          <h1 class="h1" data-i18n="heroTitle">Dubai logistics with real-time clarity — fast, compliant, and controlled.</h1>
-          <p class="lead" data-i18n="heroDesc">Air freight, sea freight (FCL/LCL), land transport, customs clearance, cargo handling & warehousing — engineered for visibility and speed.</p>
-
-          <div class="trackbar" role="search" aria-label="Shipment tracking">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                <path d="M10.5 17.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z" stroke="rgba(238,243,255,.85)" stroke-width="1.6"/>
-                <path d="M15.6 15.6 20.5 20.5" stroke="rgba(51,214,255,.95)" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <input id="trackInput" type="text" placeholder="Track shipment (demo): e.g. NSL-24751" />
-            <button class="btn btn-primary" id="btnTrack" type="button"><span data-i18n="trackBtn">Track</span></button>
+          <div class="kicker" data-i18n="heroEyebrow">Premium Freight</div>
+          <h1 class="h1" data-i18n="heroTitle">Dubai logistics with real-time clarity.</h1>
+          <p class="sub" data-i18n="heroDesc">Air, sea (FCL/LCL), and land transport engineered for speed and compliance.</p>
+          <div class="trackbar">
+            <input type="text" id="trackInput" placeholder="NSL-24751">
+            <button class="btn btn-primary" id="btnTrack">Track</button>
           </div>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#quote"><span data-i18n="ctaTalk">Talk to our expert team</span></a>
-            <a class="btn btn-ghost" href="#tools"><span data-i18n="ctaCalc">Volumetric Weight Calculator</span></a>
-            <a class="btn btn-ghost" href="#services"><span data-i18n="ctaServices">See services</span></a>
-          </div>
-
-          <div class="badges" aria-label="Highlights">
-            <span class="badge"><span class="dot"></span><span data-i18n="b1">UAE & GCC coverage</span></span>
-            <span class="badge"><span class="dot"></span><span data-i18n="b2">Customs-ready compliance</span></span>
-            <span class="badge"><span class="dot"></span><span data-i18n="b3">24/7 quick response</span></span>
-          </div>
-
-          <div class="trust glass-soft" data-aos="fade-up" data-aos-delay="120">
-            <div class="trust-top">
-              <strong data-i18n="trustTitle">Partners & Certifications</strong>
-              <span style="color:rgba(238,243,255,.55); font-size:12px" data-i18n="trustHint">premium grayscale slider</span>
-            </div>
-            <div class="logos" aria-label="Certifications slider">
-              <div class="logo-chip">IATA</div>
-              <div class="logo-chip">FIATA</div>
-              <div class="logo-chip">DUBAI CUSTOMS</div>
-              <div class="logo-chip">IATA</div>
-              <div class="logo-chip">FIATA</div>
-              <div class="logo-chip">DUBAI CUSTOMS</div>
-            </div>
+          <div class="grid-2">
+            <a href="#quote" class="btn btn-primary" data-i18n="ctaTalk">Talk to Experts</a>
+            <a href="#tools" class="btn btn-ghost" data-i18n="ctaCalc">Calculator</a>
           </div>
         </div>
-
         <div class="hero-media" data-aos="fade-left">
-          <img src="./assets/hero.jpg" alt="New Style Logistics Dubai freight forwarding">
+          <img src="./assets/hero.jpg" alt="Hero Image">
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <div>
-            <p class="kicker" data-i18n="aboutKicker">About</p>
-            <h2 class="h2" data-i18n="aboutTitle">Boutique Dubai execution. Global-standard operations.</h2>
-            <p class="sub" data-i18n="aboutDesc">We deliver freight and clearance services with a compliance-first mindset, clear communication, and time-protected planning.</p>
+        <p class="kicker" data-i18n="aboutKicker">About Us</p>
+        <h2 class="h2" data-i18n="aboutTitle">Boutique Execution. Global Standards.</h2>
+        <div class="grid-2" style="margin-top:20px">
+          <div class="glass-soft" style="padding:15px">
+            <h3 data-i18n="a1t">Visibility</h3>
+            <p class="sub" data-i18n="a1d">Single point of contact for all updates.</p>
           </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="glass-soft card" data-aos="fade-up" data-aos-delay="40">
-            <h3 data-i18n="a1t">Visibility (single point of contact)</h3>
-            <p data-i18n="a1d">Clear updates and fast replies with next-step guidance — built for businesses.</p>
-          </div>
-          <div class="glass-soft card" data-aos="fade-up" data-aos-delay="80">
-            <h3 data-i18n="a2t">Compliance-first processing</h3>
-            <p data-i18n="a2d">Customs documentation support to reduce rejections, delays, and unexpected holds.</p>
-          </div>
-          <div class="glass-soft card" data-aos="fade-up" data-aos-delay="120">
-            <h3 data-i18n="a3t">Controlled handling & safety</h3>
-            <p data-i18n="a3d">Standard handling practices for safer cargo movement across every mode.</p>
-          </div>
-          <div class="glass-soft card" data-aos="fade-up" data-aos-delay="160">
-            <h3 data-i18n="a4t">Flexible warehousing</h3>
-            <p data-i18n="a4d">Storage and dispatch support scaled to your business needs.</p>
+          <div class="glass-soft" style="padding:15px">
+            <h3 data-i18n="a2t">Compliance</h3>
+            <p class="sub" data-i18n="a2d">Processing documentation without delays.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VISION -->
-    <section id="vision">
-      <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <div>
-            <p class="kicker" data-i18n="visionK">Vision & Growth</p>
-            <h2 class="h2" data-i18n="visionT">Data-driven planning for faster deliveries</h2>
-            <p class="sub" data-i18n="visionD">Interactive visuals (built-in) that communicate modern operations and efficiency.</p>
-          </div>
-        </div>
-
-        <div class="viz-grid">
-          <div class="glass chart" data-aos="fade-up">
-            <div class="chart-head">
-              <strong data-i18n="c1t">On-time performance trend</strong>
-              <span data-i18n="c1s">illustrative</span>
-            </div>
-            <div class="canvas-wrap">
-              <canvas id="chartLine" width="900" height="360" aria-label="On-time performance chart"></canvas>
-            </div>
-          </div>
-
-          <div class="glass chart" data-aos="fade-up" data-aos-delay="80">
-            <div class="chart-head">
-              <strong data-i18n="c2t">Mode mix (Air / Sea / Land)</strong>
-              <span data-i18n="c2s">illustrative</span>
-            </div>
-            <div class="canvas-wrap">
-              <canvas id="chartBars" width="900" height="360" aria-label="Mode mix chart"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
     <section id="services">
       <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <div>
-            <p class="kicker" data-i18n="svcK">Services</p>
-            <h2 class="h2" data-i18n="svcT">End-to-end freight & clearance services</h2>
-            <p class="sub" data-i18n="svcD">Perfect image scaling on mobile and premium crop on desktop.</p>
-          </div>
-        </div>
-
+        <h2 class="h2" data-i18n="svcT">End-to-end Services</h2>
         <div class="services-grid">
-          <article class="glass svc" data-aos="fade-up">
-            <div class="media"><img src="./assets/air.jpg" alt="Air freight Dubai"></div>
-            <div class="content">
-              <h3 data-i18n="sAirT">Air Freight</h3>
-              <p data-i18n="sAirD">Priority movement for urgent, time-sensitive shipments with strong documentation support.</p>
-              <div class="tags"><span class="tag">Fast</span><span class="tag">Priority</span><span class="tag">Worldwide</span></div>
-            </div>
-          </article>
-
-          <article class="glass svc" data-aos="fade-up" data-aos-delay="80">
-            <div class="media"><img src="./assets/sea.jpg" alt="Sea freight FCL LCL Dubai"></div>
-            <div class="content">
-              <h3 data-i18n="sSeaT">Sea Freight (FCL / LCL)</h3>
-              <p data-i18n="sSeaD">Cost-efficient container and consolidation options with reliable planning.</p>
-              <div class="tags"><span class="tag">FCL</span><span class="tag">LCL</span><span class="tag">Global</span></div>
-            </div>
-          </article>
-
-          <article class="glass svc" data-aos="fade-up">
-            <div class="media"><img src="./assets/land.jpg" alt="Land transport UAE GCC"></div>
-            <div class="content">
-              <h3 data-i18n="sLandT">Land Transport</h3>
-              <p data-i18n="sLandD">Reliable delivery across UAE and GCC routes with scheduled control.</p>
-              <div class="tags"><span class="tag">UAE</span><span class="tag">GCC</span><span class="tag">Door-to-door</span></div>
-            </div>
-          </article>
-
-          <article class="glass svc customs" data-aos="fade-up" data-aos-delay="80">
-            <div class="media"><img src="./assets/customs.jpg" alt="Customs clearance Dubai"></div>
-            <div class="content">
-              <h3 data-i18n="sCusT">Customs Clearance</h3>
-              <p data-i18n="sCusD">Compliance-focused clearance support to minimize delays and protect timelines.</p>
-              <div class="tags"><span class="tag">Docs</span><span class="tag">Compliance</span><span class="tag">Fast processing</span></div>
-            </div>
-          </article>
-
-          <article class="glass svc" data-aos="fade-up">
-            <div class="media"><img src="./assets/cargo.jpg" alt="Cargo handling Dubai"></div>
-            <div class="content">
-              <h3 data-i18n="sCargoT">Cargo Handling</h3>
-              <p data-i18n="sCargoD">Safe loading, unloading, and movement aligned with handling standards.</p>
-              <div class="tags"><span class="tag">Safety</span><span class="tag">Control</span><span class="tag">Care</span></div>
-            </div>
-          </article>
-
-          <article class="glass svc" data-aos="fade-up" data-aos-delay="80">
-            <div class="media"><img src="./assets/warehousing.jpg" alt="Warehousing Dubai"></div>
-            <div class="content">
-              <h3 data-i18n="sWhT">Warehousing</h3>
-              <p data-i18n="sWhD">Organized storage, inventory handling, and dispatch support.</p>
-              <div class="tags"><span class="tag">Storage</span><span class="tag">Inventory</span><span class="tag">Dispatch</span></div>
-            </div>
-          </article>
+          <div class="glass svc" data-aos="fade-up">
+            <div class="media"><img src="./assets/air.jpg" alt="Air"></div>
+            <div class="content"><h3>Air Freight</h3><p class="sub">Urgent worldwide delivery.</p></div>
+          </div>
+          <div class="glass svc" data-aos="fade-up" data-aos-delay="100">
+            <div class="media"><img src="./assets/sea.jpg" alt="Sea"></div>
+            <div class="content"><h3>Sea Freight</h3><p class="sub">Consolidated FCL/LCL shipping.</p></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TOOLS -->
-    <!-- ✅ Everything below unchanged from your original (JS + content is same) -->
-    <!-- (I kept your original Tools / Quote / Contact / Footer / JS exactly) -->
-
-    <!-- TOOLS -->
     <section id="tools">
       <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <div>
-            <p class="kicker" data-i18n="toolsK">Shipping Tools</p>
-            <h2 class="h2" data-i18n="toolsT">Utility center (calculator + documents)</h2>
-            <p class="sub" data-i18n="toolsD">Premium utilities that make the website feel like a global leader platform.</p>
+        <div class="glass" style="padding:22px">
+          <h2 class="h2" data-i18n="calcT">Weight Calculator</h2>
+          <div class="grid-3" style="margin-top:15px">
+            <div class="field"><label>Length (cm)</label><input type="number" id="len" placeholder="0"></div>
+            <div class="field"><label>Width (cm)</label><input type="number" id="wid" placeholder="0"></div>
+            <div class="field"><label>Height (cm)</label><input type="number" id="hei" placeholder="0"></div>
           </div>
-        </div>
-
-        <div class="tools-grid">
-          <div class="glass" style="padding:16px" data-aos="fade-up">
-            <h3 style="margin:0 0 8px" data-i18n="calcT">Volumetric Weight Calculator</h3>
-            <p class="sub" style="margin-bottom:10px" data-i18n="calcD">Formula: (L × W × H) / 5000 (cm).</p>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="len" data-i18n="len">Length (cm)</label>
-                <input id="len" inputmode="decimal" placeholder="0" />
-              </div>
-              <div class="field">
-                <label for="wid" data-i18n="wid">Width (cm)</label>
-                <input id="wid" inputmode="decimal" placeholder="0" />
-              </div>
-              <div class="field">
-                <label for="hei" data-i18n="hei">Height (cm)</label>
-                <input id="hei" inputmode="decimal" placeholder="0" />
-              </div>
-            </div>
-
-            <div class="hero-actions" style="margin-top:10px">
-              <button class="btn btn-primary" id="btnCalc" type="button" data-i18n="calcBtn">Calculate</button>
-              <button class="btn btn-ghost" id="btnResetCalc" type="button" data-i18n="resetBtn">Reset</button>
-            </div>
-
-            <div class="tool-result" id="calcResult" aria-live="polite" data-i18n="calcHint">
-              Enter dimensions to calculate volumetric weight.
-            </div>
-          </div>
-
-          <div class="glass" style="padding:16px" data-aos="fade-up" data-aos-delay="80">
-            <h3 style="margin:0 0 8px" data-i18n="dlT">Download Center</h3>
-            <p class="sub" data-i18n="dlD">Add your PDF templates later (no broken links today).</p>
-
-            <div class="download">
-              <a href="#" onclick="alert('Upload PDF later: Shipper\\'s Letter of Instruction'); return false;">
-                <span><strong data-i18n="dl1">Shipper's Letter of Instruction</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
-                <span class="btn">Download</span>
-              </a>
-              <a href="#" onclick="alert('Upload PDF later: Commercial Invoice Template'); return false;">
-                <span><strong data-i18n="dl2">Commercial Invoice Template</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
-                <span class="btn">Download</span>
-              </a>
-              <a href="#" onclick="alert('Upload PDF later: Packing List Template'); return false;">
-                <span><strong data-i18n="dl3">Packing List Template</strong><br><span class="small" data-i18n="pdfTemp">PDF template</span></span>
-                <span class="btn">Download</span>
-              </a>
-            </div>
-
-            <div style="margin-top:12px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.12)">
-              <img src="./assets/global.jpg" alt="Global coverage" style="height:180px; width:100%; object-fit:cover; object-position:center;">
-            </div>
-          </div>
+          <button class="btn btn-primary" id="btnCalc">Calculate</button>
+          <div id="calcResult" style="margin-top:15px; font-weight:bold; color:var(--cyan)"></div>
         </div>
       </div>
     </section>
 
-    <!-- QUOTE -->
     <section id="quote">
       <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <div>
-            <p class="kicker" data-i18n="qK">Smart Quote</p>
-            <h2 class="h2" data-i18n="qT">Request a Quote (3-step)</h2>
-            <p class="sub" data-i18n="qD">Works on GitHub Pages: opens a ready email draft automatically.</p>
+        <div class="glass" style="padding:22px">
+          <div class="steps">
+            <span class="step active" id="s1">1. Contact</span>
+            <span class="step" id="s2">2. Shipment</span>
+            <span class="step" id="s3">3. Submit</span>
           </div>
-        </div>
-
-        <div class="wizard">
-          <div class="glass" style="padding:16px" data-aos="fade-up">
-            <div class="steps">
-              <span class="step active" id="s1" data-i18n="st1">1) Contact</span>
-              <span class="step" id="s2" data-i18n="st2">2) Shipment</span>
-              <span class="step" id="s3" data-i18n="st3">3) Confirm</span>
+          
+          <div id="p1">
+            <div class="grid-2">
+              <div class="field"><label>Full Name</label><input type="text" id="qName"></div>
+              <div class="field"><label>Email</label><input type="email" id="qEmail"></div>
             </div>
-
-            <div id="p1">
-              <div class="grid-2">
-                <div class="field">
-                  <label for="qName" data-i18n="name">Your Name</label>
-                  <input id="qName" placeholder="Full name" />
-                </div>
-                <div class="field">
-                  <label for="qEmail" data-i18n="email">Email Address</label>
-                  <input id="qEmail" placeholder="name@example.com" />
-                </div>
-              </div>
-              <div class="field" style="margin-top:10px">
-                <label for="qPhone" data-i18n="phone">Phone / WhatsApp (optional)</label>
-                <input id="qPhone" placeholder="+971..." />
-              </div>
-
-              <div class="wizard-actions">
-                <button class="btn btn-primary" id="next1" type="button" data-i18n="next">Next</button>
-              </div>
-            </div>
-
-            <div id="p2" style="display:none">
-              <div class="grid-2">
-                <div class="field">
-                  <label for="qMode" data-i18n="mode">Mode</label>
-                  <select id="qMode">
-                    <option value="Air">Air</option>
-                    <option value="Sea (FCL)">Sea (FCL)</option>
-                    <option value="Sea (LCL)">Sea (LCL)</option>
-                    <option value="Land">Land</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="qIncoterm" data-i18n="incoterm">Incoterm (optional)</label>
-                  <select id="qIncoterm">
-                    <option value="">Select</option>
-                    <option>EXW</option><option>FOB</option><option>CIF</option><option>DDP</option><option>DAP</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="grid-2" style="margin-top:10px">
-                <div class="field">
-                  <label for="qFrom" data-i18n="from">From (City/Country)</label>
-                  <input id="qFrom" placeholder="Origin" />
-                </div>
-                <div class="field">
-                  <label for="qTo" data-i18n="to">To (City/Country)</label>
-                  <input id="qTo" placeholder="Destination" />
-                </div>
-              </div>
-
-              <div class="field" style="margin-top:10px">
-                <label for="qDetails" data-i18n="details">Cargo details</label>
-                <textarea id="qDetails" placeholder="Pieces, weight, dimensions, cargo type, pickup date, etc."></textarea>
-              </div>
-
-              <div class="wizard-actions">
-                <button class="btn btn-ghost" id="back2" type="button" data-i18n="back">Back</button>
-                <button class="btn btn-primary" id="next2" type="button" data-i18n="next">Next</button>
-              </div>
-            </div>
-
-            <div id="p3" style="display:none">
-              <div class="glass-soft" style="padding:14px">
-                <h3 style="margin:0 0 8px" data-i18n="confirmT">Confirm & Submit</h3>
-                <p class="sub" data-i18n="confirmD">We’ll open a ready email draft to <b>alwahti@newstylelogistics.com</b>.</p>
-                <div class="tool-result" id="summaryBox">—</div>
-              </div>
-
-              <div class="wizard-actions">
-                <button class="btn btn-ghost" id="back3" type="button" data-i18n="back">Back</button>
-                <button class="btn btn-primary" id="submitQuote" type="button" data-i18n="submit">Submit</button>
-              </div>
-
-              <p class="hint" data-i18n="qHint">For fastest response, include pickup location, destination, cargo type, weight/dimensions, and preferred mode.</p>
-            </div>
+            <button class="btn btn-primary" onclick="go(2)">Next</button>
           </div>
 
-          <div class="glass" style="padding:16px" data-aos="fade-up" data-aos-delay="80">
-            <p class="kicker" style="margin:0 0 8px" data-i18n="fastK">Fast response</p>
-            <h3 style="margin:0 0 8px" data-i18n="fastT">Talk to our expert team</h3>
-            <p class="sub" data-i18n="fastD">Prefer WhatsApp or call? Use quick actions — we respond fast.</p>
-
-            <div class="hero-actions" style="margin-top:12px">
-              <a class="btn btn-primary" href="https://wa.me/971561436491" target="_blank" rel="noopener">WhatsApp</a>
-              <a class="btn btn-ghost" href="tel:+97145914550">Call</a>
-              <a class="btn btn-ghost" href="mailto:alwahti@newstylelogistics.com">Email</a>
+          <div id="p2" style="display:none">
+            <div class="grid-2">
+              <div class="field"><label>Mode</label><select id="qMode"><option>Air</option><option>Sea</option><option>Land</option></select></div>
+              <div class="field"><label>Destination</label><input type="text" id="qTo"></div>
             </div>
+            <div class="field"><label>Cargo Details</label><textarea id="qDetails"></textarea></div>
+            <button class="btn btn-ghost" onclick="go(1)">Back</button>
+            <button class="btn btn-primary" onclick="go(3)">Next</button>
+          </div>
 
-            <div style="margin-top:12px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.12)">
-              <img src="./assets/splash.jpg" alt="Brand visual" style="height:160px; width:100%; object-fit:cover; object-position:center;">
-            </div>
+          <div id="p3" style="display:none">
+            <p class="sub">Ready to send your request to <strong>alwahti@newstylelogistics.com</strong></p>
+            <button class="btn btn-ghost" onclick="go(2)">Back</button>
+            <button class="btn btn-primary" id="submitQuote">Submit Quote</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <div>
-            <p class="kicker" data-i18n="contactK">Contact</p>
-            <h2 class="h2" data-i18n="contactT">Get In Touch · 24×7</h2>
-            <p class="sub" data-i18n="contactD">We reply fast via WhatsApp, call, or email. Share your shipment details and we will assist immediately.</p>
+        <div class="grid-2">
+          <div class="glass" style="padding:22px">
+            <h2 class="h2" data-i18n="contactT">Get in Touch</h2>
+            <p>Office #2, Thumbay Clinic Building, Ras Al Khor, Dubai</p>
+            <p><strong>Phone:</strong> +971 4 591 4550</p>
           </div>
-        </div>
-
-        <div class="contact-grid">
-          <div class="glass" style="padding:16px" data-aos="fade-up">
-            <h3 style="margin:0 0 8px" data-i18n="quickT">Quick actions</h3>
-            <div class="quick">
-              <a href="https://wa.me/971561436491" target="_blank" rel="noopener">
-                <span><strong>WhatsApp</strong><br><span style="color:rgba(238,243,255,.65); font-size:12px">+971 56 143 6491</span></span>
-                <span class="btn">Open</span>
-              </a>
-              <a href="tel:+97145914550">
-                <span><strong>Call</strong><br><span style="color:rgba(238,243,255,.65); font-size:12px">+971 4 591 4550</span></span>
-                <span class="btn">Call</span>
-              </a>
-              <a href="mailto:alwahti@newstylelogistics.com">
-                <span><strong>Email</strong><br><span style="color:rgba(238,243,255,.65); font-size:12px">alwahti@newstylelogistics.com</span></span>
-                <span class="btn">Email</span>
-              </a>
-            </div>
+          <div class="map-wrap glass">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1785!2d55.3705!3d25.1873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDExJzE0LjMiTiA1NcKwMjInMTMuOCJF!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae"></iframe>
           </div>
-
-          <div class="glass" style="padding:16px" data-aos="fade-up" data-aos-delay="80">
-            <p class="kicker" style="margin:0 0 8px" data-i18n="addrK">Address</p>
-            <h3 style="margin:0 0 8px" data-i18n="addrT">Company Address & Map</h3>
-
-            <div class="glass-soft" style="padding:12px; margin-bottom:12px">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
-                <div>
-                  <strong data-i18n="officeAddr">Office Address</strong><br/>
-                  <span style="color:rgba(238,243,255,.70); font-size:12px" data-i18n="addrLine">
-                    Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE
-                  </span>
-                </div>
-                <a class="btn btn-ghost" href="https://www.google.com/maps?q=Thumbay+Clinic+Building+Ras+Al+Khor+Dubai" target="_blank" rel="noopener" data-i18n="openMaps">
-                  Open in Google Maps
-                </a>
-              </div>
-            </div>
-
-            <div class="map-wrap" aria-label="Google map">
-              <iframe
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Thumbay%20Clinic%20Building%20Ras%20Al%20Khor%20Dubai&z=15&output=embed"
-                title="New Style Logistics LLC - Map"></iframe>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass" style="padding:16px; margin-top:12px" data-aos="fade-up">
-          <p class="kicker" style="margin:0 0 8px" data-i18n="hoursK">Hours</p>
-          <h3 style="margin:0 0 10px" data-i18n="hoursT">Working Hours</h3>
-
-          <div class="grid-3">
-            <div class="glass-soft card">
-              <h3 data-i18n="monfri">Monday to Friday</h3>
-              <p style="margin:0; font-weight:900">8:30 AM – 6:00 PM</p>
-            </div>
-            <div class="glass-soft card">
-              <h3 data-i18n="sat">Saturday</h3>
-              <p style="margin:0; font-weight:900">8:30 AM – 3:00 PM</p>
-            </div>
-            <div class="glass-soft card">
-              <h3 data-i18n="sun">Sunday</h3>
-              <p style="margin:0; font-weight:900" data-i18n="closed">Closed</p>
-            </div>
-          </div>
-
-          <p class="hint" style="margin-bottom:0" data-i18n="hoursHint">
-            For urgent shipments, contact us via WhatsApp anytime and our team will guide you quickly.
-          </p>
         </div>
       </div>
     </section>
-
-    <footer>
-      <div class="container">
-        <div class="glass footer-row">
-          <div class="foot-left">
-            <div class="foot-logo"><img src="./assets/splash.jpg" alt="New Style Logistics Logo"></div>
-            <div>
-              <strong data-i18n="brand">New Style Logistics LLC</strong><br>
-              <span style="color:rgba(238,243,255,.62)" data-i18n="footerSub">Freight · Logistics · Customs · Warehousing</span>
-            </div>
-          </div>
-          <div>© <span id="year"></span> <span data-i18n="rights">All Rights Reserved.</span></div>
-        </div>
-      </div>
-    </footer>
   </main>
 
-  <!-- Floating -->
-  <div class="float" aria-label="Quick contact floating buttons">
-    <a class="fab primary pulse" href="https://wa.me/971561436491" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-    <a class="fab" href="tel:+97145914550" aria-label="Call"><span>Call</span></a>
+  <footer style="padding:30px 0; border-top:1px solid var(--stroke); text-align:center">
+    <div class="container">
+      <p class="sub">© <span id="year"></span> New Style Logistics LLC. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <div class="float">
+    <a href="https://wa.me/971561436491" class="fab primary" target="_blank"><span>WhatsApp</span></a>
+    <a href="tel:+97145914550" class="fab"><span>Call</span></a>
   </div>
 
-  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
   <script>
-    // AOS
-    AOS.init({ duration: 650, once: true, offset: 80 });
-
-    // Year
+    AOS.init({ duration: 650, once: true });
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu
+    // Menu
     const btnMenu = document.getElementById("btnMenu");
     const menuPanel = document.getElementById("menuPanel");
-    let menuOpen = false;
-    function setMenu(open){
-      menuOpen = open;
-      menuPanel.style.display = open ? "block" : "none";
-      menuPanel.setAttribute("aria-hidden", open ? "false" : "true");
-    }
-    btnMenu && btnMenu.addEventListener("click", () => setMenu(!menuOpen));
-    menuPanel && menuPanel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+    btnMenu.onclick = () => menuPanel.style.display = menuPanel.style.display === "block" ? "none" : "block";
 
-    // Tracking demo
-    document.getElementById("btnTrack").addEventListener("click", () => {
-      const v = (document.getElementById("trackInput").value || "").trim();
-      alert(v ? ("Tracking request received (demo): " + v) : "Enter a tracking number (demo).");
-    });
-
-    // Volumetric calculator
-    function numVal(id){
-      const raw = (document.getElementById(id).value || "").replace(/,/g,".").trim();
-      const n = Number(raw);
-      return Number.isFinite(n) ? n : 0;
-    }
-    document.getElementById("btnCalc").addEventListener("click", () => {
-      const L = numVal("len"), W = numVal("wid"), H = numVal("hei");
-      const box = document.getElementById("calcResult");
-      if(!L || !W || !H){ box.textContent = "Please enter Length, Width and Height."; return; }
-      const vw = (L * W * H) / 5000;
-      box.textContent = "Volumetric weight: " + vw.toFixed(2) + " kg (L×W×H/5000).";
-    });
-    document.getElementById("btnResetCalc").addEventListener("click", () => {
-      ["len","wid","hei"].forEach(id => document.getElementById(id).value = "");
-      document.getElementById("calcResult").textContent = "Enter dimensions to calculate volumetric weight.";
-    });
-
-    // Quote wizard
-    const s1 = document.getElementById("s1"), s2 = document.getElementById("s2"), s3 = document.getElementById("s3");
-    const p1 = document.getElementById("p1"), p2 = document.getElementById("p2"), p3 = document.getElementById("p3");
-
-    function activate(step){
-      [s1,s2,s3].forEach(x => x.classList.remove("active"));
-      [p1,p2,p3].forEach(x => x.style.display = "none");
-      if(step===1){ s1.classList.add("active"); p1.style.display="block"; }
-      if(step===2){ s2.classList.add("active"); p2.style.display="block"; }
-      if(step===3){ s3.classList.add("active"); p3.style.display="block"; buildSummary(); }
-      const quote = document.getElementById("quote");
-      window.scrollTo({ top: quote.offsetTop - 70, behavior: "smooth" });
-    }
-
-    function escapeHtml(str){
-      return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-    }
-
-    function buildSummary(){
-      const name = document.getElementById("qName").value || "-";
-      const email = document.getElementById("qEmail").value || "-";
-      const phone = document.getElementById("qPhone").value || "-";
-      const mode = document.getElementById("qMode").value || "-";
-      const inc = document.getElementById("qIncoterm").value || "-";
-      const from = document.getElementById("qFrom").value || "-";
-      const to = document.getElementById("qTo").value || "-";
-      const details = document.getElementById("qDetails").value || "-";
-
-      document.getElementById("summaryBox").innerHTML =
-        "<b>Contact</b><br>Name: " + escapeHtml(name) + "<br>Email: " + escapeHtml(email) + "<br>Phone: " + escapeHtml(phone) + "<br><br>" +
-        "<b>Shipment</b><br>Mode: " + escapeHtml(mode) + "<br>Incoterm: " + escapeHtml(inc) + "<br>From: " + escapeHtml(from) + "<br>To: " + escapeHtml(to) + "<br><br>" +
-        "<b>Details</b><br>" + escapeHtml(details).replace(/\\n/g,"<br>");
-    }
-
-    document.getElementById("next1").addEventListener("click", () => {
-      const name = (document.getElementById("qName").value || "").trim();
-      const email = (document.getElementById("qEmail").value || "").trim();
-      if(!name || !email){ alert("Please enter name and email."); return; }
-      activate(2);
-    });
-    document.getElementById("back2").addEventListener("click", () => activate(1));
-    document.getElementById("next2").addEventListener("click", () => activate(3));
-    document.getElementById("back3").addEventListener("click", () => activate(2));
-
-    document.getElementById("submitQuote").addEventListener("click", () => {
-      const name = (document.getElementById("qName").value || "").trim();
-      const email = (document.getElementById("qEmail").value || "").trim();
-      const phone = (document.getElementById("qPhone").value || "").trim();
-      const mode = document.getElementById("qMode").value || "";
-      const inc = document.getElementById("qIncoterm").value || "";
-      const from = (document.getElementById("qFrom").value || "").trim();
-      const to = (document.getElementById("qTo").value || "").trim();
-      const details = (document.getElementById("qDetails").value || "").trim();
-
-      const subject = encodeURIComponent("Quote Request — " + mode + " | " + (from || "Origin") + " → " + (to || "Destination"));
-      const body = encodeURIComponent(
-        "New Style Logistics — Quote Request\\n\\n" +
-        "CONTACT\\nName: " + name + "\\nEmail: " + email + "\\nPhone/WhatsApp: " + (phone || "-") + "\\n\\n" +
-        "SHIPMENT\\nMode: " + mode + "\\nIncoterm: " + (inc || "-") + "\\nFrom: " + (from || "-") + "\\nTo: " + (to || "-") + "\\n\\n" +
-        "DETAILS\\n" + (details || "-") + "\\n"
-      );
-
-      window.location.href = "mailto:alwahti@newstylelogistics.com?subject=" + subject + "&body=" + body;
-    });
-
-    // Charts
-    function drawLineChart(canvasId, values){
-      const c = document.getElementById(canvasId);
-      const ctx = c.getContext("2d");
-      const w = c.width, h = c.height;
-      ctx.clearRect(0,0,w,h);
-
-      ctx.globalAlpha = 0.22;
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 1;
-      for(let i=1;i<6;i++){
-        const y = (h/6)*i;
-        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
+    // Calculator
+    document.getElementById("btnCalc").onclick = () => {
+      const l = document.getElementById("len").value;
+      const w = document.getElementById("wid").value;
+      const h = document.getElementById("hei").value;
+      if(l && w && h) {
+        const vw = (l * w * h) / 5000;
+        document.getElementById("calcResult").innerText = "Result: " + vw.toFixed(2) + " kg";
       }
-      ctx.globalAlpha = 1;
+    };
 
-      const pad = 36;
-      const maxV = Math.max(...values);
-      const minV = Math.min(...values);
-      const span = Math.max(1, maxV - minV);
-
-      function px(i){ return pad + ( (w - pad*2) * (i/(values.length-1)) ); }
-      function py(v){ return (h - pad) - ((h - pad*2) * ((v - minV)/span)); }
-
-      ctx.lineJoin = "round";
-      ctx.lineCap = "round";
-
-      ctx.strokeStyle = "rgba(51,214,255,.22)";
-      ctx.lineWidth = 10;
-      ctx.beginPath();
-      values.forEach((v,i)=>{ if(i===0) ctx.moveTo(px(i),py(v)); else ctx.lineTo(px(i),py(v)); });
-      ctx.stroke();
-
-      ctx.strokeStyle = "rgba(51,214,255,.95)";
-      ctx.lineWidth = 2.6;
-      ctx.beginPath();
-      values.forEach((v,i)=>{ if(i===0) ctx.moveTo(px(i),py(v)); else ctx.lineTo(px(i),py(v)); });
-      ctx.stroke();
-
-      values.forEach((v,i)=>{
-        ctx.fillStyle = "rgba(255,255,255,.9)";
-        ctx.beginPath(); ctx.arc(px(i), py(v), 3.2, 0, Math.PI*2); ctx.fill();
-      });
+    // Wizard
+    function go(step) {
+      document.getElementById("p1").style.display = step === 1 ? "block" : "none";
+      document.getElementById("p2").style.display = step === 2 ? "block" : "none";
+      document.getElementById("p3").style.display = step === 3 ? "block" : "none";
+      document.querySelectorAll(".step").forEach((s, idx) => s.classList.toggle("active", idx + 1 === step));
     }
 
-    function drawBarChart(canvasId, values){
-      const c = document.getElementById(canvasId);
-      const ctx = c.getContext("2d");
-      const w = c.width, h = c.height;
-      ctx.clearRect(0,0,w,h);
+    document.getElementById("submitQuote").onclick = () => {
+      const name = document.getElementById("qName").value;
+      const body = `Quote request from ${name}. Details: ${document.getElementById("qDetails").value}`;
+      window.location.href = `mailto:alwahti@newstylelogistics.com?subject=Quote Request&body=${encodeURIComponent(body)}`;
+    };
 
-      ctx.globalAlpha = 0.22;
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 1;
-      for(let i=1;i<6;i++){
-        const y = (h/6)*i;
-        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-
-      const pad = 36;
-      const maxV = Math.max(...values);
-      const bw = (w - pad*2) / (values.length*1.4);
-      const gap = bw*0.4;
-
-      values.forEach((v,i)=>{
-        const x = pad + i*(bw+gap);
-        const barH = (h - pad*2) * (v/maxV);
-        const y = (h - pad) - barH;
-
-        ctx.fillStyle = "rgba(51,214,255,.18)";
-        ctx.fillRect(x-2, y-2, bw+4, barH+4);
-
-        const grad = ctx.createLinearGradient(0,y,0,y+barH);
-        grad.addColorStop(0, "rgba(51,214,255,.60)");
-        grad.addColorStop(1, "rgba(46,112,255,.55)");
-        ctx.fillStyle = grad;
-        ctx.fillRect(x, y, bw, barH);
-      });
-
-      ctx.fillStyle = "rgba(238,243,255,.75)";
-      ctx.font = "bold 12px Inter, system-ui";
-      const labels = ["Air","Sea","Land"];
-      labels.forEach((t,i)=>{
-        const x = pad + i*(bw+gap) + bw/2;
-        ctx.textAlign = "center";
-        ctx.fillText(t, x, h-12);
-      });
-    }
-
-    let chartsDrawn = false;
-    function drawCharts(){
-      if(chartsDrawn) return;
-      chartsDrawn = true;
-      drawLineChart("chartLine", [82,85,84,88,90,92,93,94]);
-      drawBarChart("chartBars", [62,78,55]);
-    }
-
-    const visionSection = document.getElementById("vision");
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) drawCharts(); });
-    }, { threshold: 0.25 });
-    io.observe(visionSection);
-
-    // Language dict (your original dict unchanged)
-    const dict = (function(){
-      return {
-        /* --- KEEP YOUR DICT EXACTLY AS YOU HAD IT --- */
-      };
-    })();
-
-    function applyLang(lang){
-      const isAr = lang === "ar";
-      document.documentElement.lang = isAr ? "ar" : "en";
-      document.documentElement.dir = isAr ? "rtl" : "ltr";
-      document.getElementById("btnEn").classList.toggle("active", !isAr);
-      document.getElementById("btnAr").classList.toggle("active", isAr);
-
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        const t = dict[lang] && dict[lang][key];
-        if(typeof t === "string") el.innerHTML = t;
-      });
-    }
-    document.getElementById("btnEn").addEventListener("click", ()=>applyLang("en"));
-    document.getElementById("btnAr").addEventListener("click", ()=>applyLang("ar"));
+    // Lang Toggle Simple
+    document.getElementById("btnAr").onclick = () => {
+      const isEn = document.documentElement.dir === "ltr";
+      document.documentElement.dir = isEn ? "rtl" : "ltr";
+      document.documentElement.lang = isEn ? "ar" : "en";
+      document.getElementById("btnEn").classList.toggle("active");
+      document.getElementById("btnAr").classList.toggle("active");
+    };
+    document.getElementById("btnEn").onclick = () => {
+      document.documentElement.dir = "ltr";
+      document.documentElement.lang = "en";
+      document.getElementById("btnEn").classList.add("active");
+      document.getElementById("btnAr").classList.remove("active");
+    };
   </script>
 </body>
 </html>
