@@ -1,188 +1,191 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>New Style Logistics LLC | Dubai Freight & Logistics</title>
-<meta name="description" content="Dubai freight forwarding: air, sea (FCL/LCL), land transport, customs clearance, cargo handling & warehousing.">
-<meta name="theme-color" content="#060913">
 
-<!-- Favicon -->
+<meta name="description" content="Dubai freight forwarding company providing Air, Sea (FCL/LCL), Land transport, Customs Clearance & Warehousing. Fast, compliant and reliable.">
+<meta name="theme-color" content="#070b12">
+
 <link rel="icon" href="./assets/favicon.png" type="image/png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-/* ===================== ROOT ===================== */
 :root{
-  --bg:#060913;
-  --bg2:#0a1020;
-  --panel:rgba(255,255,255,.06);
-  --stroke:rgba(255,255,255,.12);
+  --bg:#070b12;
+  --panel:#0d1422;
+  --panel2:#111a2e;
   --text:#eef3ff;
-  --muted:rgba(238,243,255,.7);
-  --cyan:#33d6ff;
-  --blue:#2e70ff;
-  --radius:18px;
-  --radius-lg:26px;
-  --max:1180px;
-  --shadow:0 20px 60px rgba(0,0,0,.55);
+  --muted:#9aa4bf;
+  --accent:#2e70ff;
+  --radius:22px;
+  --max:1200px;
 }
 
-/* ===================== RESET ===================== */
+/* RESET */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;width:100%;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-
-/* ===================== BODY ===================== */
 body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:
-    radial-gradient(900px 480px at 10% -10%, rgba(46,112,255,.25), transparent 55%),
-    radial-gradient(760px 520px at 90% 0%, rgba(51,214,255,.20), transparent 60%),
-    linear-gradient(180deg,var(--bg),var(--bg2));
+  font-family:Inter,system-ui;
+  background:linear-gradient(180deg,#070b12,#0b1325);
   color:var(--text);
 }
 
-/* ===================== CONTAINER (FIXED) ===================== */
+/* CONTAINER – FIXES ALL MOBILE ISSUES */
 .container{
   width:100%;
   max-width:var(--max);
   margin:0 auto;
   padding:0 16px;
 }
-@media(max-width:420px){
-  .container{padding:0 12px}
-}
 
-/* ===================== GLASS ===================== */
-.glass{
-  background:var(--panel);
-  border:1px solid var(--stroke);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow);
-}
-
-/* ===================== HEADER ===================== */
+/* HEADER */
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  backdrop-filter:blur(12px);
-  background:rgba(6,9,19,.7);
+  background:rgba(7,11,18,.85);
+  backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
-.topbar{
+.header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 0;
+  min-height:64px;
 }
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
+  font-weight:800;
 }
 .brand img{
-  width:42px;
-  height:42px;
-  border-radius:12px;
+  width:40px;height:40px;border-radius:12px;
 }
-.nav{
-  display:flex;
-  gap:14px;
+nav a{
+  margin-left:18px;
+  font-size:14px;
+  color:var(--muted);
+  text-decoration:none;
 }
-.nav a{
-  font-size:13px;
-  padding:8px 10px;
-  border-radius:12px;
-}
-.nav a:hover{
-  background:rgba(255,255,255,.06);
-}
+nav a:hover{color:#fff}
 
-/* ===================== HERO ===================== */
+/* HERO */
 .hero{
-  padding:26px 0;
+  padding:28px 0 18px;
 }
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:18px;
+.hero-card{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:22px;
 }
-@media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr}
-}
-.hero-card{padding:20px}
 .hero h1{
-  font-size:clamp(28px,4vw,46px);
-  line-height:1.1;
+  font-size:clamp(26px,5vw,44px);
+  margin:0 0 12px;
 }
-.hero p{color:var(--muted)}
+.hero p{
+  color:var(--muted);
+  line-height:1.6;
+}
 .hero-img{
-  border-radius:var(--radius-lg);
+  margin-top:18px;
+  border-radius:var(--radius);
   overflow:hidden;
 }
 .hero-img img{
   width:100%;
-  height:100%;
+  display:block;
   object-fit:cover;
 }
 
-/* ===================== SECTIONS ===================== */
-section{padding:24px 0}
-.kicker{
-  font-size:11px;
-  letter-spacing:.2em;
-  color:var(--cyan);
-  text-transform:uppercase;
-}
+/* SECTIONS */
+section{padding:26px 0}
 h2{
-  margin:6px 0;
-  font-size:clamp(22px,3vw,32px);
+  margin:0 0 14px;
+  font-size:clamp(22px,4vw,32px);
 }
-.sub{color:var(--muted);max-width:70ch}
+.kicker{
+  font-size:12px;
+  letter-spacing:.15em;
+  color:#4aa3ff;
+  margin-bottom:6px;
+}
 
-/* ===================== SERVICES ===================== */
+/* SERVICES GRID */
 .services{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-@media(max-width:900px){
-  .services{grid-template-columns:1fr}
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
 }
 .service{
+  background:var(--panel);
+  border-radius:var(--radius);
   overflow:hidden;
 }
-.service .media{
-  aspect-ratio:16/10;
-  background:#000;
-}
-.service .media img{
+.service img{
   width:100%;
-  height:100%;
+  aspect-ratio:16/10;
   object-fit:cover;
+  display:block;
 }
-.service .content{padding:14px}
+.service .content{
+  padding:16px;
+}
+.service h3{margin:0 0 6px}
+.service p{color:var(--muted);margin:0}
 
-/* ===================== FOOTER ===================== */
+/* CALCULATOR */
+.calc{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:18px;
+}
+.calc input{
+  width:100%;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:12px;
+  border:0;
+  background:var(--panel2);
+  color:#fff;
+}
+.calc button{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:0;
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+}
+
+/* CONTACT */
+.contact-box{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:18px;
+}
+.contact-box a{
+  display:block;
+  margin-top:10px;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* FOOTER */
 footer{
-  padding:24px 0;
+  padding:20px 0;
   color:var(--muted);
-}
-.footer-box{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:14px;
-}
-@media(max-width:600px){
-  .footer-box{flex-direction:column;text-align:center}
+  font-size:13px;
+  text-align:center;
 }
 
-/* ===================== FLOAT ===================== */
+/* FLOATING BUTTONS */
 .float{
   position:fixed;
   right:14px;
@@ -190,13 +193,21 @@ footer{
   display:flex;
   flex-direction:column;
   gap:10px;
+  z-index:2000;
 }
 .float a{
+  background:#25d366;
+  color:#fff;
   padding:12px 16px;
   border-radius:999px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
+  text-decoration:none;
   font-weight:700;
+}
+.float a.call{background:#2e70ff}
+
+/* MOBILE SAFE */
+@media(max-width:720px){
+  nav{display:none}
 }
 </style>
 </head>
@@ -204,12 +215,12 @@ footer{
 <body>
 
 <header>
-  <div class="container topbar">
+  <div class="container header-inner">
     <div class="brand">
-      <img src="./assets/logo.jpg" alt="New Style Logistics">
-      <strong>New Style Logistics LLC</strong>
+      <img src="./assets/logo.jpg" alt="Logo">
+      New Style Logistics LLC
     </div>
-    <nav class="nav">
+    <nav>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -219,77 +230,100 @@ footer{
 <main>
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="glass hero-card">
-      <span class="kicker">Dubai Logistics</span>
+  <div class="container">
+    <div class="hero-card">
+      <span class="kicker">DUBAI LOGISTICS</span>
       <h1>Fast, compliant freight with full visibility</h1>
-      <p>Air, Sea (FCL/LCL), Land, Customs Clearance, Cargo Handling & Warehousing.</p>
-    </div>
-    <div class="hero-img">
-      <img src="./assets/hero.jpg" alt="Logistics Dubai">
+      <p>Air, Sea (FCL/LCL), Land transport, Customs Clearance, Cargo Handling & Warehousing.</p>
+
+      <div class="hero-img">
+        <img src="./assets/hero.jpg" alt="Logistics Dubai">
+      </div>
     </div>
   </div>
 </section>
 
 <section id="services">
   <div class="container">
-    <span class="kicker">Services</span>
+    <span class="kicker">SERVICES</span>
     <h2>End-to-End Logistics</h2>
-    <p class="sub">Premium execution with zero compromise on compliance and speed.</p>
 
     <div class="services">
-      <div class="glass service">
-        <div class="media"><img src="./assets/air.jpg"></div>
-        <div class="content"><h3>Air Freight</h3><p>Urgent, priority shipments worldwide.</p></div>
+      <div class="service">
+        <img src="./assets/air.jpg">
+        <div class="content">
+          <h3>Air Freight</h3>
+          <p>Urgent worldwide delivery.</p>
+        </div>
       </div>
 
-      <div class="glass service">
-        <div class="media"><img src="./assets/sea.jpg"></div>
-        <div class="content"><h3>Sea Freight (FCL/LCL)</h3><p>Cost-efficient global shipping.</p></div>
+      <div class="service">
+        <img src="./assets/sea.jpg">
+        <div class="content">
+          <h3>Sea Freight (FCL/LCL)</h3>
+          <p>Cost-efficient global shipping.</p>
+        </div>
       </div>
 
-      <div class="glass service">
-        <div class="media"><img src="./assets/land.jpg"></div>
-        <div class="content"><h3>Land Transport</h3><p>UAE & GCC door-to-door.</p></div>
+      <div class="service">
+        <img src="./assets/land.jpg">
+        <div class="content">
+          <h3>Land Transport</h3>
+          <p>UAE & GCC door-to-door.</p>
+        </div>
       </div>
 
-      <div class="glass service">
-        <div class="media"><img src="./assets/customs.jpg"></div>
-        <div class="content"><h3>Customs Clearance</h3><p>Fast, compliant documentation handling.</p></div>
+      <div class="service">
+        <img src="./assets/customs.jpg">
+        <div class="content">
+          <h3>Customs Clearance</h3>
+          <p>Fast, compliant documentation handling.</p>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="kicker">TOOLS</span>
+    <h2>Volumetric Weight Calculator</h2>
+
+    <div class="calc">
+      <input id="l" placeholder="Length (cm)">
+      <input id="w" placeholder="Width (cm)">
+      <input id="h" placeholder="Height (cm)">
+      <button onclick="
+        let l=+l.value||0,w=+w.value||0,h=+h.value||0;
+        alert(l&&w&&h ? 'Volumetric Weight: '+((l*w*h)/5000).toFixed(2)+' kg' : 'Enter all values');
+      ">Calculate</button>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
-    <span class="kicker">Contact</span>
+    <span class="kicker">CONTACT</span>
     <h2>Get in Touch</h2>
-    <p class="sub">We respond fast via WhatsApp, call, or email.</p>
-    <p><strong>📞 +971 4 591 4550</strong></p>
-    <p><strong>📧 alwahti@newstylelogistics.com</strong></p>
+
+    <div class="contact-box">
+      📞 +971 4 591 4550<br>
+      ✉️ alwahti@newstylelogistics.com<br><br>
+      Office #2, Thumbay Clinic Building, Ras Al Khor, Dubai
+    </div>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container">
-    <div class="glass footer-box">
-      <span>© <span id="year"></span> New Style Logistics LLC</span>
-      <span>All Rights Reserved</span>
-    </div>
-  </div>
+  © 2026 New Style Logistics LLC. All Rights Reserved.
 </footer>
 
 <div class="float">
   <a href="https://wa.me/971561436491">WhatsApp</a>
-  <a href="tel:+97145914550">Call</a>
+  <a class="call" href="tel:+97145914550">Call</a>
 </div>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
