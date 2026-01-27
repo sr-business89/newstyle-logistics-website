@@ -12,226 +12,269 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        :root { --glass: rgba(10, 25, 47, 0.75); --glow: rgba(0, 255, 242, 0.2); }
-        body { background: #050a15; color: #e2e8f0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        :root { --glass: rgba(10, 25, 47, 0.85); --glow: rgba(0, 255, 242, 0.2); }
+        body { background: #050a15; color: #f1f5f9; font-family: 'Inter', sans-serif; overflow-x: hidden; margin: 0; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* Glass Effect & Noise */
-        .glass { background: var(--glass); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); }
-        body::before { content: ""; fixed: top 0; width: 100%; height: 100%; opacity: 0.02; pointer-events: none; 
-                       background-image: url('https://grainy-gradients.vercel.app/noise.svg'); z-index: 50; }
+        /* Glassmorphism System */
+        .glass { background: var(--glass); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.08); }
+        .glow-card:hover { border-color: #00fff2; box-shadow: 0 0 30px var(--glow); transition: 0.4s; }
+        
+        /* Layout Grid Rules */
+        .main-container { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+        @media (min-width: 768px) { .main-container { padding: 0 24px; } }
+        @media (min-width: 1024px) { .main-container { padding: 0 32px; } }
 
-        /* Smooth Marquee */
+        /* Image Rules: No stretch, No white gaps */
+        .img-container { position: relative; overflow: hidden; border-radius: 1rem; background: #000; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/10; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .group:hover .img-container img { transform: scale(1.08); }
+
+        /* Header blur */
+        .header-glass { background: rgba(5, 10, 21, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        /* Partner Marquee */
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-marquee { display: flex; width: 200%; animation: scroll 30s linear infinite; }
-        
-        /* Responsive Image Ratios */
-        .img-container img { object-fit: cover; aspect-ratio: 16/10; width: 100%; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        .glow-hover:hover { box-shadow: 0 0 30px var(--glow); border-color: #00fff2; }
-        
-        /* Form Focus */
-        .glass-input:focus { border-color: #00fff2; box-shadow: 0 0 10px rgba(0,255,242,0.1); outline: none; }
+        .animate-marquee { display: flex; width: max-content; animation: scroll 30s linear infinite; }
+
+        /* Form Inputs */
+        .glass-input { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); outline: none; transition: 0.3s; }
+        .glass-input:focus { border-color: #00fff2; box-shadow: 0 0 15px rgba(0,255,242,0.15); }
     </style>
 </head>
 <body class="selection:bg-cyan-500/30">
 
-    <nav class="fixed top-0 w-full z-[100] glass border-b border-white/5">
-        <div class="max-w-[1180px] mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-black shadow-lg shadow-cyan-500/20">NS</div>
-                <div class="leading-none">
-                    <span class="font-extrabold text-lg tracking-tighter">NEW STYLE</span>
-                    <p class="text-[10px] text-cyan-400 tracking-[0.2em] uppercase font-bold">Logistics LLC</p>
+    <nav class="fixed top-0 w-full z-[100] header-glass">
+        <div class="main-container h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="splash.jpg" alt="Logo" class="w-10 h-10 rounded shadow-lg shadow-cyan-500/20">
+                <div class="hidden sm:block">
+                    <span class="font-extrabold text-lg tracking-tighter">NEW STYLE <span class="text-cyan-400 font-normal">LOGISTICS</span></span>
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500">Dubai, UAE</p>
                 </div>
             </div>
             
-            <div class="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
                 <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#vision" class="hover:text-cyan-400 transition">Vision</a>
                 <a href="#services" class="hover:text-cyan-400 transition">Services</a>
                 <a href="#tools" class="hover:text-cyan-400 transition">Tools</a>
-                <button @click="rtl = !rtl" class="text-cyan-500 border border-cyan-500/20 px-3 py-1 rounded hover:bg-cyan-500/10" x-text="rtl ? 'EN' : 'العربية'"></button>
-                <a href="#quote" class="bg-cyan-500 text-black px-6 py-3 rounded-full hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20">Get Quote</a>
+                <a href="#quote" class="hover:text-cyan-400 transition">Quote</a>
+                <button @click="rtl = !rtl" class="text-cyan-500 border border-cyan-500/20 px-3 py-1 rounded" x-text="rtl ? 'English' : 'العربية'"></button>
+                <a href="#quote" class="bg-cyan-500 text-black px-6 py-3 rounded-full hover:bg-cyan-400 transition font-extrabold">GET QUOTE</a>
             </div>
+            <button class="lg:hidden text-cyan-400"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
-    <section class="relative pt-40 pb-20 px-6 max-w-[1180px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        <div data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">Global GCC Coverage</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6">
-                Dubai Logistics <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Redefined.</span>
-            </h1>
-            <p class="text-gray-400 text-lg mb-10 max-w-md leading-relaxed">Precision freight forwarding and customs clearance through Dubai’s strategic gateways. Fast, compliant, and fully visible.</p>
-            
-            <div class="flex flex-wrap gap-4">
-                <a href="#quote" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">Start Shipment</a>
-                <a href="#tools" class="px-8 py-4 glass rounded-xl font-bold hover:bg-white/5 transition">Weight Calculator</a>
-            </div>
-        </div>
+    <section class="relative pt-40 pb-20 overflow-hidden">
+        <div class="main-container grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <p class="text-cyan-400 font-bold tracking-[0.4em] uppercase text-[10px] mb-4">High-Tech Freight & Logistics</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8">
+                    Dubai logistics with <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-400">real-time clarity.</span>
+                </h1>
+                
+                <div class="glass p-2 rounded-2xl border-white/10 flex items-center gap-3 mb-10 max-w-md">
+                    <i data-lucide="search" class="text-cyan-400 ml-4"></i>
+                    <input type="text" placeholder="Shipment Tracking ID..." class="bg-transparent border-none outline-none text-sm w-full py-3">
+                    <button class="bg-cyan-500 text-black px-5 py-2 rounded-xl font-bold text-xs">TRACK</button>
+                </div>
 
-        <div class="relative" data-aos="zoom-in">
-            <div class="absolute -inset-4 bg-cyan-500/10 blur-3xl rounded-full"></div>
-            <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                <img src="hero.jpg" alt="Dubai Port" class="hover:scale-105 transition duration-1000">
-                <div class="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-2">
-                    <div class="glass p-3 rounded-xl text-center"><p class="text-cyan-400 font-bold">DXB</p><p class="text-[8px] uppercase">Air</p></div>
-                    <div class="glass p-3 rounded-xl text-center"><p class="text-cyan-400 font-bold">Jebel Ali</p><p class="text-[8px] uppercase">Sea</p></div>
-                    <div class="glass p-3 rounded-xl text-center"><p class="text-cyan-400 font-bold">GCC</p><p class="text-[8px] uppercase">Land</p></div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#quote" class="px-8 py-4 bg-white text-black font-extrabold rounded-xl hover:scale-105 transition-transform">Talk to Experts</a>
+                    <a href="#tools" class="px-8 py-4 glass rounded-xl font-bold hover:bg-white/5 transition">Calculator</a>
+                </div>
+
+                <div class="mt-12 flex gap-8 border-t border-white/5 pt-8">
+                    <div><p class="text-2xl font-black text-cyan-400 uppercase">GCC</p><p class="text-[9px] text-gray-500 uppercase tracking-widest">Coverage</p></div>
+                    <div><p class="text-2xl font-black text-cyan-400 uppercase">24/7</p><p class="text-[9px] text-gray-500 uppercase tracking-widest">Response</p></div>
+                    <div><p class="text-2xl font-black text-cyan-400 uppercase">100%</p><p class="text-[9px] text-gray-500 uppercase tracking-widest">Compliance</p></div>
+                </div>
+            </div>
+            <div class="relative group" data-aos="fade-left">
+                <div class="absolute -inset-1 bg-cyan-500 rounded-[2rem] blur opacity-10 group-hover:opacity-25 transition"></div>
+                <div class="img-container shadow-2xl border border-white/10">
+                    <img src="hero.jpg" alt="Logistics Hub" class="hover:scale-105 transition duration-1000">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="py-10 glass border-y border-white/5 overflow-hidden">
-        <div class="animate-marquee gap-12 items-center">
-            <span class="text-2xl font-black opacity-20 px-10">IATA</span>
-            <span class="text-2xl font-black opacity-20 px-10">FIATA</span>
-            <span class="text-2xl font-black opacity-20 px-10">DUBAI CUSTOMS</span>
-            <span class="text-2xl font-black opacity-20 px-10">NAFL</span>
-            <span class="text-2xl font-black opacity-20 px-10">DWC</span>
-            <span class="text-2xl font-black opacity-20 px-10">IATA</span>
-            <span class="text-2xl font-black opacity-20 px-10">FIATA</span>
-            <span class="text-2xl font-black opacity-20 px-10">DUBAI CUSTOMS</span>
-            <span class="text-2xl font-black opacity-20 px-10">NAFL</span>
-            <span class="text-2xl font-black opacity-20 px-10">DWC</span>
+    <div class="py-12 glass border-y border-white/5 overflow-hidden">
+        <div class="animate-marquee flex items-center gap-16 grayscale opacity-40">
+            <span class="text-2xl font-black">IATA</span>
+            <span class="text-2xl font-black">FIATA</span>
+            <span class="text-2xl font-black">DUBAI CUSTOMS</span>
+            <span class="text-2xl font-black">JEBEL ALI PORT</span>
+            <span class="text-2xl font-black">DWC AIRPORT</span>
+            <span class="text-2xl font-black">IATA</span>
+            <span class="text-2xl font-black">FIATA</span>
+            <span class="text-2xl font-black">DUBAI CUSTOMS</span>
+            <span class="text-2xl font-black">JEBEL ALI PORT</span>
+            <span class="text-2xl font-black">DWC AIRPORT</span>
         </div>
     </div>
 
-    <section id="services" class="py-24 max-w-[1180px] mx-auto px-6">
-        <h2 class="text-3xl font-extrabold mb-12 flex items-center gap-4">
-            <span class="h-px w-12 bg-cyan-500"></span> Core Operations
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <template x-for="service in [
-                {title: 'Air Freight', img: 'air.jpg', tag: 'Fast'},
-                {title: 'Sea Freight', img: 'sea.jpg', tag: 'Global'},
-                {title: 'Land Transport', img: 'land.jpg', tag: 'GCC Wide'},
-                {title: 'Customs Clearance', img: 'customs.jpg', tag: 'Compliant'},
-                {title: 'Warehousing', img: 'warehousing.jpg', tag: 'Secure'},
-                {title: 'Cargo Handling', img: 'cargo.jpg', tag: 'Expert'}
+    <section id="about" class="py-24 main-container">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <template x-for="item in [
+                {t: 'Visibility', d: 'Real-time tracking and single point of contact.', i: 'eye'},
+                {t: 'Compliance', d: 'Customs-first processing for GCC markets.', i: 'shield-check'},
+                {t: 'Security', d: 'Controlled handling and safe warehousing.', i: 'lock'},
+                {t: 'Scale', d: 'Flexible solutions for any cargo volume.', i: 'layers'}
             ]">
-                <div class="glass rounded-3xl overflow-hidden glow-hover group" data-aos="fade-up">
-                    <div class="overflow-hidden h-48"><img :src="service.img" class="group-hover:scale-110 transition duration-700 h-full w-full object-cover"></div>
-                    <div class="p-6">
-                        <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest" x-text="service.tag"></span>
-                        <h3 class="text-xl font-bold mt-2" x-text="service.title"></h3>
-                        <p class="text-gray-500 text-sm mt-3">Managed logistics solutions tailored for the UAE trade landscape.</p>
+                <div class="glass p-8 rounded-3xl glow-card group">
+                    <i :data-lucide="item.i" class="text-cyan-400 w-10 h-10 mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="text-xl font-bold mb-3" x-text="item.t"></h3>
+                    <p class="text-sm text-gray-500 leading-relaxed" x-text="item.d"></p>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <section id="vision" class="py-24 bg-black/30">
+        <div class="main-container grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl font-extrabold mb-6">Vision 2030: <br><span class="text-cyan-400">Logistics Excellence</span></h2>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">We are pioneering the next generation of trade flow in Dubai. Our data-driven approach ensures your supply chain is resilient, compliant, and optimized for speed.</p>
+                
+                <div class="space-y-6">
+                    <div class="glass p-4 rounded-xl">
+                        <div class="flex justify-between mb-2 text-xs font-bold uppercase tracking-widest"><span>On-Time Performance</span><span class="text-cyan-400">98.4%</span></div>
+                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"><div class="bg-cyan-500 h-full" style="width: 98.4%"></div></div>
+                    </div>
+                    <div class="glass p-4 rounded-xl">
+                        <div class="flex justify-between mb-2 text-xs font-bold uppercase tracking-widest"><span>Market Mode Mix (Air/Sea)</span><span class="text-cyan-400">Balanced</span></div>
+                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden flex"><div class="bg-blue-500 h-full" style="width: 40%"></div><div class="bg-cyan-400 h-full" style="width: 60%"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-container h-[450px]">
+                <img src="vision.jpg" alt="Data Analytics" class="object-cover h-full w-full">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 main-container">
+        <h2 class="text-3xl font-extrabold mb-12">Global Freight Solutions</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <template x-for="s in [
+                {t: 'Air Freight', img: 'air.jpg', tag: 'FAST'},
+                {t: 'Sea Freight', img: 'sea.jpg', tag: 'LCL/FCL'},
+                {t: 'Land Transport', img: 'land.jpg', tag: 'GCC'},
+                {t: 'Customs Clearance', img: 'customs.jpg', tag: 'DUBAI'},
+                {t: 'Cargo Handling', img: 'cargo.jpg', tag: 'SAFETY'},
+                {t: 'Warehousing', img: 'warehousing.jpg', tag: 'LOGIC'}
+            ]">
+                <div class="glass rounded-3xl overflow-hidden group glow-card">
+                    <div class="img-container h-64">
+                        <img :src="s.img" class="group-hover:scale-110 transition duration-700">
+                        <span class="absolute top-4 right-4 bg-cyan-500 text-black text-[9px] font-black px-3 py-1 rounded-full uppercase" x-text="s.tag"></span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3" x-text="s.t"></h3>
+                        <p class="text-sm text-gray-500 mb-6 leading-relaxed">Strategic handling and route optimization via Jebel Ali and DXB hubs.</p>
+                        <a href="#quote" class="text-cyan-400 text-xs font-bold tracking-widest uppercase flex items-center gap-2 hover:gap-4 transition-all">Request Quote <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
             </template>
         </div>
     </section>
 
-    <section id="tools" class="py-24 bg-black/40">
-        <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-2 gap-16">
-            <div class="glass p-10 rounded-[2.5rem] border-cyan-500/10">
-                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3"><i data-lucide="calculator" class="text-cyan-400"></i> Volumetric Calculator</h3>
-                <div class="space-y-6">
-                    <div class="grid grid-cols-3 gap-4">
-                        <input type="number" x-model="l" placeholder="L (cm)" class="bg-white/5 p-4 rounded-xl border border-white/10 glass-input">
-                        <input type="number" x-model="w" placeholder="W (cm)" class="bg-white/5 p-4 rounded-xl border border-white/10 glass-input">
-                        <input type="number" x-model="h" placeholder="H (cm)" class="bg-white/5 p-4 rounded-xl border border-white/10 glass-input">
-                    </div>
-                    <div class="p-8 bg-cyan-500/5 rounded-2xl border border-cyan-500/20 text-center">
-                        <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Total Volumetric Weight</p>
-                        <p class="text-5xl font-black text-cyan-400" x-text="l && w && h ? ((l*w*h)/5000).toFixed(2) : '0.00'"></p>
-                        <p class="text-sm font-bold text-cyan-400">KG</p>
-                    </div>
+    <section id="tools" class="py-24 bg-slate-950">
+        <div class="main-container grid lg:grid-cols-2 gap-16">
+            <div class="glass p-10 rounded-[3rem] border-cyan-500/10">
+                <h3 class="text-3xl font-bold mb-8">Volumetric Weight</h3>
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div><label class="text-[10px] uppercase text-gray-500 mb-2 block font-bold">Length (cm)</label><input type="number" x-model="l" class="glass-input p-5 rounded-2xl w-full text-center font-bold"></div>
+                    <div><label class="text-[10px] uppercase text-gray-500 mb-2 block font-bold">Width (cm)</label><input type="number" x-model="w" class="glass-input p-5 rounded-2xl w-full text-center font-bold"></div>
+                    <div><label class="text-[10px] uppercase text-gray-500 mb-2 block font-bold">Height (cm)</label><input type="number" x-model="h" class="glass-input p-5 rounded-2xl w-full text-center font-bold"></div>
+                </div>
+                <div class="p-12 bg-cyan-500/10 rounded-3xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Chargeable Weight Estimation</p>
+                    <p class="text-6xl font-black text-cyan-400" x-text="l && w && h ? ((l*w*h)/5000).toFixed(2) : '0.00'"></p>
+                    <p class="text-sm font-bold text-cyan-400 mt-2">KG</p>
                 </div>
             </div>
 
-            <div id="quote" class="glass p-10 rounded-[2.5rem] border-blue-500/10 relative overflow-hidden">
-                <div class="flex gap-2 mb-8">
-                    <div class="h-1 flex-1 rounded-full" :class="step >= 1 ? 'bg-cyan-500' : 'bg-white/10'"></div>
-                    <div class="h-1 flex-1 rounded-full" :class="step >= 2 ? 'bg-cyan-500' : 'bg-white/10'"></div>
-                    <div class="h-1 flex-1 rounded-full" :class="step >= 3 ? 'bg-cyan-500' : 'bg-white/10'"></div>
+            <div id="quote" class="glass p-10 rounded-[3rem] border-blue-500/10">
+                <div class="flex items-center gap-4 mb-10">
+                    <div :class="step >= 1 ? 'bg-cyan-500 text-black shadow-[0_0_15px_#00fff2]' : 'bg-white/10 text-white'" class="w-10 h-10 rounded-full flex items-center justify-center font-black transition">1</div>
+                    <div class="h-px bg-white/10 flex-1"></div>
+                    <div :class="step >= 2 ? 'bg-cyan-500 text-black shadow-[0_0_15px_#00fff2]' : 'bg-white/10 text-white'" class="w-10 h-10 rounded-full flex items-center justify-center font-black transition">2</div>
                 </div>
 
                 <div x-show="step === 1" x-transition>
-                    <h3 class="text-2xl font-bold mb-6">Contact Details</h3>
-                    <input type="text" placeholder="Full Name" class="w-full bg-white/5 p-4 rounded-xl border border-white/10 glass-input mb-4">
-                    <input type="email" placeholder="Corporate Email" class="w-full bg-white/5 p-4 rounded-xl border border-white/10 glass-input mb-8">
-                    <button @click="step = 2" class="w-full py-4 bg-cyan-500 text-black font-bold rounded-xl">Continue</button>
+                    <h3 class="text-3xl font-bold mb-8">Request Quote</h3>
+                    <input type="text" placeholder="Full Name" class="glass-input p-5 rounded-2xl w-full mb-4 font-medium">
+                    <input type="email" placeholder="Business Email" class="glass-input p-5 rounded-2xl w-full mb-8 font-medium">
+                    <button @click="step = 2" class="w-full p-5 bg-cyan-500 text-black font-black rounded-2xl hover:bg-cyan-400 transition transform hover:scale-[1.02]">Shipment Info <i data-lucide="chevron-right" class="inline ml-2"></i></button>
                 </div>
 
                 <div x-show="step === 2" x-transition>
-                    <h3 class="text-2xl font-bold mb-6">Shipment Info</h3>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <input type="text" placeholder="Origin" class="bg-white/5 p-4 rounded-xl border border-white/10 glass-input">
-                        <input type="text" placeholder="Destination" class="bg-white/5 p-4 rounded-xl border border-white/10 glass-input">
+                    <h3 class="text-3xl font-bold mb-8">Shipment Specs</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <input type="text" placeholder="Origin" class="glass-input p-5 rounded-2xl w-full">
+                        <input type="text" placeholder="Destination" class="glass-input p-5 rounded-2xl w-full">
                     </div>
-                    <div class="flex gap-4">
-                        <button @click="step = 1" class="flex-1 py-4 border border-white/10 rounded-xl">Back</button>
-                        <button @click="step = 3" class="flex-1 py-4 bg-cyan-500 text-black font-bold rounded-xl">Review</button>
-                    </div>
-                </div>
-
-                <div x-show="step === 3" x-transition class="text-center">
-                    <i data-lucide="check-circle" class="w-16 h-16 text-cyan-400 mx-auto mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Request Ready</h3>
-                    <p class="text-gray-400 mb-8">Click below to send to our pricing desk.</p>
-                    <a href="mailto:alwahti@newstylelogistics.com" class="block w-full py-4 bg-white text-black font-bold rounded-xl">Submit via Email</a>
+                    <select class="glass-input p-5 rounded-2xl w-full mb-8 bg-slate-900 font-bold">
+                        <option>Air Freight</option>
+                        <option>Sea Freight</option>
+                        <option>Land Transport</option>
+                    </select>
+                    <a href="mailto:alwahti@newstylelogistics.com" class="block text-center w-full p-5 bg-white text-black font-black rounded-2xl hover:bg-cyan-400 transition transform hover:scale-[1.02]">Confirm Request</a>
+                    <button @click="step = 1" class="w-full text-center mt-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Back</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 max-w-[1180px] mx-auto px-6 grid lg:grid-cols-2 gap-12">
+    <section class="py-24 main-container grid lg:grid-cols-2 gap-16">
         <div>
-            <h2 class="text-3xl font-bold mb-8">Headquarters</h2>
+            <h2 class="text-4xl font-extrabold mb-10">Visit Our Dubai HQ</h2>
             <div class="space-y-6">
-                <div class="flex items-start gap-4 glass p-6 rounded-2xl">
-                    <i data-lucide="map-pin" class="text-cyan-400"></i>
+                <div class="glass p-8 rounded-3xl flex gap-6 border-white/5">
+                    <div class="bg-cyan-500/10 p-5 rounded-2xl h-fit"><i data-lucide="map-pin" class="text-cyan-400 w-8 h-8"></i></div>
                     <div>
-                        <p class="font-bold">Ras Al Khor, Dubai</p>
-                        <p class="text-sm text-gray-500">Office #2, Thumbay Clinic Bldg, Near Marhaba Mall</p>
+                        <h5 class="font-bold text-2xl mb-1">Office #2</h5>
+                        <p class="text-gray-400">Thumbay Clinic Building, Near Marhaba Mall,<br>Ras Al Khor, Dubai, UAE</p>
                     </div>
                 </div>
-                <div class="flex items-start gap-4 glass p-6 rounded-2xl">
-                    <i data-lucide="clock" class="text-cyan-400"></i>
-                    <div>
-                        <p class="font-bold">Operating Hours</p>
-                        <p class="text-sm text-gray-500">Mon - Fri: 8:30 AM - 6:00 PM</p>
-                        <p class="text-sm text-gray-500">Sat: 8:30 AM - 3:00 PM</p>
-                    </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass p-6 rounded-3xl text-center"><p class="text-[10px] text-gray-500 uppercase font-bold mb-2">Mon - Fri</p><p class="font-black text-xl">8:30 - 6:00</p></div>
+                    <div class="glass p-6 rounded-3xl text-center"><p class="text-[10px] text-gray-500 uppercase font-bold mb-2">Saturday</p><p class="font-black text-xl">8:30 - 3:00</p></div>
                 </div>
             </div>
         </div>
-        <div class="rounded-3xl overflow-hidden glass h-80 lg:h-auto min-h-[300px]">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.607412151675!2d55.3725!3d25.1872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f670000000001%3A0x0!2zTWFyaGFiYSBNYWxs!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae" 
-                    width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
+        <div class="rounded-[3rem] overflow-hidden glass h-96 border border-white/5 shadow-inner">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14441.272111164993!2d55.3524!3d25.1956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f670000000000%3A0x0!2zTWFyaGFiYSBNYWxs!5e0!3m2!1sen!2sae!4v1" 
+                    class="w-full h-full grayscale invert opacity-60 border-none" loading="lazy"></iframe>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/10 bg-black">
-        <div class="max-w-[1180px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="py-16 glass border-t border-white/5">
+        <div class="main-container flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="text-center md:text-left">
-                <p class="font-bold tracking-widest uppercase">New Style Logistics LLC</p>
-                <p class="text-[10px] text-gray-600">Copyright © 2026. All rights reserved.</p>
+                <div class="font-black text-3xl tracking-tighter mb-2">NEW STYLE <span class="text-cyan-500">LOGISTICS</span></div>
+                <p class="text-gray-600 text-xs tracking-[0.4em] uppercase font-bold">Global Hub • Dubai, UAE</p>
             </div>
             <div class="flex gap-4">
-                <a href="tel:+971..." class="p-3 glass rounded-full hover:bg-cyan-500 transition-all"><i data-lucide="phone" class="w-4 h-4"></i></a>
-                <a href="https://wa.me/971..." class="p-3 glass rounded-full hover:bg-green-500 transition-all"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
-                <a href="mailto:alwahti@newstylelogistics.com" class="p-3 glass rounded-full hover:bg-blue-500 transition-all"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                <a href="tel:+971..." class="p-5 glass rounded-full hover:bg-cyan-500 hover:text-black transition-all"><i data-lucide="phone"></i></a>
+                <a href="https://wa.me/971..." class="p-5 glass rounded-full hover:bg-green-500 hover:text-white transition-all"><i data-lucide="message-circle"></i></a>
+                <a href="mailto:alwahti@newstylelogistics.com" class="p-5 glass rounded-full hover:bg-blue-500 hover:text-white transition-all"><i data-lucide="mail"></i></a>
             </div>
         </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 z-[200] space-y-3">
-        <a href="https://wa.me/971..." class="flex items-center gap-3 bg-green-600 text-white px-5 py-3 rounded-full shadow-2xl animate-bounce">
-            <i data-lucide="message-square" class="w-5 h-5"></i>
-            <span class="text-sm font-bold">WhatsApp</span>
-        </a>
+    <div class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4">
+        <a href="https://wa.me/971..." class="bg-green-500 text-white p-4 rounded-full shadow-2xl animate-bounce hover:scale-110 transition"><i data-lucide="message-square"></i></a>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         lucide.createIcons();
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
     </script>
 </body>
 </html>
