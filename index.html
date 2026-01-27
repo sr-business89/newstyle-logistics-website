@@ -1,225 +1,234 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" x-data="{ rtl: false }" :dir="rtl ? 'rtl' : 'ltr'">
+<html lang="en" class="scroll-smooth" x-data="{ rtl: false, l:0, w:0, h:0 }" :dir="rtl ? 'rtl' : 'ltr'">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Style Logistics LLC | Elite Freight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>New Style Logistics LLC | Global Corporate Hub</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+
     <style>
         :root { --cyan: #00fff2; --dark: #020617; }
-        body { background: var(--dark); color: white; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--dark); color: #f1f5f9; overflow-x: hidden; width: 100%; line-height: 1.6; }
         [dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
-        .cyan-text { color: var(--cyan); }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-        .wa-float { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(37,211,102,0.5); border: 2px solid white; }
-        [dir="rtl"] .wa-float { right: auto; left: 30px; }
-        .lang-btn { border: 2px solid var(--cyan); background: rgba(0, 255, 242, 0.1); padding: 5px 15px; border-radius: 999px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .lang-btn:hover { background: var(--cyan); color: black; }
+        [dir="ltr"] body { font-family: 'Inter', sans-serif; }
+
+        /* UI ELEMENTS */
+        .glass-nav { background: rgba(2, 6, 23, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .lang-switch { border: 2.5px solid var(--cyan); color: var(--cyan); padding: 10px 25px; border-radius: 999px; font-weight: 900; font-size: 14px; transition: 0.3s; background: rgba(0,255,242,0.1); cursor: pointer; }
+        .lang-switch:hover { background: var(--cyan); color: var(--dark); box-shadow: 0 0 20px var(--cyan); }
+        
+        .wa-float { position: fixed; bottom: 30px; z-index: 9999; background: #25D366; color: white; width: 75px; height: 75px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(37,211,102,0.5); border: 3px solid #fff; }
+        [dir="ltr"] .wa-float { right: 30px; } [dir="rtl"] .wa-float { left: 30px; }
+
+        .cyan-glow { color: var(--cyan); text-shadow: 0 0 15px rgba(0,255,242,0.5); }
+        .img-card { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .section-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 3rem; }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <a href="https://wa.me/971561436491" target="_blank" class="wa-float">
-        <i data-lucide="message-circle" class="w-8 h-8 text-white fill-current"></i>
+    <a href="https://wa.me/971502447661" target="_blank" class="wa-float">
+        <i data-lucide="message-circle" class="w-10 h-10 fill-current"></i>
     </a>
 
-    <nav class="fixed top-0 w-full z-[100] glass border-b border-white/10 h-20">
-        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="assets/logo.jpg" class="w-10 h-10 rounded shadow-lg">
-                <div class="leading-none">
-                    <p class="font-black text-xl tracking-tighter">NEW STYLE</p>
-                    <p class="cyan-text text-[10px] font-bold tracking-[0.2em]">LOGISTICS LLC</p>
+    <nav class="fixed top-0 w-full z-[100] glass-nav">
+        <div class="max-w-[1440px] mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <img src="assets/logo.jpg" class="w-12 h-12 rounded-xl">
+                <div class="flex flex-col">
+                    <span class="font-black text-2xl tracking-tighter uppercase leading-none">NEW STYLE</span>
+                    <span class="cyan-glow text-[10px] tracking-[0.4em] uppercase font-bold">Logistics LLC</span>
                 </div>
             </div>
-            <div class="flex items-center gap-6">
-                <div class="hidden md:flex gap-4 text-xs font-bold uppercase tracking-widest text-gray-400">
-                    <span x-text="rtl ? 'الرئيسية' : 'Home'"></span>
-                    <span x-text="rtl ? 'خدماتنا' : 'Services'"></span>
-                    <span x-text="rtl ? 'تواصل معنا' : 'Contact'"></span>
-                </div>
-                <button @click="rtl = !rtl" class="lang-btn text-xs" x-text="rtl ? 'ENGLISH' : 'العربية'"></button>
-            </div>
+            <button @click="rtl = !rtl" class="lang-switch uppercase tracking-widest" x-text="rtl ? 'English Version' : 'النسخة العربية'"></button>
         </div>
     </nav>
 
-    <header class="pt-32 pb-20 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="bg-cyan-500/10 text-cyan-400 px-4 py-1 rounded-full text-[10px] font-bold tracking-widest border border-cyan-500/20 uppercase" x-text="rtl ? 'بوابة دبي الإستراتيجية' : 'Dubai Strategic Gateway'"></span>
-                <h1 class="text-7xl lg:text-9xl font-black mt-6 mb-8 uppercase leading-tight">
-                    <span x-text="rtl ? 'نخبة' : 'Elite'"></span><br>
-                    <span class="cyan-text" x-text="rtl ? 'الشحن' : 'Freight'"></span>
-                </h1>
-                <p class="text-gray-400 text-lg mb-10 max-w-md" x-text="rtl ? 'هيكل لوجستي متكامل يربط أسواق دول مجلس التعاون الخليجي بالعالم عبر دبي.' : 'Integrated logistics architecture connecting GCC markets to the world via Dubai.'"></p>
-                <div class="flex gap-10">
-                    <div><p class="text-4xl font-black italic">100%</p><p class="text-[10px] text-gray-500 uppercase font-black" x-text="rtl ? 'الامتثال' : 'Compliance'"></p></div>
-                    <div><p class="text-4xl font-black italic">GCC</p><p class="text-[10px] text-gray-500 uppercase font-black" x-text="rtl ? 'تغطية' : 'Coverage'"></p></div>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="assets/hero.jpg" class="rounded-[2rem] w-full shadow-2xl border border-white/5">
-                <div class="absolute -bottom-6 -left-6 bg-cyan-500 p-8 rounded-2xl text-black font-black hidden lg:block">
-                    <p class="text-sm uppercase tracking-tighter">Established</p>
-                    <p class="text-3xl">DUBAI</p>
-                </div>
+    <section class="pt-32 min-h-screen grid lg:grid-cols-2 bg-black overflow-hidden">
+        <div class="p-10 lg:p-24 flex flex-col justify-center">
+            <h1 class="text-7xl lg:text-9xl font-black mb-6 uppercase leading-[0.85]">
+                <span x-text="rtl ? 'نخبة' : 'Elite'"></span> <br>
+                <span class="cyan-glow" x-text="rtl ? 'الشحن' : 'Freight'"></span>
+            </h1>
+            <p class="text-gray-400 text-xl mb-12 max-w-md" x-text="rtl ? 'هندسة لوجستية عالمية تربط دبي بكافة القارات.' : 'Global logistics architecture engineered in the heart of Dubai.'"></p>
+            <div class="flex gap-12">
+                <div><p class="text-5xl font-black italic">GCC</p><p class="text-[10px] text-gray-500 uppercase font-black" x-text="rtl ? 'تغطية' : 'Coverage'"></p></div>
+                <div><p class="text-5xl font-black italic">24/7</p><p class="text-[10px] text-gray-500 uppercase font-black" x-text="rtl ? 'عمليات' : 'Operations'"></p></div>
             </div>
         </div>
-    </header>
+        <div class="bg-gray-900 border-l border-white/5 relative">
+            <img src="assets/hero.jpg" class="img-card">
+        </div>
+    </section>
 
-    <section class="py-24 bg-black/50">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-            <div class="order-2 lg:order-1 h-96 bg-gray-900 rounded-[3rem] overflow-hidden border border-white/5">
-                <img src="assets/cargo.jpg" class="w-full h-full object-cover">
+    <section class="py-24 bg-[#030816]">
+        <div class="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="order-2 lg:order-1 h-[550px] rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl">
+                <img src="assets/global.jpg" class="img-pro">
             </div>
             <div class="order-1 lg:order-2">
-                <h2 class="text-5xl font-black mb-8 uppercase" x-text="rtl ? 'عن الشركة' : 'About Us'"></h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-6" x-text="rtl ? 'نيو ستايل لوجستيكس هي قوة تتخذ من دبي مقراً لها، تأسست لتبسيط تعقيدات التجارة الدولية.' : 'New Style Logistics LLC is a Dubai-based powerhouse founded to streamline the complexities of international trade.'"></p>
-                <p class="text-gray-500" x-text="rtl ? 'نحن متخصصون في الحلول متعددة الوسائط - من الشحن الجوي عالي السرعة إلى النقل البحري والبري العالمي.' : 'We specialize in multi-modal solutions—from high-velocity air freight to global sea and land transport—with a core focus on surgical customs precision.'"></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-center text-4xl font-black mb-16 uppercase tracking-widest" x-text="rtl ? 'العمليات الأساسية' : 'Core Operations'"></h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5">
-                    <img src="assets/air.jpg" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase mb-2" x-text="rtl ? 'شحن جوي' : 'Air Freight'"></h3>
-                        <p class="text-xs text-gray-400" x-text="rtl ? 'توصيل عالمي حساس للوقت.' : 'Time-critical global delivery via international gateways.'"></p>
-                    </div>
-                </div>
-                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5">
-                    <img src="assets/sea.jpg" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase mb-2" x-text="rtl ? 'شحن بحري' : 'Sea Freight'"></h3>
-                        <p class="text-xs text-gray-400" x-text="rtl ? 'حلول بحرية استراتيجية.' : 'Strategic FCL & LCL maritime solutions connecting continents.'"></p>
-                    </div>
-                </div>
-                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5">
-                    <img src="assets/customs.jpg" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase mb-2" x-text="rtl ? 'خبير جمارك' : 'Customs Expert'"></h3>
-                        <p class="text-xs text-gray-400" x-text="rtl ? 'تخليص جمركي بدون تأخير.' : 'In-house brokerage team ensuring zero-delay clearing.'"></p>
-                    </div>
+                <h2 class="text-5xl font-black mb-8 uppercase" x-text="rtl ? 'من نحن' : 'About Us'"></h2>
+                <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                    <p x-text="rtl ? 'نيو ستايل لوجستيكس هي شركة رائدة في دبي متخصصة في سلاسل التوريد المتكاملة.' : 'New Style Logistics LLC is a premier Dubai-based firm specializing in integrated supply chain solutions.'"></p>
+                    <p x-text="rtl ? 'نحن نجمع بين الخبرة المحلية والوصول العالمي لتقديم أداء لا يضاهى.' : 'We blend local expertise with global reach to provide unmatched performance in freight forwarding.'"></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-cyan-500/5 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <section class="py-32 bg-black px-6">
+        <h2 class="text-center text-5xl font-black mb-20 uppercase" x-text="rtl ? 'خدماتنا' : 'Our Services'"></h2>
+        <div class="max-w-[1440px] mx-auto grid md:grid-cols-3 gap-10">
+            <div class="h-[600px] rounded-[3rem] overflow-hidden relative group border border-white/10">
+                <img src="assets/air.jpg" class="img-card group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
+                    <h3 class="text-3xl font-black uppercase mb-2" x-text="rtl ? 'شحن جوي' : 'Air Freight'"></h3>
+                    <p class="text-sm text-gray-500" x-text="rtl ? 'توصيل سريع لكل المطارات.' : 'Global time-critical hub delivery.'"></p>
+                </div>
+            </div>
+            <div class="h-[600px] rounded-[3rem] overflow-hidden relative group border border-white/10">
+                <img src="assets/sea.jpg" class="img-card group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
+                    <h3 class="text-3xl font-black uppercase mb-2" x-text="rtl ? 'شحن بحري' : 'Sea Freight'"></h3>
+                    <p class="text-sm text-gray-500" x-text="rtl ? 'حلول بحرية استراتيجية.' : 'Strategic maritime container solutions.'"></p>
+                </div>
+            </div>
+            <div class="h-[600px] rounded-[3rem] overflow-hidden relative group border border-white/10">
+                <img src="assets/customs.jpg" class="img-card group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
+                    <h3 class="text-3xl font-black uppercase mb-2" x-text="rtl ? 'تخليص جمركي' : 'Customs'"></h3>
+                    <p class="text-sm text-gray-500" x-text="rtl ? 'دقة في التخليص الجمركي.' : 'Surgical precision in border clearing.'"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#020617]">
+        <div class="max-w-[1440px] mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="p-10 section-card text-center">
+                <i data-lucide="shield-check" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
+                <h4 class="font-bold uppercase" x-text="rtl ? 'أمان تام' : 'Full Security'"></h4>
+            </div>
+            <div class="p-10 section-card text-center">
+                <i data-lucide="zap" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
+                <h4 class="font-bold uppercase" x-text="rtl ? 'سرعة فائقة' : 'Fastest Transit'"></h4>
+            </div>
+            <div class="p-10 section-card text-center">
+                <i data-lucide="globe" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
+                <h4 class="font-bold uppercase" x-text="rtl ? 'تغطية عالمية' : 'Global Reach'"></h4>
+            </div>
+            <div class="p-10 section-card text-center">
+                <i data-lucide="trending-up" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
+                <h4 class="font-bold uppercase" x-text="rtl ? 'دقة عالية' : 'Total Accuracy'"></h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-black">
+        <div class="max-w-[1440px] mx-auto px-6 text-center">
+            <h2 class="text-5xl font-black mb-20 uppercase" x-text="rtl ? 'منهجيتنا' : 'Our Methods'"></h2>
+            
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-cyan-400 text-black font-black flex items-center justify-center text-2xl mb-6">1</div>
+                    <h4 class="text-xl font-bold uppercase mb-4" x-text="rtl ? 'التخطيط' : 'Strategy'"></h4>
+                    <p class="text-gray-500 text-sm">Optimal route and cost analysis for your specific cargo type.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-cyan-400 text-black font-black flex items-center justify-center text-2xl mb-6">2</div>
+                    <h4 class="text-xl font-bold uppercase mb-4" x-text="rtl ? 'التنفيذ' : 'Execution'"></h4>
+                    <p class="text-gray-500 text-sm">Real-time tracking and secure handling during movement.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-cyan-400 text-black font-black flex items-center justify-center text-2xl mb-6">3</div>
+                    <h4 class="text-xl font-bold uppercase mb-4" x-text="rtl ? 'التسليم' : 'Delivery'"></h4>
+                    <p class="text-gray-500 text-sm">Final customs clearance and door-to-door fulfillment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#030816]">
+        <div class="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
             <div>
                 <h2 class="text-5xl font-black mb-8 uppercase" x-text="rtl ? 'التوسع والنمو' : 'Expansion & Growth'"></h2>
-                <p class="text-gray-400 text-lg mb-8" x-text="rtl ? 'نحن نوسع نفوذنا العالمي من خلال مراكز تخزين ذكية جديدة في جميع أنحاء دول مجلس التعاون الخليجي وأفريقيا.' : 'We are scaling our global footprint with new smart warehousing hubs across GCC and Africa.'"></p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="glass p-6 rounded-2xl">
-                        <p class="text-3xl font-black cyan-text">15+</p>
-                        <p class="text-[10px] uppercase font-bold text-gray-500">Global Hubs</p>
-                    </div>
-                    <div class="glass p-6 rounded-2xl">
-                        <p class="text-3xl font-black cyan-text">2026</p>
-                        <p class="text-[10px] uppercase font-bold text-gray-500">Digital Phase</p>
-                    </div>
+                <p class="text-gray-400 text-lg" x-text="rtl ? 'نحن نوسع عملياتنا لتشمل مراكز لوجستية جديدة في أفريقيا وأوروبا.' : 'Scaling our infrastructure with new hubs in Africa and Europe to meet global demand.'"></p>
+                <div class="mt-10 grid grid-cols-2 gap-4">
+                    <div class="p-8 section-card text-center"><p class="text-3xl font-black cyan-glow">500+</p><p class="text-xs uppercase">Agents</p></div>
+                    <div class="p-8 section-card text-center"><p class="text-3xl font-black cyan-glow">100+</p><p class="text-xs uppercase">Routes</p></div>
                 </div>
             </div>
-            <img src="assets/global.jpg" class="rounded-[3rem] border border-white/10 shadow-cyan-900/20 shadow-2xl">
-        </div>
-    </section>
-
-    <section class="py-24 px-6 bg-black">
-        <div class="max-w-4xl mx-auto glass p-12 rounded-[3rem] border-cyan-500/20">
-            <h2 class="text-center text-3xl font-black mb-12 uppercase" x-text="rtl ? 'حاسبة الوزن الحجمي' : 'Volumetric Calculator'"></h2>
-            <div class="grid md:grid-cols-3 gap-6 mb-10" x-data="{ l:0, w:0, h:0 }">
-                <div>
-                    <label class="text-[10px] font-bold uppercase text-gray-500 mb-2 block">Length (cm)</label>
-                    <input type="number" x-model="l" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-cyan-400">
-                </div>
-                <div>
-                    <label class="text-[10px] font-bold uppercase text-gray-500 mb-2 block">Width (cm)</label>
-                    <input type="number" x-model="w" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-cyan-400">
-                </div>
-                <div>
-                    <label class="text-[10px] font-bold uppercase text-gray-500 mb-2 block">Height (cm)</label>
-                    <input type="number" x-model="h" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-cyan-400">
-                </div>
-                <div class="md:col-span-3 bg-cyan-400/10 p-10 rounded-2xl border border-cyan-400/20 text-center">
-                    <p class="text-7xl font-black cyan-text" x-text="((l*w*h)/5000).toFixed(2)"></p>
-                    <p class="text-xs font-black uppercase tracking-widest mt-4">Chargeable KG</p>
-                </div>
-            </div>
+            <div class="rounded-[3rem] overflow-hidden"><img src="assets/methods.jpg" class="img-pro"></div>
         </div>
     </section>
 
     <section class="py-24 bg-black">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16 uppercase" x-text="rtl ? 'آراء العملاء' : 'Testimonials'"></h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass p-10 rounded-[2rem] text-left">
-                    <p class="italic text-gray-400 mb-6">"Their customs team in Dubai is unparalleled. We haven't had a single delay since switching."</p>
-                    <p class="font-black text-xs cyan-text uppercase tracking-widest">Global Tech Manager</p>
-                </div>
-                <div class="glass p-10 rounded-[2rem] text-left">
-                    <p class="italic text-gray-400 mb-6">"Reliability is hard to find. New Style Logistics delivers on their word every single time."</p>
-                    <p class="font-black text-xs cyan-text uppercase tracking-widest">Operations Lead, GCC Retail</p>
-                </div>
+        <div class="max-w-3xl mx-auto p-12 section-card border-cyan-500/20">
+            <h3 class="text-3xl font-black mb-12 text-center uppercase" x-text="rtl ? 'حاسبة الوزن' : 'Volume Calculator'"></h3>
+            <div class="grid grid-cols-3 gap-6 mb-10">
+                <input type="number" x-model="l" placeholder="L" class="bg-black p-6 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
+                <input type="number" x-model="w" placeholder="W" class="bg-black p-6 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
+                <input type="number" x-model="h" placeholder="H" class="bg-black p-6 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
+            </div>
+            <div class="bg-cyan-400/10 p-10 rounded-3xl text-center border border-cyan-400/20">
+                <p class="text-6xl font-black cyan-glow" x-text="l && w && h ? ((l*w*h)/5000).toFixed(2) : '0.00'"></p>
+                <p class="text-[10px] uppercase font-bold text-gray-500 mt-2">Chargeable KG</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
-            <div class="glass p-12 rounded-[3rem] border-cyan-500/10">
-                <h3 class="text-3xl font-black mb-10 uppercase" x-text="rtl ? 'طلب اقتباس' : 'Request a Quote'"></h3>
+    <section class="py-24 bg-black text-center">
+        <h2 class="text-5xl font-black mb-16 uppercase" x-text="rtl ? 'آراء العملاء' : 'Testimonials'"></h2>
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-3xl italic text-gray-400">"New Style Logistics is the most reliable partner we've found in Dubai for high-volume sea freight."</p>
+            <p class="mt-8 text-cyan-400 font-black uppercase tracking-[0.4em]">Global Retail CEO</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#030816]">
+        <div class="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-2 gap-20">
+            <div class="p-12 section-card">
+                <h3 class="text-3xl font-black mb-10 uppercase text-center">Request a Quote</h3>
                 <form class="space-y-4">
-                    <input type="text" placeholder="Full Name" class="w-full bg-black/50 p-5 rounded-2xl border border-white/10">
-                    <input type="email" placeholder="Email Address" class="w-full bg-black/50 p-5 rounded-2xl border border-white/10">
-                    <textarea placeholder="Cargo Details & Destination" class="w-full bg-black/50 p-5 rounded-2xl border border-white/10 h-32"></textarea>
-                    <button class="w-full bg-cyan-400 text-black font-black py-5 rounded-2xl uppercase tracking-widest hover:bg-white transition">Send Request</button>
+                    <input type="text" placeholder="Full Name" class="w-full bg-black p-5 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
+                    <input type="email" placeholder="Email" class="w-full bg-black p-5 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
+                    <textarea placeholder="Cargo Details" class="w-full bg-black p-5 rounded-2xl border border-white/10 h-32 outline-none focus:border-cyan-400"></textarea>
+                    <button class="w-full bg-cyan-400 text-black font-black py-5 rounded-2xl uppercase">Submit Inquiry</button>
                 </form>
             </div>
             <div>
-                <h2 class="text-5xl font-black mb-10 uppercase" x-text="rtl ? 'تحدث مع الخبراء' : 'Talk to Experts'"></h2>
-                <div class="flex items-center gap-6 mb-10">
-                    <div class="w-20 h-20 rounded-full bg-cyan-500 flex items-center justify-center text-black">
-                        <i data-lucide="headset" class="w-10 h-10"></i>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-black uppercase">Corporate Hotline</p>
-                        <p class="cyan-text font-bold">alwahti@newstylelogistics.com</p>
-                    </div>
+                <h2 class="text-5xl font-black mb-10 uppercase" x-text="rtl ? 'فريق الخبراء' : 'Expert Team Support'"></h2>
+                <div class="flex items-center gap-6 mb-12">
+                    <div class="w-20 h-20 rounded-full bg-cyan-500 flex items-center justify-center text-black"><i data-lucide="phone"></i></div>
+                    <div><h4 class="text-xl font-bold">Logistics Desk</h4><p class="text-cyan-400">alwahti@newstylelogistics.com</p></div>
                 </div>
-                <div class="space-y-4 text-sm font-bold border-t border-white/10 pt-10">
-                    <div class="flex justify-between"><span>Mon - Fri</span><span class="cyan-text">08:30 AM - 06:00 PM</span></div>
-                    <div class="flex justify-between"><span>Saturday</span><span class="cyan-text">08:30 AM - 03:00 PM</span></div>
-                    <div class="flex justify-between text-red-500 uppercase"><span>Sunday</span><span>Closed</span></div>
+                <div class="space-y-6 text-xl">
+                    <div class="flex justify-between border-b border-white/10 pb-4"><span>Mon - Fri</span><span class="font-bold">08:30 - 18:00</span></div>
+                    <div class="flex justify-between"><span>Sunday</span><span class="font-black text-red-500 uppercase">Closed</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black pt-24 pb-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-16 mb-20">
+    <footer class="py-24 bg-black border-t border-white/10">
+        <div class="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-3 gap-20 text-center lg:text-left">
             <div>
-                <p class="font-black text-2xl mb-6">OUR HUB</p>
-                <p class="text-gray-500 text-xs leading-loose uppercase tracking-widest">
-                    Office #2, Ras Al Khor Industrial Area 2,<br>Dubai, United Arab Emirates
-                </p>
+                <img src="assets/logo.jpg" class="w-16 h-16 rounded-xl mb-8 mx-auto lg:mx-0">
+                <p class="text-xs uppercase tracking-widest text-gray-500">Office #2, Thumbay Building,<br>Ras Al Khor, Dubai, UAE.</p>
             </div>
-            <div class="lg:col-span-2 h-64 rounded-[2rem] overflow-hidden border border-white/10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.743!2d55.362!3d25.188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDExJzE2LjgiTiA1NcKwMjEnNDMuMiJF!5e0!3m2!1sen!2sae!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="space-y-4">
+                <h4 class="font-black uppercase text-xs tracking-widest text-gray-400">Legal Hub</h4>
+                <a href="#" class="block text-xs uppercase hover:text-cyan-400 transition">Terms & Conditions</a>
+                <a href="#" class="block text-xs uppercase hover:text-cyan-400 transition">Privacy Policy</a>
+                <p class="text-[10px] text-gray-700 mt-8 uppercase font-bold tracking-[0.5em]">© 2024 NEW STYLE LOGISTICS LLC • ALL RIGHTS RESERVED</p>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
-            <p class="text-[10px] text-gray-700 font-bold tracking-[0.4em]">© 2024 NEW STYLE LOGISTICS LLC • ALL RIGHTS RESERVED</p>
-            <div class="flex gap-6 text-[10px] font-black text-gray-500 uppercase tracking-widest">
-                <a href="#" class="hover:text-cyan-400">Terms & Conditions</a>
-                <a href="#" class="hover:text-cyan-400">Compliance Portal</a>
+            <div class="h-60 rounded-[3rem] overflow-hidden border border-white/10">
+                <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </footer>
