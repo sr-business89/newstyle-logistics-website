@@ -1,154 +1,283 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" x-data="{ rtl: false, l:0, w:0, h:0 }" :dir="rtl ? 'rtl' : 'ltr'">
+<html lang="en" class="scroll-smooth" x-data="{ rtl: false }" :dir="rtl ? 'rtl' : 'ltr'">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>New Style Logistics LLC | Corporate Global Hub</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>New Style Logistics LLC | Corporate Global Hub</title>
 
-    <style>
-        :root { --cyan: #00fff2; --dark: #020617; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--dark); color: #f1f5f9; overflow-x: hidden; width: 100%; }
-        [dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
-        [dir="ltr"] body { font-family: 'Inter', sans-serif; }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
-        .glass-nav { background: rgba(2, 6, 23, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .lang-switch { border: 2px solid var(--cyan); color: var(--cyan); padding: 6px 16px; border-radius: 999px; font-weight: 900; font-size: 12px; transition: 0.3s; background: rgba(0,255,242,0.05); }
-        
-        .wa-float { position: fixed; bottom: 30px; z-index: 1000; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37,211,102,0.4); }
-        [dir="ltr"] .wa-float { right: 30px; } [dir="rtl"] .wa-float { left: 30px; }
+  <style>
+    :root { --cyan: #00fff2; --dark: #020617; }
 
-        .cyan-glow { color: var(--cyan); text-shadow: 0 0 15px rgba(0,255,242,0.5); }
-        .img-pro { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .map-container iframe { width: 100%; height: 350px; border-radius: 2rem; filter: invert(90%) hue-rotate(180deg) brightness(95%); }
-    </style>
+    /* ✅ GLOBAL SIDE-GAP KILLER (mobile + desktop) */
+    * { box-sizing: border-box; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    body { margin:0; background: var(--dark); color:#f1f5f9; }
+
+    [dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
+    [dir="ltr"] body { font-family: 'Inter', sans-serif; }
+
+    /* ✅ Ensure media never creates horizontal scroll */
+    img, svg, video, canvas, iframe { max-width: 100%; height: auto; display: block; }
+
+    .glass-nav {
+      background: rgba(2, 6, 23, 0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .lang-switch {
+      border: 2px solid var(--cyan);
+      color: var(--cyan);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      transition: 0.3s;
+      background: rgba(0,255,242,0.05);
+      white-space: nowrap;
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 18px;
+      z-index: 1000;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    }
+    [dir="ltr"] .wa-float { right: 16px; }
+    [dir="rtl"] .wa-float { left: 16px; }
+
+    .cyan-glow { color: var(--cyan); text-shadow: 0 0 15px rgba(0,255,242,0.5); }
+
+    /* ✅ Images: always safe, no overflow */
+    .img-pro { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ✅ Map: responsive + clean + no overflow */
+    .map-frame {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      border-radius: 2rem;
+      overflow: hidden;
+      filter: invert(90%) hue-rotate(180deg) brightness(95%);
+    }
+
+    /* ✅ NAV container: safe padding on every device */
+    .safe-wrap {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* ✅ Avoid “desktop site” gaps on Android */
+    @media (max-width: 420px){
+      .safe-wrap { padding-left: 12px; padding-right: 12px; }
+    }
+  </style>
 </head>
+
 <body>
 
-    <a href="https://wa.me/971502447661" target="_blank" class="wa-float">
-        <i data-lucide="message-circle" class="w-8 h-8 fill-current"></i>
-    </a>
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/971502447661" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+    <i data-lucide="message-circle" class="w-8 h-8"></i>
+  </a>
 
-    <nav class="fixed top-0 w-full z-[100] glass-nav">
-        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="assets/logo.jpg" class="w-10 h-10 rounded-lg">
-                <span class="font-black text-xl tracking-tighter uppercase leading-none">NEW STYLE <br><span class="cyan-glow text-[10px]">Logistics</span></span>
-            </div>
-            <button @click="rtl = !rtl" class="lang-switch uppercase" x-text="rtl ? 'English' : 'العربية'"></button>
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-[100] glass-nav">
+    <div class="safe-wrap h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3 min-w-0">
+        <img src="assets/logo.jpg" class="w-10 h-10 rounded-lg shrink-0" alt="Logo">
+        <span class="font-black text-xl tracking-tighter uppercase leading-none truncate">
+          NEW STYLE <br>
+          <span class="cyan-glow text-[10px]">Logistics</span>
+        </span>
+      </div>
 
-    <section class="pt-20 min-h-screen grid lg:grid-cols-2">
-        <div class="p-8 lg:p-24 flex flex-col justify-center">
-            <h1 class="text-6xl lg:text-8xl font-black mb-6 uppercase leading-none">
-                <span x-text="rtl ? 'نخبة' : 'Elite'"></span> <br>
-                <span class="cyan-glow" x-text="rtl ? 'الشحن' : 'Freight'"></span>
-            </h1>
-            <p class="text-gray-400 text-lg mb-10 max-w-md" x-text="rtl ? 'بوابتك اللوجستية العالمية في قلب دبي.' : 'Your global logistics gateway in the heart of Dubai.'"></p>
-            <div class="flex gap-8">
-                <div><p class="text-4xl font-black italic">GCC</p><p class="text-[10px] text-gray-500 uppercase font-black">Coverage</p></div>
-                <div><p class="text-4xl font-black italic">100%</p><p class="text-[10px] text-gray-500 uppercase font-black">Accuracy</p></div>
-            </div>
-        </div>
-        <div class="bg-gray-900 overflow-hidden shadow-2xl">
-            <img src="assets/hero.jpg" class="img-pro">
-        </div>
-    </section>
+      <button @click="rtl = !rtl" class="lang-switch uppercase" x-text="rtl ? 'English' : 'العربية'"></button>
+    </div>
+  </nav>
 
-    <section class="py-24 bg-[#030816]">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-            <div class="rounded-[3rem] overflow-hidden h-[500px] border border-white/5">
-                <img src="assets/global.jpg" class="img-pro">
-            </div>
+  <!-- HERO -->
+  <section class="pt-20 min-h-screen grid lg:grid-cols-2 w-full">
+    <div class="safe-wrap py-12 lg:py-0 lg:px-0 lg:pl-16 lg:pr-0 flex flex-col justify-center">
+      <div class="px-0 lg:px-0">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 uppercase leading-none">
+          <span x-text="rtl ? 'نخبة' : 'Elite'"></span> <br>
+          <span class="cyan-glow" x-text="rtl ? 'الشحن' : 'Freight'"></span>
+        </h1>
+
+        <p class="text-gray-400 text-base sm:text-lg mb-10 max-w-md"
+           x-text="rtl ? 'بوابتك اللوجستية العالمية في قلب دبي.' : 'Your global logistics gateway in the heart of Dubai.'"></p>
+
+        <div class="flex gap-8">
+          <div>
+            <p class="text-4xl font-black italic">GCC</p>
+            <p class="text-[10px] text-gray-500 uppercase font-black">Coverage</p>
+          </div>
+          <div>
+            <p class="text-4xl font-black italic">100%</p>
+            <p class="text-[10px] text-gray-500 uppercase font-black">Accuracy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ hero image: fixed min-height so it never leaves empty gap -->
+    <div class="bg-gray-900 overflow-hidden shadow-2xl min-h-[360px] lg:min-h-full w-full">
+      <img src="assets/hero.jpg" class="img-pro" alt="Hero">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-20 sm:py-24 bg-[#030816] w-full">
+    <div class="safe-wrap grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="rounded-[2rem] sm:rounded-[3rem] overflow-hidden h-[340px] sm:h-[420px] lg:h-[500px] border border-white/5">
+        <img src="assets/global.jpg" class="img-pro" alt="Global">
+      </div>
+
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-black mb-8 uppercase" x-text="rtl ? 'عن نيو ستايل' : 'About New Style'"></h2>
+        <p class="text-gray-400 text-base sm:text-lg leading-relaxed mb-6"
+           x-text="rtl ? 'نحن رائدون في تقديم حلول الشحن المتكاملة، ملتزمون بربط دبي بكافة الأسواق العالمية عبر الجو والبحر والبر.'
+                     : 'Leading the way in integrated freight solutions, we are committed to connecting Dubai with global markets across Air, Sea, and Land.'"></p>
+
+        <div class="grid grid-cols-2 gap-4 sm:gap-6">
+          <div class="p-6 bg-white/5 rounded-2xl">
+            <h4 class="font-black cyan-glow text-2xl">500+</h4>
+            <p class="text-xs uppercase text-gray-400 font-black">Clients</p>
+          </div>
+          <div class="p-6 bg-white/5 rounded-2xl">
+            <h4 class="font-black cyan-glow text-2xl">24/7</h4>
+            <p class="text-xs uppercase text-gray-400 font-black">Support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-20 sm:py-24 bg-black w-full">
+    <div class="safe-wrap">
+      <h2 class="text-3xl sm:text-4xl font-black mb-12 sm:mb-16 text-center uppercase" x-text="rtl ? 'خدماتنا' : 'Our Services'"></h2>
+
+      <!-- ✅ fixed: cards never overflow; consistent height across devices -->
+      <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+        <div class="h-[420px] sm:h-[500px] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative group">
+          <img src="assets/air.jpg" class="img-pro grayscale group-hover:grayscale-0 transition duration-700" alt="Air">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+            <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'شحن جوي' : 'Air Freight'"></h3>
+          </div>
+        </div>
+
+        <div class="h-[420px] sm:h-[500px] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative group">
+          <img src="assets/sea.jpg" class="img-pro grayscale group-hover:grayscale-0 transition duration-700" alt="Sea">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+            <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'شحن بحري' : 'Sea Freight'"></h3>
+          </div>
+        </div>
+
+        <div class="h-[420px] sm:h-[500px] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative group">
+          <img src="assets/customs.jpg" class="img-pro grayscale group-hover:grayscale-0 transition duration-700" alt="Customs">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+            <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'تخليص جمركي' : 'Customs'"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION + MAP -->
+  <section class="py-20 sm:py-24 bg-[#020617] border-y border-white/5 w-full">
+    <div class="safe-wrap grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-black mb-10 uppercase" x-text="rtl ? 'موقعنا' : 'Find Us'"></h2>
+
+        <div class="space-y-8">
+          <div class="flex gap-5">
+            <i data-lucide="map-pin" class="w-9 h-9 cyan-glow shrink-0"></i>
             <div>
-                <h2 class="text-4xl font-black mb-8 uppercase" x-text="rtl ? 'عن نيو ستايل' : 'About New Style'"></h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-6" x-text="rtl ? 'نحن رائدون في تقديم حلول الشحن المتكاملة، ملتزمون بربط دبي بكافة الأسواق العالمية عبر الجو والبحر والبر.' : 'Leading the way in integrated freight solutions, we are committed to connecting Dubai with global markets across Air, Sea, and Land.'"></p>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="p-6 bg-white/5 rounded-2xl"><h4 class="font-bold cyan-glow">500+</h4><p class="text-xs uppercase">Clients</p></div>
-                    <div class="p-6 bg-white/5 rounded-2xl"><h4 class="font-bold cyan-glow">24/7</h4><p class="text-xs uppercase">Support</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+              <h4 class="font-black uppercase mb-2" x-text="rtl ? 'مكتب دبي' : 'Dubai Office'"></h4>
+              <p class="text-gray-400 leading-relaxed">
+                Office #2, Thumbay Clinic Building,<br>
+                Near Marhaba Mall, Ras Al Khor, Dubai, UAE
+              </p>
 
-    <section class="py-24 bg-black">
-        <div class="max-w-[1400px] mx-auto px-6">
-            <h2 class="text-4xl font-black mb-16 text-center uppercase" x-text="rtl ? 'خدماتنا' : 'Our Services'"></h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="h-[500px] rounded-[2.5rem] overflow-hidden relative group">
-                    <img src="assets/air.jpg" class="img-pro grayscale group-hover:grayscale-0 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'شحن جوي' : 'Air Freight'"></h3>
-                    </div>
-                </div>
-                <div class="h-[500px] rounded-[2.5rem] overflow-hidden relative group">
-                    <img src="assets/sea.jpg" class="img-pro grayscale group-hover:grayscale-0 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'شحن بحري' : 'Sea Freight'"></h3>
-                    </div>
-                </div>
-                <div class="h-[500px] rounded-[2.5rem] overflow-hidden relative group">
-                    <img src="assets/customs.jpg" class="img-pro grayscale group-hover:grayscale-0 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'تخليص جمركي' : 'Customs'"></h3>
-                    </div>
-                </div>
+              <!-- ✅ Open Maps button -->
+              <a
+                href="https://www.google.com/maps?q=Thumbay+Clinic+Building+Ras+Al+Khor+Dubai"
+                target="_blank" rel="noopener"
+                class="inline-flex items-center gap-2 mt-4 px-4 py-3 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/40 hover:bg-white/10 transition"
+              >
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span class="text-sm font-black uppercase" x-text="rtl ? 'افتح في خرائط جوجل' : 'Open in Google Maps'"></span>
+              </a>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <section class="py-24 bg-[#020617] border-y border-white/5">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-20">
+          <div class="flex gap-5">
+            <i data-lucide="phone" class="w-9 h-9 cyan-glow shrink-0"></i>
             <div>
-                <h2 class="text-4xl font-black mb-10 uppercase" x-text="rtl ? 'موقعنا' : 'Find Us'"></h2>
-                <div class="space-y-8">
-                    <div class="flex gap-6">
-                        <i data-lucide="map-pin" class="w-10 h-10 cyan-glow"></i>
-                        <div>
-                            <h4 class="font-bold uppercase mb-1">Dubai Office</h4>
-                            <p class="text-gray-400">Office #2, Thumbay Clinic Building,<br>Near Marhaba Mall, Ras Al Khor, Dubai, UAE</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6">
-                        <i data-lucide="phone" class="w-10 h-10 cyan-glow"></i>
-                        <div>
-                            <h4 class="font-bold uppercase mb-1">Direct Line</h4>
-                            <p class="text-gray-400">+(971) 4 591 4550</p>
-                        </div>
-                    </div>
-                </div>
+              <h4 class="font-black uppercase mb-2" x-text="rtl ? 'الهاتف' : 'Direct Line'"></h4>
+              <a href="tel:+97145914550" class="text-gray-400 hover:text-cyan-300 transition">+971 4 591 4550</a>
             </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.748348577322!2d55.3582121!3d25.1779634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f66ecf3647f87%3A0xe5f95f46a7df1534!2sMarhaba%20Mall!5e0!3m2!1sen!2sae!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <footer class="py-16 bg-black border-t border-white/10">
-        <div class="max-w-[1400px] mx-auto px-6 text-center lg:text-left grid lg:grid-cols-3 gap-12">
-            <div>
-                <h4 class="font-black text-xl mb-6 uppercase">New Style <span class="cyan-glow">Logistics</span></h4>
-                <p class="text-xs text-gray-500 uppercase tracking-widest leading-loose">© 2024 New Style Logistics LLC.<br>All Rights Reserved.</p>
-            </div>
-            <div class="flex flex-col gap-4">
-                <h4 class="font-bold uppercase text-xs tracking-[0.3em] text-gray-400">Legal</h4>
-                <a href="#" class="text-xs uppercase hover:text-cyan-400 transition">Privacy Policy</a>
-                <a href="#" class="text-xs uppercase hover:text-cyan-400 transition">Terms of Service</a>
-            </div>
-            <div class="flex flex-col gap-4">
-                <h4 class="font-bold uppercase text-xs tracking-[0.3em] text-gray-400">Region</h4>
-                <p class="text-xs uppercase">Dubai • GCC • Global</p>
-                <p class="text-[9px] text-gray-700 uppercase mt-4">Licensed by Dubai Department of Economy (DED).</p>
-            </div>
-        </div>
-    </footer>
+      <!-- ✅ Map: responsive, correct location, no overflow -->
+      <div class="w-full">
+        <iframe
+          class="map-frame"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Thumbay%20Clinic%20Building%20Ras%20Al%20Khor%20Dubai&z=15&output=embed"
+          title="New Style Logistics - Map"
+        ></iframe>
+      </div>
+    </div>
+  </section>
 
-    <script>lucide.createIcons();</script>
+  <!-- FOOTER -->
+  <footer class="py-16 bg-black border-t border-white/10 w-full">
+    <div class="safe-wrap text-center lg:text-left grid lg:grid-cols-3 gap-12">
+      <div>
+        <h4 class="font-black text-xl mb-6 uppercase">New Style <span class="cyan-glow">Logistics</span></h4>
+        <p class="text-xs text-gray-500 uppercase tracking-widest leading-loose">
+          © <span id="yr"></span> New Style Logistics LLC.<br>All Rights Reserved.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h4 class="font-bold uppercase text-xs tracking-[0.3em] text-gray-400">Legal</h4>
+        <a href="#" class="text-xs uppercase hover:text-cyan-400 transition">Privacy Policy</a>
+        <a href="#" class="text-xs uppercase hover:text-cyan-400 transition">Terms of Service</a>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h4 class="font-bold uppercase text-xs tracking-[0.3em] text-gray-400">Region</h4>
+        <p class="text-xs uppercase">Dubai • GCC • Global</p>
+        <p class="text-[9px] text-gray-700 uppercase mt-4">Licensed by Dubai Department of Economy (DED).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
