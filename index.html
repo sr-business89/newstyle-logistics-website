@@ -1,218 +1,300 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth" x-data="{ rtl: false, l:0, w:0, h:0 }" :dir="rtl ? 'rtl' : 'ltr'">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>New Style Logistics LLC | Global Corporate Hub</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <style>
-        :root { --cyan: #00fff2; --dark: #020617; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--dark); color: #f1f5f9; overflow-x: hidden; width: 100%; }
-        [dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
-        [dir="ltr"] body { font-family: 'Inter', sans-serif; }
+<title>New Style Logistics LLC | Dubai Freight Forwarding</title>
+<meta name="description" content="Dubai freight forwarding & logistics: air, sea (FCL/LCL), land transport, customs clearance & warehousing.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#070b12">
 
-        .glass-nav { background: rgba(2, 6, 23, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .lang-switch { border: 2px solid var(--cyan); color: var(--cyan); padding: 8px 24px; border-radius: 999px; font-weight: 900; font-size: 14px; transition: 0.3s; background: rgba(0,255,242,0.1); }
-        
-        /* MASSIVE WHATSAPP */
-        .wa-float { position: fixed; bottom: 30px; z-index: 1000; background: #25D366; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(37,211,102,0.5); }
-        [dir="ltr"] .wa-float { right: 30px; } [dir="rtl"] .wa-float { left: 30px; }
+<!-- Open Graph -->
+<meta property="og:title" content="New Style Logistics LLC">
+<meta property="og:description" content="Premium Dubai logistics — air, sea, land, customs & warehousing.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./assets/hero.jpg">
 
-        .cyan-glow { color: var(--cyan); text-shadow: 0 0 15px rgba(0,255,242,0.5); }
-        .img-card { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.5s; }
-        .method-step { border-left: 4px solid var(--cyan); padding-left: 20px; position: relative; }
-        [dir="rtl"] .method-step { border-left: 0; border-right: 4px solid var(--cyan); padding-right: 20px; }
-    </style>
+<!-- Favicon -->
+<link rel="icon" href="./assets/splash.jpg">
+
+<!-- Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+<style>
+/* ================== ROOT ================== */
+:root{
+--bg:#060913;
+--bg2:#0a1020;
+--panel:rgba(255,255,255,.06);
+--panel2:rgba(255,255,255,.08);
+--stroke:rgba(255,255,255,.12);
+--text:#eef3ff;
+--muted:rgba(238,243,255,.7);
+--cyan:#33d6ff;
+--blue:#2e70ff;
+--radius:18px;
+--radius-lg:26px;
+--max:1180px;
+--shadow:0 18px 55px rgba(0,0,0,.55);
+}
+
+/* ================== RESET ================== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;overflow-x:hidden}
+img{max-width:100%;display:block}
+
+/* ================== BODY ================== */
+body{
+font-family:Inter,system-ui,sans-serif;
+color:var(--text);
+background:
+radial-gradient(900px 480px at 10% -10%, rgba(46,112,255,.25), transparent 55%),
+radial-gradient(760px 520px at 90% 0%, rgba(51,214,255,.20), transparent 60%),
+linear-gradient(180deg,var(--bg),var(--bg2));
+}
+
+/* ================== CONTAINER (FIXED) ================== */
+.container{
+width:100%;
+max-width:var(--max);
+margin:0 auto;
+padding:0 16px;
+}
+@media(max-width:420px){
+.container{padding:0 11px}
+}
+
+/* ================== GLASS ================== */
+.glass{
+background:var(--panel);
+border:1px solid var(--stroke);
+border-radius:var(--radius-lg);
+box-shadow:var(--shadow);
+backdrop-filter:blur(14px);
+}
+.glass-soft{
+background:var(--panel2);
+border:1px solid rgba(255,255,255,.1);
+border-radius:var(--radius);
+}
+
+/* ================== HEADER ================== */
+header{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(6,9,19,.6);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+padding:12px 0;
+}
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+}
+.brand img{
+width:42px;
+height:42px;
+border-radius:14px;
+}
+.nav{
+display:flex;
+gap:14px;
+}
+.nav a{
+font-size:13px;
+padding:8px 10px;
+border-radius:10px;
+}
+.nav a:hover{
+background:rgba(255,255,255,.06);
+}
+
+/* ================== HERO ================== */
+.hero{
+padding:22px 0 18px;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:18px;
+}
+@media(max-width:980px){
+.hero-grid{grid-template-columns:1fr}
+}
+.hero-media{
+border-radius:var(--radius-lg);
+overflow:hidden;
+border:1px solid rgba(255,255,255,.12);
+}
+.hero-media img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* ================== SERVICES ================== */
+.services-grid{
+display:grid;
+grid-template-columns:repeat(12,1fr);
+gap:12px;
+}
+.svc{
+grid-column:span 6;
+overflow:hidden;
+}
+@media(max-width:980px){
+.svc{grid-column:span 12}
+}
+.svc .media{
+aspect-ratio:16/10;
+background:#000;
+overflow:hidden;
+}
+.svc .media img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.svc .content{
+padding:14px;
+}
+
+/* ================== FOOTER ================== */
+footer{
+padding:20px 0 30px;
+font-size:13px;
+color:var(--muted);
+}
+
+/* ================== FLOAT ================== */
+.float{
+position:fixed;
+right:14px;
+bottom:14px;
+display:flex;
+flex-direction:column;
+gap:10px;
+z-index:1000;
+}
+.float a{
+padding:10px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.14);
+font-weight:800;
+}
+</style>
 </head>
+
 <body>
 
-    <a href="https://wa.me/971502447661" target="_blank" class="wa-float">
-        <i data-lucide="message-circle" class="w-12 h-12 fill-current"></i>
-    </a>
+<header>
+<div class="container">
+<div class="header-inner">
+<a class="brand" href="#">
+<img src="./assets/splash.jpg" alt="Logo">
+<strong>New Style Logistics LLC</strong>
+</a>
+<nav class="nav">
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</div>
+</header>
 
-    <nav class="fixed top-0 w-full z-[100] glass-nav">
-        <div class="max-w-[1400px] mx-auto px-6 h-24 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <img src="assets/logo.jpg" class="w-12 h-12 rounded-lg">
-                <span class="font-black text-2xl tracking-tighter uppercase leading-none">NEW STYLE <br><span class="cyan-glow text-[10px]">Logistics LLC</span></span>
-            </div>
-            <button @click="rtl = !rtl" class="lang-switch uppercase" x-text="rtl ? 'English' : 'العربية'"></button>
-        </div>
-    </nav>
+<main>
 
-    <section class="pt-24 min-h-screen grid lg:grid-cols-2">
-        <div class="p-10 lg:p-24 flex flex-col justify-center">
-            <h1 class="text-7xl lg:text-9xl font-black mb-6 uppercase leading-[0.85]">
-                <span x-text="rtl ? 'نخبة' : 'Elite'"></span> <br>
-                <span class="cyan-glow" x-text="rtl ? 'الشحن' : 'Freight'"></span>
-            </h1>
-            <p class="text-gray-400 text-xl mb-10 max-w-md" x-text="rtl ? 'بوابتك اللوجستية العالمية في قلب دبي.' : 'Your global logistics gateway in the heart of Dubai.'"></p>
-            <div class="flex gap-10">
-                <div class="text-center"><p class="text-5xl font-black italic">150+</p><p class="text-[10px] text-gray-500 uppercase font-black">Global Agents</p></div>
-                <div class="text-center"><p class="text-5xl font-black italic">100%</p><p class="text-[10px] text-gray-500 uppercase font-black">Compliance</p></div>
-            </div>
-        </div>
-        <div class="overflow-hidden bg-gray-900">
-            <img src="assets/hero.jpg" class="img-card">
-        </div>
-    </section>
+<section class="hero">
+<div class="container hero-grid">
+<div class="glass" style="padding:18px">
+<h1>Dubai logistics with clarity & control</h1>
+<p>Air, Sea (FCL/LCL), Land, Customs Clearance & Warehousing.</p>
+</div>
+<div class="hero-media">
+<img src="./assets/hero.jpg" alt="Hero">
+</div>
+</div>
+</section>
 
-    <section class="py-24 bg-[#030816] border-y border-white/5">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-                <h2 class="text-5xl font-black mb-8 uppercase" x-text="rtl ? 'التوسع والنمو' : 'Expansion & Growth'"></h2>
-                <p class="text-gray-400 text-lg leading-relaxed" x-text="rtl ? 'نحن نوسع عملياتنا لتشمل مراكز لوجستية جديدة في أفريقيا وأوروبا، مع تعزيز أسطولنا البري في دول الخليج.' : 'We are scaling our operations to include new logistics hubs in Africa and Europe, while reinforcing our GCC land fleet to meet surging demand.'"></p>
-            </div>
-            <div class="rounded-[3rem] overflow-hidden h-[400px]">
-                <img src="assets/global.jpg" class="img-card">
-            </div>
-        </div>
-    </section>
+<section id="services">
+<div class="container">
+<h2>Our Services</h2>
 
-    <section class="py-24 bg-black">
-        <div class="max-w-[1400px] mx-auto px-6">
-            <h2 class="text-5xl font-black mb-16 text-center uppercase" x-text="rtl ? 'خدماتنا' : 'Core Services'"></h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="h-[550px] rounded-[3rem] overflow-hidden relative group border border-white/10">
-                    <img src="assets/air.jpg" class="img-card group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-3xl font-black uppercase" x-text="rtl ? 'شحن جوي' : 'Air Freight'"></h3>
-                    </div>
-                </div>
-                <div class="h-[550px] rounded-[3rem] overflow-hidden relative group border border-white/10">
-                    <img src="assets/sea.jpg" class="img-card group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-3xl font-black uppercase" x-text="rtl ? 'شحن بحري' : 'Sea Freight'"></h3>
-                    </div>
-                </div>
-                <div class="h-[550px] rounded-[3rem] overflow-hidden relative group border border-white/10">
-                    <img src="assets/customs.jpg" class="img-card group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-3xl font-black uppercase" x-text="rtl ? 'تخليص جمركي' : 'Customs'"></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="services-grid">
+<div class="glass svc">
+<div class="media"><img src="./assets/air.jpg"></div>
+<div class="content"><strong>Air Freight</strong></div>
+</div>
 
-    <section class="py-24 bg-[#020617]">
-        <div class="max-w-[1400px] mx-auto px-6">
-            <h2 class="text-5xl font-black mb-16 text-center uppercase" x-text="rtl ? 'لماذا نيو ستايل؟' : 'Why Choose Us?'"></h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="p-10 bg-white/5 rounded-[2.5rem] text-center border border-white/5">
-                    <i data-lucide="shield-check" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
-                    <h4 class="font-bold uppercase mb-2">Security</h4>
-                    <p class="text-xs text-gray-500">Global standard protection.</p>
-                </div>
-                <div class="p-10 bg-white/5 rounded-[2.5rem] text-center border border-white/5">
-                    <i data-lucide="zap" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
-                    <h4 class="font-bold uppercase mb-2">Speed</h4>
-                    <p class="text-xs text-gray-500">Zero-delay policy.</p>
-                </div>
-                <div class="p-10 bg-white/5 rounded-[2.5rem] text-center border border-white/5">
-                    <i data-lucide="globe" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
-                    <h4 class="font-bold uppercase mb-2">Network</h4>
-                    <p class="text-xs text-gray-500">200+ Countries.</p>
-                </div>
-                <div class="p-10 bg-white/5 rounded-[2.5rem] text-center border border-white/5">
-                    <i data-lucide="headset" class="w-12 h-12 cyan-glow mx-auto mb-6"></i>
-                    <h4 class="font-bold uppercase mb-2">Support</h4>
-                    <p class="text-xs text-gray-500">24/7 Expert care.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="glass svc">
+<div class="media"><img src="./assets/sea.jpg"></div>
+<div class="content"><strong>Sea Freight</strong></div>
+</div>
 
-    <section class="py-24 bg-black">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-20">
-            <div>
-                <h2 class="text-5xl font-black mb-12 uppercase" x-text="rtl ? 'طريقتنا' : 'Our Methods'"></h2>
-                <div class="space-y-12">
-                    <div class="method-step">
-                        <h4 class="text-2xl font-bold uppercase">01. Strategy</h4>
-                        <p class="text-gray-500">Tailored routing for cost-efficiency.</p>
-                    </div>
-                    <div class="method-step">
-                        <h4 class="text-2xl font-bold uppercase">02. Execution</h4>
-                        <p class="text-gray-500">Live monitoring and safe handling.</p>
-                    </div>
-                    <div class="method-step">
-                        <h4 class="text-2xl font-bold uppercase">03. Clearance</h4>
-                        <p class="text-gray-500">Seamless border and customs brokerage.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="rounded-[3rem] overflow-hidden"><img src="assets/methods.jpg" class="img-card"></div>
-        </div>
-    </section>
+<div class="glass svc">
+<div class="media"><img src="./assets/land.jpg"></div>
+<div class="content"><strong>Land Transport</strong></div>
+</div>
 
-    <section class="py-24 bg-[#030816]">
-        <div class="max-w-[1400px] mx-auto px-6 text-center">
-            <h2 class="text-5xl font-black mb-16 uppercase" x-text="rtl ? 'آراء العملاء' : 'Testimonials'"></h2>
-            <div class="bg-white/5 p-16 rounded-[4rem] border border-cyan-500/10 italic text-2xl text-gray-300">
-                "New Style Logistics transformed our GCC distribution. Their speed and customs expertise are unmatched in Dubai."
-                <p class="mt-8 text-sm font-black text-cyan-400 uppercase tracking-[0.3em]">— Global Trade Partner</p>
-            </div>
-        </div>
-    </section>
+<div class="glass svc">
+<div class="media"><img src="./assets/customs.jpg"></div>
+<div class="content"><strong>Customs Clearance</strong></div>
+</div>
 
-    <section class="py-24 bg-black">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-16">
-            <div class="bg-white/5 p-12 rounded-[4rem] border border-cyan-500/20">
-                <h3 class="text-3xl font-black mb-10 text-center uppercase">Request a Quote</h3>
-                <div class="space-y-4">
-                    <input type="text" placeholder="Full Name" class="w-full bg-black/50 p-5 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
-                    <input type="email" placeholder="Email Address" class="w-full bg-black/50 p-5 rounded-2xl border border-white/10 outline-none focus:border-cyan-400">
-                    <textarea placeholder="Cargo Details" class="w-full bg-black/50 p-5 rounded-2xl border border-white/10 h-32 outline-none focus:border-cyan-400"></textarea>
-                    <button class="w-full bg-cyan-400 text-black font-black py-5 rounded-2xl uppercase tracking-widest">Submit Request</button>
-                </div>
-            </div>
-            <div class="flex flex-col justify-center">
-                <h2 class="text-5xl font-black mb-8 uppercase" x-text="rtl ? 'تحدث مع خبرائنا' : 'Talk to Experts'"></h2>
-                <div class="flex items-center gap-6 mb-10">
-                    <img src="assets/expert.jpg" class="w-24 h-24 rounded-full border-2 border-cyan-400 object-cover">
-                    <div>
-                        <h4 class="text-xl font-bold uppercase">Logistics Desk</h4>
-                        <p class="text-cyan-400 font-bold tracking-widest">alwahti@newstylelogistics.com</p>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <div class="flex justify-between border-b border-white/10 pb-4"><span>Mon - Fri</span><span class="font-bold text-cyan-400">08:30 - 18:00</span></div>
-                    <div class="flex justify-between border-b border-white/10 pb-4"><span>Saturday</span><span class="font-bold text-cyan-400">08:30 - 15:00</span></div>
-                    <div class="flex justify-between"><span>Sunday</span><span class="font-black text-red-500 uppercase">Closed</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="glass svc">
+<div class="media"><img src="./assets/cargo.jpg"></div>
+<div class="content"><strong>Cargo Handling</strong></div>
+</div>
 
-    <footer class="py-20 bg-black border-t border-white/10">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-3 gap-16 text-center lg:text-left">
-            <div>
-                <img src="assets/logo.jpg" class="w-16 h-16 rounded-xl mb-6 mx-auto lg:mx-0">
-                <p class="text-xs text-gray-600 uppercase tracking-widest leading-loose">New Style Logistics LLC.<br>Ras Al Khor, Dubai, UAE.</p>
-            </div>
-            <div class="space-y-4">
-                <h4 class="font-black uppercase text-xs tracking-widest text-gray-400">Company</h4>
-                <a href="#" class="block text-xs uppercase hover:text-cyan-400 transition">About Us</a>
-                <a href="#" class="block text-xs uppercase hover:text-cyan-400 transition">Privacy Policy</a>
-                <a href="#" class="block text-xs uppercase hover:text-cyan-400 transition">Terms of Service</a>
-            </div>
-            <div>
-                <h4 class="font-black uppercase text-xs tracking-widest text-gray-400 mb-6">Location</h4>
-                <div class="h-48 rounded-3xl overflow-hidden border border-white/10">
-                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.123456789!2d55.3!3d25.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDEyJzAwLjAiTiA1NcKwMTgnMDAuMCJF!5e0!3m2!1sen!2sae!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-        <p class="text-center mt-16 text-[10px] text-gray-800 uppercase font-bold tracking-[0.5em]">© 2024 New Style Logistics LLC • Global Corporate Portal</p>
-    </footer>
+<div class="glass svc">
+<div class="media"><img src="./assets/warehousing.jpg"></div>
+<div class="content"><strong>Warehousing</strong></div>
+</div>
+</div>
+</div>
+</section>
 
-    <script>lucide.createIcons();</script>
+<section id="contact">
+<div class="container glass" style="padding:18px">
+<h2>Contact</h2>
+<p>WhatsApp: +971 56 143 6491</p>
+<p>Email: alwahti@newstylelogistics.com</p>
+</div>
+</section>
+
+<footer>
+<div class="container glass" style="padding:16px">
+© <span id="year"></span> New Style Logistics LLC
+</div>
+</footer>
+
+</main>
+
+<div class="float">
+<a href="https://wa.me/971561436491">WhatsApp</a>
+<a href="tel:+97145914550">Call</a>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({once:true});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
