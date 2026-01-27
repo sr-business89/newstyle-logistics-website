@@ -16,20 +16,16 @@
         [dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         [dir="ltr"] body { font-family: 'Inter', sans-serif; }
 
-        /* Full Bleed Fix for Mobile */
-        .bleed-section { width: 100%; position: relative; overflow: hidden; }
-        .content-safe { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-
-        /* Isolated WhatsApp */
-        .wa-float { position: fixed; bottom: 20px; z-index: 1000; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37,211,102,0.4); border: 2px solid #fff; }
-        [dir="ltr"] .wa-float { right: 20px; } [dir="rtl"] .wa-float { left: 20px; }
+        .cyan-glow { color: var(--cyan); text-shadow: 0 0 15px rgba(0,255,242,0.6); }
         
-        /* Language Toggle in Header */
-        .lang-pill { background: rgba(0, 255, 242, 0.15); border: 1.5px solid var(--cyan); color: var(--cyan); padding: 8px 16px; border-radius: 999px; font-weight: 900; font-size: 13px; transition: 0.3s; }
+        /* Language Button - Top Right Positioning */
+        .lang-pill { border: 1.5px solid var(--cyan); color: var(--cyan); padding: 8px 16px; border-radius: 999px; font-weight: 900; font-size: 12px; transition: 0.3s; }
         .lang-pill:hover { background: var(--cyan); color: var(--dark); }
 
-        .cyan-glow { color: var(--cyan); text-shadow: 0 0 15px rgba(0,255,242,0.6); }
-        img { max-width: 100%; display: block; object-fit: cover; }
+        /* WhatsApp - Isolated Floating Button */
+        .wa-float { position: fixed; bottom: 25px; z-index: 1000; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37,211,102,0.4); border: 2px solid #fff; }
+        [dir="ltr"] .wa-float { right: 25px; } 
+        [dir="rtl"] .wa-float { left: 25px; }
     </style>
 </head>
 <body>
@@ -39,7 +35,7 @@
     </a>
 
     <nav class="fixed top-0 w-full z-[100] bg-[#020617]/95 backdrop-blur-md border-b border-white/5">
-        <div class="content-safe h-20 flex items-center justify-between">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="assets/logo.jpg" class="w-10 h-10 rounded-lg">
                 <div class="flex flex-col">
@@ -55,16 +51,16 @@
         </div>
     </nav>
 
-    <section class="bleed-section pt-20 min-h-screen flex items-center">
-        <div class="grid lg:grid-cols-2 w-full h-full">
-            <div class="content-safe py-16 flex flex-col justify-center">
+    <section class="pt-20 min-h-screen flex items-center">
+        <div class="grid lg:grid-cols-2 w-full">
+            <div class="px-8 lg:px-20 py-16">
                 <h1 class="text-6xl lg:text-9xl font-black leading-[0.85] mb-6 uppercase">
                     <span x-text="rtl ? 'نخبة' : 'Elite'"></span> <br>
                     <span class="cyan-glow" x-text="rtl ? 'الشحن' : 'Freight'"></span>
                 </h1>
-                <p class="text-gray-400 text-lg mb-10 max-w-md" x-text="rtl ? 'الحلول اللوجستية الذكية التي تربط دبي بالعالم.' : 'Intelligent logistics architecture connecting Dubai to the global market.'"></p>
+                <p class="text-gray-400 text-lg mb-10 max-w-md" x-text="rtl ? 'حلول لوجستية عالمية تربط دبي بالعالم.' : 'Global logistics architecture connecting Dubai to the world.'"></p>
                 <div class="flex gap-10">
-                    <div><p class="text-4xl font-black">100%</p><p class="text-[10px] text-gray-500 uppercase font-black">Accuracy</p></div>
+                    <div><p class="text-4xl font-black">100%</p><p class="text-[10px] text-gray-500 uppercase font-black">Compliance</p></div>
                     <div><p class="text-4xl font-black">GCC</p><p class="text-[10px] text-gray-500 uppercase font-black">Network</p></div>
                 </div>
             </div>
@@ -74,47 +70,44 @@
         </div>
     </section>
 
-    <section class="bleed-section py-20 bg-[#030816]">
-        <div class="content-safe">
-            <h2 class="text-4xl font-black mb-16 text-center uppercase" x-text="rtl ? 'خدماتنا' : 'Core Services'"></h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="group relative h-[500px] overflow-hidden rounded-3xl">
+    <section class="py-24 bg-[#030816]">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <h2 class="text-4xl font-black mb-16 text-center uppercase" x-text="rtl ? 'خدماتنا' : 'Core Operations'"></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="relative h-[500px] rounded-3xl overflow-hidden group border border-white/5">
                     <img src="assets/air.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase mb-2" x-text="rtl ? 'الشحن الجوي' : 'Air Freight'"></h3>
-                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">Fast-track global air delivery solutions.</p>
+                        <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'شحن جوي' : 'Air Freight'"></h3>
                     </div>
                 </div>
-                <div class="group relative h-[500px] overflow-hidden rounded-3xl">
+                <div class="relative h-[500px] rounded-3xl overflow-hidden group border border-white/5">
                     <img src="assets/sea.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase mb-2" x-text="rtl ? 'الشحن البحري' : 'Sea Freight'"></h3>
-                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">Ocean freight logistics at scale.</p>
+                        <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'شحن بحري' : 'Sea Freight'"></h3>
                     </div>
                 </div>
-                <div class="group relative h-[500px] overflow-hidden rounded-3xl">
+                <div class="relative h-[500px] rounded-3xl overflow-hidden group border border-white/5">
                     <img src="assets/customs.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black p-10 flex flex-col justify-end">
-                        <h3 class="text-2xl font-black uppercase mb-2" x-text="rtl ? 'تخليص جمركي' : 'Customs'"></h3>
-                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">Seamless border clearance expertise.</p>
+                        <h3 class="text-2xl font-black uppercase" x-text="rtl ? 'تخليص جمركي' : 'Customs Expert'"></h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bleed-section py-20 bg-black">
-        <div class="content-safe grid lg:grid-cols-2 gap-16">
+    <section class="py-20 bg-black">
+        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-16">
             <div class="bg-white/5 p-10 rounded-[2.5rem] border border-cyan-500/20">
                 <h3 class="text-xl font-black mb-8 text-center uppercase">Volumetric Calculator</h3>
                 <div class="grid grid-cols-3 gap-4 mb-8">
-                    <input type="number" x-model="l" placeholder="L" class="bg-black/50 p-4 rounded-xl border border-white/10 text-center outline-none focus:border-cyan-400">
-                    <input type="number" x-model="w" placeholder="W" class="bg-black/50 p-4 rounded-xl border border-white/10 text-center outline-none focus:border-cyan-400">
-                    <input type="number" x-model="h" placeholder="H" class="bg-black/50 p-4 rounded-xl border border-white/10 text-center outline-none focus:border-cyan-400">
+                    <input type="number" x-model="l" placeholder="L" class="bg-black p-4 rounded-xl border border-white/10 text-center outline-none focus:border-cyan-400">
+                    <input type="number" x-model="w" placeholder="W" class="bg-black p-4 rounded-xl border border-white/10 text-center outline-none focus:border-cyan-400">
+                    <input type="number" x-model="h" placeholder="H" class="bg-black p-4 rounded-xl border border-white/10 text-center outline-none focus:border-cyan-400">
                 </div>
                 <div class="text-center bg-cyan-500/10 p-10 rounded-3xl">
                     <p class="text-5xl font-black cyan-glow" x-text="l && w && h ? ((l*w*h)/5000).toFixed(2) : '0.00'"></p>
-                    <p class="text-[10px] font-bold mt-2 uppercase text-gray-500">Chargeable KG</p>
+                    <p class="text-[10px] text-gray-500 uppercase mt-2">Chargeable KG</p>
                 </div>
             </div>
             
@@ -122,28 +115,22 @@
                 <h2 class="text-4xl font-black mb-10 uppercase" x-text="rtl ? 'ساعات العمل' : 'Working Hours'"></h2>
                 <div class="space-y-6">
                     <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-gray-400 font-bold">Monday - Friday</span>
+                        <span class="text-gray-400 font-bold">Mon - Fri</span>
                         <span class="font-black text-cyan-400">08:30 AM - 06:00 PM</span>
                     </div>
                     <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-gray-400 font-bold">Saturday</span>
+                        <span class="text-gray-400 font-bold">Sat</span>
                         <span class="font-black text-cyan-400">08:30 AM - 03:00 PM</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-400 font-bold">Sunday</span>
-                        <span class="font-black text-red-500 uppercase">Closed</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bleed-section py-10 border-t border-white/5 bg-black text-center">
+    <footer class="py-10 text-center border-t border-white/5 bg-black">
         <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-gray-600">© 2024 New Style Logistics LLC</p>
     </footer>
 
-    <script>
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
