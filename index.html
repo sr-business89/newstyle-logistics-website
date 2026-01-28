@@ -1,168 +1,216 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Style Logistics LLC</title>
-  <meta name="description" content="New Style Logistics LLC - Reliable logistics solutions built on precision, compliance, and global reach.">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0a0a0a;
-      color: #f5d76e;
-      line-height: 1.6;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #000;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      color: #f5d76e;
-    }
-    .lang-toggle {
-      background: none;
-      border: 1px solid #f5d76e;
-      color: #f5d76e;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 1px solid #f5d76e;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .service {
-      background: #111;
-      padding: 1.5rem;
-      border: 1px solid #f5d76e;
-      border-radius: 8px;
-      text-align: center;
-    }
-    footer {
-      background: #000;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      border-top: 1px solid #f5d76e;
-    }
-    a.cta {
-      color: #f5d76e;
-      text-decoration: none;
-      border: 1px solid #f5d76e;
-      padding: 0.5rem 1rem;
-      margin-right: 1rem;
-    }
-    /* Arabic RTL */
-    body[lang="ar"] {
-      direction: rtl;
-      font-family: 'Tajawal', sans-serif;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>New Style Logistics LLC | Dubai Freight Forwarding</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Dubai freight forwarding experts. Air, Sea (FCL/LCL), Land transport, Customs clearance & Warehousing with fast response and compliance-first operations." />
+  <meta name="keywords" content="Dubai logistics, freight forwarding Dubai, customs clearance UAE, air freight Dubai, sea freight FCL LCL, warehousing Dubai" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#060913" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="New Style Logistics LLC" />
+  <meta property="og:description" content="Premium freight & logistics services in Dubai with real-time clarity." />
+  <meta property="og:image" content="./assets/hero.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/splash.jpg" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+<style>
+/* ================= CORE RESET ================= */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;overflow-x:hidden}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:#eef3ff;
+  background:
+    radial-gradient(900px 480px at 10% -10%, rgba(46,112,255,.25), transparent 55%),
+    radial-gradient(760px 520px at 90% 0%, rgba(51,214,255,.20), transparent 60%),
+    linear-gradient(180deg,#060913,#0a1020);
+}
+
+/* ================= LAYOUT ================= */
+.container{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+section{padding:22px 0}
+img{max-width:100%;display:block}
+
+/* ================= GLASS ================= */
+.glass{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 18px 55px rgba(0,0,0,.55);
+}
+.glass-soft{
+  background:rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:14px;
+}
+
+/* ================= HEADER ================= */
+.topbar{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(6,9,19,.7);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{
+  width:42px;height:42px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.15)
+}
+.nav{display:flex;gap:14px}
+.nav a{
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:13px;
+}
+.nav a:hover{background:rgba(255,255,255,.08)}
+
+.btn{
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+.btn.primary{
+  background:linear-gradient(180deg,rgba(51,214,255,.3),rgba(46,112,255,.35));
+}
+
+/* ================= HERO ================= */
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+}
+.hero-media{
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+}
+.hero-media img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.h1{
+  font-size:clamp(30px,4vw,48px);
+  margin:0 0 12px;
+}
+.lead{color:rgba(238,243,255,.75);line-height:1.6}
+
+/* ================= SERVICES ================= */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:14px;
+}
+.svc{grid-column:span 6;overflow:hidden}
+.svc .media{
+  aspect-ratio:16/10;
+  overflow:hidden;
+}
+.svc .media img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.svc .content{padding:14px}
+
+/* ================= FOOTER ================= */
+footer{padding:24px 0;color:rgba(238,243,255,.65);font-size:13px}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .svc{grid-column:span 12}
+}
+@media(max-width:720px){
+  .nav{display:none}
+}
+</style>
 </head>
-<body lang="en">
-  <header>
-    <h1>New Style Logistics LLC</h1>
-    <button class="lang-toggle" onclick="toggleLang()">AR / EN</button>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <h2 data-en="Reliable logistics solutions built on precision, compliance, and global reach."
-        data-ar="حلول لوجستية موثوقة مبنية على الدقة والامتثال والانتشار العالمي.">
-      Reliable logistics solutions built on precision, compliance, and global reach.
-    </h2>
-    <p>
-      <a href="#quote" class="cta" data-en="Request a Quote" data-ar="طلب عرض سعر">Request a Quote</a>
-      <a href="#contact" class="cta" data-en="Talk to an Expert" data-ar="تحدث إلى خبير">Talk to an Expert</a>
-    </p>
-  </section>
+<body>
 
-  <!-- About Us -->
-  <section id="about">
-    <h2 data-en="About Us" data-ar="من نحن">About Us</h2>
-    <p data-en="Dubai-based, end-to-end logistics with a compliance-first mindset and long-term vision."
-       data-ar="شركة لوجستية مقرها دبي تقدم خدمات شاملة بعقلية قائمة على الامتثال ورؤية طويلة الأمد.">
-       Dubai-based, end-to-end logistics with a compliance-first mindset and long-term vision.
-    </p>
-  </section>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#">
+      <img src="./assets/splash.jpg" alt="Logo">
+      <strong>New Style Logistics LLC</strong>
+    </a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#quote">Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn primary" href="#quote">Get Quote</a>
+  </div>
+</header>
 
-  <!-- Services -->
-  <section id="services">
-    <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
-    <div class="services-grid">
-      <div class="service" data-en="Air Freight" data-ar="الشحن الجوي">Air Freight</div>
-      <div class="service" data-en="Sea Freight (FCL/LCL)" data-ar="الشحن البحري (حاويات كاملة/جزئية)">Sea Freight (FCL/LCL)</div>
-      <div class="service" data-en="Land Transportation (UAE & GCC)" data-ar="النقل البري (الإمارات ودول مجلس التعاون)">Land Transportation (UAE & GCC)</div>
-      <div class="service" data-en="Customs Clearance" data-ar="تخليص جمركي">Customs Clearance</div>
-      <div class="service" data-en="Warehousing & Distribution" data-ar="التخزين والتوزيع">Warehousing & Distribution</div>
-      <div class="service" data-en="Cargo Handling & Documentation" data-ar="مناولة البضائع والوثائق">Cargo Handling & Documentation</div>
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="glass" style="padding:18px" data-aos="fade-up">
+      <h1 class="h1">Dubai logistics with real-time clarity</h1>
+      <p class="lead">Air, Sea, Land freight, Customs clearance & Warehousing — fast, compliant and controlled.</p>
     </div>
-  </section>
+    <div class="hero-media" data-aos="fade-left">
+      <img src="./assets/hero.jpg" alt="Dubai logistics">
+    </div>
+  </div>
+</section>
 
-  <!-- Why Choose Us -->
-  <section id="trust">
-    <h2 data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</h2>
-    <ul>
-      <li data-en="Strategic Dubai location" data-ar="موقع استراتيجي في دبي">Strategic Dubai location</li>
-      <li data-en="Experienced team" data-ar="فريق ذو خبرة">Experienced team</li>
-      <li data-en="Global partner network" data-ar="شبكة شركاء عالمية">Global partner network</li>
-      <li data-en="Compliance focus" data-ar="تركيز على الامتثال">Compliance focus</li>
-      <li data-en="Transparency" data-ar="شفافية">Transparency</li>
-      <li data-en="Reliability" data-ar="موثوقية">Reliability</li>
-    </ul>
-  </section>
+<section id="services">
+  <div class="container">
+    <div class="services-grid">
+      <article class="glass svc"><div class="media"><img src="./assets/air.jpg"></div><div class="content"><h3>Air Freight</h3></div></article>
+      <article class="glass svc"><div class="media"><img src="./assets/sea.jpg"></div><div class="content"><h3>Sea Freight</h3></div></article>
+      <article class="glass svc"><div class="media"><img src="./assets/land.jpg"></div><div class="content"><h3>Land Transport</h3></div></article>
+      <article class="glass svc"><div class="media"><img src="./assets/customs.jpg"></div><div class="content"><h3>Customs Clearance</h3></div></article>
+      <article class="glass svc"><div class="media"><img src="./assets/cargo.jpg"></div><div class="content"><h3>Cargo Handling</h3></div></article>
+      <article class="glass svc"><div class="media"><img src="./assets/warehousing.jpg"></div><div class="content"><h3>Warehousing</h3></div></article>
+    </div>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-    <p>
-      📞 +(971) 4 591 4550 <br>
-      💬 WhatsApp: +97156 143 6491 <br>
-      ✉️ Email: alwahti@newstylelogistics.com
-    </p>
-    <p data-en="Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE"
-       data-ar="المكتب رقم 2، مبنى عيادة ثومبي، بالقرب من مركز مرحبا التجاري، رأس الخور، دبي، الإمارات العربية المتحدة">
-       Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE
-    </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
-    <p data-en="Working Hours: Mon-Fri 8:30 AM - 6 PM, Sat 8:30 AM - 3 PM, Sun Closed"
-       data-ar="ساعات العمل: الاثنين-الجمعة 8:30 صباحاً - 6 مساءً، السبت 8:30 صباحاً - 3 مساءً، الأحد مغلق">
-       Working Hours: Mon-Fri 8:30 AM - 6 PM, Sat 8:30 AM - 3 PM, Sun Closed
-    </p>
-  </section>
+<footer>
+  <div class="container glass-soft">
+    © <span id="year"></span> New Style Logistics LLC · All Rights Reserved
+  </div>
+</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 New Style Logistics LLC | Privacy Policy | Terms & Conditions</p>
-  </footer>
+</main>
 
-  <script>
-    function toggleLang() {
-      const body = document.body;
-      const newLang = body.getAttribute("lang") === "en" ? "ar" : "en";
-      body.setAttribute("lang", newLang);
-      document.querySelectorAll("[data-en]").forEach(el => {
-        el.textContent = el.getAttribute("data-" + newLang);
-      });
-    }
-  </script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({once:true,duration:700});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
