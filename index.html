@@ -5,170 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Style Logistics LLC | Precision in Motion</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+Arabic:wght@400;700&display=swap');
         :root { --accent: #3b82f6; --dark: #050505; }
         body { font-family: 'Inter', 'Noto Sans Arabic', sans-serif; background: var(--dark); color: white; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.4s ease; }
-        .glass:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .gradient-text { background: linear-gradient(135deg, #fff 30%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        /* Image paths fixed to match your GitHub root assets */
+        .hero-bg { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('hero.jpg'); background-size: cover; background-position: center; }
         .arabic { display: none; }
         html[lang="ar"] .english { display: none; }
         html[lang="ar"] .arabic { display: block; }
+        .service-card { background-size: cover; background-position: center; height: 350px; border-radius: 24px; overflow: hidden; position: relative; transition: 0.5s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .service-card:hover { transform: scale(1.02); border-color: var(--accent); }
+        .overlay { background: linear-gradient(to top, rgba(0,0,0,1), transparent); height: 100%; width: 100%; position: absolute; display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 px-6 md:px-12 py-5 flex justify-between items-center glass">
-        <div class="text-xl font-extrabold tracking-tighter uppercase">
-            New Style <span class="text-blue-500">Logistics</span>
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <div class="text-xl font-extrabold uppercase tracking-tighter">New Style <span class="text-blue-500">Logistics</span></div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleLang()" class="text-xs border border-white/20 px-4 py-1 rounded-full uppercase font-bold hover:bg-white hover:text-black transition">
+                <span class="english">العربية</span><span class="arabic">English</span>
+            </button>
+            <a href="https://wa.me/971561436491" class="hidden md:block bg-blue-600 px-5 py-2 rounded-full text-xs font-bold uppercase">Live Support</a>
         </div>
-        <div class="hidden md:flex space-x-8 text-xs font-bold tracking-widest uppercase">
-            <a href="#about" class="hover:text-blue-500 transition">About Us</a>
-            <a href="#services" class="hover:text-blue-500 transition">Services</a>
-            <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
-        </div>
-        <button onclick="toggleLanguage()" class="border border-white/20 px-4 py-1 rounded-full text-xs hover:bg-white hover:text-black transition uppercase font-bold">
-            <span class="english">العربية</span><span class="arabic">English</span>
-        </button>
     </nav>
 
     <section class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg">
-        <h1 class="text-5xl md:text-8xl font-extrabold gradient-text leading-tight mb-6">
-            <span class="english">PRECISION IN <br>MOTION.</span>
-            <span class="arabic">الدقة في<br>الحركة.</span>
+        <h1 class="text-5xl md:text-8xl font-extrabold leading-tight mb-6">
+            <span class="english italic">PRECISION IN <br>MOTION.</span>
+            <span class="arabic italic">الدقة في<br>الحركة.</span>
         </h1>
-        <p class="max-w-2xl text-gray-400 text-lg md:text-xl font-light">
-            <span class="english">Engineering the silent architecture of global trade from the heart of Dubai.</span>
-            <span class="arabic">هندسة البنية التحتية الصامتة للتجارة العالمية من قلب دبي.</span>
+        <p class="max-w-2xl text-gray-400 text-lg mb-10">
+            <span class="english">The elite architecture of global trade, headquartered in Ras Al Khor, Dubai.</span>
+            <span class="arabic">هندسة النخبة للتجارة العالمية، مقرنا الرئيسي في رأس الخور، دبي.</span>
         </p>
-        <div class="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="#quote" class="bg-blue-600 px-10 py-4 rounded-full font-bold hover:bg-blue-700 transition uppercase text-sm tracking-widest">Request Quote</a>
-            <a href="tel:+971561436491" class="glass px-10 py-4 rounded-full font-bold hover:bg-white/10 transition uppercase text-sm tracking-widest">Call Experts</a>
+        <div class="flex gap-4">
+            <a href="#quote" class="bg-blue-600 px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm">Request Quote</a>
+            <a href="tel:+971561436491" class="glass px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm">Call Expert</a>
         </div>
     </section>
 
-    <section id="about" class="py-24 px-6 md:px-20 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-8">
-                    <span class="english">More than Logistics. <br><span class="text-blue-500">Pure Strategy.</span></span>
-                    <span class="arabic">أكثر من مجرد لوجستيات. <br><span class="text-blue-500">استراتيجية بحتة.</span></span>
-                </h2>
-                <p class="text-gray-400 leading-relaxed text-lg mb-6">
-                    <span class="english">Based in Ras Al Khor, New Style Logistics LLC is the silent engine behind global commerce. We don't just move cargo; we move the needle of your business with absolute speed and friction-free customs intelligence.</span>
-                    <span class="arabic">يقع مقر شركة نيو ستايل لوجستيكس في رأس الخور، وهي المحرك الصامت للتجارة العالمية. نحن لا ننقل الشحنات فحسب؛ بل نحرك عجلة نجاح أعمالكم بسرعة مطلقة وذكاء جمركي خالٍ من العوائق.</span>
-                </p>
-            </div>
-            <div class="glass p-8 rounded-3xl">
-                <h4 class="text-blue-500 font-bold mb-4 uppercase tracking-widest text-sm">Our Method</h4>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4 border-b border-white/5 pb-4">
-                        <span class="text-3xl font-bold text-white/20">01</span>
-                        <p class="font-bold">SYNC: Real-time Data Ingestion</p>
-                    </div>
-                    <div class="flex items-center gap-4 border-b border-white/5 pb-4">
-                        <span class="text-3xl font-bold text-white/20">02</span>
-                        <p class="font-bold">ROUTE: AI-Optimized Pathing</p>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <span class="text-3xl font-bold text-white/20">03</span>
-                        <p class="font-bold">DELIVER: 99.9% On-Time Precision</p>
-                    </div>
-                </div>
-            </div>
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold uppercase tracking-widest">Global Expansion Metrics</h2>
+            <p class="text-gray-500">Our operational velocity across 2024-2026</p>
+        </div>
+        <div class="glass p-10 rounded-[40px]">
+            <canvas id="growthChart" height="120"></canvas>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6 bg-black/50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16">Global Spheres of Movement</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass p-10 rounded-3xl group">
-                    <i class="fa-solid fa-plane-up text-blue-500 text-3xl mb-6 group-hover:scale-110 transition"></i>
-                    <h3 class="text-xl font-bold mb-3">Air Freight</h3>
-                    <p class="text-gray-500 text-sm">Priority sky-shipping via world-class hubs with real-time tracking.</p>
-                </div>
-                <div class="glass p-10 rounded-3xl group">
-                    <i class="fa-solid fa-ship text-blue-500 text-3xl mb-6 group-hover:scale-110 transition"></i>
-                    <h3 class="text-xl font-bold mb-3">Sea Freight</h3>
-                    <p class="text-gray-500 text-sm">Strategic maritime routing for FCL/LCL cargo across all oceans.</p>
-                </div>
-                <div class="glass p-10 rounded-3xl group">
-                    <i class="fa-solid fa-truck-fast text-blue-500 text-3xl mb-6 group-hover:scale-110 transition"></i>
-                    <h3 class="text-xl font-bold mb-3">Land Transport</h3>
-                    <p class="text-gray-500 text-sm">GCC road mastery with fleet precision and regional distribution.</p>
-                </div>
-                <div class="glass p-10 rounded-3xl group">
-                    <i class="fa-solid fa-file-shield text-blue-500 text-3xl mb-6 group-hover:scale-110 transition"></i>
-                    <h3 class="text-xl font-bold mb-3">Customs Clearance</h3>
-                    <p class="text-gray-500 text-sm">Frictionless border navigation through legal intelligence and speed.</p>
-                </div>
-                <div class="glass p-10 rounded-3xl group">
-                    <i class="fa-solid fa-warehouse text-blue-500 text-3xl mb-6 group-hover:scale-110 transition"></i>
-                    <h3 class="text-xl font-bold mb-3">Warehousing</h3>
-                    <p class="text-gray-500 text-sm">Secure, tech-enabled, climate-controlled strategic inventory hubs.</p>
-                </div>
-                <div class="glass p-10 rounded-3xl group">
-                    <i class="fa-solid fa-boxes-packing text-blue-500 text-3xl mb-6 group-hover:scale-110 transition"></i>
-                    <h3 class="text-xl font-bold mb-3">Cargo Transport</h3>
-                    <p class="text-gray-500 text-sm">End-to-end heavy duty logistics architecture for global projects.</p>
-                </div>
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="service-card" style="background-image: url('air.jpg');">
+                <div class="overlay"><h3 class="text-2xl font-bold">Air Freight</h3><p class="text-sm text-gray-400">Precision sky-shipping via world hubs.</p></div>
+            </div>
+            <div class="service-card" style="background-image: url('sea.jpg');">
+                <div class="overlay"><h3 class="text-2xl font-bold">Sea Freight</h3><p class="text-sm text-gray-400">Strategic oceanic commerce routing.</p></div>
+            </div>
+            <div class="service-card" style="background-image: url('land.jpg');">
+                <div class="overlay"><h3 class="text-2xl font-bold">Land Transport</h3><p class="text-sm text-gray-400">GCC-wide road network mastery.</p></div>
+            </div>
+            <div class="service-card" style="background-image: url('customs.jpg');">
+                <div class="overlay"><h3 class="text-2xl font-bold">Customs Clearance</h3><p class="text-sm text-gray-400">Frictionless border intelligence.</p></div>
+            </div>
+            <div class="service-card" style="background-image: url('warehousing.jpg');">
+                <div class="overlay"><h3 class="text-2xl font-bold">Warehousing</h3><p class="text-sm text-gray-400">Secure tech-enabled storage hubs.</p></div>
+            </div>
+            <div class="service-card" style="background-image: url('cargo.jpg');">
+                <div class="overlay"><h3 class="text-2xl font-bold">Cargo Transport</h3><p class="text-sm text-gray-400">Heavy-duty logic for global scale.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="quote" class="py-24 px-6 max-w-4xl mx-auto">
-        <div class="glass p-12 rounded-[40px] border-blue-500/20">
-            <h2 class="text-4xl font-bold text-center mb-8">Request a Quote</h2>
-            <form action="#" class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Your Name" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:border-blue-500 focus:outline-none transition">
-                    <input type="email" placeholder="Business Email" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:border-blue-500 focus:outline-none transition">
-                </div>
-                <textarea placeholder="Describe your cargo and destination..." class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl h-40 focus:border-blue-500 focus:outline-none transition"></textarea>
-                <button type="submit" class="w-full bg-blue-600 text-white font-black py-6 rounded-2xl hover:bg-white hover:text-black transition uppercase tracking-[0.2em]">Transmit Intelligence</button>
-            </form>
+    <section class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="glass p-12 rounded-[50px] border-blue-500/20">
+            <h2 class="text-2xl font-bold mb-8 uppercase text-center tracking-widest">Chargeable Weight Calculator</h2>
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <input type="number" id="L" placeholder="L (cm)" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500">
+                <input type="number" id="W" placeholder="W (cm)" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500">
+                <input type="number" id="H" placeholder="H (cm)" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500">
+            </div>
+            <button onclick="calc()" class="w-full bg-blue-600 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Calculate Volumetric</button>
+            <div id="result" class="mt-8 text-center text-3xl font-bold text-blue-500"></div>
         </div>
     </section>
 
-    <footer class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-gray-500">
+    <footer class="py-20 px-6 border-t border-white/5 glass">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase">Headquarters</h4>
-                <p>Office #2, Thumbay Clinic Building,</p>
-                <p>Near Marhaba Mall, Ras Al Khor, Dubai, UAE</p>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-widest">Headquarters</h4>
+                <p class="text-gray-500">Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE</p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase">Direct Connect</h4>
-                <p>WhatsApp: +971 56 143 6491</p>
-                <p>Call: +971 4 591 4550</p>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-widest">Connectivity</h4>
+                <p class="text-gray-500">Call/WhatsApp: +971 56 143 6491</p>
+                <p class="text-gray-500">Office: +971 4 591 4550</p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase">Legal</h4>
-                <p>© 2026 New Style Logistics LLC.</p>
-                <p>All Rights Reserved. <a href="#" class="hover:text-blue-500">Terms & Policy</a></p>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-widest">Sovereignty</h4>
+                <p class="text-gray-500">© 2026 New Style Logistics LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/971561436491" target="_blank" class="fixed bottom-10 right-10 bg-[#25d366] w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/971561436491" class="fixed bottom-10 right-10 bg-[#25d366] w-16 h-16 rounded-full flex items-center justify-center text-3xl z-50 shadow-2xl"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        function toggleLanguage() {
+        function toggleLang() {
             const html = document.documentElement;
-            if (html.lang === 'en') {
-                html.lang = 'ar';
-                html.dir = 'rtl';
-            } else {
-                html.lang = 'en';
-                html.dir = 'ltr';
+            html.lang = html.lang === 'en' ? 'ar' : 'en';
+            html.dir = html.lang === 'ar' ? 'rtl' : 'ltr';
+        }
+        function calc() {
+            const l = document.getElementById('L').value;
+            const w = document.getElementById('W').value;
+            const h = document.getElementById('H').value;
+            if(l && w && h) {
+                const res = (l * w * h) / 5000;
+                document.getElementById('result').innerText = res.toFixed(2) + " KG";
             }
         }
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['JAN 24', 'JUN 24', 'JAN 25', 'JUN 25', 'JAN 26'],
+                datasets: [{
+                    label: 'Efficiency',
+                    data: [20, 45, 65, 85, 100],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 5,
+                    pointRadius: 0
+                }]
+            },
+            options: { plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { color: '#444' } } } }
+        });
     </script>
 </body>
 </html>
