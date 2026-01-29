@@ -3,239 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEW STYLE LOGISTICS LLC | Dubai Global Command</title>
+    <title>NSL | GLOBAL COMMAND TERMINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@300;400;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;500;900&display=swap');
         
-        :root { --blue: #007AFF; --black: #000000; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--black); color: white; scroll-behavior: smooth; overflow-x: hidden; }
-        h1, h2, h3, .titular { font-family: 'Syncopate', sans-serif; text-transform: uppercase; letter-spacing: -2px; }
+        :root { --accent: #007AFF; --bg: #000000; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: white; overflow-x: hidden; letter-spacing: -0.02em; }
+        .sync { font-family: 'Syncopate', sans-serif; text-transform: uppercase; letter-spacing: -2px; }
 
-        /* Smooth Reveal Engine */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Ultra-Smooth Luxury Animations */
+        .reveal { opacity: 0; transform: translateY(60px) scale(0.98); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
         
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+        /* High-End Glass-Morphism */
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(40px); border: 1px solid rgba(255,255,255,0.07); border-radius: 40px; }
+        .pro-card { position: relative; overflow: hidden; height: 600px; border-radius: 50px; transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(255,255,255,0.05); }
+        .pro-card:hover { transform: scale(1.03); border-color: var(--accent); }
         
-        /* Cloud Image Engine - ZERO LOCAL FILES NEEDED */
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format'); background-size: cover; background-position: center; }
-        .air-img { background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?q=80&w=1000'); background-size: cover; }
-        .sea-img { background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=1000'); background-size: cover; }
-        .land-img { background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1000'); background-size: cover; }
+        /* Cinematic Background Engine (Zero-Failure) */
+        .hero-vid { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .air-asset { background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?auto=format&fit=crop&q=80&w=1200'); background-size: cover; }
+        .sea-asset { background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&q=80&w=1200'); background-size: cover; }
+        .land-asset { background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=1200'); background-size: cover; }
+
+        .btn-luxury { background: white; color: black; padding: 20px 50px; border-radius: 100px; font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 4px; transition: 0.5s; cursor: pointer; }
+        .btn-luxury:hover { background: var(--accent); color: white; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,122,255,0.3); }
         
-        .premium-border { border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; }
-        .premium-border:hover { border-color: var(--blue); background: #080808; }
+        /* Interactive Input Styling */
+        input, textarea { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white !important; padding: 25px !important; border-radius: 20px !important; width: 100%; transition: 0.4s; }
+        input:focus { border-color: var(--accent) !important; outline: none; background: rgba(255,255,255,0.06) !important; }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 px-10 py-6 flex justify-between items-center glass">
-        <div class="text-xl font-black titular uppercase tracking-tighter">NEW STYLE <span class="text-blue-600 italic">LOGISTICS</span></div>
-        <div class="hidden lg:flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em]">
-            <a href="#about" class="hover:text-blue-500 transition">About</a>
-            <a href="#services" class="hover:text-blue-500 transition">Assets</a>
-            <a href="#calculator" class="hover:text-blue-500 transition">Engine</a>
-            <a href="#contact" class="hover:text-blue-500 transition">Terminal</a>
+    <nav class="fixed w-full z-50 px-12 py-10 flex justify-between items-center transition-all duration-500" id="mainNav">
+        <div class="sync text-2xl tracking-tighter">NEW STYLE <span class="text-blue-600">LOGISTICS</span></div>
+        <div class="hidden lg:flex gap-16 text-[10px] font-black uppercase tracking-[0.5em] opacity-60">
+            <a href="#assets" class="hover:opacity-100 transition">Assets</a>
+            <a href="#strategy" class="hover:opacity-100 transition">Strategy</a>
+            <a href="#terminal" class="hover:opacity-100 transition">Terminal</a>
         </div>
-        <a href="https://wa.me/971561436491" class="bg-blue-600 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-blue-500/20">Connect</a>
+        <div class="flex items-center gap-8">
+            <button class="sync text-[9px] border border-white/20 px-6 py-2 rounded-full">AR</button>
+            <a href="https://wa.me/971561436491" class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-xl shadow-blue-500/20"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center items-center text-center px-6 hero-bg">
+    <section class="h-screen flex flex-col justify-center items-center text-center px-10 hero-vid relative">
         <div class="reveal">
-            <p class="text-blue-500 font-black tracking-[0.8em] text-[10px] mb-6 uppercase">Dubai Industrial Command • 2026 Status</p>
-            <h1 class="text-5xl md:text-[8rem] font-bold mb-8 leading-none italic uppercase">Precision<br>In Motion.</h1>
-            <p class="max-w-3xl mx-auto text-gray-400 text-lg md:text-xl font-light mb-12 uppercase tracking-widest">Global Supply Chain Architecture Engineered for Sovereign Trade and Industrial Velocity.</p>
-            <div class="flex gap-6 justify-center">
-                <a href="#services" class="bg-white text-black px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-500">Explore Assets</a>
-                <a href="tel:+971561436491" class="glass px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest">Expert Consultation</a>
+            <p class="text-blue-500 font-black tracking-[1em] text-[10px] mb-8 uppercase">Dubai Industrial Command • 2026</p>
+            <h1 class="text-6xl md:text-[10rem] sync font-bold mb-10 leading-none italic">PRECISION<br>IN MOTION.</h1>
+            <p class="max-w-4xl mx-auto text-gray-400 text-xl font-light mb-16 uppercase tracking-[0.3em] leading-relaxed">
+                Engineering Sovereign Supply Chain Architecture for Global Trade Dominance.
+            </p>
+            <div class="flex gap-8 justify-center">
+                <button onclick="document.getElementById('assets').scrollIntoView()" class="btn-luxury">Explore Assets</button>
+                <a href="tel:+971561436491" class="glass-panel px-12 py-5 rounded-full font-black text-[11px] uppercase tracking-[4px] border border-white/10 hover:bg-white hover:text-black transition">Expert Access</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-40 px-10 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-24 items-center">
+    <section id="strategy" class="py-48 px-12 max-w-[1600px] mx-auto">
+        <div class="grid lg:grid-cols-2 gap-32 items-center">
             <div class="reveal">
-                <h2 class="text-5xl font-bold mb-10 titular italic">Strategic<br><span class="text-blue-600">Expansion.</span></h2>
-                <p class="text-gray-400 text-xl leading-relaxed mb-10">New Style Logistics LLC is defined by a <strong>Strong Market Share</strong> and <strong>State-of-the-Art Infrastructure</strong>. Our <strong>Customer-Centric Approach</strong> eliminates friction in the GCC corridors. We provide <strong>Scalable Services</strong> and an <strong>Experienced Team</strong> to redefine logistics excellence.</p>
-                <div class="grid grid-cols-2 gap-10">
-                    <div class="border-l-4 border-blue-600 pl-8">
-                        <span class="block text-5xl font-bold text-white titular">99.9%</span>
-                        <span class="text-[10px] uppercase font-bold text-gray-600 tracking-widest">On-Time Accuracy</span>
+                <h2 class="text-6xl sync font-bold mb-12 italic">STRATEGIC<br><span class="text-blue-600">EXPANSION.</span></h2>
+                <p class="text-gray-400 text-2xl font-light leading-relaxed mb-16">
+                    New Style Logistics LLC dominates through <span class="text-white font-bold italic">Strong Market Share</span> and state-of-the-art infrastructure. We don't just move cargo; we engineer industrial velocity.
+                </p>
+                <div class="grid grid-cols-2 gap-12">
+                    <div class="border-l-2 border-blue-600 pl-10">
+                        <span class="block text-6xl font-black sync mb-2">99.9%</span>
+                        <span class="text-[10px] uppercase font-black text-gray-600 tracking-[0.4em]">On-Time Accuracy</span>
                     </div>
-                    <div class="border-l-4 border-blue-600 pl-8">
-                        <span class="block text-5xl font-bold text-white titular">24/7</span>
-                        <span class="text-[10px] uppercase font-bold text-gray-600 tracking-widest">Client Command</span>
+                    <div class="border-l-2 border-blue-600 pl-10">
+                        <span class="block text-6xl font-black sync mb-2">24/7</span>
+                        <span class="text-[10px] uppercase font-black text-gray-600 tracking-[0.4em]">Client Command</span>
                     </div>
                 </div>
             </div>
-            <div class="reveal glass p-12 rounded-[60px]">
-                <h3 class="text-xs titular mb-8 text-blue-500 tracking-widest">Operational Growth Projection</h3>
-                <canvas id="growthChart"></canvas>
+            <div class="reveal glass-panel p-16">
+                <p class="sync text-[10px] mb-10 text-blue-500 tracking-[0.5em]">Market Growth Projection</p>
+                <canvas id="luxuryChart"></canvas>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-40 bg-[#050505] px-10">
-        <div class="max-w-7xl mx-auto text-center mb-24 reveal">
-            <h2 class="text-6xl font-bold titular mb-6">Core <span class="text-blue-600">Spheres</span></h2>
-            <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">Deploying Elite Logistics Assets Across Global Arteries</p>
-        </div>
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="h-[550px] air-img rounded-[50px] p-12 flex flex-col justify-end premium-border reveal">
-                <h3 class="text-3xl font-bold mb-4 titular">Air Freight</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">High-frequency sky priority for urgent global trade architecture. 24-hour customs clearance for high-value tech and assets.</p>
-                <div class="text-[10px] font-black text-blue-500 uppercase tracking-widest underline">Mission Critical Ready</div>
+    <section id="assets" class="py-48 bg-[#030303] px-12">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex justify-between items-end mb-32 reveal">
+                <h2 class="text-6xl sync italic">CORE <span class="text-blue-600">SPHERES.</span></h2>
+                <p class="text-gray-500 font-bold uppercase tracking-[0.5em] text-xs">Tier-1 Logistics Infrastructure</p>
             </div>
-            <div class="h-[550px] sea-img rounded-[50px] p-12 flex flex-col justify-end premium-border reveal">
-                <h3 class="text-3xl font-bold mb-4 titular">Sea Freight</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">Sovereign maritime routing. Strategic FCL and LCL management with port intelligence that guarantees global dominance.</p>
-                <div class="text-[10px] font-black text-blue-500 uppercase tracking-widest underline">Global Port Sync</div>
-            </div>
-            <div class="h-[550px] land-img rounded-[50px] p-12 flex flex-col justify-end premium-border reveal">
-                <h3 class="text-3xl font-bold mb-4 titular">Land Transport</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">GCC road network mastery. Our fleet velocity across UAE and Saudi Arabia borders provides unmatched land logistics power.</p>
-                <div class="text-[10px] font-black text-blue-500 uppercase tracking-widest underline">Artery Access 24/7</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-40 px-10 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-12 text-center">
-            <div class="reveal">
-                <i class="fa-solid fa-users-viewfinder text-blue-600 text-4xl mb-6"></i>
-                <h4 class="titular text-xs font-bold mb-4">Experienced Team</h4>
-                <p class="text-gray-500 text-xs px-4">15+ years of operational mastery in Middle East trade corridors.</p>
-            </div>
-            <div class="reveal">
-                <i class="fa-solid fa-building-shield text-blue-600 text-4xl mb-6"></i>
-                <h4 class="titular text-xs font-bold mb-4">State-of-the-Art</h4>
-                <p class="text-gray-500 text-xs px-4">High-security industrial facilities with climate-controlled storage.</p>
-            </div>
-            <div class="reveal">
-                <i class="fa-solid fa-headset text-blue-600 text-4xl mb-6"></i>
-                <h4 class="titular text-xs font-bold mb-4">24/7 Support</h4>
-                <p class="text-gray-500 text-xs px-4">Personalized customer service available every second of the year.</p>
-            </div>
-            <div class="reveal">
-                <i class="fa-solid fa-clock-rotate-left text-blue-600 text-4xl mb-6"></i>
-                <h4 class="titular text-xs font-bold mb-4">Delivery on Time</h4>
-                <p class="text-gray-500 text-xs px-4">Zero-friction logistics that ensures your timeline is absolute.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="pro-card air-asset p-16 flex flex-col justify-end reveal">
+                    <h3 class="text-4xl sync mb-6 italic">Air Freight</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 opacity-80">Priority sky-shipping via world-class hubs with real-time tracking architecture.</p>
+                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                        <div class="h-full bg-blue-600 w-full animate-pulse"></div>
+                    </div>
+                </div>
+                <div class="pro-card sea-asset p-16 flex flex-col justify-end reveal">
+                    <h3 class="text-4xl sync mb-6 italic">Sea Freight</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 opacity-80">Strategic maritime routing for FCL/LCL cargo across all oceanic trade corridors.</p>
+                    <div class="h-1 w-full bg-white/10 rounded-full"></div>
+                </div>
+                <div class="pro-card land-asset p-16 flex flex-col justify-end reveal">
+                    <h3 class="text-4xl sync mb-6 italic">Land Transport</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 opacity-80">GCC road mastery with fleet precision and regional distribution dominance.</p>
+                    <div class="h-1 w-full bg-white/10 rounded-full"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="calculator" class="py-40 px-10">
-        <div class="max-w-5xl mx-auto glass p-20 rounded-[80px] reveal border-blue-900/30">
-            <h2 class="text-center text-4xl font-bold titular mb-16 italic text-blue-600">Volumetric Engine</h2>
+    <section class="py-48 px-12">
+        <div class="max-w-6xl mx-auto glass-panel p-24 reveal text-center">
+            <h2 class="text-4xl sync mb-20 italic text-blue-600">VOLUMETRIC ENGINE</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-                <input type="number" id="L" placeholder="Length (cm)" class="bg-black border-b border-white/20 p-10 outline-none focus:border-blue-600 text-4xl font-black text-center transition">
-                <input type="number" id="W" placeholder="Width (cm)" class="bg-black border-b border-white/20 p-10 outline-none focus:border-blue-600 text-4xl font-black text-center transition">
-                <input type="number" id="H" placeholder="Height (cm)" class="bg-black border-b border-white/20 p-10 outline-none focus:border-blue-600 text-4xl font-black text-center transition">
+                <input type="number" id="L" placeholder="Length (cm)" class="text-center text-2xl font-bold">
+                <input type="number" id="W" placeholder="Width (cm)" class="text-center text-2xl font-bold">
+                <input type="number" id="H" placeholder="Height (cm)" class="text-center text-2xl font-bold">
             </div>
-            <button onclick="compute()" class="w-full bg-blue-600 py-10 rounded-full font-black uppercase tracking-[0.6em] hover:bg-white hover:text-black transition duration-700 shadow-2xl">Compute Mass</button>
-            <div id="res" class="mt-20 text-center text-[10rem] font-black leading-none text-blue-600 titular tracking-tighter"></div>
+            <button onclick="compute()" class="btn-luxury w-full py-8 text-lg">Compute mass</button>
+            <div id="res" class="mt-20 text-[12rem] font-black leading-none sync text-blue-600 opacity-20 tracking-tighter">00.00</div>
         </div>
     </section>
 
-    <section class="py-40 px-10 max-w-7xl mx-auto">
-        <h2 class="text-center text-2xl titular mb-24 italic">Intelligence <span class="text-blue-600">Reports</span></h2>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="glass p-12 rounded-[50px] reveal">
-                <p class="text-gray-400 italic mb-10 leading-loose">"Absolute precision. New Style Logistics handled our entire factory relocation from Jafza with zero downtime. Truly a sovereign partner."</p>
-                <p class="text-[10px] font-black uppercase text-blue-500 tracking-widest">— CEO, Industrial Group</p>
-            </div>
-            <div class="glass p-12 rounded-[50px] reveal border-blue-600/20">
-                <p class="text-gray-400 italic mb-10 leading-loose">"The 24/7 command center isn't just a marketing slogan. They resolved a critical shipment issue at 4 AM flawlessly."</p>
-                <p class="text-[10px] font-black uppercase text-blue-500 tracking-widest">— Operations Director</p>
-            </div>
-            <div class="glass p-12 rounded-[50px] reveal">
-                <p class="text-gray-400 italic mb-10 leading-loose">"Their land fleet velocity to Saudi Arabia is unmatched in the GCC. Reliability and scale at its finest."</p>
-                <p class="text-[10px] font-black uppercase text-blue-500 tracking-widest">— Supply Chain Manager</p>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="py-40 bg-[#050505] border-t border-white/5 px-10">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32">
+    <footer id="terminal" class="py-48 bg-[#000] border-t border-white/5 px-12">
+        <div class="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-40">
             <div class="reveal">
-                <h2 class="text-5xl font-bold titular mb-16 italic">The <span class="text-blue-600">Terminal</span></h2>
-                <div class="space-y-12">
+                <h2 class="text-7xl sync mb-20 italic font-black text-blue-600">TERMINAL.</h2>
+                <div class="space-y-16">
                     <div>
-                        <p class="text-blue-500 uppercase font-black tracking-widest text-[11px] mb-4">Ras Al Khor Headquarters</p>
-                        <p class="text-gray-300 text-3xl font-light leading-snug">Office #2, Thumbay Clinic Building, Ras Al Khor Industrial 1, Dubai, UAE</p>
+                        <p class="text-gray-500 uppercase font-black tracking-[0.5em] text-[10px] mb-6">Headquarters</p>
+                        <p class="text-4xl font-light">Office #2, Thumbay Clinic Building, Ras Al Khor Industrial 1, Dubai, UAE</p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-10">
+                    <div class="flex gap-24">
                         <div>
-                            <p class="text-blue-500 uppercase font-black tracking-widest text-[11px] mb-4">Direct Command</p>
-                            <p class="text-2xl">+971 4 591 4550</p>
-                            <p class="text-2xl">+971 56 143 6491</p>
+                            <p class="text-gray-500 uppercase font-black tracking-[0.5em] text-[10px] mb-6">Command Line</p>
+                            <p class="text-3xl">+971 4 591 4550</p>
                         </div>
                         <div>
-                            <p class="text-blue-500 uppercase font-black tracking-widest text-[11px] mb-4">Operational Status</p>
-                            <p class="text-2xl">08:00 - 20:00</p>
-                            <p class="text-gray-600 uppercase text-[10px] font-black italic mt-2">Logistics Dispatch: 24/7</p>
+                            <p class="text-gray-500 uppercase font-black tracking-[0.5em] text-[10px] mb-6">Dispatch</p>
+                            <p class="text-3xl">+971 56 143 6491</p>
                         </div>
                     </div>
                 </div>
-                <div class="mt-20 h-96 rounded-[60px] overflow-hidden grayscale invert border border-white/10 shadow-2xl">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.875225333588!2d55.3704!3d25.1743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDEwJzI3LjUiTiA1NcKwMjInMTMuNCJF!5e0!3m2!1sen!2sae!4v1690000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="mt-24 h-[400px] rounded-[60px] overflow-hidden grayscale invert opacity-30">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.17865324545!2d55.358245!3d25.183421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDExJzAwLjMiTiA1NcKwMjEnMjkuNyJF!5e0!3m2!1sen!2sae!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-            <div class="reveal glass p-20 rounded-[80px]">
-                <h3 class="titular text-2xl mb-12 text-center text-blue-600">Request Intelligence</h3>
-                <form class="space-y-8">
-                    <input type="text" placeholder="Corporate Identity" class="w-full bg-black border border-white/10 p-8 rounded-3xl outline-none focus:border-blue-600 text-white transition">
-                    <input type="email" placeholder="Email Terminal" class="w-full bg-black border border-white/10 p-8 rounded-3xl outline-none focus:border-blue-600 text-white transition">
-                    <textarea placeholder="Mission Requirements" class="w-full bg-black border border-white/10 p-8 rounded-3xl h-52 outline-none focus:border-blue-600 text-white transition"></textarea>
-                    <button class="w-full bg-white text-black py-10 rounded-full font-black uppercase tracking-[0.5em] hover:bg-blue-600 hover:text-white transition duration-700">Deploy Request</button>
+            <div class="reveal glass-panel p-20">
+                <h3 class="sync text-2xl mb-16 text-center">INTELLIGENCE REQUEST</h3>
+                <form class="space-y-10">
+                    <input type="text" placeholder="Corporate Identity">
+                    <input type="email" placeholder="Communication Node (Email)">
+                    <textarea placeholder="Mission Parameters" class="h-64"></textarea>
+                    <button class="btn-luxury w-full">Deploy Request</button>
                 </form>
             </div>
         </div>
-        <p class="mt-60 text-center text-[10vw] font-black titular text-white/5 select-none leading-none">NSL 2026</p>
+        <div class="mt-64 text-center">
+            <p class="sync text-[15vw] font-black text-white/[0.02] select-none leading-none">NSL 2026</p>
+        </div>
     </footer>
 
-    <a href="https://wa.me/971561436491" class="fixed bottom-12 right-12 bg-[#25D366] w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-[0_0_50px_rgba(37,211,102,0.4)] z-50 hover:scale-110 transition duration-500">
-        <i class="fa-brands fa-whatsapp text-white"></i>
-    </a>
-
     <script>
-        // Volumetric Mass Logic
         function compute() {
             const l = document.getElementById('L').value, w = document.getElementById('W').value, h = document.getElementById('H').value;
-            if(l && w && h) {
-                const res = ((l*w*h)/5000).toFixed(2);
-                document.getElementById('res').innerText = res + " KG";
-            }
+            if(l && w && h) document.getElementById('res').innerText = ((l*w*h)/5000).toFixed(2);
         }
 
-        // Scroll Animation Engine
         const reveal = () => {
             document.querySelectorAll(".reveal").forEach(el => {
-                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+                if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add("active");
             });
         };
         window.addEventListener("scroll", reveal);
         window.onload = reveal;
 
-        // Market Dynamics Chart
-        new Chart(document.getElementById('growthChart'), {
+        window.onscroll = function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('bg-black/80', 'py-6');
+            else nav.classList.remove('bg-black/80', 'py-6');
+        };
+
+        new Chart(document.getElementById('luxuryChart'), {
             type: 'line',
             data: {
-                labels: ['2023', '2024', '2025', '2026'],
+                labels: ['23', '24', '25', '26'],
                 datasets: [{
-                    data: [12, 48, 82, 100],
+                    data: [15, 52, 88, 100],
                     borderColor: '#007AFF',
-                    borderWidth: 10,
+                    borderWidth: 12,
                     tension: 0.4,
                     pointRadius: 0,
                     fill: true,
                     backgroundColor: 'rgba(0, 122, 255, 0.05)'
                 }]
             },
-            options: { plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { color: '#444', font: { weight: 'bold' } } } } }
+            options: { plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { color: '#333', font: { weight: '900' } } } } }
         });
     </script>
 </body>
