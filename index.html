@@ -3,150 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Style Logistics LLC | Precision in Motion</title>
+    <title>NEW STYLE LOGISTICS | Global Sovereignty</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+Arabic:wght@400;700&display=swap');
-        :root { --accent: #3b82f6; --dark: #050505; }
-        body { font-family: 'Inter', 'Noto Sans Arabic', sans-serif; background: var(--dark); color: white; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        /* Image paths fixed to match your GitHub root assets */
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('hero.jpg'); background-size: cover; background-position: center; }
-        .arabic { display: none; }
-        html[lang="ar"] .english { display: none; }
-        html[lang="ar"] .arabic { display: block; }
-        .service-card { background-size: cover; background-position: center; height: 350px; border-radius: 24px; overflow: hidden; position: relative; transition: 0.5s ease; border: 1px solid rgba(255,255,255,0.1); }
-        .service-card:hover { transform: scale(1.02); border-color: var(--accent); }
-        .overlay { background: linear-gradient(to top, rgba(0,0,0,1), transparent); height: 100%; width: 100%; position: absolute; display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        :root { --blue: #007AFF; --oled: #000000; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--oled); color: white; overflow-x: hidden; }
+
+        /* LIQUID SCROLL REVEAL */
+        .reveal { opacity: 0; transform: translateY(50px) scale(0.95); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
+
+        /* PARALLAX SERVICE CARDS */
+        .premium-card { 
+            position: relative; 
+            overflow: hidden; 
+            background-size: 110%; /* Extra size for zoom effect */
+            background-position: center; 
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .premium-card:hover { 
+            background-size: 125%; 
+            border-color: var(--blue);
+            box-shadow: 0 0 40px rgba(0, 122, 255, 0.2);
+        }
+        .card-overlay { 
+            background: linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0.2) 60%, transparent 100%); 
+            transition: all 0.5s ease;
+        }
+        .premium-card:hover .card-overlay { background: rgba(0, 122, 255, 0.15); backdrop-filter: blur(3px); }
+
+        /* CHROME SHIMMER TEXT */
+        .shimmer-text {
+            background: linear-gradient(90deg, #555, #fff, #555);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 6s infinite linear;
+        }
+        @keyframes shimmer { to { background-position: 200% center; } }
+
+        /* CALCULATOR NEUMORPHISM */
+        .oled-input { background: #080808; border: 1px solid #1a1a1a; transition: 0.3s; }
+        .oled-input:focus { border-color: var(--blue); box-shadow: 0 0 20px rgba(0, 122, 255, 0.3); }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
-        <div class="text-xl font-extrabold uppercase tracking-tighter">New Style <span class="text-blue-500">Logistics</span></div>
-        <div class="flex items-center gap-4">
-            <button onclick="toggleLang()" class="text-xs border border-white/20 px-4 py-1 rounded-full uppercase font-bold hover:bg-white hover:text-black transition">
-                <span class="english">العربية</span><span class="arabic">English</span>
-            </button>
-            <a href="https://wa.me/971561436491" class="hidden md:block bg-blue-600 px-5 py-2 rounded-full text-xs font-bold uppercase">Live Support</a>
+    <nav id="navbar" class="fixed w-full z-50 px-10 py-8 flex justify-between items-center transition-all duration-700">
+        <div class="text-2xl font-black tracking-tighter shimmer-text">NEW STYLE LOGISTICS</div>
+        <div class="flex gap-4">
+            <button onclick="toggleLang()" class="px-5 py-2 rounded-full text-xs font-bold border border-white/10 hover:bg-white hover:text-black transition">العربية</button>
+            <a href="https://wa.me/971561436491" class="bg-blue-600 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest shadow-2xl">Connect</a>
         </div>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg">
-        <h1 class="text-5xl md:text-8xl font-extrabold leading-tight mb-6">
-            <span class="english italic">PRECISION IN <br>MOTION.</span>
-            <span class="arabic italic">الدقة في<br>الحركة.</span>
-        </h1>
-        <p class="max-w-2xl text-gray-400 text-lg mb-10">
-            <span class="english">The elite architecture of global trade, headquartered in Ras Al Khor, Dubai.</span>
-            <span class="arabic">هندسة النخبة للتجارة العالمية، مقرنا الرئيسي في رأس الخور، دبي.</span>
-        </p>
-        <div class="flex gap-4">
-            <a href="#quote" class="bg-blue-600 px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm">Request Quote</a>
-            <a href="tel:+971561436491" class="glass px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm">Call Expert</a>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold uppercase tracking-widest">Global Expansion Metrics</h2>
-            <p class="text-gray-500">Our operational velocity across 2024-2026</p>
-        </div>
-        <div class="glass p-10 rounded-[40px]">
-            <canvas id="growthChart" height="120"></canvas>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="service-card" style="background-image: url('air.jpg');">
-                <div class="overlay"><h3 class="text-2xl font-bold">Air Freight</h3><p class="text-sm text-gray-400">Precision sky-shipping via world hubs.</p></div>
-            </div>
-            <div class="service-card" style="background-image: url('sea.jpg');">
-                <div class="overlay"><h3 class="text-2xl font-bold">Sea Freight</h3><p class="text-sm text-gray-400">Strategic oceanic commerce routing.</p></div>
-            </div>
-            <div class="service-card" style="background-image: url('land.jpg');">
-                <div class="overlay"><h3 class="text-2xl font-bold">Land Transport</h3><p class="text-sm text-gray-400">GCC-wide road network mastery.</p></div>
-            </div>
-            <div class="service-card" style="background-image: url('customs.jpg');">
-                <div class="overlay"><h3 class="text-2xl font-bold">Customs Clearance</h3><p class="text-sm text-gray-400">Frictionless border intelligence.</p></div>
-            </div>
-            <div class="service-card" style="background-image: url('warehousing.jpg');">
-                <div class="overlay"><h3 class="text-2xl font-bold">Warehousing</h3><p class="text-sm text-gray-400">Secure tech-enabled storage hubs.</p></div>
-            </div>
-            <div class="service-card" style="background-image: url('cargo.jpg');">
-                <div class="overlay"><h3 class="text-2xl font-bold">Cargo Transport</h3><p class="text-sm text-gray-400">Heavy-duty logic for global scale.</p></div>
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 relative" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./hero.jpg') center/cover;">
+        <div class="reveal">
+            <h1 class="text-7xl md:text-[10rem] font-black tracking-tighter mb-4 italic leading-none">ELITE<br><span class="text-blue-500">MOTION.</span></h1>
+            <p class="text-gray-500 max-w-xl mx-auto mb-10 tracking-[0.5em] uppercase text-xs font-bold">Ras Al Khor HQ • Global Sovereignty</p>
+            <div class="flex gap-4 justify-center">
+                <a href="#services" class="bg-white text-black px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition">Our Assets</a>
+                <a href="#calc" class="border border-white/20 px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-white/10 transition">Compute Mass</a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 max-w-4xl mx-auto">
-        <div class="glass p-12 rounded-[50px] border-blue-500/20">
-            <h2 class="text-2xl font-bold mb-8 uppercase text-center tracking-widest">Chargeable Weight Calculator</h2>
-            <div class="grid grid-cols-3 gap-4 mb-8">
-                <input type="number" id="L" placeholder="L (cm)" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500">
-                <input type="number" id="W" placeholder="W (cm)" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500">
-                <input type="number" id="H" placeholder="H (cm)" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500">
-            </div>
-            <button onclick="calc()" class="w-full bg-blue-600 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Calculate Volumetric</button>
-            <div id="result" class="mt-8 text-center text-3xl font-bold text-blue-500"></div>
+    <section class="py-32 px-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+        <div class="w-full md:w-1/2 reveal">
+            <h2 class="text-5xl font-black uppercase tracking-tighter mb-6 leading-tight">Operational <br><span class="text-blue-600">Dominance Index</span></h2>
+            <p class="text-gray-500 text-lg">We don't just ship; we architect supply chains. Our 2026 growth trajectory reflects our commitment to 99.9% uptime and friction-free customs clearance.</p>
+        </div>
+        <div class="w-full md:w-1/2 oled-input p-10 rounded-[40px] reveal">
+            <canvas id="growthChart"></canvas>
         </div>
     </section>
 
-    <footer class="py-20 px-6 border-t border-white/5 glass">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
-            <div>
-                <h4 class="font-bold text-white mb-6 uppercase tracking-widest">Headquarters</h4>
-                <p class="text-gray-500">Office #2, Thumbay Clinic Building, Near Marhaba Mall, Ras Al Khor, Dubai, UAE</p>
+    <section id="services" class="py-32 px-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+        <div class="premium-card h-[550px] rounded-[50px] reveal" style="background-image: url('./air.jpg');">
+            <div class="card-overlay h-full p-12 flex flex-col justify-end">
+                <h3 class="text-4xl font-bold">Air</h3>
+                <p class="text-gray-400 mt-2 font-medium">Sky-Bound Precision.</p>
             </div>
-            <div>
-                <h4 class="font-bold text-white mb-6 uppercase tracking-widest">Connectivity</h4>
-                <p class="text-gray-500">Call/WhatsApp: +971 56 143 6491</p>
-                <p class="text-gray-500">Office: +971 4 591 4550</p>
+        </div>
+        <div class="premium-card h-[550px] rounded-[50px] reveal" style="background-image: url('./sea.jpg');">
+            <div class="card-overlay h-full p-12 flex flex-col justify-end">
+                <h3 class="text-4xl font-bold">Sea</h3>
+                <p class="text-gray-400 mt-2 font-medium">Oceanic Sovereignty.</p>
             </div>
-            <div>
-                <h4 class="font-bold text-white mb-6 uppercase tracking-widest">Sovereignty</h4>
-                <p class="text-gray-500">© 2026 New Style Logistics LLC. All Rights Reserved.</p>
+        </div>
+        <div class="premium-card h-[550px] rounded-[50px] reveal" style="background-image: url('./land.jpg');">
+            <div class="card-overlay h-full p-12 flex flex-col justify-end">
+                <h3 class="text-4xl font-bold">Land</h3>
+                <p class="text-gray-400 mt-2 font-medium">GCC Mastery.</p>
             </div>
+        </div>
+    </section>
+
+    <section id="calc" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto p-16 rounded-[70px] bg-[#050505] border border-blue-900/10 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase tracking-[0.3em]">Volumetric Engine</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <input type="number" id="L" placeholder="Length" class="oled-input p-8 rounded-3xl outline-none text-center text-3xl font-bold">
+                <input type="number" id="W" placeholder="Width" class="oled-input p-8 rounded-3xl outline-none text-center text-3xl font-bold">
+                <input type="number" id="H" placeholder="Height" class="oled-input p-8 rounded-3xl outline-none text-center text-3xl font-bold">
+            </div>
+            <button onclick="compute()" class="w-full bg-blue-600 py-8 rounded-[30px] font-black uppercase tracking-[0.5em] hover:bg-white hover:text-black transition-all duration-700">Compute</button>
+            <div id="res" class="mt-12 text-center text-7xl font-black tracking-tighter text-blue-500"></div>
+        </div>
+    </section>
+
+    <footer class="py-24 px-10 border-t border-white/5 text-center">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-2xl font-black mb-10 shimmer-text uppercase">New Style Logistics LLC</div>
+            <p class="text-gray-600 mb-2 uppercase tracking-widest text-xs">Office #2, Thumbay Clinic Bldg, Ras Al Khor, Dubai</p>
+            <p class="text-gray-600 uppercase tracking-widest text-xs">HQ: +971 56 143 6491 | Office: +971 4 591 4550</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/971561436491" class="fixed bottom-10 right-10 bg-[#25d366] w-16 h-16 rounded-full flex items-center justify-center text-3xl z-50 shadow-2xl"><i class="fa-brands fa-whatsapp"></i></a>
-
     <script>
-        function toggleLang() {
-            const html = document.documentElement;
-            html.lang = html.lang === 'en' ? 'ar' : 'en';
-            html.dir = html.lang === 'ar' ? 'rtl' : 'ltr';
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                var windowHeight = window.innerHeight;
+                var elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
+            });
         }
-        function calc() {
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal); // Run on load
+
+        window.onscroll = function() {
+            const nav = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                nav.style.background = "rgba(0,0,0,0.95)";
+                nav.style.padding = "20px 40px";
+                nav.style.backdropFilter = "blur(20px)";
+            } else {
+                nav.style.background = "transparent";
+                nav.style.padding = "40px 60px";
+            }
+        };
+
+        function compute() {
             const l = document.getElementById('L').value;
             const w = document.getElementById('W').value;
             const h = document.getElementById('H').value;
             if(l && w && h) {
-                const res = (l * w * h) / 5000;
-                document.getElementById('result').innerText = res.toFixed(2) + " KG";
+                const result = (l * w * h) / 5000;
+                const display = document.getElementById('res');
+                display.innerText = result.toFixed(2) + " KG";
             }
         }
+
         const ctx = document.getElementById('growthChart').getContext('2d');
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['JAN 24', 'JUN 24', 'JAN 25', 'JUN 25', 'JAN 26'],
+                labels: ['23', '24', '25', '26'],
                 datasets: [{
                     label: 'Efficiency',
-                    data: [20, 45, 65, 85, 100],
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    fill: true,
+                    data: [10, 40, 75, 100],
+                    borderColor: '#007AFF',
+                    borderWidth: 8,
+                    fill: false,
                     tension: 0.4,
-                    borderWidth: 5,
                     pointRadius: 0
                 }]
             },
-            options: { plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { color: '#444' } } } }
+            options: { plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { color: '#333' } } } }
         });
     </script>
 </body>
